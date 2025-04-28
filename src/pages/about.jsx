@@ -533,7 +533,6 @@ const AboutUs = () => {
           </Card>
         </Box>
 
-        {/* Rest of the content with responsive fixes */}
         {/*--------------------------- Fifth Heading------------------------------------- */}
         {/* Application of Groundnuts */}       
         <Box sx={{ 

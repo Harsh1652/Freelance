@@ -8,9 +8,10 @@ import theme from './styles/theme'; // import your theme
 
 // Import other pages (create these files as needed)
 import About from './pages/about';
-// import Reviews from './pages/reviews';
+import Products from './pages/products/products';
 // import Explore from './pages/explore';
 // import Gallery from './pages/gallery';
+import RunnerPeanutsPage from './pages/products/runnerPeanuts';
 import ContactUs from './pages/contact';
 
 const App = () => {
@@ -24,10 +25,12 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* Add routes for other pages */}
           <Route path="/about" element={<About />} /> 
-          {/* <Route path="/reviews" element={<Reviews />} /> */}
+          <Route path="/products" element={<Products />} />  
           {/* <Route path="/explore" element={<Explore />} /> */}
           {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/products/runner-peanuts" element={<RunnerPeanutsPage />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
