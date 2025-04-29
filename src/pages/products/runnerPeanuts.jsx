@@ -1,10 +1,21 @@
-import React, { useEffect } from "react";
-import { Container, Box, Typography, Button, Grid, Card, CardContent, Paper, Fade, Zoom } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar, Collapse } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import fssaiLogo from "../../assets/images/fssai.png"; 
 import haccpLogo from "../../assets/images/HACCP.png"; 
 import isoLogo from "../../assets/images/ISO.png"; 
 import { Link } from 'react-router-dom';
+import GradientCard from "../../components/card";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import CheckIcon from '@mui/icons-material/Check';
+import InfoIcon from '@mui/icons-material/Info';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // instead of Award
+import LocalShippingIcon from '@mui/icons-material/LocalShipping'; // instead of Package
+import BarChartIcon from '@mui/icons-material/BarChart';
+import WarningIcon from '@mui/icons-material/Warning'; // instead of AlertTriangle
+import peanutButterIcon from "../../assets/images/PeanutButter.png";
+import groundnutOilIcon from "../../assets/images/GroundNutOil.png";
 
 const Head = ({ children }) => {
   useEffect(() => {
@@ -319,230 +330,8 @@ const RunnerPeanutPage = () => {
         </Typography>
       </Container>
 
-      {/* Product Specifications Section with enhanced styling */}
-      <Container component="section" aria-label="Product Specifications" maxWidth="lg" sx={{ mt: { xs: 8, md: 12 } }}>
-        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 }, width: '100%' }}>
-          <Typography 
-            variant="h2" 
-            component="h2" 
-            fontFamily="Lato, sans-serif"
-            fontWeight={800}
-            color={theme.palette.primary.main}
-            sx={{ 
-              mb: 0,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              display: 'inline'
-            }}
-          >
-            Product{' '}
-          </Typography>
-          <Typography 
-            variant="h2" 
-            component="span" 
-            fontFamily="Lato, sans-serif"
-            fontWeight={800}
-            sx={{ 
-              color: theme.palette.secondary.main,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-              display: 'inline'
-            }}
-          >
-            Specifications
-          </Typography>
-          
-          <Box 
-            sx={{ 
-              width: '80px', 
-              height: '4px', 
-              backgroundColor: theme.palette.primary.main, 
-              mx: 'auto', 
-              mt: 2, 
-              mb: 4,
-              borderRadius: '2px'
-            }} 
-          />
 
-          <Typography 
-            variant="subtitle1" 
-            fontFamily="Inter, sans-serif"
-            sx={{ 
-              textAlign: 'center', 
-              mb: 5, 
-              color: theme.palette.secondary.main,
-              maxWidth: '800px',
-              mx: 'auto',
-              px: { xs: 2, sm: 0 },
-              fontSize: { xs: '0.95rem', md: '1.1rem' },
-            }}
-          >
-            Our runner peanuts meet the highest quality standards for international markets:
-          </Typography>
-        </Box>
-
-        {/* Specification cards with improved layout and animations */}
-        <Box sx={{ 
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: { xs: 2, md: 3 },
-          width: '100%'
-        }}>
-          {[
-            {
-              title: "Type", 
-              description: "Natural / Raw / Roasted / Blanched / Split",
-              
-            },
-            { 
-              title: "Origin", 
-              description: "Rajasthan, Gujarat, Andhra Pradesh, India",
-              
-            },
-            { 
-              title: "Varieties Available", 
-              description: "40/50, 50/60, 60/70 counts (kernels per ounce)",
-            },
-            { 
-              title: "Moisture", 
-              description: "7% max",
-              
-            },
-            { 
-              title: "Admixture", 
-              description: "0.5% max",
-              
-            },
-            { 
-              title: "Oil Content", 
-              description: "45%–50%",
-              
-            },
-            { 
-              title: "Damaged Kernels", 
-              description: "1% max",
-              
-            },
-            { 
-              title: "Aflatoxin", 
-              description: "Below 10 ppb",
-              
-            },
-            {
-              title: "Packaging", 
-              description: "25kg, 50kg, PP bags, jute bags, vacuum packs",
-              
-            },
-            { 
-              title: "Certifications", 
-              description: "FSSAI Certified, HACCP Certified, ISO Certified",
-              
-            },
-            { 
-              title: "Shelf Life", 
-              description: "12 months",
-            },
-          ].map((spec, index) => (
-            <Box 
-              key={index}
-              sx={{
-                width: { xs: '100%', sm: '47%', md: '31%' },
-                mb: { xs: 2, md: 3 }
-              }}
-            > 
-              <Paper 
-                elevation={3}
-                sx={{ 
-                  p: { xs: 2.5, md: 3 }, 
-                  borderRadius: 3,
-                  height: '100%',
-                  background: `linear-gradient(145deg, ${theme.palette.customColors.lightGold}, #fff8e1)`,
-                  color: theme.palette.primary.main,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0px 12px 24px rgba(0,0,0,0.15)'
-                  },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}
-              >
-                {/* Add background pattern */}
-                <Box 
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    right: 0,
-                    width: '80px',
-                    height: '80px',
-                    opacity: 0.07,
-                    transform: 'translate(20px, -20px) rotate(45deg)',
-                    background: theme.palette.primary.main
-                  }}
-                />
-                
-                <Typography 
-                  variant="h6" 
-                  component="h3" 
-                  fontFamily="Lato, sans-serif"
-                  fontWeight="bold"
-                  sx={{ 
-                    color: theme.palette.primary.main, 
-                    mb: 1.5,
-                    width: '100%',
-                    fontSize: { xs: '1.1rem', md: '1.2rem' }
-                  }}
-                >
-                  {spec.title}
-                </Typography>
-                <Typography 
-                  variant="body1"
-                  fontFamily="Inter, sans-serif"
-                  sx={{
-                    color: theme.palette.secondary.main,
-                    width: '100%',
-                    fontSize: { xs: '0.9rem', md: '0.95rem' }
-                  }}
-                >
-                  {spec.description}
-                </Typography>
-              </Paper>
-            </Box>
-          ))}
-        </Box>
-
-        {/* Quality assurance text */}
-        <Box 
-          sx={{ 
-            width: '100%', 
-            maxWidth: '800px', 
-            px: { xs: 2, sm: 0 }, 
-            mx: 'auto',
-            mt: 6,
-            p: 3,
-            borderRadius: 3,
-            backgroundColor: 'rgba(255, 248, 225, 0.6)',
-            border: `1px solid ${theme.palette.customColors.lightGold}`
-          }}
-        >
-          <Typography 
-            variant="subtitle1" 
-            fontFamily="Inter, sans-serif"
-            sx={{ 
-              textAlign: 'center', 
-              color: theme.palette.secondary.main,
-              width: '100%',
-              fontStyle: 'italic'
-            }}
-          >
-            All our runner peanuts undergo rigorous quality testing to ensure they meet export standards and the highest level of food safety requirements.
-          </Typography>
-        </Box>
-      </Container>
-
-      {/* Applications Section with improved design */}
+         {/* Applications Section with improved design */}
       <Box 
         component="section"
         aria-label="Product Applications"
@@ -573,13 +362,13 @@ const RunnerPeanutPage = () => {
       
         <Container maxWidth="lg">
           <Typography 
-            variant="h3" // Changed for proper heading hierarchy
+            variant="h3"
             component="h2"
             align="center" 
             sx={{ 
               fontFamily: 'Lato, sans-serif',
               fontWeight: 700,
-              mb: { xs: 4, md: 6 },
+              mb: { xs: 3, md: 4 },
               position: 'relative',
               display: 'inline-block',
               fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
@@ -601,72 +390,248 @@ const RunnerPeanutPage = () => {
             Applications
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center" sx={{ mt: 2 }}>
+          {/* Introduction paragraph */}
+          <Typography 
+            variant="body1"
+            sx={{ 
+              mt: 5,
+              mb: 4,
+              fontFamily: 'Inter, sans-serif',
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              color: theme.palette.customColors.lightGold,
+              textAlign: 'center',
+              maxWidth: '850px',
+              mx: 'auto',
+              lineHeight: 1.8
+            }}
+          >
+            Runner peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
+            making them suitable for various industrial and commercial applications. Our premium peanuts 
+            are specifically cultivated to meet the demanding requirements of the following industries:
+          </Typography>
+
+          {/* Application bullet points */}
+          <Box sx={{ 
+            maxWidth: '800px', 
+            mx: 'auto',
+            mt: 4,
+            px: 3
+          }}>
             {[
-              { title: "Peanut Butter", icon: "🥜", desc: "Perfect for creamy, rich peanut butter production" },
-              { title: "Snack Production", icon: "🍿", desc: "Ideal for roasted peanuts and flavored snacks" },
-              { title: "Oil Extraction", icon: "🛢️", desc: "High oil content for premium cooking oil" },
-              { title: "Animal Feed", icon: "🐄", desc: "Nutritious ingredient for high-protein feed" },
+              { 
+                title: "Peanut Butter Production", 
+                icon: <img src={peanutButterIcon} alt="Peanut Butter" style={{ width: 28, height: 28 }} />,
+                desc: "Perfect for creamy, rich peanut butter with consistent texture and flavor due to their uniform size and reliable roasting characteristics." 
+              },
+              { 
+                title: "Snack Manufacturing", 
+                icon: "🍿", 
+                desc: "Ideal for roasted peanuts and flavored snacks, providing the perfect balance of crunch, taste and visual appeal for premium snack lines." 
+              },
+              { 
+                title: "Oil Extraction", 
+                icon: <img src={groundnutOilIcon} alt="Groundnut Oil" style={{ width: 28, height: 28 }} />,
+                desc: "High oil content (45-50%) makes them an excellent source for premium cooking oil, yielding a light-colored oil with a mild, pleasant flavor." 
+              },
+              { 
+                title: "Animal Feed Industry", 
+                icon: "🐄", 
+                desc: "Nutritious ingredient for high-protein animal feed, supporting healthy growth and development in livestock." 
+              }
             ].map((item, index) => (
-              <Grid item xs={6} sm={6} md={3} key={index} sx={{ textAlign: 'center' }}>
-                <Card
-                  elevation={0}
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    p: { xs: 2, md: 3 },
-                    background: 'rgba(255,255,255,0.1)',
-                    backdropFilter: 'blur(5px)',
-                    borderRadius: 4,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-5px)',
-                      background: 'rgba(255,255,255,0.2)',
-                    }
-                  }}
-                >
+              <Box 
+                key={index} 
+                sx={{ 
+                  display: 'flex', 
+                  mb: 3.5,
+                  alignItems: 'flex-start'
+                }}
+              >
+                {typeof item.icon === 'string' ? (
                   <Typography 
-                    variant="h3" 
+                    variant="h5" 
+                    component="span" 
                     sx={{ 
-                      fontSize: { xs: '2.5rem', md: '3rem' },
-                      mb: 2
+                      mr: 2, 
+                      fontSize: '1.8rem', 
+                      lineHeight: 1,
+                      color: theme.palette.customColors.darkGold 
                     }}
                   >
                     {item.icon}
                   </Typography>
+                ) : (
+                  <Box sx={{ mr: 2 }}>{item.icon}</Box>
+                )}
+                <Box>
                   <Typography 
                     variant="h6" 
                     component="h3"
                     sx={{ 
                       fontFamily: 'Lato, sans-serif',
                       fontWeight: 600,
-                      fontSize: { xs: '1rem', md: '1.25rem' },
+                      fontSize: { xs: '1.1rem', md: '1.25rem' },
+                      mb: 0.5,
                       color: theme.palette.customColors.darkGold
                     }}
                   >
                     {item.title}
                   </Typography>
                   <Typography 
-                    variant="body2" 
+                    variant="body1" 
                     sx={{ 
-                      mt: 1,
                       fontFamily: 'Inter, sans-serif',
-                      fontSize: { xs: '0.8rem', md: '0.9rem' },
+                      fontSize: { xs: '0.9rem', md: '1rem' },
                       color: theme.palette.customColors.lightGold,
-                      opacity: 1
+                      lineHeight: 1.6
                     }}
                   >
                     {item.desc}
                   </Typography>
-                </Card>
-              </Grid>
+                </Box>
+              </Box>
             ))}
-          </Grid>
+          </Box>
+
+          {/* Conclusion */}
+          <Typography 
+            variant="body1"
+            sx={{ 
+              mt: 4,
+              fontFamily: 'Inter, sans-serif',
+              fontSize: { xs: '1rem', md: '1.05rem' },
+              color: theme.palette.customColors.lightGold,
+              textAlign: 'center',
+              maxWidth: '850px',
+              mx: 'auto',
+              fontStyle: 'italic',
+              p: 2,
+              borderRadius: 2,
+              background: 'rgba(255,255,255,0.07)'
+            }}
+          >
+            Our runner peanuts' consistent quality ensures reliable performance across all these applications, 
+            making them a preferred choice for businesses requiring premium ingredients.
+          </Typography>
         </Container>
       </Box>
+
+
+      {/* Product Specifications Section with enhanced styling - REDUCED MARGIN */}
+      <Container component="section" aria-label="Product Specifications" maxWidth="lg" sx={{ mt: { xs: 4, md: 6 } }}>
+        <ProductSpecifications />
+      </Container>
+
+      {/* Key Features Section */}
+      <Container component="section" aria-label="Key Features" maxWidth="lg" sx={{ mt: { xs: 1, md: 2 }, mb: { xs: 5, md: 7 } }}>
+  <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
+    <Typography 
+      variant="h2" 
+      component="h2" 
+      fontFamily="Lato, sans-serif"
+      fontWeight={800}
+      color={theme.palette.primary.main}
+      sx={{ 
+        mb: 0,
+        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+        display: 'inline'
+      }}
+    >
+      Key{' '}
+    </Typography>
+    <Typography 
+      variant="h2" 
+      component="span" 
+      fontFamily="Lato, sans-serif"
+      fontWeight={800}
+      sx={{ 
+        color: theme.palette.secondary.main,
+        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+        display: 'inline'
+      }}
+    >
+      Features
+    </Typography>
+    
+    <Box 
+      sx={{ 
+        width: '80px', 
+        height: '4px', 
+        backgroundColor: theme.palette.primary.main, 
+        mx: 'auto', 
+        mt: 2, 
+        mb: 4,
+        borderRadius: '2px'
+      }} 
+    />
+  </Box>
+
+  {/* Single Card containing all features */}
+  <Box sx={{ 
+    width: '48%', // Take 48% of page width
+    marginLeft: 0, // Align to the left
+  }}>
+    <Paper 
+      elevation={3}
+      sx={{ 
+        borderRadius: 3,
+        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark || '#1a3526'} 100%)`,
+        transition: 'transform 0.3s, box-shadow 0.3s',
+        '&:hover': {
+          transform: 'translateY(-6px)',
+          boxShadow: '0px 10px 20px rgba(0,0,0,0.2)'
+        }
+      }}
+    >
+      {[
+        { 
+          title: "High Yield", 
+          description: "Offers exceptional yield for farmers and excellent oil extraction ratio for processors, maximizing production efficiency and profitability."
+        },
+        { 
+          title: "Consistent Size", 
+          description: "Uniform kernel size ensures even roasting, consistent flavor development, and reliable processing performance in commercial applications."
+        },
+        { 
+          title: "Industry Preferred", 
+          description: "The top choice for food processors worldwide due to its dependable quality, taste profile, and excellent handling characteristics."
+        }
+      ].map((feature, index, array) => (
+        <Box 
+          key={index}
+          sx={{
+            p: 3,
+            borderBottom: index !== array.length - 1 ? `1px solid rgba(255,255,255,0.1)` : 'none',
+          }}
+        >
+          <Typography 
+            variant="h6" 
+            component="h3" 
+            fontFamily="Lato, sans-serif"
+            fontWeight="bold"
+            sx={{ 
+              color: theme.palette.customColors.darkGold, 
+              mb: 1.5,
+              fontSize: { xs: '1.1rem', md: '1.25rem' }
+            }}
+          >
+            {feature.title}
+          </Typography>
+          <Typography 
+            variant="body2"
+            fontFamily="Inter, sans-serif"
+            sx={{
+              color: theme.palette.customColors.lightGold,
+              lineHeight: 1.6
+            }}
+          >
+            {feature.description}
+          </Typography>
+        </Box>
+      ))}
+    </Paper>
+  </Box>
+</Container>
 
       {/* Additional Information Section with improved layout */}
       <Container component="section" aria-label="Why Choose Our Products" maxWidth="lg" sx={{ my: { xs: 6, md: 10 }, px: { xs: 3, md: 4 } }}>
@@ -827,6 +792,8 @@ const RunnerPeanutPage = () => {
         </Grid>
       </Container>
 
+
+
       {/* Added Breadcrumbs for SEO */}
       <Container sx={{ mb: 4, mt: 8 }}>
         <nav aria-label="breadcrumb">
@@ -849,5 +816,232 @@ const RunnerPeanutPage = () => {
     </Box>
   );
 };
+
+
+const ProductSpecifications = () => {
+  const theme = useTheme();
+  const [expandedSection, setExpandedSection] = useState('qualities');
+
+  // Specifications data organized by sections
+  const specSections = {
+    qualities: {
+      title: "Product Qualities",
+      icon: <EmojiEventsIcon size={20} />,
+      items: [
+        { name: "Type", value: "Natural / Raw / Roasted / Blanched / Split" },
+        { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
+        { name: "Varieties Available", value: "40/50, 50/60, 60/70 counts (kernels per ounce)" },
+        { name: "Oil Content", value: "45%–50%" }
+      ]
+    },
+    packaging: {
+      title: "Packaging & Storage",
+      icon: <LocalShippingIcon size={20} />,
+      items: [
+        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs" },
+        { name: "Shelf Life", value: "12 months" },
+        { name: "Storage", value: "Cool, dry place away from direct sunlight" }
+      ]
+    },
+    quality: {
+      title: "Quality Parameters",
+      icon: <BarChartIcon size={20} />,
+      items: [
+        { name: "Moisture", value: "7% max" },
+        { name: "Admixture", value: "0.5% max" },
+        { name: "Damaged Kernels", value: "1% max" },
+        { name: "Aflatoxin", value: "Below 10 ppb" }
+      ]
+    },
+    certifications: {
+      title: "Certifications",
+      icon: <CheckIcon size={20} />,
+      items: [
+        { name: "Food Safety", value: "FSSAI Certified" },
+        { name: "Quality Management", value: "ISO Certified" },
+        { name: "Hazard Control", value: "HACCP Certified" },
+        { name: "Exportation", value: "Export Quality Approved" }
+      ]
+    }
+  };
+
+  // Function to toggle expanded section
+  const toggleSection = (sectionKey) => {
+    setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
+  };
+
+  return (
+    <Box sx={{ 
+      width: '100%', 
+      maxWidth: '6xl', 
+      mx: 'auto', 
+      px: 4, 
+      py: { xs: 6, md: 4 },
+      mb: { xs: -2, md: -3 }
+    }}>
+      
+      <Box sx={{ textAlign: 'center', mb: 3 }}>
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontSize: { xs: '1.875rem', sm: '2.25rem' }, 
+            fontWeight: 'bold', 
+            mb: 3,
+            fontFamily: 'Lato, sans-serif',
+          }}
+        >
+          <Typography 
+            component="span" 
+            variant="inherit" 
+            sx={{ color: theme.palette.primary.main }}
+          >
+            Product
+          </Typography>{" "}
+          <Typography 
+            component="span" 
+            variant="inherit"
+            sx={{ color: theme.palette.secondary.main }}
+          >
+            Specifications
+          </Typography>
+        </Typography>
+        <Box sx={{ width: '5rem', height: '0.25rem', bgcolor: theme.palette.primary.main, mx: 'auto', mb: 2 }}></Box>
+        <Typography 
+          variant="body1"
+          sx={{ 
+            color: theme.palette.secondary.main, 
+            fontSize: '1rem',
+            maxWidth: '2xl', 
+            mx: 'auto',
+            fontFamily: 'Inter, sans-serif',
+          }}
+        >
+          Our runner peanuts meet the highest quality standards for international markets
+        </Typography>
+      </Box>
+
+      {/* Rest of the component remains unchanged */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        {Object.entries(specSections).map(([key, section]) => (
+          <Paper 
+            key={key}
+            elevation={2}
+            sx={{ 
+              border: 1, 
+              borderColor: 'divider',
+              borderRadius: 2,
+              overflow: 'hidden',
+              transition: 'all 300ms ease-in-out',
+              // Change background to light gold from theme
+              bgcolor: theme.palette.customColors.lightGold, 
+              width: '100%'
+            }}
+          >
+            <Button
+              onClick={() => toggleSection(key)}
+              sx={{
+                width: '100%', 
+                display: 'flex', 
+                justifyContent: 'space-between',
+                alignItems: 'center', 
+                p: 2,
+                textAlign: 'left',
+                textTransform: 'none',
+                // Updated text color for better contrast on light gold background
+                color: theme.palette.secondary.main
+              }}
+              aria-expanded={expandedSection === key}
+              aria-controls={`section-${key}-content`}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Avatar 
+                  sx={{ 
+                    height: 40, 
+                    width: 40, 
+                    // Updated avatar background for contrast against light gold
+                    bgcolor: theme.palette.primary.main,
+                    color: 'white'
+                  }}
+                >
+                  {section.icon}
+                </Avatar>
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    fontSize: '1.125rem', 
+                    fontWeight: 600,
+                    fontFamily: 'Lato, sans-serif',
+                    color: theme.palette.primary.main
+                  }}
+                >
+                  {section.title}
+                </Typography>
+              </Box>
+              {expandedSection === key ? 
+                <ExpandLessIcon color="primary" /> : 
+                <ExpandMoreIcon color="primary" />
+              }
+            </Button>
+            
+            <Collapse in={expandedSection === key}>
+              <Box 
+                id={`section-${key}-content`}
+                sx={{ 
+                  p: 3, 
+                  borderTop: 1, 
+                  // Add primary color as background for expanded sections
+                  bgcolor: theme.palette.customColors.darkGold,
+                  borderColor: 'rgba(255,255,255,0.2)',
+                }}
+              >
+                {section.items.map((item, idx) => (
+                  <Box 
+                    key={idx} 
+                    sx={{ 
+                      display: 'flex', 
+                      flexWrap: 'wrap',
+                      py: 2,
+                      borderBottom: idx !== section.items.length - 1 ? 1 : 0,
+                      borderColor: 'rgba(255,255,255,0.2)',
+                    }}
+                  >
+                    <Box sx={{ 
+                      width: { xs: '100%', sm: '40%' }, 
+                      fontWeight: 700, 
+                      // Change heading color to darkGold
+                      color: theme.palette.primary.main,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}>
+                      <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>
+                        🥜
+                      </Typography>
+                      {item.name}:
+                    </Box>
+                    <Box sx={{ 
+                      width: { xs: '100%', sm: '60%' },
+                      fontWeight: 500, 
+                      mt: { xs: 1, sm: 0 },
+                      pl: { xs: 6, sm: 0 },
+                      // Change description color to lightGold
+                      color: theme.palette.secondary.main,
+                    }}>
+                      {item.value}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Collapse>
+          </Paper>
+        ))}
+      </Box>
+
+      <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
+        
+      </Box>
+    </Box>
+  );
+};
+
 
 export default RunnerPeanutPage;
