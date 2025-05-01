@@ -43,7 +43,16 @@ const Navbar = () => {
     { name: 'Runner Peanuts', path: '/products/runner-peanuts' },
     { name: 'Red Skin Peanuts', path: '/products/red-skin-peanuts' },
     { name: 'Blanched Peanuts', path: '/products/blanched-peanuts' },
+    { name: 'Spanish Peanuts', path: '/products/spanish-peanuts' },
+    { name: 'TJ Peanuts', path: '/products/tj-peanuts' },
+    { name: 'Long Java Peanuts', path: '/products/long-java-peanuts' },
+
+
+
+
+    
     { name: 'Peanut Oil', path: '/products/peanut-oil' },
+    
   ];
 
   // Updated navItems to include path information
