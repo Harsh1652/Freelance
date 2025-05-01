@@ -43,49 +43,45 @@ const Head = ({ children }) => {
       }
     });
     
-    // Cleanup on unmount
-    return () => {
-      // Remove any added elements when component unmounts
-      // (Implementation would need to track added elements)
-    };
+   
   }, [children]);
   
   return null;
 };
 
-const RunnerPeanutPage = () => {
+const BoldPeanutPage = () => {
   const theme = useTheme();
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Export Quality Runner Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta name="keywords" content="runner peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
-        <link rel="canonical" href="https://balajiexports.com/products/runner-peanuts" />
+        <title>Premium Export Quality Bold Peanuts | Balaji Exports</title>
+        <meta name="description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
+        <meta name="keywords" content="bold peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
+        <link rel="canonical" href="https://balajiexports.com/products/bold-peanuts" />
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
+        <meta property="og:title" content="Premium Export Quality Bold Peanuts | Balaji Exports" />
+        <meta property="og:description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/runner-peanuts" />
+        <meta property="og:url" content="https://balajiexports.com/products/bold-peanuts" />
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
+        <meta name="twitter:title" content="Premium Export Quality Bold Peanuts | Balaji Exports" />
+        <meta name="twitter:description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org/",
               "@type": "Product",
-              "name": "Premium Export Quality Runner Peanuts",
-              "description": "High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.",
+              "name": "Premium Export Quality Bold Peanuts",
+              "description": "High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.",
               "brand": {
                 "@type": "Brand",
                 "name": "Balaji Exports"
               },
               "offers": {
                 "@type": "Offer",
-                "url": "https://balajiexports.com/products/runner-peanuts",
+                "url": "https://balajiexports.com/products/bold-peanuts",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock"
               }
@@ -126,7 +122,7 @@ const RunnerPeanutPage = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
             }}
           >
-            Premium Export Quality Runner Peanuts
+            Premium Export Quality Bold Peanuts
           </Typography>
         </Fade>
         <Fade in timeout={1500}>
@@ -152,7 +148,7 @@ const RunnerPeanutPage = () => {
             component={Link}
             to="/contact"
             variant="contained" 
-            aria-label="Contact us about Runner Peanuts"
+            aria-label="Contact us about Bold Peanuts"
             sx={{ 
               bgcolor: theme.palette.primary.main,
               fontFamily: 'Inter, sans-serif',
@@ -231,7 +227,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Carefully Cultivated, Strictly Certified
+              Your Global Source for Bold Peanuts – India’s Finest Groundnuts
             </Typography>
             <Typography 
               variant="body1" 
@@ -243,8 +239,8 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              <span style={{ fontWeight: 700 }}> Runner Peanuts – Premium Export Quality Indian Groundnuts </span>
-              At Balaji Exports, we take pride in offering top-grade Runner Peanuts, carefully cultivated in the rich soils of Rajasthan, Gujarat, and Tamil Nadu, India.
+              <span style={{ fontWeight: 700 }}> Bold Peanuts – Premium Quality Indian Groundnuts for Export </span>
+               At Balaji Exports, we are proud to offer the finest quality Bold Peanuts, sourced directly from the rich agricultural regions of Rajasthan, Gujarat, and Tamil Nadu, India. 
             </Typography>
             
             <Typography 
@@ -257,7 +253,7 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              With over 65 years of farming tradition and a proven track record as one of the biggest suppliers of peanuts in India, we are recognized globally for delivering premium Indian groundnuts for international markets.
+                With over 65 years of farming excellence and two decades in the groundnut export business, we have mastered the art of delivering Indian groundnuts for international markets.
             </Typography>
             
             <Typography 
@@ -270,7 +266,7 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              Our organic groundnuts are produced under strict non-GMO and pesticide-free conditions, certified by FSSAI, HACCP, and ISO standards, ensuring the highest food safety and quality for global buyers.
+                 Our organic groundnuts India are grown under natural conditions, ensuring non-GMO, pesticide-free groundnuts that meet the highest FSSAI, HACCP, and ISO certified standards.
             </Typography>
             
             <Box 
@@ -324,9 +320,10 @@ const RunnerPeanutPage = () => {
             mx: 'auto'
           }}
         >
-          Runner peanuts are famous for their uniform kernel size, elongated oval shape, and consistent roasting characteristics. 
-          Their outstanding quality makes them ideal for peanut butter manufacturing, confectionery applications, and snack production. 
-          As one of the leading peanut exporters from India, we supply bulk peanuts for sale to markets across the UAE, Europe, USA, Russia, Vietnam, and Africa, meeting the growing groundnut export demand worldwide.
+          Bold groundnuts are known worldwide for their large oval kernels, reddish-brown skin, high oil content, and strong nutty flavor,
+          making them the preferred choice for peanut butter manufacturers, snack food producers, oil extraction industries, and health food companies.
+          As trusted peanut exporters from India, we guarantee top-quality peanuts that meet the needs of buyers in the UAE, Europe, Africa, Russia, and the USA.
+
         </Typography>
       </Container>
 
@@ -405,105 +402,118 @@ const RunnerPeanutPage = () => {
               lineHeight: 1.8
             }}
           >
-            Runner peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
+            Bold peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
             making them suitable for various industrial and commercial applications. Our premium peanuts 
             are specifically cultivated to meet the demanding requirements of the following industries:
           </Typography>
 
-          {/* Application bullet points */}
-            <Box sx={{ 
-              maxWidth: '800px', 
-              mx: 'auto',
-              mt: 4,
-              px: 3
+          {/* Application bullet points with fixed alignment */}
+            <Box sx={{
+            maxWidth: '800px',
+            mx: 'auto',
+            mt: 4,
+            px: 3
             }}>
-              {[
-                { 
-                  title: "Peanut Butter Production", 
-                  icon: <img src={peanutButterIcon} alt="Peanut Butter" style={{ width: 28, height: 28 }} />,
-                  desc: "Perfect for creamy, rich peanut butter with consistent texture and flavor due to their uniform size and reliable roasting characteristics." 
+            {[
+                {
+                title: "Peanut Butter Production",
+                icon: <img src={peanutButterIcon} alt="Peanut Butter" style={{ width: 28, height: 28 }} />,
+                desc: "Perfect for creamy, rich peanut butter with consistent texture and flavor due to their uniform size and reliable roasting characteristics."
                 },
-                { 
-                  title: "Snack Manufacturing", 
-                  icon: "🍿", 
-                  desc: "Ideal for roasted peanuts and flavored snacks, providing the perfect balance of crunch, taste and visual appeal for premium snack lines." 
+                {
+                title: "Snack Manufacturing",
+                icon: "🍿",
+                desc: "Ideal for salted, roasted, and coated snacks, providing the perfect balance of crunch, taste and visual appeal for premium snack lines."
                 },
-                { 
-                  title: "Oil Extraction", 
-                  icon: <img src={groundnutOilIcon} alt="Groundnut Oil" style={{ width: 28, height: 28 }} />,
-                  desc: "High oil content (45-50%) makes them an excellent source for premium cooking oil, yielding a light-colored oil with a mild, pleasant flavor." 
+                {
+                title: "Oil Extraction",
+                icon: <img src={groundnutOilIcon} alt="Groundnut Oil" style={{ width: 28, height: 28 }} />,
+                desc: "High oil content (45-50%) makes them excellent for cold-pressed and refined cooking oil, yielding a light-colored oil with a mild, pleasant flavor."
                 },
-                { 
-                  title: "Animal Feed Industry", 
-                  icon: "🐄", 
-                  desc: "Nutritious ingredient for high-protein animal feed, supporting healthy growth and development in livestock." 
+                {
+                title: "Confectionery Applications",
+                icon: "🍫",
+                desc: "Perfect addition to peanut brittle, chocolate bars, and other confections, delivering consistent flavor, texture and visual appeal."
+                },
+                {
+                title: "Animal Feed Industry",
+                icon: "🐄",
+                desc: "Nutritious ingredient for high-protein animal feed, with peanut cake meal supporting healthy growth and development in livestock."
+                },
+                {
+                title: "Retail Health Foods",
+                icon: "🌱",
+                desc: "Ideal for premium health food packaging, offering nutritional benefits and long shelf life for branded consumer products."
                 }
-              ].map((item, index) => (
-                <Box 
-                  key={index} 
-                  sx={{ 
-                    display: 'grid',
-                    gridTemplateColumns: '40px 1fr',
-                    mb: 4,
-                    alignItems: 'start',
-                    gap: 2
-                  }}
+            ].map((item, index) => (
+                <Box
+                key={index}
+                sx={{
+                    display: 'flex',
+                    mb: 3.5,
+                    alignItems: 'flex-start'
+                }}
                 >
-                  <Box 
+                {/* Fixed-width container for all icons */}
+                <Box 
                     sx={{ 
-                      width: 40,
-                      height: 40,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
+                    minWidth: '42px',
+                    width: '42px', 
+                    height: '42px',
+                    mr: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                     }}
-                  >
+                >
                     {typeof item.icon === 'string' ? (
-                      <Typography 
-                        variant="h5" 
-                        component="span" 
-                        sx={{ 
-                          fontSize: '1.8rem', 
-                          lineHeight: 1,
-                          color: theme.palette.customColors.darkGold
+                    <Typography
+                        variant="h5"
+                        component="span"
+                        sx={{
+                        fontSize: '1.8rem',
+                        lineHeight: 1,
+                        color: theme.palette.customColors.darkGold
                         }}
-                      >
+                    >
                         {item.icon}
-                      </Typography>
+                    </Typography>
                     ) : (
-                      item.icon
+                    item.icon
                     )}
-                  </Box>
-                  <Box>
-                    <Typography 
-                      variant="h6" 
-                      component="h3"
-                      sx={{ 
+                </Box>
+                
+                {/* Text content with consistent spacing */}
+                <Box sx={{ flex: 1, pt: 0.5 }}>
+                    <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
                         fontFamily: 'Lato, sans-serif',
                         fontWeight: 600,
                         fontSize: { xs: '1.1rem', md: '1.25rem' },
-                        mb: 1,
-                        color: theme.palette.customColors.darkGold,
-                        lineHeight: 1.2
-                      }}
+                        mb: 0.5,
+                        color: theme.palette.customColors.darkGold
+                    }}
                     >
-                      {item.title}
+                    {item.title}
                     </Typography>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
+                    <Typography
+                    variant="body1"
+                    sx={{
                         fontFamily: 'Inter, sans-serif',
                         fontSize: { xs: '0.9rem', md: '1rem' },
                         color: theme.palette.customColors.lightGold,
                         lineHeight: 1.6
-                      }}
+                    }}
                     >
-                      {item.desc}
+                    {item.desc}
                     </Typography>
-                  </Box>
                 </Box>
-              ))}
+                </Box>
+            ))}
             </Box>
+                    
 
           {/* Conclusion */}
           <Typography 
@@ -522,7 +532,7 @@ const RunnerPeanutPage = () => {
               background: 'rgba(255,255,255,0.07)'
             }}
           >
-            Our runner peanuts' consistent quality ensures reliable performance across all these applications, 
+            Our bold peanuts' consistent quality ensures reliable performance across all these applications, 
             making them a preferred choice for businesses requiring premium ingredients.
           </Typography>
         </Container>
@@ -596,18 +606,14 @@ const RunnerPeanutPage = () => {
       }}
     >
       {[
-        { 
-          title: "High Yield", 
-          description: "Offers exceptional yield for farmers and excellent oil extraction ratio for processors, maximizing production efficiency and profitability."
-        },
-        { 
-          title: "Consistent Size", 
-          description: "Uniform kernel size ensures even roasting, consistent flavor development, and reliable processing performance in commercial applications."
-        },
-        { 
-          title: "Industry Preferred", 
-          description: "The top choice for food processors worldwide due to its dependable quality, taste profile, and excellent handling characteristics."
-        }
+       { 
+        title: "Larger Seed Size", 
+        description: "Featuring bigger kernels compared to other varieties, providing better visual appeal and allowing for premium pricing in wholesale and retail markets."
+      },
+      { 
+        title: "Preferred for Oil and Export", 
+        description: "The top choice for oil extraction due to higher oil content and for international markets due to premium appearance and quality characteristics."
+      },
       ].map((feature, index, array) => (
         <Box 
           key={index}
@@ -662,7 +668,7 @@ const RunnerPeanutPage = () => {
                 fontSize: { xs: '1.6rem', sm: '1.8rem', md: '2rem' }
               }}
             >
-              Why Choose Our Runner Peanuts?
+              Why Choose Our Bold Peanuts?
             </Typography>
             
             {/* Industry applications */}
@@ -689,7 +695,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Food industries requiring consistent size and flavor for premium products and international applications choose our runner peanuts for reliable quality.
+                Whether you are looking to buy groundnuts in bulk, require peanut exporters from India to Europe, or source bulk peanuts for sale for the Middle East market, Balaji Exports is your most reliable partner. 
             </Typography>
 
             {/* Wholesale information */}
@@ -716,7 +722,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              As leading wholesale peanuts suppliers in India, we offer competitive groundnut prices per ton for large-scale buyers looking to buy groundnuts in bulk. We specialize in supplying to peanut importers worldwide, groundnut companies in Andhra Pradesh, and peanut exporters from India to UAE, Europe, and beyond.
+                Our wholesale peanuts suppliers India offer competitive groundnut price per ton with flexible shipping options.
             </Typography>
 
             {/* Quality focus */}
@@ -743,7 +749,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Our focus is always on delivering best quality groundnuts from India with strict attention to hygienic packaging and lab-tested groundnuts that are safe, healthy, and fresh. Whether you need edible peanuts for food industries or bulk groundnuts for snack manufacturing, Balaji Exports is your most reliable partner in the peanut export business.
+                Our premium peanuts exporters ensure that every shipment meets strict quality checks, hygienic processing, and safe packaging, delivering only the best to your destination
             </Typography>
 
             {/* Call to action */}
@@ -769,7 +775,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality runner peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
+              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality bold peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
             </Typography>
             
             {/* CTA Button */}
@@ -820,7 +826,7 @@ const RunnerPeanutPage = () => {
             }}
           >
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link> {'>'}
-            <span style={{ color: theme.palette.primary.main }}>Runner Peanuts</span>
+            <span style={{ color: theme.palette.primary.main }}>Bold Peanuts</span>
           </Typography>
         </nav>
       </Container>
@@ -839,17 +845,17 @@ const ProductSpecifications = () => {
       title: "Product Qualities",
       icon: <EmojiEventsIcon size={20} />,
       items: [
-        { name: "Type", value: "Natural / Raw / Roasted / Blanched / Split" },
+        { name: "Type", value: "Natural / Raw / Blanched / Roasted / Split"},
         { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
-        { name: "Varieties Available", value: "40/50, 50/60, 60/70 counts (kernels per ounce)" },
-        { name: "Oil Content", value: "45%–50%" }
+        { name: "Varieties Available", value: "38/42, 40/50, 50/60, 60/70 counts (kernels per ounce)" },
+        { name: "Oil Content", value: "48%–52%" }
       ]
     },
     packaging: {
       title: "Packaging & Storage",
       icon: <LocalShippingIcon size={20} />,
       items: [
-        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs" },
+        { name: "Packaging", value: "25kg, 50kg PP bags, jute bags, or vacuum packing"},
         { name: "Shelf Life", value: "12 months" },
         { name: "Storage", value: "Cool, dry place away from direct sunlight" }
       ]
@@ -927,7 +933,7 @@ const ProductSpecifications = () => {
             fontFamily: 'Inter, sans-serif',
           }}
         >
-          Our runner peanuts meet the highest quality standards for international markets
+          Our bold peanuts meet the highest quality standards for international markets
         </Typography>
       </Box>
 
@@ -1055,4 +1061,4 @@ const ProductSpecifications = () => {
 };
 
 
-export default RunnerPeanutPage;
+export default BoldPeanutPage;

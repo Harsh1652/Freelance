@@ -16,6 +16,9 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import WarningIcon from '@mui/icons-material/Warning'; // instead of AlertTriangle
 import peanutButterIcon from "../../assets/images/PeanutButter.png";
 import groundnutOilIcon from "../../assets/images/GroundNutOil.png";
+import cosmetic from "../../assets/images/Cosmetics.png";
+import industry from "../../assets/images/industry.png";
+
 
 const Head = ({ children }) => {
   useEffect(() => {
@@ -43,56 +46,74 @@ const Head = ({ children }) => {
       }
     });
     
-    // Cleanup on unmount
-    return () => {
-      // Remove any added elements when component unmounts
-      // (Implementation would need to track added elements)
-    };
+   
   }, [children]);
   
   return null;
 };
 
-const RunnerPeanutPage = () => {
+const BoldPeanutPage = () => {
   const theme = useTheme();
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-      <Head>
-        <title>Premium Export Quality Runner Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta name="keywords" content="runner peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
-        <link rel="canonical" href="https://balajiexports.com/products/runner-peanuts" />
+    <Head> 
+        <title>Premium Quality Peanut Oil for Cooking & Industrial Use | Balaji Exports</title>
+        
+        <meta 
+            name="description" 
+            content="Refined and cold-pressed peanut oil with high smoke point and heart-healthy fats. Ideal for cooking, frying, cosmetics, and industrial use. Export-ready with premium quality standards." 
+        />
+        
+        <meta 
+            name="keywords" 
+            content="peanut oil, groundnut oil, refined peanut oil, cold-pressed peanut oil, peanut oil exporters, high smoke point oil, cooking oil export, industrial oil, heart-healthy oil, bulk peanut oil supplier" 
+        />
+        
+        <link rel="canonical" href="https://balajiexports.com/products/peanut-oil" />
+
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
+        <meta property="og:title" content="Premium Quality Peanut Oil for Cooking & Industrial Use | Balaji Exports" />
+        
+        <meta 
+            property="og:description" 
+            content="High-quality peanut oil derived from premium groundnuts. Rich in unsaturated fats, high smoke point, and ideal for culinary and industrial applications." 
+        />
+        
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/runner-peanuts" />
+        <meta property="og:url" content="https://balajiexports.com/products/peanut-oil" />
+
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
+        <meta name="twitter:title" content="Premium Quality Peanut Oil for Cooking & Industrial Use | Balaji Exports" />
+        <meta 
+            name="twitter:description" 
+            content="Export-ready refined and cold-pressed peanut oil with high smoke point and health benefits. Ideal for frying, cosmetics, and industrial use." 
+        />
+
+        {/* Schema.org Structured Data */}
         <script type="application/ld+json">
-          {`
+            {`
             {
-              "@context": "https://schema.org/",
-              "@type": "Product",
-              "name": "Premium Export Quality Runner Peanuts",
-              "description": "High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.",
-              "brand": {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": "Premium Quality Peanut Oil",
+                "description": "Refined and cold-pressed peanut oil with high smoke point, rich in unsaturated fats. Suitable for cooking, snacks, cosmetics, and industrial applications.",
+                "brand": {
                 "@type": "Brand",
                 "name": "Balaji Exports"
-              },
-              "offers": {
+                },
+                "offers": {
                 "@type": "Offer",
-                "url": "https://balajiexports.com/products/runner-peanuts",
+                "url": "https://balajiexports.com/products/peanut-oil",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock"
-              }
+                }
             }
-          `}
+            `}
         </script>
-      </Head>
+    </Head>
+
       
       {/* Hero Section with Background Image and Gradient Overlay */}
       <Box
@@ -126,7 +147,7 @@ const RunnerPeanutPage = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
             }}
           >
-            Premium Export Quality Runner Peanuts
+            Premium Export Quality Peanut Oil
           </Typography>
         </Fade>
         <Fade in timeout={1500}>
@@ -152,7 +173,7 @@ const RunnerPeanutPage = () => {
             component={Link}
             to="/contact"
             variant="contained" 
-            aria-label="Contact us about Runner Peanuts"
+            aria-label="Contact us about Bold Peanuts"
             sx={{ 
               bgcolor: theme.palette.primary.main,
               fontFamily: 'Inter, sans-serif',
@@ -231,7 +252,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Carefully Cultivated, Strictly Certified
+              What Is Peanut Oil ?
             </Typography>
             <Typography 
               variant="body1" 
@@ -243,9 +264,8 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              <span style={{ fontWeight: 700 }}> Runner Peanuts – Premium Export Quality Indian Groundnuts </span>
-              At Balaji Exports, we take pride in offering top-grade Runner Peanuts, carefully cultivated in the rich soils of Rajasthan, Gujarat, and Tamil Nadu, India.
-            </Typography>
+              <span style={{ fontWeight: 700 }}> Peanut Oil (also known as Groundnut Oil)  </span>
+              is a vegetable oil derived from the seeds of peanuts. It is known for its neutral flavor, high smoke point, and nutritional benefits, making it an ideal choice for cooking and frying.</Typography>
             
             <Typography 
               variant="body1" 
@@ -257,20 +277,7 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              With over 65 years of farming tradition and a proven track record as one of the biggest suppliers of peanuts in India, we are recognized globally for delivering premium Indian groundnuts for international markets.
-            </Typography>
-            
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                mb: 4,
-                fontFamily: 'Inter, sans-serif',
-                color: theme.palette.secondary.main,
-                fontSize: { xs: '0.95rem', md: '1rem' },
-                lineHeight: 1.8,
-              }}
-            >
-              Our organic groundnuts are produced under strict non-GMO and pesticide-free conditions, certified by FSSAI, HACCP, and ISO standards, ensuring the highest food safety and quality for global buyers.
+                Peanut oil is rich in monounsaturated and polyunsaturated fats, making it a heart-healthy option compared to many other oils.
             </Typography>
             
             <Box 
@@ -324,9 +331,10 @@ const RunnerPeanutPage = () => {
             mx: 'auto'
           }}
         >
-          Runner peanuts are famous for their uniform kernel size, elongated oval shape, and consistent roasting characteristics. 
-          Their outstanding quality makes them ideal for peanut butter manufacturing, confectionery applications, and snack production. 
-          As one of the leading peanut exporters from India, we supply bulk peanuts for sale to markets across the UAE, Europe, USA, Russia, Vietnam, and Africa, meeting the growing groundnut export demand worldwide.
+          There are several types of peanut oil available, including refined, unrefined, cold-pressed, and roasted, each with its own flavor profile and uses. 
+          Refined Peanut Oil is typically the most common type used for cooking, while Roasted Peanut Oil has a distinctive nutty flavor suitable for salads and dressings.
+
+
         </Typography>
       </Container>
 
@@ -390,120 +398,110 @@ const RunnerPeanutPage = () => {
             Applications
           </Typography>
 
-          {/* Introduction paragraph */}
-          <Typography 
-            variant="body1"
-            sx={{ 
-              mt: 5,
-              mb: 4,
-              fontFamily: 'Inter, sans-serif',
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              color: theme.palette.customColors.lightGold,
-              textAlign: 'center',
-              maxWidth: '850px',
-              mx: 'auto',
-              lineHeight: 1.8
-            }}
-          >
-            Runner peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
-            making them suitable for various industrial and commercial applications. Our premium peanuts 
-            are specifically cultivated to meet the demanding requirements of the following industries:
-          </Typography>
+         
 
-          {/* Application bullet points */}
-            <Box sx={{ 
-              maxWidth: '800px', 
-              mx: 'auto',
-              mt: 4,
-              px: 3
+          {/* Application bullet points with fixed alignment */}
+            <Box sx={{
+            maxWidth: '800px',
+            mx: 'auto',
+            mt: 4,
+            px: 3
             }}>
-              {[
-                { 
-                  title: "Peanut Butter Production", 
-                  icon: <img src={peanutButterIcon} alt="Peanut Butter" style={{ width: 28, height: 28 }} />,
-                  desc: "Perfect for creamy, rich peanut butter with consistent texture and flavor due to their uniform size and reliable roasting characteristics." 
+            {[
+                {
+                title: "Cooking and Frying:",
+                icon: <img src={groundnutOilIcon} alt="Peanut Oil" style={{ width: 28, height: 28 }} />,
+                desc: "Peanut oil is ideal for deep frying, sautéing, and stir-frying due to its high smoke point (around 450°F / 232°C). It can withstand high temperatures without breaking down or producing harmful compounds."
                 },
-                { 
-                  title: "Snack Manufacturing", 
-                  icon: "🍿", 
-                  desc: "Ideal for roasted peanuts and flavored snacks, providing the perfect balance of crunch, taste and visual appeal for premium snack lines." 
+                {
+                title: "Snacks",
+                icon: "🍿",
+                desc: "Used in the preparation of snacks like chips, fries, and roasted peanuts."
                 },
-                { 
-                  title: "Oil Extraction", 
-                  icon: <img src={groundnutOilIcon} alt="Groundnut Oil" style={{ width: 28, height: 28 }} />,
-                  desc: "High oil content (45-50%) makes them an excellent source for premium cooking oil, yielding a light-colored oil with a mild, pleasant flavor." 
+                {
+                title: "Confectionery Applications",
+                icon: "🍫",
+                desc: "Peanut oil is used in various chocolate and candy preparations due to its neutral flavor."
                 },
-                { 
-                  title: "Animal Feed Industry", 
-                  icon: "🐄", 
-                  desc: "Nutritious ingredient for high-protein animal feed, supporting healthy growth and development in livestock." 
+                {
+                title: "Cosmetics",
+                icon: <img src={cosmetic} alt="Cosmetics" style={{ width: 28, height: 28 }} />,
+                desc: "Due to its moisturizing properties, peanut oil is used in skincare products like lotions, creams, and soaps."
+                },
+                {
+                title: "Industrial Uses",
+                icon: <img src={industry} alt="Industries" style={{ width: 28, height: 28 }} />,
+                desc: "Peanut oil is sometimes utilized in biodiesel production and as a lubricant in industrial applications."
                 }
-              ].map((item, index) => (
-                <Box 
-                  key={index} 
-                  sx={{ 
-                    display: 'grid',
-                    gridTemplateColumns: '40px 1fr',
-                    mb: 4,
-                    alignItems: 'start',
-                    gap: 2
-                  }}
+            ].map((item, index) => (
+                <Box
+                key={index}
+                sx={{
+                    display: 'flex',
+                    mb: 3.5,
+                    alignItems: 'flex-start'
+                }}
                 >
-                  <Box 
+                {/* Fixed-width container for all icons */}
+                <Box 
                     sx={{ 
-                      width: 40,
-                      height: 40,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
+                    minWidth: '42px',
+                    width: '42px', 
+                    height: '42px',
+                    mr: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                     }}
-                  >
+                >
                     {typeof item.icon === 'string' ? (
-                      <Typography 
-                        variant="h5" 
-                        component="span" 
-                        sx={{ 
-                          fontSize: '1.8rem', 
-                          lineHeight: 1,
-                          color: theme.palette.customColors.darkGold
+                    <Typography
+                        variant="h5"
+                        component="span"
+                        sx={{
+                        fontSize: '1.8rem',
+                        lineHeight: 1,
+                        color: theme.palette.customColors.darkGold
                         }}
-                      >
+                    >
                         {item.icon}
-                      </Typography>
+                    </Typography>
                     ) : (
-                      item.icon
+                    item.icon
                     )}
-                  </Box>
-                  <Box>
-                    <Typography 
-                      variant="h6" 
-                      component="h3"
-                      sx={{ 
+                </Box>
+                
+                {/* Text content with consistent spacing */}
+                <Box sx={{ flex: 1, pt: 0.5 }}>
+                    <Typography
+                    variant="h6"
+                    component="h3"
+                    sx={{
                         fontFamily: 'Lato, sans-serif',
                         fontWeight: 600,
                         fontSize: { xs: '1.1rem', md: '1.25rem' },
-                        mb: 1,
-                        color: theme.palette.customColors.darkGold,
-                        lineHeight: 1.2
-                      }}
+                        mb: 0.5,
+                        color: theme.palette.customColors.darkGold
+                    }}
                     >
-                      {item.title}
+                    {item.title}
                     </Typography>
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
+                    <Typography
+                    variant="body1"
+                    sx={{
                         fontFamily: 'Inter, sans-serif',
                         fontSize: { xs: '0.9rem', md: '1rem' },
                         color: theme.palette.customColors.lightGold,
                         lineHeight: 1.6
-                      }}
+                    }}
                     >
-                      {item.desc}
+                    {item.desc}
                     </Typography>
-                  </Box>
                 </Box>
-              ))}
+                </Box>
+            ))}
             </Box>
+                    
 
           {/* Conclusion */}
           <Typography 
@@ -522,7 +520,7 @@ const RunnerPeanutPage = () => {
               background: 'rgba(255,255,255,0.07)'
             }}
           >
-            Our runner peanuts' consistent quality ensures reliable performance across all these applications, 
+            Our Peanut Oil' consistent quality ensures reliable performance across all these applications, 
             making them a preferred choice for businesses requiring premium ingredients.
           </Typography>
         </Container>
@@ -596,18 +594,22 @@ const RunnerPeanutPage = () => {
       }}
     >
       {[
-        { 
-          title: "High Yield", 
-          description: "Offers exceptional yield for farmers and excellent oil extraction ratio for processors, maximizing production efficiency and profitability."
-        },
-        { 
-          title: "Consistent Size", 
-          description: "Uniform kernel size ensures even roasting, consistent flavor development, and reliable processing performance in commercial applications."
-        },
-        { 
-          title: "Industry Preferred", 
-          description: "The top choice for food processors worldwide due to its dependable quality, taste profile, and excellent handling characteristics."
-        }
+       { 
+        title: "High Smoke Point (450°F / 232°C)", 
+        description: "Featuring bigger kernels compared to other varieties, providing better visual appeal and allowing for premium pricing in wholesale and retail marketsIdeal for deep frying, stir-frying, and high-heat cooking without breaking down."
+      },
+      { 
+        title: "Neutral Flavor", 
+        description: "Doesn’t overpower dishes — perfect for a wide range of cuisines and recipes."
+      },
+      { 
+        title: "Heart-Healthy", 
+        description: "Rich in monounsaturated and polyunsaturated fats that support cardiovascular health."
+      },
+      { 
+        title: "Versatile Applications", 
+        description: "Used in cooking, cosmetics, snack production, salad dressings, and even industrial products."
+      },
       ].map((feature, index, array) => (
         <Box 
           key={index}
@@ -662,7 +664,7 @@ const RunnerPeanutPage = () => {
                 fontSize: { xs: '1.6rem', sm: '1.8rem', md: '2rem' }
               }}
             >
-              Why Choose Our Runner Peanuts?
+              Why Choose Our Peanut Oil?
             </Typography>
             
             {/* Industry applications */}
@@ -689,7 +691,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Food industries requiring consistent size and flavor for premium products and international applications choose our runner peanuts for reliable quality.
+                Whether you are looking to buy groundnuts in bulk, need reliable peanut exporters from India to Europe, or want to source bulk peanuts for the Middle East market, Balaji Exports is your trusted partner.
             </Typography>
 
             {/* Wholesale information */}
@@ -716,7 +718,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              As leading wholesale peanuts suppliers in India, we offer competitive groundnut prices per ton for large-scale buyers looking to buy groundnuts in bulk. We specialize in supplying to peanut importers worldwide, groundnut companies in Andhra Pradesh, and peanut exporters from India to UAE, Europe, and beyond.
+                Our wholesale peanut supply team in India offers competitive groundnut prices per ton, along with flexible shipping options tailored to your business needs.
             </Typography>
 
             {/* Quality focus */}
@@ -743,7 +745,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Our focus is always on delivering best quality groundnuts from India with strict attention to hygienic packaging and lab-tested groundnuts that are safe, healthy, and fresh. Whether you need edible peanuts for food industries or bulk groundnuts for snack manufacturing, Balaji Exports is your most reliable partner in the peanut export business.
+                As one of the top peanut exporters from India, we ensure that every shipment undergoes strict quality checks, hygienic processing, and secure packaging — delivering only the finest products to your destination.
             </Typography>
 
             {/* Call to action */}
@@ -769,7 +771,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality runner peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
+                Partner with Balaji Exports, a leading peanut export company in India, to source premium-quality peanut oil and groundnuts for your global operations. Trust our expertise, consistency, and commitment to deliver excellence — from India’s fertile fields to your business.
             </Typography>
             
             {/* CTA Button */}
@@ -820,7 +822,7 @@ const RunnerPeanutPage = () => {
             }}
           >
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link> {'>'}
-            <span style={{ color: theme.palette.primary.main }}>Runner Peanuts</span>
+            <span style={{ color: theme.palette.primary.main }}>Peanut Oil</span>
           </Typography>
         </nav>
       </Container>
@@ -830,229 +832,223 @@ const RunnerPeanutPage = () => {
 
 
 const ProductSpecifications = () => {
-  const theme = useTheme();
-  const [expandedSection, setExpandedSection] = useState('qualities');
-
-  // Specifications data organized by sections
-  const specSections = {
-    qualities: {
-      title: "Product Qualities",
-      icon: <EmojiEventsIcon size={20} />,
-      items: [
-        { name: "Type", value: "Natural / Raw / Roasted / Blanched / Split" },
-        { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
-        { name: "Varieties Available", value: "40/50, 50/60, 60/70 counts (kernels per ounce)" },
-        { name: "Oil Content", value: "45%–50%" }
-      ]
-    },
-    packaging: {
-      title: "Packaging & Storage",
-      icon: <LocalShippingIcon size={20} />,
-      items: [
-        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs" },
-        { name: "Shelf Life", value: "12 months" },
-        { name: "Storage", value: "Cool, dry place away from direct sunlight" }
-      ]
-    },
-    quality: {
-      title: "Quality Parameters",
-      icon: <BarChartIcon size={20} />,
-      items: [
-        { name: "Moisture", value: "7% max" },
-        { name: "Admixture", value: "0.5% max" },
-        { name: "Damaged Kernels", value: "1% max" },
-        { name: "Aflatoxin", value: "Below 10 ppb" }
-      ]
-    },
-    certifications: {
-      title: "Certifications",
-      icon: <CheckIcon size={20} />,
-      items: [
-        { name: "Food Safety", value: "FSSAI Certified" },
-        { name: "Quality Management", value: "ISO Certified" },
-        { name: "Hazard Control", value: "HACCP Certified" },
-        { name: "Exportation", value: "Export Quality Approved" }
-      ]
-    }
-  };
-
-  // Function to toggle expanded section
-  const toggleSection = (sectionKey) => {
-    setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
-  };
-
-  return (
-    <Box sx={{ 
-      width: '100%', 
-      maxWidth: '6xl', 
-      mx: 'auto', 
-      px: 4, 
-      py: { xs: 6, md: 4 },
-      mb: { xs: -2, md: -3 }
-    }}>
-      
-      <Box sx={{ textAlign: 'center', mb: 3 }}>
-        <Typography 
-          variant="h2" 
-          sx={{ 
-            fontSize: { xs: '1.875rem', sm: '2.25rem' }, 
-            fontWeight: 'bold', 
-            mb: 3,
-            fontFamily: 'Lato, sans-serif',
-          }}
-        >
+    const theme = useTheme();
+    const [expandedSection, setExpandedSection] = useState('appearance');
+  
+    // Updated Specifications data organized by sections
+    const specSections = {
+      appearance: {
+        title: "Appearance & Color",
+        icon: <EmojiEventsIcon size={20} />,
+        items: [
+          { name: "Appearance", value: "Light yellow, clear" },
+          { name: "Color", value: "Pale yellow to golden" }
+        ]
+      },
+      composition: {
+        title: "Composition & Properties",
+        icon: <BarChartIcon size={20} />,
+        items: [
+          { name: "Moisture & Impurities", value: "≤ 0.1%" },
+          { name: "Free Fatty Acids (FFA)", value: "≤ 1% as Oleic Acid" },
+          { name: "Iodine Value", value: "87 – 96 units" },
+          { name: "Saponification Value", value: "189 – 195 mg KOH/g" }
+        ]
+      },
+      usage: {
+        title: "Usage & Characteristics",
+        icon: <LocalShippingIcon size={20} />,
+        items: [
+          { name: "Smoke Point", value: "450°F (232°C)" },
+          { name: "Fat Content", value: "49% to 50% (mainly unsaturated fats)" }
+        ]
+      },
+      quality: {
+        title: "Quality Parameters",
+        icon: <CheckIcon size={20} />,
+        items: [
+          { name: "Unsaponifiable Matter", value: "≤ 0.9%" },
+          { name: "Aflatoxin Level", value: "Below permissible limits (≤ 15 ppb)" }
+        ]
+      }
+    };
+  
+    // Function to toggle expanded section
+    const toggleSection = (sectionKey) => {
+      setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
+    };
+  
+    return (
+      <Box sx={{ 
+        width: '100%', 
+        maxWidth: '6xl', 
+        mx: 'auto', 
+        px: 4, 
+        py: { xs: 6, md: 4 },
+        mb: { xs: -2, md: -3 }
+      }}>
+        
+        <Box sx={{ textAlign: 'center', mb: 3 }}>
           <Typography 
-            component="span" 
-            variant="inherit" 
-            sx={{ color: theme.palette.primary.main }}
-          >
-            Product
-          </Typography>{" "}
-          <Typography 
-            component="span" 
-            variant="inherit"
-            sx={{ color: theme.palette.secondary.main }}
-          >
-            Specifications
-          </Typography>
-        </Typography>
-        <Box sx={{ width: '5rem', height: '0.25rem', bgcolor: theme.palette.primary.main, mx: 'auto', mb: 2 }}></Box>
-        <Typography 
-          variant="body1"
-          sx={{ 
-            color: theme.palette.secondary.main, 
-            fontSize: '1rem',
-            maxWidth: '2xl', 
-            mx: 'auto',
-            fontFamily: 'Inter, sans-serif',
-          }}
-        >
-          Our runner peanuts meet the highest quality standards for international markets
-        </Typography>
-      </Box>
-
-      {/* Rest of the component remains unchanged */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {Object.entries(specSections).map(([key, section]) => (
-          <Paper 
-            key={key}
-            elevation={2}
+            variant="h2" 
             sx={{ 
-              border: 1, 
-              borderColor: 'divider',
-              borderRadius: 2,
-              overflow: 'hidden',
-              transition: 'all 300ms ease-in-out',
-              // Change background to light gold from theme
-              bgcolor: theme.palette.customColors.lightGold, 
-              width: '100%'
+              fontSize: { xs: '1.875rem', sm: '2.25rem' }, 
+              fontWeight: 'bold', 
+              mb: 3,
+              fontFamily: 'Lato, sans-serif',
             }}
           >
-            <Button
-              onClick={() => toggleSection(key)}
-              sx={{
-                width: '100%', 
-                display: 'flex', 
-                justifyContent: 'space-between',
-                alignItems: 'center', 
-                p: 2,
-                textAlign: 'left',
-                textTransform: 'none',
-                // Updated text color for better contrast on light gold background
-                color: theme.palette.secondary.main
-              }}
-              aria-expanded={expandedSection === key}
-              aria-controls={`section-${key}-content`}
+            <Typography 
+              component="span" 
+              variant="inherit" 
+              sx={{ color: theme.palette.primary.main }}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Avatar 
-                  sx={{ 
-                    height: 40, 
-                    width: 40, 
-                    // Updated avatar background for contrast against light gold
-                    bgcolor: theme.palette.primary.main,
-                    color: 'white'
-                  }}
-                >
-                  {section.icon}
-                </Avatar>
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
-                    fontSize: '1.125rem', 
-                    fontWeight: 600,
-                    fontFamily: 'Lato, sans-serif',
-                    color: theme.palette.primary.main
-                  }}
-                >
-                  {section.title}
-                </Typography>
-              </Box>
-              {expandedSection === key ? 
-                <ExpandLessIcon color="primary" /> : 
-                <ExpandMoreIcon color="primary" />
-              }
-            </Button>
-            
-            <Collapse in={expandedSection === key}>
-              <Box 
-                id={`section-${key}-content`}
-                sx={{ 
-                  p: 3, 
-                  borderTop: 1, 
-                  // Add primary color as background for expanded sections
-                  bgcolor: theme.palette.customColors.darkGold,
-                  borderColor: 'rgba(255,255,255,0.2)',
+              Product
+            </Typography>{" "}
+            <Typography 
+              component="span" 
+              variant="inherit"
+              sx={{ color: theme.palette.secondary.main }}
+            >
+              Specifications
+            </Typography>
+          </Typography>
+          <Box sx={{ width: '5rem', height: '0.25rem', bgcolor: theme.palette.primary.main, mx: 'auto', mb: 2 }}></Box>
+          <Typography 
+            variant="body1"
+            sx={{ 
+              color: theme.palette.secondary.main, 
+              fontSize: '1rem',
+              maxWidth: '2xl', 
+              mx: 'auto',
+              fontFamily: 'Inter, sans-serif',
+            }}
+          >
+            Our premium oil meets the highest quality standards for international markets
+          </Typography>
+        </Box>
+  
+        {/* Rest of the component remains unchanged */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {Object.entries(specSections).map(([key, section]) => (
+            <Paper 
+              key={key}
+              elevation={2}
+              sx={{ 
+                border: 1, 
+                borderColor: 'divider',
+                borderRadius: 2,
+                overflow: 'hidden',
+                transition: 'all 300ms ease-in-out',
+                // Change background to light gold from theme
+                bgcolor: theme.palette.customColors.lightGold, 
+                width: '100%'
+              }}
+            >
+              <Button
+                onClick={() => toggleSection(key)}
+                sx={{
+                  width: '100%', 
+                  display: 'flex', 
+                  justifyContent: 'space-between',
+                  alignItems: 'center', 
+                  p: 2,
+                  textAlign: 'left',
+                  textTransform: 'none',
+                  // Updated text color for better contrast on light gold background
+                  color: theme.palette.secondary.main
                 }}
+                aria-expanded={expandedSection === key}
+                aria-controls={`section-${key}-content`}
               >
-                {section.items.map((item, idx) => (
-                  <Box 
-                    key={idx} 
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Avatar 
                     sx={{ 
-                      display: 'flex', 
-                      flexWrap: 'wrap',
-                      py: 2,
-                      borderBottom: idx !== section.items.length - 1 ? 1 : 0,
-                      borderColor: 'rgba(255,255,255,0.2)',
+                      height: 40, 
+                      width: 40, 
+                      // Updated avatar background for contrast against light gold
+                      bgcolor: theme.palette.primary.main,
+                      color: 'white'
                     }}
                   >
-                    <Box sx={{ 
-                      width: { xs: '100%', sm: '40%' }, 
-                      fontWeight: 700, 
-                      // Change heading color to darkGold
-                      color: theme.palette.primary.main,
-                      display: 'flex',
-                      alignItems: 'center'
-                    }}>
-                      <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>
+                    {section.icon}
+                  </Avatar>
+                  <Typography 
+                    variant="h6" 
+                    sx={{ 
+                      fontSize: '1.125rem', 
+                      fontWeight: 600,
+                      fontFamily: 'Lato, sans-serif',
+                      color: theme.palette.primary.main
+                    }}
+                  >
+                    {section.title}
+                  </Typography>
+                </Box>
+                {expandedSection === key ? 
+                  <ExpandLessIcon color="primary" /> : 
+                  <ExpandMoreIcon color="primary" />
+                }
+              </Button>
+              
+              <Collapse in={expandedSection === key}>
+                <Box 
+                  id={`section-${key}-content`}
+                  sx={{ 
+                    p: 3, 
+                    borderTop: 1, 
+                    // Add primary color as background for expanded sections
+                    bgcolor: theme.palette.customColors.darkGold,
+                    borderColor: 'rgba(255,255,255,0.2)',
+                  }}
+                >
+                  {section.items.map((item, idx) => (
+                    <Box 
+                      key={idx} 
+                      sx={{ 
+                        display: 'flex', 
+                        flexWrap: 'wrap',
+                        py: 2,
+                        borderBottom: idx !== section.items.length - 1 ? 1 : 0,
+                        borderColor: 'rgba(255,255,255,0.2)',
+                      }}
+                    >
+                      <Box sx={{ 
+                        width: { xs: '100%', sm: '40%' }, 
+                        fontWeight: 700, 
+                        // Change heading color to darkGold
+                        color: theme.palette.primary.main,
+                        display: 'flex',
+                        alignItems: 'center'
+                      }}>
+                        <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>
                         🥜
-                      </Typography>
-                      {item.name}:
+                        </Typography>
+                        {item.name}:
+                      </Box>
+                      <Box sx={{ 
+                        width: { xs: '100%', sm: '60%' },
+                        fontWeight: 500, 
+                        mt: { xs: 1, sm: 0 },
+                        pl: { xs: 6, sm: 0 },
+                        // Change description color to lightGold
+                        color: theme.palette.secondary.main,
+                      }}>
+                        {item.value}
+                      </Box>
                     </Box>
-                    <Box sx={{ 
-                      width: { xs: '100%', sm: '60%' },
-                      fontWeight: 500, 
-                      mt: { xs: 1, sm: 0 },
-                      pl: { xs: 6, sm: 0 },
-                      // Change description color to lightGold
-                      color: theme.palette.secondary.main,
-                    }}>
-                      {item.value}
-                    </Box>
-                  </Box>
-                ))}
-              </Box>
-            </Collapse>
-          </Paper>
-        ))}
+                  ))}
+                </Box>
+              </Collapse>
+            </Paper>
+          ))}
+        </Box>
+  
+        <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
+          
+        </Box>
       </Box>
+    );
+  };
 
-      <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
-        
-      </Box>
-    </Box>
-  );
-};
-
-
-export default RunnerPeanutPage;
+export default BoldPeanutPage;

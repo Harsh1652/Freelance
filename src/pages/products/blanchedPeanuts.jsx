@@ -13,9 +13,9 @@ import InfoIcon from '@mui/icons-material/Info';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // instead of Award
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'; // instead of Package
 import BarChartIcon from '@mui/icons-material/BarChart';
-import WarningIcon from '@mui/icons-material/Warning'; // instead of AlertTriangle
 import peanutButterIcon from "../../assets/images/PeanutButter.png";
-import groundnutOilIcon from "../../assets/images/GroundNutOil.png";
+import bakingLogo from "../../assets/images/baking.png"; // Placeholder for baking image
+import cosmeticsLogo from "../../assets/images/Cosmetics.png"; // Placeholder for cosmetics image
 
 const Head = ({ children }) => {
   useEffect(() => {
@@ -43,56 +43,69 @@ const Head = ({ children }) => {
       }
     });
     
-    // Cleanup on unmount
-    return () => {
-      // Remove any added elements when component unmounts
-      // (Implementation would need to track added elements)
-    };
+    
   }, [children]);
   
   return null;
 };
 
-const RunnerPeanutPage = () => {
+const BlanchedPeanutPage = () => {
   const theme = useTheme();
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-      <Head>
-        <title>Premium Export Quality Runner Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta name="keywords" content="runner peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
-        <link rel="canonical" href="https://balajiexports.com/products/runner-peanuts" />
+    <Head> 
+        <title>Premium Export Quality Blanched Peanuts | Balaji Exports</title>
+        <meta 
+            name="description" 
+            content="High-quality Blanched Peanuts with skins removed for enhanced flavor and smooth texture. Ideal for peanut butter, snacks, baking, and confectionery. Global shipping available." 
+        />
+        <meta 
+            name="keywords" 
+            content="Blanched peanuts, skinless peanuts, peanut butter grade peanuts, export quality peanuts, Indian peanuts exporter, smooth peanuts, peanut snacks, confectionery peanuts, bulk peanut supplier" 
+        />
+        <link rel="canonical" href="https://balajiexports.com/products/blanched-peanuts" />
+
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
+        <meta property="og:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports" />
+        <meta 
+            property="og:description" 
+            content="Blanched peanuts with skins removed for smooth texture and rich flavor. Ideal for snacks, peanut butter, and confectionery. Exported globally with premium quality standards." 
+        />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/runner-peanuts" />
+        <meta property="og:url" content="https://balajiexports.com/products/blanched-peanuts" />
+
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Runner Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
+        <meta name="twitter:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports" />
+        <meta 
+            name="twitter:description" 
+            content="High-quality skinless peanuts with smooth texture and rich flavor. Perfect for baking, peanut butter, and snacks. Global export-ready." 
+        />
+
+        {/* Schema.org Structured Data */}
         <script type="application/ld+json">
-          {`
+            {`
             {
-              "@context": "https://schema.org/",
-              "@type": "Product",
-              "name": "Premium Export Quality Runner Peanuts",
-              "description": "High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.",
-              "brand": {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": "Premium Export Quality Blanched Peanuts",
+                "description": "High-quality Blanched Peanuts with skins removed. Used in peanut butter, confectionery, and snack production. Compliant with export standards.",
+                "brand": {
                 "@type": "Brand",
                 "name": "Balaji Exports"
-              },
-              "offers": {
+                },
+                "offers": {
                 "@type": "Offer",
-                "url": "https://balajiexports.com/products/runner-peanuts",
+                "url": "https://balajiexports.com/products/blanched-peanuts",
                 "priceCurrency": "USD",
                 "availability": "https://schema.org/InStock"
-              }
+                }
             }
-          `}
+            `}
         </script>
-      </Head>
+    </Head>
+
       
       {/* Hero Section with Background Image and Gradient Overlay */}
       <Box
@@ -126,7 +139,7 @@ const RunnerPeanutPage = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
             }}
           >
-            Premium Export Quality Runner Peanuts
+            Premium Export Quality Blanched Peanuts
           </Typography>
         </Fade>
         <Fade in timeout={1500}>
@@ -152,7 +165,7 @@ const RunnerPeanutPage = () => {
             component={Link}
             to="/contact"
             variant="contained" 
-            aria-label="Contact us about Runner Peanuts"
+            aria-label="Contact us about Lanched Peanuts"
             sx={{ 
               bgcolor: theme.palette.primary.main,
               fontFamily: 'Inter, sans-serif',
@@ -231,7 +244,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Carefully Cultivated, Strictly Certified
+              What Are Blanched Peanuts?
             </Typography>
             <Typography 
               variant="body1" 
@@ -243,9 +256,8 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              <span style={{ fontWeight: 700 }}> Runner Peanuts – Premium Export Quality Indian Groundnuts </span>
-              At Balaji Exports, we take pride in offering top-grade Runner Peanuts, carefully cultivated in the rich soils of Rajasthan, Gujarat, and Tamil Nadu, India.
-            </Typography>
+              Blanched peanuts are raw peanuts that have been subjected to a heat treatment process to remove their skins. This results in a clean, smooth appearance and a lighter color. The blanched peanuts retain all the nutritional benefits of regular peanuts but without the outer skin, offering a smoother texture and enhanced flavor.
+              </Typography>
             
             <Typography 
               variant="body1" 
@@ -257,21 +269,10 @@ const RunnerPeanutPage = () => {
                 lineHeight: 1.8,
               }}
             >
-              With over 65 years of farming tradition and a proven track record as one of the biggest suppliers of peanuts in India, we are recognized globally for delivering premium Indian groundnuts for international markets.
+            These peanuts are primarily used in products that require a uniform appearance and texture, such as peanut butter, snacks, and confectionery. The removal of the skin also helps improve the flavor and consistency of the final product.
             </Typography>
             
-            <Typography 
-              variant="body1" 
-              sx={{ 
-                mb: 4,
-                fontFamily: 'Inter, sans-serif',
-                color: theme.palette.secondary.main,
-                fontSize: { xs: '0.95rem', md: '1rem' },
-                lineHeight: 1.8,
-              }}
-            >
-              Our organic groundnuts are produced under strict non-GMO and pesticide-free conditions, certified by FSSAI, HACCP, and ISO standards, ensuring the highest food safety and quality for global buyers.
-            </Typography>
+            
             
             <Box 
               sx={{ 
@@ -324,9 +325,7 @@ const RunnerPeanutPage = () => {
             mx: 'auto'
           }}
         >
-          Runner peanuts are famous for their uniform kernel size, elongated oval shape, and consistent roasting characteristics. 
-          Their outstanding quality makes them ideal for peanut butter manufacturing, confectionery applications, and snack production. 
-          As one of the leading peanut exporters from India, we supply bulk peanuts for sale to markets across the UAE, Europe, USA, Russia, Vietnam, and Africa, meeting the growing groundnut export demand worldwide.
+         Blanched peanuts are a versatile ingredient in the food industry and are particularly valued in the creation of premium food products.
         </Typography>
       </Container>
 
@@ -405,7 +404,7 @@ const RunnerPeanutPage = () => {
               lineHeight: 1.8
             }}
           >
-            Runner peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
+            Blanched peanuts are highly versatile with exceptional nutritional properties and consistent quality, 
             making them suitable for various industrial and commercial applications. Our premium peanuts 
             are specifically cultivated to meet the demanding requirements of the following industries:
           </Typography>
@@ -418,25 +417,35 @@ const RunnerPeanutPage = () => {
               px: 3
             }}>
               {[
-                { 
-                  title: "Peanut Butter Production", 
+                {
+                  title: "Peanut Butter Production",
                   icon: <img src={peanutButterIcon} alt="Peanut Butter" style={{ width: 28, height: 28 }} />,
-                  desc: "Perfect for creamy, rich peanut butter with consistent texture and flavor due to their uniform size and reliable roasting characteristics." 
+                  desc: "Blanched peanuts are widely used to make smooth and creamy peanut butter, as they provide a consistent texture without the presence of skins."
                 },
-                { 
-                  title: "Snack Manufacturing", 
-                  icon: "🍿", 
-                  desc: "Ideal for roasted peanuts and flavored snacks, providing the perfect balance of crunch, taste and visual appeal for premium snack lines." 
+                {
+                  title: "Snack Manufacturing",
+                  icon: "🍿",
+                  desc: "Roasted blanched peanuts are a popular snack, often salted or seasoned."
                 },
-                { 
-                  title: "Oil Extraction", 
-                  icon: <img src={groundnutOilIcon} alt="Groundnut Oil" style={{ width: 28, height: 28 }} />,
-                  desc: "High oil content (45-50%) makes them an excellent source for premium cooking oil, yielding a light-colored oil with a mild, pleasant flavor." 
+                {
+                  title: "Confectionery Applications",
+                  icon: "🍫",
+                  desc: "Used in chocolates, candies, and other sweets to provide a smooth nutty flavor."
                 },
-                { 
-                  title: "Animal Feed Industry", 
-                  icon: "🐄", 
-                  desc: "Nutritious ingredient for high-protein animal feed, supporting healthy growth and development in livestock." 
+                {
+                  title: "Animal Feed Industry",
+                  icon: "🐄",
+                  desc: "Nutritious ingredient for high-protein animal feed, with peanut cake meal supporting healthy growth and development in livestock."
+                },
+                {
+                  title: "Baking",
+                  icon: <img src={bakingLogo} alt="Baking Logo" style={{ width: 28, height: 28 }} />,
+                  desc: "Incorporated into cakes, cookies, muffins, and pastries for added crunch and nutrition."
+                },
+                {
+                  title: "Cosmetics",
+                  icon: <img src={cosmeticsLogo} alt="Cosmetics Logo" style={{ width: 28, height: 28 }} />,
+                  desc: "Peanut extracts are used in skincare products due to their moisturizing and antioxidant properties"
                 }
               ].map((item, index) => (
                 <Box 
@@ -522,7 +531,7 @@ const RunnerPeanutPage = () => {
               background: 'rgba(255,255,255,0.07)'
             }}
           >
-            Our runner peanuts' consistent quality ensures reliable performance across all these applications, 
+            Our blanched peanuts' consistent quality ensures reliable performance across all these applications, 
             making them a preferred choice for businesses requiring premium ingredients.
           </Typography>
         </Container>
@@ -536,114 +545,118 @@ const RunnerPeanutPage = () => {
 
       {/* Key Features Section */}
       <Container component="section" aria-label="Key Features" maxWidth="lg" sx={{ mt: { xs: 1, md: 2 }, mb: { xs: 5, md: 7 } }}>
-  <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
-    <Typography 
-      variant="h2" 
-      component="h2" 
-      fontFamily="Lato, sans-serif"
-      fontWeight={800}
-      color={theme.palette.primary.main}
-      sx={{ 
-        mb: 0,
-        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-        display: 'inline'
-      }}
-    >
-      Key{' '}
-    </Typography>
-    <Typography 
-      variant="h2" 
-      component="span" 
-      fontFamily="Lato, sans-serif"
-      fontWeight={800}
-      sx={{ 
-        color: theme.palette.secondary.main,
-        fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-        display: 'inline'
-      }}
-    >
-      Features
-    </Typography>
-    
-    <Box 
-      sx={{ 
-        width: '80px', 
-        height: '4px', 
-        backgroundColor: theme.palette.primary.main, 
-        mx: 'auto', 
-        mt: 2, 
-        mb: 4,
-        borderRadius: '2px'
-      }} 
-    />
-  </Box>
-
-  {/* Single Card containing all features */}
-  <Box sx={{ 
-    width: '48%', // Take 48% of page width
-    marginLeft: 0, // Align to the left
-  }}>
-    <Paper 
-      elevation={3}
-      sx={{ 
-        borderRadius: 3,
-        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark || '#1a3526'} 100%)`,
-        transition: 'transform 0.3s, box-shadow 0.3s',
-        '&:hover': {
-          transform: 'translateY(-6px)',
-          boxShadow: '0px 10px 20px rgba(0,0,0,0.2)'
-        }
-      }}
-    >
-      {[
-        { 
-          title: "High Yield", 
-          description: "Offers exceptional yield for farmers and excellent oil extraction ratio for processors, maximizing production efficiency and profitability."
-        },
-        { 
-          title: "Consistent Size", 
-          description: "Uniform kernel size ensures even roasting, consistent flavor development, and reliable processing performance in commercial applications."
-        },
-        { 
-          title: "Industry Preferred", 
-          description: "The top choice for food processors worldwide due to its dependable quality, taste profile, and excellent handling characteristics."
-        }
-      ].map((feature, index, array) => (
-        <Box 
-          key={index}
-          sx={{
-            p: 3,
-            borderBottom: index !== array.length - 1 ? `1px solid rgba(255,255,255,0.1)` : 'none',
+      <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
+        <Typography 
+          variant="h2" 
+          component="h2" 
+          fontFamily="Lato, sans-serif"
+          fontWeight={800}
+          color={theme.palette.primary.main}
+          sx={{ 
+            mb: 0,
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            display: 'inline'
           }}
         >
-          <Typography 
-            variant="h6" 
-            component="h3" 
-            fontFamily="Lato, sans-serif"
-            fontWeight="bold"
-            sx={{ 
-              color: theme.palette.customColors.darkGold, 
-              mb: 1.5,
-              fontSize: { xs: '1.1rem', md: '1.25rem' }
-            }}
-          >
-            {feature.title}
-          </Typography>
-          <Typography 
-            variant="body2"
-            fontFamily="Inter, sans-serif"
+          Key{' '}
+        </Typography>
+        <Typography 
+          variant="h2" 
+          component="span" 
+          fontFamily="Lato, sans-serif"
+          fontWeight={800}
+          sx={{ 
+            color: theme.palette.secondary.main,
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+            display: 'inline'
+          }}
+        >
+          Features
+        </Typography>
+        
+        <Box 
+          sx={{ 
+            width: '80px', 
+            height: '4px', 
+            backgroundColor: theme.palette.primary.main, 
+            mx: 'auto', 
+            mt: 2, 
+            mb: 4,
+            borderRadius: '2px'
+          }} 
+        />
+      </Box>
+
+    {/* Single Card containing all features */}
+    <Box sx={{ 
+      width: '48%', // Take 48% of page width
+      marginLeft: 0, // Align to the left
+    }}>
+      <Paper 
+        elevation={3}
+        sx={{ 
+          borderRadius: 3,
+          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark || '#1a3526'} 100%)`,
+          transition: 'transform 0.3s, box-shadow 0.3s',
+          '&:hover': {
+            transform: 'translateY(-6px)',
+            boxShadow: '0px 10px 20px rgba(0,0,0,0.2)'
+          }
+        }}
+      >
+        {[
+          { 
+            title: "Skin-Free & Smooth Texture", 
+            description: "The removal of outer skin gives a clean look and consistent texture — ideal for peanut butter, snacks, and baking."
+          },
+          { 
+            title: "Enhanced Flavor", 
+            description: "Blanching improves the natural nutty taste, making them perfect for premium food products."
+          },
+          { 
+            title: "Nutrient-Rich", 
+            description: "Retains all essential nutrients like protein, healthy fats, and fiber — just without the skin."
+          },
+          { 
+            title: "Versatile Usage", 
+            description: "Widely used in peanut butter, confectionery, baked goods, snacks, and even cosmetics or animal feed."
+          }
+        ].map((feature, index, array) => (
+          <Box 
+            key={index}
             sx={{
-              color: theme.palette.customColors.lightGold,
-              lineHeight: 1.6
+              p: 3,
+              borderBottom: index !== array.length - 1 ? `1px solid rgba(255,255,255,0.1)` : 'none',
             }}
           >
-            {feature.description}
-          </Typography>
-        </Box>
-      ))}
-    </Paper>
-  </Box>
-</Container>
+            <Typography 
+              variant="h6" 
+              component="h3" 
+              fontFamily="Lato, sans-serif"
+              fontWeight="bold"
+              sx={{ 
+                color: theme.palette.customColors.darkGold, 
+                mb: 1.5,
+                fontSize: { xs: '1.1rem', md: '1.25rem' }
+              }}
+            >
+              {feature.title}
+            </Typography>
+            <Typography 
+              variant="body2"
+              fontFamily="Inter, sans-serif"
+              sx={{
+                color: theme.palette.customColors.lightGold,
+                lineHeight: 1.6
+              }}
+            >
+              {feature.description}
+            </Typography>
+          </Box>
+        ))}
+      </Paper>
+    </Box>
+  </Container>
 
       {/* Additional Information Section with improved layout */}
       <Container component="section" aria-label="Why Choose Our Products" maxWidth="lg" sx={{ my: { xs: 6, md: 10 }, px: { xs: 3, md: 4 } }}>
@@ -662,7 +675,7 @@ const RunnerPeanutPage = () => {
                 fontSize: { xs: '1.6rem', sm: '1.8rem', md: '2rem' }
               }}
             >
-              Why Choose Our Runner Peanuts?
+              Why Choose Our Blanched Peanuts?
             </Typography>
             
             {/* Industry applications */}
@@ -769,7 +782,7 @@ const RunnerPeanutPage = () => {
                 }
               }}
             >
-              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality runner peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
+              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality blanched peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
             </Typography>
             
             {/* CTA Button */}
@@ -820,7 +833,7 @@ const RunnerPeanutPage = () => {
             }}
           >
             <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link> {'>'}
-            <span style={{ color: theme.palette.primary.main }}>Runner Peanuts</span>
+            <span style={{ color: theme.palette.primary.main }}>Blanched Peanuts</span>
           </Typography>
         </nav>
       </Container>
@@ -839,29 +852,25 @@ const ProductSpecifications = () => {
       title: "Product Qualities",
       icon: <EmojiEventsIcon size={20} />,
       items: [
-        { name: "Type", value: "Natural / Raw / Roasted / Blanched / Split" },
-        { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
-        { name: "Varieties Available", value: "40/50, 50/60, 60/70 counts (kernels per ounce)" },
-        { name: "Oil Content", value: "45%–50%" }
+        { name: "Type", value: "Blanched Peanuts" },
+        { name: "Color", value: "White to Light cream" }
       ]
     },
     packaging: {
       title: "Packaging & Storage",
       icon: <LocalShippingIcon size={20} />,
       items: [
-        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs" },
-        { name: "Shelf Life", value: "12 months" },
-        { name: "Storage", value: "Cool, dry place away from direct sunlight" }
+        { name: "Packaging", value: "Vacuum-sealed, bulk, or customized" }
       ]
     },
     quality: {
       title: "Quality Parameters",
       icon: <BarChartIcon size={20} />,
       items: [
-        { name: "Moisture", value: "7% max" },
-        { name: "Admixture", value: "0.5% max" },
-        { name: "Damaged Kernels", value: "1% max" },
-        { name: "Aflatoxin", value: "Below 10 ppb" }
+        { name: "Moisture", value: "≤5% max" },
+        { name: "Foreign Matter", value: "≤0.5% max" },
+        { name: "Damaged Kernels", value: "≤1% max" },
+        { name: "Aflatoxin", value: "Compliant with international standards" }
       ]
     },
     certifications: {
@@ -927,7 +936,7 @@ const ProductSpecifications = () => {
             fontFamily: 'Inter, sans-serif',
           }}
         >
-          Our runner peanuts meet the highest quality standards for international markets
+          Our blanched peanuts meet the highest quality standards for international markets
         </Typography>
       </Box>
 
@@ -1055,4 +1064,4 @@ const ProductSpecifications = () => {
 };
 
 
-export default RunnerPeanutPage;
+export default BlanchedPeanutPage;

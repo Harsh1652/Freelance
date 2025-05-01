@@ -13,8 +13,14 @@ import {
   ListItemText,
   useMediaQuery,
   useTheme,
-  Container
+  Container,
+  Menu,
+  MenuItem,
+  Collapse,
+  ListItemButton
 } from '@mui/material';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import MenuIcon from '@mui/icons-material/Menu';
 
 // Import the logo image
@@ -26,12 +32,25 @@ const Navbar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  
+  // State for products dropdown
+  const [productsMenuAnchor, setProductsMenuAnchor] = useState(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
+  // Product items based on your product pages
+  const productItems = [
+    { name: 'Bold Peanuts', path: '/products/bold-peanuts' },
+    { name: 'Runner Peanuts', path: '/products/runner-peanuts' },
+    { name: 'Red Skin Peanuts', path: '/products/red-skin-peanuts' },
+    { name: 'Blanched Peanuts', path: '/products/blanched-peanuts' },
+    { name: 'Peanut Oil', path: '/products/peanut-oil' },
+  ];
 
   // Updated navItems to include path information
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },   
-    { name: 'Products', path: '/products' },
+    { name: 'Products', path: '/products', hasDropdown: true },
     { name: 'Explore', path: '/explore' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' }
@@ -41,17 +60,28 @@ const Navbar = () => {
     setDrawerOpen(!drawerOpen);
   };
 
+  const handleProductsMenuOpen = (event) => {
+    setProductsMenuAnchor(event.currentTarget);
+  };
+
+  const handleProductsMenuClose = () => {
+    setProductsMenuAnchor(null);
+  };
+
+  const toggleMobileProductsMenu = () => {
+    setMobileProductsOpen(!mobileProductsOpen);
+  };
+
   const drawer = (
     <Box 
-      onClick={handleDrawerToggle} 
+      onClick={(e) => e.target.tagName !== 'DIV' && handleDrawerToggle()} 
       sx={{ 
         textAlign: 'center',
-        backgroundColor: theme.palette.background.default, // Using theme default background color
+        backgroundColor: theme.palette.background.default,
         height: '100%' 
       }}
     >
       <Box sx={{ my: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {/* Logo in drawer - INCREASED SIZE */}
         <Box 
           component="img"
           src={Logo}
@@ -66,24 +96,68 @@ const Navbar = () => {
       </Box>
       <List>
         {navItems.map((item) => (
-          <ListItem 
-            key={item.name} 
-            disablePadding 
-            component={RouterLink} 
-            to={item.path}
-          >
-            <ListItemText
-              primary={item.name}
-              sx={{
-                textAlign: 'center',
-                '& .MuiTypography-root': {
-                  fontFamily: 'Inter',
-                  fontWeight: '500',
-                  color: theme.palette.primary.main,
-                }
-              }}
-            />
-          </ListItem>
+          item.hasDropdown ? (
+            <React.Fragment key={item.name}>
+              <ListItemButton onClick={toggleMobileProductsMenu} sx={{ textAlign: 'center' }}>
+                <ListItemText 
+                  primary={item.name}
+                  sx={{
+                    '& .MuiTypography-root': {
+                      fontFamily: 'Inter',
+                      fontWeight: '500',
+                      color: theme.palette.primary.main,
+                    }
+                  }}
+                />
+                {mobileProductsOpen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={mobileProductsOpen} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {productItems.map((product) => (
+                    <ListItem 
+                      key={product.name}
+                      disablePadding
+                      component={RouterLink}
+                      to={product.path}
+                      sx={{ pl: 4 }}
+                    >
+                      <ListItemText 
+                        primary={product.name} 
+                        sx={{
+                          textAlign: 'center',
+                          '& .MuiTypography-root': {
+                            fontFamily: 'Inter',
+                            fontWeight: '500',
+                            color: theme.palette.secondary.main,
+                            fontSize: '0.9rem'
+                          }
+                        }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Collapse>
+            </React.Fragment>
+          ) : (
+            <ListItem 
+              key={item.name} 
+              disablePadding 
+              component={RouterLink} 
+              to={item.path}
+            >
+              <ListItemText
+                primary={item.name}
+                sx={{
+                  textAlign: 'center',
+                  '& .MuiTypography-root': {
+                    fontFamily: 'Inter',
+                    fontWeight: '500',
+                    color: theme.palette.primary.main,
+                  }
+                }}
+              />
+            </ListItem>
+          )
         ))}
       </List>
     </Box>
@@ -108,8 +182,8 @@ const Navbar = () => {
       position="static"
       elevation={2}
       sx={{
-        background: theme.customGradients.greenDark,
-        color: theme.palette.customColors.lightGold,
+        background: theme.customGradients?.greenDark,
+        color: theme.palette.customColors?.lightGold,
       }}
     >
       <Container maxWidth="xl">
@@ -149,8 +223,8 @@ const Navbar = () => {
                 justifyContent: 'flex-start',
                 flexWrap: 'wrap'
               }}>
-                {navItems.slice(0, 3).map((item) => (
-                  // First set of buttons (Home, About Us, Reviews)
+                {/* First two items */}
+                {navItems.slice(0, 2).map((item) => (
                   <Button 
                     key={item.name} 
                     component={RouterLink} 
@@ -160,6 +234,59 @@ const Navbar = () => {
                     {item.name}
                   </Button>
                 ))}
+                
+                {/* Products with dropdown */}
+                <Button 
+                  aria-controls="products-menu"
+                  aria-haspopup="true"
+                  onClick={handleProductsMenuOpen}
+                  sx={{
+                    ...commonButtonStyle,
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}
+                >
+                  Products
+                  {productsMenuAnchor ? <ExpandLess sx={{ ml: 0.5, fontSize: '1rem' }} /> : <ExpandMore sx={{ ml: 0.5, fontSize: '1rem' }} />}
+                </Button>
+                <Menu
+                  id="products-menu"
+                  anchorEl={productsMenuAnchor}
+                  keepMounted
+                  open={Boolean(productsMenuAnchor)}
+                  onClose={handleProductsMenuClose}
+                  sx={{
+                    '& .MuiPaper-root': {
+                      backgroundColor: theme.palette.background.paper,
+                      borderRadius: 1,
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                      mt: 1
+                    }
+                  }}
+                >
+                  {productItems.map((product) => (
+                    <MenuItem 
+                      key={product.name} 
+                      component={RouterLink} 
+                      to={product.path}
+                      onClick={handleProductsMenuClose}
+                      sx={{
+                        fontFamily: 'Inter',
+                        color: theme.palette.secondary.main,
+                        fontSize: '0.95rem',
+                        py: 1,
+                        px: 2,
+                        minWidth: '180px',
+                        '&:hover': {
+                          backgroundColor: 'rgba(109, 140, 63, 0.1)',
+                          color: theme.palette.primary.main
+                        }
+                      }}
+                    >
+                      {product.name}
+                    </MenuItem>
+                  ))}
+                </Menu>
               </Box>
 
               {/* Logo in center - INCREASED SIZE */}
@@ -193,7 +320,6 @@ const Navbar = () => {
                 flexWrap: 'wrap'
               }}>
                 {navItems.slice(3, 5).map((item) => (
-                  // Explore and Gallery buttons - now using the same style as set 1
                   <Button
                     key={item.name}
                     component={RouterLink}
@@ -212,7 +338,7 @@ const Navbar = () => {
                     mx: { sm: 0.5, md: 1 },
                     fontFamily: 'Inter',
                     textTransform: 'none',
-                    borderRadius: '50px', // Making it circular
+                    borderRadius: '50px',
                     padding: { sm: '6px 14px', md: '8px 16px' },
                     minWidth: { sm: '70px', md: '88px' },
                     height: { sm: '36px', md: '40px' },
@@ -249,7 +375,7 @@ const Navbar = () => {
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
             width: 240,
-            backgroundColor: theme.palette.background.default, // Also setting background color for the drawer paper
+            backgroundColor: theme.palette.background.default,
           },
         }}
       >

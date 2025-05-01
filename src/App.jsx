@@ -8,10 +8,14 @@ import theme from './styles/theme'; // import your theme
 
 // Import other pages (create these files as needed)
 import About from './pages/about';
-import Products from './pages/products/products';
-// import Explore from './pages/explore';
-// import Gallery from './pages/gallery';
 import RunnerPeanutsPage from './pages/products/runnerPeanuts';
+import BoldPeanutsPage from './pages/products/boldPeanuts';
+import RedSkinPeanutsPage from './pages/products/redSkinPeanuts';
+import BlanchedPeanutsPage from './pages/products/blanchedPeanuts';
+import PeanutOilPage from './pages/products/peanutOil';
+
+
+
 import ContactUs from './pages/contact';
 
 const App = () => {
@@ -25,11 +29,18 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* Add routes for other pages */}
           <Route path="/about" element={<About />} /> 
-          <Route path="/products" element={<Products />} />  
           {/* <Route path="/explore" element={<Explore />} /> */}
           {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/products/runner-peanuts" element={<RunnerPeanutsPage />} />
+          <Route path="/products/bold-peanuts" element={<BoldPeanutsPage />} />
+          <Route path="/products/red-skin-peanuts" element={<RedSkinPeanutsPage />} />
+          <Route path="/products/blanched-peanuts" element={<BlanchedPeanutsPage />} />
+          <Route path="/products/peanut-oil" element={<PeanutOilPage />} />
+
+
+
+
 
         </Routes>
         <Footer />
