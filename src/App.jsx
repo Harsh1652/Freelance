@@ -13,9 +13,14 @@ import BoldPeanutsPage from './pages/products/boldPeanuts';
 import RedSkinPeanutsPage from './pages/products/redSkinPeanuts';
 import BlanchedPeanutsPage from './pages/products/blanchedPeanuts';
 import PeanutOilPage from './pages/products/peanutOil';
-import SpanishPage from './pages/products/spanishPeanuts';
+import SpanishPeanutPage from './pages/products/spanishPeanuts';
 import TJPage from './pages/products/tjPeanuts';
 import LongJavaPage from './pages/products/longJavaPeanuts';
+import G20PeanutsPage from './pages/products/g20Peanuts';
+import K6PeanutPage from './pages/products/k6Peanuts';
+import MathadiPeanutPage from './pages/products/mathadiPeanuts';
+import GirnarPeanutPage from './pages/products/girnarPeanuts';
+
 
 
 
@@ -41,9 +46,14 @@ const App = () => {
           <Route path="/products/red-skin-peanuts" element={<RedSkinPeanutsPage />} />
           <Route path="/products/blanched-peanuts" element={<BlanchedPeanutsPage />} />
           <Route path="/products/peanut-oil" element={<PeanutOilPage />} />
-          <Route path="/products/spanish-peanuts" element={<SpanishPage />} />
+          <Route path="/products/spanish-peanuts" element={<SpanishPeanutPage />} />
           <Route path="/products/tj-peanuts" element={<TJPage />} />
           <Route path="/products/long-java-peanuts" element={<LongJavaPage />} />
+          <Route path="/products/g20-peanuts" element={<G20PeanutsPage />} />
+          <Route path="/products/k6-peanuts" element={<K6PeanutPage />} />
+          <Route path="/products/mathadi-peanuts" element={<MathadiPeanutPage />} />
+          <Route path="/products/girnar-peanuts" element={<GirnarPeanutPage />} />
+
           {/* Add more routes as needed */}
 
           

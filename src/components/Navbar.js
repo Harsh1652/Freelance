@@ -46,6 +46,12 @@ const Navbar = () => {
     { name: 'Spanish Peanuts', path: '/products/spanish-peanuts' },
     { name: 'TJ Peanuts', path: '/products/tj-peanuts' },
     { name: 'Long Java Peanuts', path: '/products/long-java-peanuts' },
+    { name: 'G20 Peanuts', path: '/products/g20-peanuts' },
+    { name: 'K6 Peanuts', path: '/products/k6-peanuts' },
+    { name: 'Mathadi Peanuts', path: '/products/mathadi-peanuts' },
+    { name: 'Girnar 4 - Girnar 5 Peanuts', path: '/products/girnar-peanuts' },
+
+
 
 
 
