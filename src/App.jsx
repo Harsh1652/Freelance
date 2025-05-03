@@ -20,6 +20,9 @@ import G20PeanutsPage from './pages/products/g20Peanuts';
 import K6PeanutPage from './pages/products/k6Peanuts';
 import MathadiPeanutPage from './pages/products/mathadiPeanuts';
 import GirnarPeanutPage from './pages/products/girnarPeanuts';
+import ICGV03043PeanutPage from './pages/products/icgv03043Peanuts';
+import ICGV15099PeanutPage from './pages/products/icgv15099Peanuts';
+import VirginiaPeanutPage from './pages/products/virginiaPeanuts'; 
 
 
 
@@ -38,8 +41,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* Add routes for other pages */}
           <Route path="/about" element={<About />} /> 
-          {/* <Route path="/explore" element={<Explore />} /> */}
-          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/products/runner-peanuts" element={<RunnerPeanutsPage />} />
           <Route path="/products/bold-peanuts" element={<BoldPeanutsPage />} />
@@ -53,6 +54,9 @@ const App = () => {
           <Route path="/products/k6-peanuts" element={<K6PeanutPage />} />
           <Route path="/products/mathadi-peanuts" element={<MathadiPeanutPage />} />
           <Route path="/products/girnar-peanuts" element={<GirnarPeanutPage />} />
+          <Route path="/products/icgv03043-peanuts" element={<ICGV03043PeanutPage />} />
+          <Route path="/products/icgv15099-peanuts" element={<ICGV15099PeanutPage />} />
+          <Route path="/products/virginia-peanuts" element={<VirginiaPeanutPage />} />
 
           {/* Add more routes as needed */}
 

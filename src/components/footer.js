@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Box, 
   Container, 
@@ -8,7 +8,10 @@ import {
   Stack,
   Divider,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Collapse,
+  List,
+  ListItem
 } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -19,6 +22,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Import the logo image
@@ -29,6 +34,29 @@ const Footer = () => {
   const isXsScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+
+  const peanutProducts = [
+    { name: 'Bold Peanuts', path: '/products/bold-peanuts' },
+    { name: 'Runner Peanuts', path: '/products/runner-peanuts' },
+    { name: 'Red Skin Peanuts', path: '/products/red-skin-peanuts' },
+    { name: 'Blanched Peanuts', path: '/products/blanched-peanuts' },
+    { name: 'Spanish Peanuts', path: '/products/spanish-peanuts' },
+    { name: 'TJ Peanuts', path: '/products/tj-peanuts' },
+    { name: 'Long Java Peanuts', path: '/products/long-java-peanuts' },
+    { name: 'G20 Peanuts', path: '/products/g20-peanuts' },
+    { name: 'K6 Peanuts', path: '/products/k6-peanuts' },
+    { name: 'Mathadi Peanuts', path: '/products/mathadi-peanuts' },
+    { name: 'Girnar 4 - Girnar 5 Peanuts', path: '/products/girnar-peanuts' },
+    { name: 'ICGV 03043 Peanuts', path: '/products/icgv03043-peanuts' },
+    { name: 'ICGV 15099 Peanuts', path: '/products/icgv15099-peanuts' },
+    { name: 'Virginia Peanuts', path: '/products/virginia-peanuts' },
+    { name: 'Peanut Oil', path: '/products/peanut-oil' },
+  ];
+
+  const toggleProductDropdown = () => {
+    setProductDropdownOpen(!productDropdownOpen);
+  };
 
   return (
     <Box sx={{ 
@@ -121,20 +149,28 @@ const Footer = () => {
               <Stack spacing={{ xs: 1, sm: 2 }} sx={{ mb: 2, width: '100%' }}>
                 {[
                   { 
-                    icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}}   fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE", sx:{  fontFamily: 'Inter' }
+                    icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}} fontSize={isXsScreen ? "small" : "medium"} />, 
+                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE", 
+                    href: "https://www.google.com/maps/search/KRISHNAAMRUT+KALWA+KRICK+ROAD+THANE", 
+                    sx: { fontFamily: 'Inter' }
                   },
                   { 
                     icon: <PhoneIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "9589582999", sx:{  fontFamily: 'Inter' } 
+                    text: "+91 9778888339", 
+                    href: "tel:+919778888339", 
+                    sx: { fontFamily: 'Inter' } 
                   },
                   { 
                     icon: <EmailIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "amansharma3833@gmail.com", sx:{  fontFamily: 'Inter' } 
+                    text: "amansharma3833@gmail.com", 
+                    href: "mailto:amansharma3833@gmail.com", 
+                    sx: { fontFamily: 'Inter' } 
                   },
                   { 
                     icon: <AccessTimeIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "Office Timing: 9 AM - 7 PM, Mon - Sat", sx:{  fontFamily: 'Inter' } 
+                    text: "Office Timing: 9 AM - 7 PM, Mon - Sat", 
+                    href: null, 
+                    sx: { fontFamily: 'Inter' } 
                   }
                 ].map((item, index) => (
                   <Box 
@@ -146,21 +182,39 @@ const Footer = () => {
                     }}
                   >
                     <Box sx={{ mr: 1, mt: '2px', flexShrink: 0 }}>{item.icon}</Box>
-                    <Typography 
-                      variant={isXsScreen ? "caption" : "body2"}
-                      sx={{ 
-                        wordBreak: 'break-word',
-                        overflowWrap: 'break-word'
-                      }}
-                    >
-                      {item.text}
-                    </Typography>
+                    {item.href ? (
+                      <Typography 
+                        component="a"
+                        href={item.href}
+                        variant={isXsScreen ? "caption" : "body2"}
+                        sx={{ 
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                          color: theme.palette.customColors.lightGold,
+                          textDecoration: 'none',
+                          transition: 'color 0.3s',
+                          '&:hover': { color: theme.palette.customColors.accentGreen },
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {item.text}
+                      </Typography>
+                    ) : (
+                      <Typography 
+                        variant={isXsScreen ? "caption" : "body2"}
+                        sx={{ 
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word'
+                        }}
+                      >
+                        {item.text}
+                      </Typography>
+                    )}
                   </Box>
                 ))}
               </Stack>
             </Box>
           </Grid>
-
 
           {/* Page Links */}
           <Grid item xs={6} sm={3} md={2} sx={{ 
@@ -172,13 +226,125 @@ const Footer = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: { xs: 'center', sm: 'flex-start' },
-              textAlign: { xs: 'center', sm: 'left' }
+              textAlign: { xs: 'center', sm: 'left' },
+              width: '100%'
             }}>
-              <Stack spacing={{ xs: 0.5, sm: 1 }}>
+              {/* Quick Links Heading */}
+              <Typography 
+                variant={isXsScreen ? "subtitle2" : "h6"} 
+                component="div" 
+                sx={{ 
+                  mb: { xs: 1, sm: 2 }, 
+                  color: theme.palette.customColors.accentGreen,
+                  fontFamily: 'Lato',
+                  fontWeight: 'bold' 
+                }}
+              >
+                QUICK LINKS
+              </Typography>
+              
+              <Stack spacing={{ xs: 0.5, sm: 1 }} sx={{ width: '100%' }}>
+                {/* Regular Links */}
                 {[
                   { name: "Home", path: "/" },
-                  { name: "About Us", path: "/about" },
-                  { name: "Reviews", path: "/reviews" },
+                  { name: "About Us", path: "/about" }
+                ].map((item, index) => (
+                  <Typography 
+                    key={index}
+                    variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
+                    component={RouterLink} 
+                    to={item.path} 
+                    sx={{ 
+                      fontFamily: 'Inter', 
+                      fontWeight: 'bold', 
+                      color: theme.palette.customColors.lightGold,
+                      textDecoration: 'none',
+                      transition: 'color 0.3s', 
+                      '&:hover': { color: theme.palette.customColors.accentGreen },
+                      pb: 0.5
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                ))}
+                
+                {/* Products Dropdown */}
+                <Box sx={{ width: '100%' }}>
+                  <Box 
+                    onClick={toggleProductDropdown}
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: { xs: 'center', sm: 'space-between' },
+                      cursor: 'pointer',
+                      mb: 0.5
+                    }}
+                  >
+                    <Typography 
+                      variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
+                      sx={{ 
+                        fontFamily: 'Inter', 
+                        fontWeight: 'bold', 
+                        color: theme.palette.customColors.lightGold,
+                        transition: 'color 0.3s', 
+                        '&:hover': { color: theme.palette.customColors.accentGreen },
+                      }}
+                    >
+                      Products
+                    </Typography>
+                    {productDropdownOpen ? 
+                      <KeyboardArrowUpIcon sx={{ color: theme.palette.customColors.lightGold }} /> : 
+                      <KeyboardArrowDownIcon sx={{ color: theme.palette.customColors.lightGold }} />
+                    }
+                  </Box>
+                  
+                  <Collapse in={productDropdownOpen}>
+                    <List 
+                      disablePadding 
+                      sx={{ 
+                        ml: { xs: 0, sm: 2 },
+                        mt: 0.5,
+                        mb: 1,
+                        maxHeight: '200px',
+                        overflowY: 'auto',
+                        '&::-webkit-scrollbar': {
+                          width: '6px',
+                        },
+                        '&::-webkit-scrollbar-track': {
+                          background: 'rgba(255, 255, 255, 0.1)',
+                        },
+                        '&::-webkit-scrollbar-thumb': {
+                          background: theme.palette.customColors.accentGreen,
+                        }
+                      }}
+                    >
+                      {peanutProducts.map((product, index) => (
+                        <ListItem key={index} disablePadding sx={{ py: 0.3 }}>
+                          <Typography 
+                            component={RouterLink}
+                            to={product.path}
+                            variant={isXsScreen ? "caption" : "body2"}
+                            sx={{ 
+                              color: theme.palette.customColors.lightGold,
+                              textDecoration: 'none',
+                              transition: 'color 0.3s', 
+                              '&:hover': { color: theme.palette.customColors.accentGreen },
+                              fontFamily: 'Inter',
+                              display: 'block',
+                              width: '100%',
+                              textAlign: { xs: 'center', sm: 'left' }
+                            }}
+                          >
+                            {product.name}
+                          </Typography>
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Collapse>
+                </Box>
+                
+                {/* Remaining Links */}
+                {[
                   { name: "Explore", path: "/explore" },
                   { name: "Gallery", path: "/gallery" },
                   { name: "Contact Us", path: "/contact" }
@@ -202,38 +368,6 @@ const Footer = () => {
                   </Typography>
                 ))}
               </Stack>
-            </Box>
-          </Grid>
-
-          {/* Google Map */}
-          <Grid item xs={6} sm={3} md={3} lg={2} sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            order: { xs: 4, md: 4 }
-          }}>
-            <Box sx={{ 
-              width: '100%', 
-              height: { xs: 120, sm: 150, md: 200 },
-              bgcolor: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              borderRadius: 1,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              overflow: 'hidden'
-            }}>
-              <Typography 
-                variant={isXsScreen ? "caption" : "body2"} 
-                sx={{ 
-                  color: 'rgba(255,255,255,0.7)',
-                  textAlign: 'center',
-                  px: 1
-                }}
-              >
-                Google Map Location
-                {/* Replace with actual Google Map embed */}
-              </Typography>
             </Box>
           </Grid>
         </Grid>

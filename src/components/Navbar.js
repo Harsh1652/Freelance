@@ -50,12 +50,9 @@ const Navbar = () => {
     { name: 'K6 Peanuts', path: '/products/k6-peanuts' },
     { name: 'Mathadi Peanuts', path: '/products/mathadi-peanuts' },
     { name: 'Girnar 4 - Girnar 5 Peanuts', path: '/products/girnar-peanuts' },
-
-
-
-
-
-
+    { name: 'ICGV 03043 Peanuts', path: '/products/icgv03043-peanuts' },
+    { name: 'ICGV 15099 Peanuts', path: '/products/icgv15099-peanuts' },
+    { name: 'Virginia Peanuts', path: '/products/virginia-peanuts' },
     
     { name: 'Peanut Oil', path: '/products/peanut-oil' },
     
