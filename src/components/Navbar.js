@@ -53,6 +53,7 @@ const Navbar = () => {
     { name: 'ICGV 03043 Peanuts', path: '/products/icgv03043-peanuts' },
     { name: 'ICGV 15099 Peanuts', path: '/products/icgv15099-peanuts' },
     { name: 'Virginia Peanuts', path: '/products/virginia-peanuts' },
+    { name: 'Peanut Butter', path: '/products/peanut-butter' },
     
     { name: 'Peanut Oil', path: '/products/peanut-oil' },
     
@@ -63,7 +64,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },   
     { name: 'Products', path: '/products', hasDropdown: true },
-    { name: 'Explore', path: '/explore' },
+    { name: 'Health Benfits', path: '/health-benefits' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' }
   ];

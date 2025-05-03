@@ -23,6 +23,9 @@ import GirnarPeanutPage from './pages/products/girnarPeanuts';
 import ICGV03043PeanutPage from './pages/products/icgv03043Peanuts';
 import ICGV15099PeanutPage from './pages/products/icgv15099Peanuts';
 import VirginiaPeanutPage from './pages/products/virginiaPeanuts'; 
+import PeanutButterPage from './pages/products/peanutButter';
+
+import HealthBenfitsPage from './pages/healthBenefits'; 
 
 
 
@@ -42,6 +45,7 @@ const App = () => {
           {/* Add routes for other pages */}
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<ContactUs />} />
+
           <Route path="/products/runner-peanuts" element={<RunnerPeanutsPage />} />
           <Route path="/products/bold-peanuts" element={<BoldPeanutsPage />} />
           <Route path="/products/red-skin-peanuts" element={<RedSkinPeanutsPage />} />
@@ -57,6 +61,11 @@ const App = () => {
           <Route path="/products/icgv03043-peanuts" element={<ICGV03043PeanutPage />} />
           <Route path="/products/icgv15099-peanuts" element={<ICGV15099PeanutPage />} />
           <Route path="/products/virginia-peanuts" element={<VirginiaPeanutPage />} />
+          <Route path="/products/peanut-butter" element={<PeanutButterPage />} />
+
+          {/* Add routes for other pages */}
+
+          <Route path="/health-benefits" element={<HealthBenfitsPage />} /> 
 
           {/* Add more routes as needed */}
 
