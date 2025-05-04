@@ -26,6 +26,7 @@ import VirginiaPeanutPage from './pages/products/virginiaPeanuts';
 import PeanutButterPage from './pages/products/peanutButter';
 
 import HealthBenfitsPage from './pages/healthBenefits'; 
+import ServicsePage from './pages/services'; 
 
 
 
@@ -41,8 +42,9 @@ const App = () => {
         {/* Navbar is outside Routes, so it appears on every page */}
         <Navbar />
         <Routes>
+
+          
           <Route path="/" element={<Home />} />
-          {/* Add routes for other pages */}
           <Route path="/about" element={<About />} /> 
           <Route path="/contact" element={<ContactUs />} />
 
@@ -63,9 +65,9 @@ const App = () => {
           <Route path="/products/virginia-peanuts" element={<VirginiaPeanutPage />} />
           <Route path="/products/peanut-butter" element={<PeanutButterPage />} />
 
-          {/* Add routes for other pages */}
-
+        
           <Route path="/health-benefits" element={<HealthBenfitsPage />} /> 
+          <Route path="/services" element={<ServicsePage />} />
 
           {/* Add more routes as needed */}
 

@@ -65,7 +65,7 @@ const Navbar = () => {
     { name: 'About Us', path: '/about' },   
     { name: 'Products', path: '/products', hasDropdown: true },
     { name: 'Health Benfits', path: '/health-benefits' },
-    { name: 'Gallery', path: '/gallery' },
+    { name: 'Services', path: '/services' },
     { name: 'Contact Us', path: '/contact' }
   ];
 
