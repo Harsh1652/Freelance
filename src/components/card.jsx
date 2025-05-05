@@ -1,4 +1,4 @@
-// card.jsx
+// src/components/card.jsx
 import React from 'react';
 import { 
   Box, 

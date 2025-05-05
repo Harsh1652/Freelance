@@ -5,6 +5,9 @@ import Navbar from './components/Navbar'; // import the Navbar component
 import Footer from './components/footer'; // import the Footer component
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './styles/theme'; // import your theme
+import WhatsAppButton from './components/whatsAppButton';
+
+
 
 // Import other pages (create these files as needed)
 import About from './pages/about';
@@ -27,12 +30,12 @@ import PeanutButterPage from './pages/products/peanutButter';
 
 import HealthBenfitsPage from './pages/healthBenefits'; 
 import ServicsePage from './pages/services'; 
-
-
-
-
+import BlogsPage from './pages/blogs'; 
+import PenutProcessingPage from './pages/peanutProcessing';
 
 import ContactUs from './pages/contact';
+
+
 
 const App = () => {
   return (
@@ -68,12 +71,19 @@ const App = () => {
         
           <Route path="/health-benefits" element={<HealthBenfitsPage />} /> 
           <Route path="/services" element={<ServicsePage />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/peanut-processing" element={<PenutProcessingPage />} />
 
           {/* Add more routes as needed */}
 
           
         </Routes>
         <Footer />
+         {/* WhatsApp Button - will appear on all pages */}
+         <WhatsAppButton 
+          phoneNumber="+919778888339" // Your WhatsApp number
+          message="Hello, I have a question about your peanut products" // Optional pre-filled message
+        />
       </BrowserRouter>
     </ThemeProvider>
   );

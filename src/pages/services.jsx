@@ -136,7 +136,7 @@ const ServicesPage = () => {
 
   // Why choose us highlights
   const highlights = [
-    '40+ years of experience in peanut cultivation',
+    '65+ years of experience in peanut cultivation',
     'Fully integrated supply chain from farm to export',
     'Commitment to sustainability and organic farming',
     'Trusted by clients worldwide for quality and reliability'

@@ -235,11 +235,12 @@ const ProductsListing = () => {
           </Typography>
         </Box>
         
-        {/* Products Grid - using Box instead of Grid for more control */}
+        {/* Products Grid - using Box with flexbox and justify-content: center */}
         <Box sx={{
           display: 'flex',
           flexWrap: 'wrap',
           margin: '-12px', // Negative margin to offset the padding of child items
+          justifyContent: 'center', // This centers the cards
         }}>
           {products.map((product, index) => (
             <Box
@@ -248,11 +249,12 @@ const ProductsListing = () => {
                 width: {
                   xs: '100%',            // Full width on mobile
                   sm: 'calc(50% - 24px)', // 2 cards per row on tablet (accounting for margins)
-                  md: 'calc(32% - 24px)'  // ~32% width on desktop (accounting for margins)
+                  md: 'calc(33.33% - 24px)'  // Exactly 3 cards per row on desktop
                 },
                 padding: '12px',
                 boxSizing: 'border-box',
                 transition: 'transform 0.3s ease',
+                maxWidth: '400px', // Set a max width for each card
               }}
             >
               <Card 

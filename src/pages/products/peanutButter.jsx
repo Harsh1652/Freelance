@@ -815,7 +815,7 @@ const specSections = {
       title: "Packaging & Storage",
       icon: <LocalShippingIcon size={20} />,
       items: [
-        { name: "Packaging Options", value: "PET jars, sachets, bulk drums (as per buyer requirement)" },
+        { name: "Packaging Options", value: "PET jars, sachets, bulk drums (as per buyer requirement), or customizable" },
         { name: "Shelf Life", value: "12 to 18 months from manufacturing date" },
         { name: "Storage Condition", value: "Store in a cool, dry place away from direct sunlight" }
       ]

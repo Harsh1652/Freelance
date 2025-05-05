@@ -849,7 +849,7 @@ const ProductSpecifications = () => {
       title: "Packaging & Storage",
       icon: <LocalShippingIcon size={20} />,
       items: [
-        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs" },
+        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs, or customizable" },
         { name: "Shelf Life", value: "12 months" },
         { name: "Storage", value: "Cool, dry place away from direct sunlight" }
       ]

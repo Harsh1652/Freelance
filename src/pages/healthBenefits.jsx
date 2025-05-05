@@ -356,15 +356,12 @@ const HealthBenefitsPage = () => {
                             </Typography>
                             <CompactList>
                               <CompactListItem
-                                icon={<FavoriteIcon sx={{ color: '#f06292' }} />}
                                 primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Lower LDL (bad cholesterol)</Typography>}
                               />
                               <CompactListItem
-                                icon={<FavoriteIcon sx={{ color: '#f06292' }} />}
                                 primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Higher HDL (good cholesterol)</Typography>}
                               />
                               <CompactListItem
-                                icon={<FavoriteIcon sx={{ color: '#f06292' }} />}
                                 primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Reduced risk of heart disease</Typography>}
                               />
                             </CompactList>
