@@ -150,7 +150,7 @@ const Footer = () => {
                 {[
                   { 
                     icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE", 
+                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE, Mumbai", 
                     href: "https://www.google.com/maps/search/KRISHNAAMRUT+KALWA+KRICK+ROAD+THANE", 
                     sx: { fontFamily: 'Inter' }
                   },
@@ -161,6 +161,12 @@ const Footer = () => {
                     sx: { fontFamily: 'Inter' } 
                   },
                   { 
+                    icon: <PhoneIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
+                    text: "+44 7407747598 (London)", 
+                    href: "tel:+447407747598", 
+                    sx: { fontFamily: 'Inter' } 
+                  },
+                  { 
                     icon: <EmailIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
                     text: "amansharma3833@gmail.com", 
                     href: "mailto:amansharma3833@gmail.com", 
@@ -168,7 +174,7 @@ const Footer = () => {
                   },
                   { 
                     icon: <AccessTimeIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "Office Timing: 9 AM - 7 PM, Mon - Sat", 
+                    text: "Office Timing: 24/7", 
                     href: null, 
                     sx: { fontFamily: 'Inter' } 
                   }
@@ -247,7 +253,8 @@ const Footer = () => {
                 {/* Regular Links */}
                 {[
                   { name: "Home", path: "/" },
-                  { name: "About Us", path: "/about" }
+                  { name: "About Us", path: "/about" },
+                  { name: "Peanut Processing", path: "/peanut-processing" }
                 ].map((item, index) => (
                   <Typography 
                     key={index}
@@ -345,8 +352,9 @@ const Footer = () => {
                 
                 {/* Remaining Links */}
                 {[
-                  { name: "Explore", path: "/explore" },
-                  { name: "Gallery", path: "/gallery" },
+                  { name: "Blogs", path: "/blogs" },
+                  { name: "Health Benefits", path: "/health-benefits" },
+                  { name: "Services", path: "/services" },
                   { name: "Contact Us", path: "/contact" }
                 ].map((item, index) => (
                   <Typography 

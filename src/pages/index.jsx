@@ -10,10 +10,266 @@ import {
   Chip,
   useMediaQuery,
   Fade,
-  useTheme
+  useTheme,
+  Paper,
+  Divider,
+  Button
 } from '@mui/material';
 import { Leaf as LeafIcon, ChevronRight as ChevronRightIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+
+// About Us section component to add before products
+const AboutUsSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
+  return (
+    <Box sx={{ mb: 10 }}>
+      {/* Welcome Section */}
+      <Box sx={{ mb: 6, width: '100%' }}>
+        <Typography 
+          variant="h3" 
+          component="h2" 
+          fontFamily="Lato, sans-serif"
+          fontWeight="bold"
+          color={theme.palette.primary.main}
+          sx={{ 
+            mb: 3,
+            textAlign: 'center',
+            fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' }
+          }}
+        >
+          Welcome to Balaji Exports
+        </Typography>
+        
+        <Typography 
+          variant="body1" 
+          fontFamily="Inter, sans-serif"
+          sx={{ 
+            color: theme.palette.secondary.main,
+            fontSize: { xs: '1rem', md: '1.1rem' },
+            lineHeight: 1.6,
+            maxWidth: '900px',
+            mx: 'auto',
+            textAlign: 'center'
+          }}
+        >
+          Welcome to Balaji Exports, your trusted partner for the finest quality Indian groundnuts and peanuts. Based in the heart of Rajasthan, India, we are proud to be among the biggest groundnut suppliers in India with a legacy of excellence that spans over 65 years.
+        </Typography>
+      </Box>
+      
+      {/* Our Journey & Specialization */}
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: { xs: 'column', md: 'row' }, 
+        gap: 3,
+        mb: 6
+      }}>
+        <Card 
+          elevation={4}
+          sx={{ 
+            borderRadius: 2,
+            background: theme.customGradients.greenDark,
+            overflow: 'hidden',
+            width: { xs: '100%', md: '49%' },
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'translateY(-5px)',
+              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+            },
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography 
+              variant="h5" 
+              component="h3" 
+              fontFamily="Lato, sans-serif"
+              fontWeight={800}
+              color={theme.palette.customColors.darkGold}
+              sx={{ mb: 2 }}
+            >
+              Our Journey
+            </Typography>
+            <Typography 
+              variant="body1" 
+              fontFamily="Inter, sans-serif"
+              sx={{ 
+                color: theme.palette.customColors.lightGold,
+                fontSize: { xs: '1rem', md: '1.1rem' },
+                lineHeight: 1.6
+              }}
+            >
+              At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
+            </Typography>
+          </CardContent>
+        </Card>
+        
+        <Card 
+          elevation={4}
+          sx={{ 
+            borderRadius: 2,
+            background: theme.customGradients.greenDark,
+            overflow: 'hidden',
+            width: { xs: '100%', md: '49%' },
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'translateY(-5px)',
+              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+            },
+          }}
+        >
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography 
+              variant="h5" 
+              component="h3" 
+              fontFamily="Lato, sans-serif"
+              fontWeight={800}
+              color={theme.palette.customColors.darkGold}
+              sx={{ mb: 2 }}
+            >
+              Our Specialization
+            </Typography>
+            <Typography 
+              variant="body1" 
+              fontFamily="Inter, sans-serif"
+              sx={{ 
+                color: theme.palette.customColors.lightGold,
+                fontSize: { xs: '1rem', md: '1.1rem' },
+                lineHeight: 1.6
+              }}
+            >
+              We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive portfolio also features peanut oil and peanut butter.
+            </Typography>
+          </CardContent>
+        </Card>
+      </Box>
+      
+      {/* Why Choose Us Section */}
+      <Box sx={{ mb: 8 }}>
+        <Typography 
+          variant="h4" 
+          component="h3" 
+          fontFamily="Lato, sans-serif"
+          fontWeight={800}
+          color={theme.palette.primary.main}
+          sx={{ 
+            mb: 4,
+            textAlign: 'center',
+            fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' }
+          }}
+        >
+          Why Choose <span style={{ color: theme.palette.secondary.main }}>Balaji Exports?</span>
+        </Typography>
+        
+        <Box sx={{ 
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: 2,
+          mx: 'auto',
+          maxWidth: '1100px'
+        }}>
+          {[
+            {
+              title: "65+ Years of Farming Expertise", 
+              description: "Generations of knowledge in groundnut cultivation." 
+            },
+            {
+              title: "Modern Processing Unit", 
+              description: "4 metric tons/hour capacity with advanced technology." 
+            },
+            { 
+              title: "Organic, Non-GMO Products", 
+              description: "Focus on organic and pesticide-free groundnuts." 
+            },
+            { 
+              title: "Certified Quality", 
+              description: "FSSAI, HACCP, ISO certifications ensure top food safety standards." 
+            }
+          ].map((feature, index) => (
+            <Paper 
+              key={index}
+              elevation={3}
+              sx={{ 
+                p: 3, 
+                borderRadius: 3,
+                width: { xs: '100%', sm: 'calc(50% - 16px)', md: 'calc(25% - 16px)' },
+                background: theme.customGradients.greenDark,
+                color: theme.palette.customColors.lightGold,
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                height: '100%',
+                minHeight: '180px'
+              }}
+            >
+              <Typography 
+                variant="h6" 
+                component="h4" 
+                fontFamily="Lato, sans-serif"
+                fontWeight="bold"
+                sx={{ 
+                  color: theme.palette.customColors.darkGold, 
+                  mb: 2,
+                  fontSize: { xs: '1rem', md: '1.1rem' }
+                }}
+              >
+                {feature.title}
+              </Typography>
+              <Typography 
+                variant="body2"
+                fontFamily="Inter, sans-serif"
+                sx={{ color: theme.palette.customColors.lightGold }}
+              >
+                {feature.description}
+              </Typography>
+            </Paper>
+          ))}
+        </Box>
+        
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
+          <Button
+            component={RouterLink}
+            to="/about"
+            sx={{
+              fontFamily: 'Inter',
+              textTransform: 'none',
+              borderRadius: '50px',
+              padding: { xs: '8px 20px', md: '10px 24px' },
+              fontSize: { xs: '0.95rem', md: '1.1rem' },
+              color: theme.palette.primary.main,
+              backgroundColor: 'transparent',
+              border: `2px solid ${theme.palette.customColors.accentGreen}`,
+              fontWeight: 500,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: theme.palette.customColors.accentGreen,
+                color: 'white',
+                boxShadow: '0 4px 8px rgba(109, 140, 63, 0.3)',
+              },
+            }}
+          >
+            Learn More About Us
+          </Button>
+        </Box>
+      </Box>
+      
+      <Divider sx={{ 
+        mb: 8, 
+        mt: 2,
+        width: '80%',
+        maxWidth: '1000px',
+        mx: 'auto',
+        borderColor: `${theme.palette.primary.main}30`
+      }} />
+    </Box>
+  );
+};
 
 const ProductsListing = () => {
   const theme = useTheme();
@@ -176,6 +432,9 @@ const ProductsListing = () => {
       />
       
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        {/* About Us Section - Added before products */}
+        <AboutUsSection />
+        
         {/* Products Section Header */}
         <Box 
           sx={{ 
