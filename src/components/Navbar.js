@@ -64,9 +64,9 @@ const Navbar = () => {
     { name: 'About Us', path: '/about' },
     { name: 'Peanut Processing', path: '/peanut-processing' },
     { name: 'Products', path: '/products', hasDropdown: true },
-    { name: 'Blogs', path: '/blogs' },   
-    { name: 'Health Benfits', path: '/health-benefits' },
     { name: 'Services', path: '/services' },
+    { name: 'Health Benfits', path: '/health-benefits' },
+    { name: 'Blogs', path: '/blogs' },   
     { name: 'Contact Us', path: '/contact' }
   ];
 

@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   Container, 
   Typography, 
   Grid, 
-  Tabs, 
-  Tab, 
   Fade,
   Button,
   CircularProgress,
@@ -274,49 +272,28 @@ const PROCESSING_STEPS = [
   }
 ];
 
-// The main peanut journey page component
-const PeanutJourneyPage = () => {
-  // State declarations
-  const [activeSection, setActiveSection] = useState(0); 
+// Process Viewer Component
+const ProcessViewer = ({ steps, title, description, badge }) => {
   const [activeStep, setActiveStep] = useState(0);
-  const [loading, setLoading] = useState(true);
   const [animation, setAnimation] = useState(true);
   const [autoPlay, setAutoPlay] = useState(true);
-  
-  // Window size handling
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 1200
   );
   const isMobile = windowWidth < 600;
-  
-  // Get current steps based on section - use the constants defined outside
-  const currentSteps = activeSection === 0 ? FARMING_STEPS : PROCESSING_STEPS;
-  const currentTitle = activeSection === 0 ? "Organic Peanut Farming Process" : "Peanut Processing System";
-  const currentDescription = activeSection === 0 ? "Sustainable cultivation from soil to harvest" : "Quality transformation from raw kernels to market-ready products";
-  
-  // Loading simulation
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
-  
+
   // Auto-play functionality
   useEffect(() => {
     let interval;
     if (autoPlay) {
       interval = setInterval(() => {
-        setActiveStep((prevStep) => {
-          const steps = activeSection === 0 ? FARMING_STEPS : PROCESSING_STEPS;
-          return prevStep === steps.length - 1 ? 0 : prevStep + 1;
-        });
+        setActiveStep((prevStep) => prevStep === steps.length - 1 ? 0 : prevStep + 1);
       }, 6500);
     }
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [activeSection, autoPlay]);
+  }, [autoPlay, steps.length]);
   
   // Animation reset
   useEffect(() => {
@@ -325,22 +302,9 @@ const PeanutJourneyPage = () => {
       setAnimation(true);
     }, 50);
     return () => clearTimeout(timer);
-  }, [activeSection, activeStep]);
-  
-  // Window resize handler
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  
-  // Navigation functions
-  const handleSectionChange = (event, newValue) => {
-    setActiveSection(newValue);
-    setActiveStep(0);
-    setAutoPlay(true);
-  };
+  }, [activeStep]);
 
+  // Navigation functions
   const goToPreviousStep = () => {
     if (activeStep > 0) {
       setActiveStep(activeStep - 1);
@@ -349,7 +313,7 @@ const PeanutJourneyPage = () => {
   };
 
   const goToNextStep = () => {
-    if (activeStep < currentSteps.length - 1) {
+    if (activeStep < steps.length - 1) {
       setActiveStep(activeStep + 1);
       setAutoPlay(false);
     }
@@ -359,6 +323,342 @@ const PeanutJourneyPage = () => {
     setActiveStep(stepIndex);
     setAutoPlay(false);
   };
+
+  return (
+    <Box sx={{ mb: 10 }}>
+      {/* Section Header */}
+      <Fade in={true} timeout={500}>
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Typography 
+            variant="h3" 
+            sx={{ 
+              color: theme.palette.primary.main,
+              fontSize: isMobile ? '1.5rem' : '2rem',
+              mb: 1
+            }}
+          >
+            {title}
+          </Typography>
+          
+          <Typography 
+            variant="subtitle1" 
+            sx={{ 
+              color: theme.palette.secondary.main,
+              fontSize: isMobile ? '1rem' : '1.25rem',
+              mb: 2
+            }}
+          >
+            {description}
+          </Typography>
+          
+          {badge && (
+            <Chip 
+              label={badge} 
+              sx={{ 
+                bgcolor: theme.palette.customColors.accentGreen,
+                color: 'white',
+                fontWeight: 'bold'
+              }} 
+            />
+          )}
+        </Box>
+      </Fade>
+
+      {/* Step counter display */}
+      <Box sx={{ textAlign: 'center', mb: 3 }}>
+        <Typography 
+          variant="h6" 
+          sx={{ 
+            color: theme.palette.primary.main,
+            fontWeight: 'bold'
+          }}
+        >
+          Step {activeStep + 1} of {steps.length}
+        </Typography>
+      </Box>
+
+      {/* Carousel View */}
+      <Box sx={{ position: 'relative' }}>
+        {/* Carousel navigation buttons */}
+        <IconButton
+          onClick={goToPreviousStep}
+          disabled={activeStep === 0}
+          sx={{
+            position: 'absolute',
+            left: { xs: -16, sm: -24 },
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: 2,
+            bgcolor: 'rgba(255, 255, 255, 0.8)',
+            '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+            boxShadow: 2,
+            color: activeStep === 0 ? 'gray' : theme.palette.primary.main
+          }}
+        >
+          <ChevronLeft size={24} />
+        </IconButton>
+        
+        <IconButton
+          onClick={goToNextStep}
+          disabled={activeStep === steps.length - 1}
+          sx={{
+            position: 'absolute',
+            right: { xs: -16, sm: -24 },
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: 2,
+            bgcolor: 'rgba(255, 255, 255, 0.8)',
+            '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
+            boxShadow: 2,
+            color: activeStep === steps.length - 1 ? 'gray' : theme.palette.primary.main
+          }}
+        >
+          <ChevronRight size={24} />
+        </IconButton>
+        
+        <Fade in={animation} timeout={500}>
+          <Box sx={{ p: 2 }}>
+            {/* Full-width image section */}
+            <Box 
+              sx={{ 
+                width: '98%',
+                height: '500px',
+                borderRadius: 2,
+                boxShadow: 3,
+                backgroundColor: 'rgba(38, 77, 54, 0.05)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                position: 'relative',
+                overflow: 'hidden',
+                mx: 'auto',
+                mb: 4
+              }}
+            >
+              {steps[activeStep].imageUrl ? (
+                <Box 
+                  component="img" 
+                  src={steps[activeStep].imageUrl}
+                  alt={steps[activeStep].imageAlt || "Process step image"}
+                  sx={{ 
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                  }}
+                />
+              ) : (
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    color: theme.palette.primary.main,
+                    opacity: 0.6
+                  }}
+                >
+                  {steps[activeStep].title} Visualization
+                </Typography>
+              )}
+              
+              {/* Organic Badge
+              {steps[activeStep].organic && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    bgcolor: theme.palette.customColors.accentGreen,
+                    color: 'white',
+                    px: 2,
+                    py: 1,
+                    borderRadius: 2,
+                    fontWeight: 'bold'
+                  }}
+                >
+                  🌿 Organic
+                </Box>
+              )} */}
+
+            </Box>
+
+            {/* Content section */}
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    color: theme.palette.primary.main,
+                    mb: 1,
+                    fontFamily: 'Lato, sans-serif'
+                  }}
+                >
+                  {steps[activeStep].title}
+                </Typography>
+                
+                <Typography 
+                  variant="subtitle1" 
+                  sx={{ 
+                    color: theme.palette.primary.main,
+                    mb: 2,
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {steps[activeStep].subtitle}
+                </Typography>
+                
+                <Typography 
+                  variant="body1" 
+                  sx={{ 
+                    color: theme.palette.secondary.main,
+                    mb: 3
+                  }}
+                >
+                  {steps[activeStep].description}
+                </Typography>
+                
+                <Box sx={{ mb: 2 }}>
+                  <Typography 
+                    variant="subtitle2" 
+                    sx={{ 
+                      color: theme.palette.secondary.main,
+                      fontWeight: 'bold',
+                      mb: 1
+                    }}
+                  >
+                    Key Facts:
+                  </Typography>
+                  
+                  {steps[activeStep].facts.map((fact, i) => (
+                    <Box 
+                      key={i} 
+                      sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center',
+                        mb: 1 
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          bgcolor: theme.palette.customColors.accentGreen,
+                          mr: 1
+                        }}
+                      />
+                      <Typography variant="body2" color={theme.palette.primary.main}>
+                        {fact}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+        </Fade>
+      </Box>
+      
+      {/* Carousel navigation dots */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        mt: 4,
+        flexWrap: 'wrap',
+        gap: 1
+      }}>
+        {steps.map((_, index) => (
+          <Box
+            key={index}
+            onClick={() => goToStep(index)}
+            sx={{
+              width: 12,
+              height: 12,
+              borderRadius: '50%',
+              bgcolor: activeStep === index 
+                ? theme.palette.primary.main 
+                : theme.palette.customColors.lightGold,
+              mx: 0.5,
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.2)',
+                bgcolor: activeStep === index 
+                  ? theme.palette.primary.main 
+                  : theme.palette.customColors.accentGreen
+              }
+            }}
+          />
+        ))}
+      </Box>
+      
+      {/* Carousel navigation buttons - bottom */}
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        gap: 2, 
+        mt: 4 
+      }}>
+        <Button 
+          variant="outlined"
+          disabled={activeStep === 0}
+          onClick={goToPreviousStep}
+          sx={{ 
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
+            minWidth: 120,
+            '&:hover': {
+              borderColor: theme.palette.secondary.main,
+              backgroundColor: 'rgba(58, 107, 61, 0.04)'
+            }
+          }}
+        >
+          Previous
+        </Button>
+        
+        <Button 
+          variant="contained"
+          disabled={activeStep === steps.length - 1}
+          onClick={goToNextStep}
+          sx={{ 
+            bgcolor: theme.palette.customColors.accentGreen,
+            minWidth: 120,
+            '&:hover': {
+              bgcolor: theme.palette.secondary.main,
+            }
+          }}
+        >
+          Next
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
+// The main peanut journey page component
+const PeanutJourneyPage = () => {
+  // State declarations
+  const [loading, setLoading] = useState(true);
+  
+  // Window size handling
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
+  const isMobile = windowWidth < 600;
+  
+  // Loading simulation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Window resize handler
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   if (loading) {
     return (
@@ -379,8 +679,8 @@ const PeanutJourneyPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <SEO 
-        title="Peanut Journey | From Organic Farming to Premium Processing" 
-        description="Discover our complete peanut journey from organic farming practices to state-of-the-art processing. Experience our commitment to quality from farm to table."
+        title="Peanut Journey | From Farming to Premium Processing" 
+        description="Discover our complete peanut journey from farming practices to state-of-the-art processing. Experience our commitment to quality from farm to table."
       />
       
       <Box sx={{ 
@@ -415,357 +715,64 @@ const PeanutJourneyPage = () => {
                   mb: 4
                 }}
               >
-                From organic farming to premium processing - ensuring quality at every step
+                From farming to premium processing - ensuring quality at every step
               </Typography>
             </Box>
           </Fade>
 
-          {/* Section Selection Tabs */}
-          <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 4 }}>
-            <Tabs 
-              value={activeSection} 
-              onChange={handleSectionChange}
-              centered
-              sx={{ 
-                '& .MuiTab-root': { 
-                  color: theme.palette.primary.main,
-                  fontSize: '1.1rem',
-                  fontWeight: 'bold',
-                  '&.Mui-selected': {
-                    color: theme.palette.primary.main,
-                  }
-                }
-              }}
-            >
-              <Tab 
-                label="🌱 Organic Farming" 
-                sx={{ textTransform: 'none' }} 
-              />
-              <Tab 
-                label="🏭 Processing & Manufacturing" 
-                sx={{ textTransform: 'none' }} 
-              />
-            </Tabs>
-          </Box>
-
-          {/* Current Section Header */}
-          <Fade in={true} timeout={500}>
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
-              <Typography 
-                variant="h3" 
-                sx={{ 
-                  color: theme.palette.primary.main,
-                  fontSize: isMobile ? '1.5rem' : '2rem',
-                  mb: 1
-                }}
-              >
-                {currentTitle}
-              </Typography>
-              
-              <Typography 
-                variant="subtitle1" 
-                sx={{ 
-                  color: theme.palette.secondary.main,
-                  fontSize: isMobile ? '1rem' : '1.25rem',
-                  mb: 2
-                }}
-              >
-                {currentDescription}
-              </Typography>
-              
-              {activeSection === 0 && (
-                <Chip 
-                  label="100% Organic & Chemical-Free" 
-                  sx={{ 
-                    bgcolor: theme.palette.customColors.accentGreen,
-                    color: 'white',
-                    fontWeight: 'bold'
-                  }} 
-                />
-              )}
-            </Box>
-          </Fade>
-
-          {/* Step counter display */}
-          <Box sx={{ textAlign: 'center', mb: 3 }}>
-            <Typography 
-              variant="h6" 
-              sx={{ 
-                color: theme.palette.primary.main,
-                fontWeight: 'bold'
-              }}
-            >
-              Step {activeStep + 1} of {currentSteps.length}
-            </Typography>
-          </Box>
-
-          {/* Carousel View - Replace tabs with carousel */}
-          <Box sx={{ position: 'relative' }}>
-            {/* Carousel navigation buttons */}
-            <IconButton
-              onClick={goToPreviousStep}
-              disabled={activeStep === 0}
-              sx={{
-                position: 'absolute',
-                left: { xs: -16, sm: -24 },
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 2,
-                bgcolor: 'rgba(255, 255, 255, 0.8)',
-                '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                boxShadow: 2,
-                color: activeStep === 0 ? 'gray' : theme.palette.primary.main
-              }}
-            >
-              <ChevronLeft size={24} />
-            </IconButton>
+          {/* Farming Process Section */}
+          <Box id="farming-section">
+            <ProcessViewer 
+              steps={FARMING_STEPS} 
+              title="Peanut Farming Process" 
+              description="Sustainable cultivation from soil to harvest"
+            />
             
-            <IconButton
-              onClick={goToNextStep}
-              disabled={activeStep === currentSteps.length - 1}
-              sx={{
-                position: 'absolute',
-                right: { xs: -16, sm: -24 },
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 2,
-                bgcolor: 'rgba(255, 255, 255, 0.8)',
-                '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-                boxShadow: 2,
-                color: activeStep === currentSteps.length - 1 ? 'gray' : theme.palette.primary.main
-              }}
-            >
-              <ChevronRight size={24} />
-            </IconButton>
-            
-            <Fade in={animation} timeout={500}>
-              <Box sx={{ p: 2 }}>
-                {/* Full-width image section */}
-                <Box 
-                  sx={{ 
-                    width: '98%',
-                    height: '500px',
-                    borderRadius: 2,
-                    boxShadow: 3,
-                    backgroundColor: 'rgba(38, 77, 54, 0.05)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    mx: 'auto',
-                    mb: 4
-                  }}
-                >
-                  {currentSteps[activeStep].imageUrl ? (
-                    <Box 
-                      component="img" 
-                      src={currentSteps[activeStep].imageUrl}
-                      alt={currentSteps[activeStep].imageAlt || "Process step image"}
-                      sx={{ 
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center'
-                      }}
-                    />
-                  ) : (
-                    <Typography 
-                      variant="h6" 
-                      sx={{ 
-                        color: theme.palette.primary.main,
-                        opacity: 0.6
-                      }}
-                    >
-                      {currentSteps[activeStep].title} Visualization
-                    </Typography>
-                  )}
-                  
-                  {/* Organic Badge */}
-                  {currentSteps[activeStep].organic && (
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: 16,
-                        right: 16,
-                        bgcolor: theme.palette.customColors.accentGreen,
-                        color: 'white',
-                        px: 2,
-                        py: 1,
-                        borderRadius: 2,
-                        fontWeight: 'bold'
-                      }}
-                    >
-                      🌿 Organic
-                    </Box>
-                  )}
-                </Box>
-
-                {/* Content section */}
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <Typography 
-                      variant="h4" 
-                      sx={{ 
-                        color: theme.palette.primary.main,
-                        mb: 1,
-                        fontFamily: 'Lato, sans-serif'
-                      }}
-                    >
-                      {currentSteps[activeStep].title}
-                    </Typography>
-                    
-                    <Typography 
-                      variant="subtitle1" 
-                      sx={{ 
-                        color: theme.palette.primary.main,
-                        mb: 2,
-                        fontWeight: 'bold'
-                      }}
-                    >
-                      {currentSteps[activeStep].subtitle}
-                    </Typography>
-                    
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        color: theme.palette.secondary.main,
-                        mb: 3
-                      }}
-                    >
-                      {currentSteps[activeStep].description}
-                    </Typography>
-                    
-                    <Box sx={{ mb: 2 }}>
-                      <Typography 
-                        variant="subtitle2" 
-                        sx={{ 
-                          color: theme.palette.secondary.main,
-                          fontWeight: 'bold',
-                          mb: 1
-                        }}
-                      >
-                        Key Facts:
-                      </Typography>
-                      
-                      {currentSteps[activeStep].facts.map((fact, i) => (
-                        <Box 
-                          key={i} 
-                          sx={{ 
-                            display: 'flex', 
-                            alignItems: 'center',
-                            mb: 1 
-                          }}
-                        >
-                          <Box
-                            sx={{
-                              width: 8,
-                              height: 8,
-                              borderRadius: '50%',
-                              bgcolor: theme.palette.customColors.accentGreen,
-                              mr: 1
-                            }}
-                          />
-                          <Typography variant="body2" color={theme.palette.primary.main}>
-                            {fact}
-                          </Typography>
-                        </Box>
-                      ))}
-                    </Box>
-                  </Grid>
-                </Grid>
+            {/* Process Summary */}
+            <Fade in={true} timeout={1000}>
+              <Box sx={{ mt: 4, mb: 8, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>
+                  Balaji Exports - Organic and Trusted
+                </Typography>
+                <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
+                  Balaji Exports has built a reputation over the years for growing peanuts organically, without the use of harmful chemicals. We use natural soil enrichers, eco-friendly pest control methods, and sustainable farming techniques. This not only protects consumer health but also nurtures the soil for future generations. Our groundnuts are chemical-free, rich in flavor and nutrition, and grown sustainably with respect for the environment.
+                </Typography>
               </Box>
             </Fade>
           </Box>
-          
-          {/* Carousel navigation dots */}
-          <Box sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            mt: 4,
-            flexWrap: 'wrap',
-            gap: 1
-          }}>
-            {currentSteps.map((_, index) => (
-              <Box
-                key={index}
-                onClick={() => goToStep(index)}
-                sx={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: '50%',
-                  bgcolor: activeStep === index 
-                    ? theme.palette.primary.main 
-                    : theme.palette.customColors.lightGold,
-                  mx: 0.5,
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'scale(1.2)',
-                    bgcolor: activeStep === index 
-                      ? theme.palette.primary.main 
-                      : theme.palette.customColors.accentGreen
-                  }
-                }}
-              />
-            ))}
-          </Box>
-          
-          {/* Carousel navigation buttons - bottom */}
-          <Box sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: 2, 
-            mt: 4 
-          }}>
-            <Button 
-              variant="outlined"
-              disabled={activeStep === 0}
-              onClick={goToPreviousStep}
-              sx={{ 
-                color: theme.palette.primary.main,
-                borderColor: theme.palette.primary.main,
-                minWidth: 120,
-                '&:hover': {
-                  borderColor: theme.palette.secondary.main,
-                  backgroundColor: 'rgba(58, 107, 61, 0.04)'
-                }
-              }}
-            >
-              Previous
-            </Button>
+
+          {/* Divider */}
+          <Box 
+            sx={{ 
+              height: 2, 
+              bgcolor: theme.palette.primary.main, 
+              opacity: 0.3, 
+              width: '70%', 
+              mx: 'auto',
+              my: 8 
+            }} 
+          />
+
+          {/* Processing Section */}
+          <Box id="processing-section">
+            <ProcessViewer 
+              steps={PROCESSING_STEPS} 
+              title="Peanut Processing System" 
+              description="Quality transformation from raw kernels to market-ready products"
+            />
             
-            <Button 
-              variant="contained"
-              disabled={activeStep === currentSteps.length - 1}
-              onClick={goToNextStep}
-              sx={{ 
-                bgcolor: theme.palette.customColors.accentGreen,
-                minWidth: 120,
-                '&:hover': {
-                  bgcolor: theme.palette.secondary.main,
-                }
-              }}
-            >
-              Next
-            </Button>
+            {/* Process Summary */}
+            <Fade in={true} timeout={1000}>
+              <Box sx={{ mt: 4, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>
+                  Quality Assurance Throughout the Process
+                </Typography>
+                <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
+                  Our comprehensive 9-step process ensures that every peanut that leaves our facility meets the highest standards of quality and safety. From initial inspection to final packaging, we maintain strict controls to deliver premium products to our customers around the world.
+                </Typography>
+              </Box>
+            </Fade>
           </Box>
-          
-          {/* Process Summary */}
-          <Fade in={true} timeout={1000}>
-            <Box sx={{ mt: 8, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
-              <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>
-                {activeSection === 0 ? 'Balaji Exports - Organic and Trusted' : 'Quality Assurance Throughout the Process'}
-              </Typography>
-              <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
-                {activeSection === 0 
-                  ? "Balaji Exports has built a reputation over the years for growing peanuts organically, without the use of harmful chemicals. We use natural soil enrichers, eco-friendly pest control methods, and sustainable farming techniques. This not only protects consumer health but also nurtures the soil for future generations. Our groundnuts are chemical-free, rich in flavor and nutrition, and grown sustainably with respect for the environment."
-                  : "Our comprehensive 9-step process ensures that every peanut that leaves our facility meets the highest standards of quality and safety. From initial inspection to final packaging, we maintain strict controls to deliver premium products to our customers around the world."
-                }
-              </Typography>
-            </Box>
-          </Fade>
         </Container>
       </Box>
     </ThemeProvider>

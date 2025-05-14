@@ -150,7 +150,7 @@ const Footer = () => {
                 {[
                   { 
                     icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE, Mumbai", 
+                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE, MUMBAI", 
                     href: "https://www.google.com/maps/search/KRISHNAAMRUT+KALWA+KRICK+ROAD+THANE", 
                     sx: { fontFamily: 'Inter' }
                   },
