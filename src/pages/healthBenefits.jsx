@@ -32,6 +32,10 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import BoltIcon from '@mui/icons-material/Bolt';
 import theme from '../styles/theme';
 
+import ALLERGIES from '../assets/images/Health Benefits/ALLERGIES .png';
+import peanuthealthbenefits from '../assets/images/Health Benefits/peanut health benefits .png';
+import Recommendation from '../assets/images/Health Benefits/Recommendation.jpg';
+
 // Optimized GradientCard component with refined styling
 const GradientCard = ({ 
   title, 
@@ -342,76 +346,76 @@ const HealthBenefitsPage = () => {
                         height="100%"
                       />
                     </Grid>
-
-                    <Grid item xs={12} md={6}>
-                      <GradientCard
-                        title="Heart Health"
-                        subtitle="Cardiovascular Benefits of Peanuts"
-                        icon={<FavoriteIcon />}
-                        description={
-                          <>
-                            <Typography paragraph sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', mb: 1.5 }}>
-                              Peanuts contain resveratrol and arginine, compounds that promote vascular function. 
-                              Regular peanut consumption is associated with:
-                            </Typography>
-                            <CompactList>
-                              <CompactListItem
-                                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Lower LDL (bad cholesterol)</Typography>}
-                              />
-                              <CompactListItem
-                                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Higher HDL (good cholesterol)</Typography>}
-                              />
-                              <CompactListItem
-                                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Reduced risk of heart disease</Typography>}
-                              />
-                            </CompactList>
-                          </>
-                        }
-                        height="100%"
-                      />
+                    <Grid item xs={12} md={6} sx={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center'
+                    }}>
+                      <Box sx={{ 
+                        width: '100%',
+                        maxWidth: '500px',
+                        p: 2
+                      }}>
+                        <img 
+                          src={peanuthealthbenefits} 
+                          alt="Peanut Health Benefits" 
+                          style={{ 
+                            width: '100%',
+                            height: 'auto',
+                            maxHeight: '400px',
+                            objectFit: 'contain',
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+                          }} 
+                        />
+                      </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} md={4}>
-                      <GradientCard
-                        title="Blood Sugar Control"
-                        icon={<LocalHospitalIcon />}
-                        description={
-                          <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Despite being energy-dense, peanuts have a low glycemic index, which means they do not cause 
-                            rapid spikes in blood glucose. The fiber, protein, and healthy fat content help improve insulin sensitivity.
-                          </Typography>
-                        }
-                        height="100%"
-                      />
-                    </Grid>
+                    <Grid item xs={12}>
+                      <Grid container spacing={3}>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <GradientCard
+                            title="Blood Sugar Control"
+                            icon={<LocalHospitalIcon />}
+                            description={
+                              <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                Despite being energy-dense, peanuts have a low glycemic index, which means they do not cause 
+                                rapid spikes in blood glucose. The fiber, protein, and healthy fat content help improve insulin sensitivity.
+                              </Typography>
+                            }
+                            height="100%"
+                          />
+                        </Grid>
 
-                    <Grid item xs={12} sm={6} md={4}>
-                      <GradientCard
-                        title="Weight Management"
-                        icon={<FitnessCenterIcon />}
-                        description={
-                          <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Peanuts increase satiety and reduce hunger, which can help with weight control when eaten in moderation. 
-                            Studies suggest that regular peanut consumption is not associated with weight gain and may even aid in 
-                            weight loss when part of a healthy diet.
-                          </Typography>
-                        }
-                        height="100%"
-                      />
-                    </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                          <GradientCard
+                            title="Weight Management"
+                            icon={<FitnessCenterIcon />}
+                            description={
+                              <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                Peanuts increase satiety and reduce hunger, which can help with weight control when eaten in moderation. 
+                                Studies suggest that regular peanut consumption is not associated with weight gain and may even aid in 
+                                weight loss when part of a healthy diet.
+                              </Typography>
+                            }
+                            height="100%"
+                          />
+                        </Grid>
 
-                    <Grid item xs={12} sm={6} md={4}>
-                      <GradientCard
-                        title="Antioxidant Properties"
-                        icon={<BoltIcon />}
-                        description={
-                          <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Peanuts are rich in antioxidants like p-coumaric acid and resveratrol, which help neutralize 
-                            free radicals and reduce the risk of chronic diseases, including cancer.
-                          </Typography>
-                        }
-                        height="100%"
-                      />
+                        <Grid item xs={12} sm={6} md={4}>
+                          <GradientCard
+                            title="Antioxidant Properties"
+                            icon={<BoltIcon />}
+                            description={
+                              <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                Peanuts are rich in antioxidants like p-coumaric acid and resveratrol, which help neutralize 
+                                free radicals and reduce the risk of chronic diseases, including cancer.
+                              </Typography>
+                            }
+                            height="100%"
+                          />
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </Box>
@@ -420,6 +424,30 @@ const HealthBenefitsPage = () => {
               {/* Tab 2: Allergies & Cautions */}
               {tabValue === 1 && (
                 <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  <Box sx={{ 
+                    mb: 4, 
+                    textAlign: 'center',
+                    width: '100%',
+                    height: { xs: '300px', sm: '400px', md: '500px' },
+                    position: 'relative',
+                    overflow: 'hidden',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+                  }}>
+                    <img 
+                      src={ALLERGIES} 
+                      alt="Peanut Allergies Information" 
+                      style={{ 
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)'
+                      }} 
+                    />
+                  </Box>
                   <Typography 
                     variant="h2" 
                     component="h2" 
@@ -504,27 +532,147 @@ const HealthBenefitsPage = () => {
                       />
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
+                    <Grid container spacing={3} sx={{ mt: 0 }}>
+                      <Grid item xs={12} sm={6}>
+                        <GradientCard
+                          title="Causes"
+                          description={
+                            <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                              Peanut allergies occur when the immune system mistakenly identifies peanut proteins as harmful. 
+                              The exact cause of why some people develop this allergy is not fully understood but is likely a 
+                              combination of genetic and environmental factors.
+                            </Typography>
+                          }
+                          height="100%"
+                        />
+                      </Grid>
+
+                      <Grid item xs={12} sm={6}>
+                        <GradientCard
+                          title="Cross-Reactivity"
+                          description={
+                            <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                              Those with peanut allergies may also react to tree nuts, though the proteins are different. 
+                              Cross-contamination during food processing is also a major concern.
+                            </Typography>
+                          }
+                          height="100%"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Box>
+              )}
+
+              {/* Tab 3: Recommendations */}
+              {tabValue === 2 && (
+                <Box sx={{ position: 'relative', zIndex: 1 }}>
+                  <Box sx={{ 
+                    mb: 4, 
+                    textAlign: 'center',
+                    maxWidth: { xs: '100%', sm: '80%', md: '60%' },
+                    mx: 'auto'
+                  }}>
+                    <img 
+                      src={Recommendation} 
+                      alt="Peanut Consumption Recommendations" 
+                      style={{ 
+                        width: '100%',
+                        maxHeight: '400px',
+                        objectFit: 'contain',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+                      }} 
+                    />
+                  </Box>
+                  <Typography 
+                    variant="h2" 
+                    component="h2" 
+                    gutterBottom
+                    sx={{ 
+                      color: theme.palette.primary.main,
+                      fontFamily: 'Lato, sans-serif',
+                      fontWeight: 700,
+                      fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' },
+                      textAlign: { xs: 'center', sm: 'left' }
+                    }}
+                  >
+                    Who Should and Should Not Consume Peanuts
+                  </Typography>
+                  <Divider sx={{ mb: 3, borderColor: theme.palette.primary.main, opacity: 0.5 }} />
+
+                  <Grid container spacing={3}>
+                    <Grid item xs={12} md={6}>
                       <GradientCard
-                        title="Causes"
+                        title="Recommended Consumers"
+                        subtitle="Who should eat peanuts (with no allergies)"
+                        icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
                         description={
-                          <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Peanut allergies occur when the immune system mistakenly identifies peanut proteins as harmful. 
-                            The exact cause of why some people develop this allergy is not fully understood but is likely a 
-                            combination of genetic and environmental factors.
-                          </Typography>
+                          <CompactList>
+                            <CompactListItem
+                              icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Individuals looking to manage weight or diabetes</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Vegetarians/vegans needing plant protein</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>People aiming to reduce cardiovascular risk</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Children (early introduction may reduce allergy risk, under medical advice)</Typography>}
+                            />
+                          </CompactList>
                         }
                         height="100%"
                       />
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} md={6}>
                       <GradientCard
-                        title="Cross-Reactivity"
+                        title="Should Avoid or Limit"
+                        subtitle="Who should be cautious with peanuts"
+                        icon={<BlockIcon sx={{ color: '#f44336' }} />}
+                        description={
+                          <CompactList>
+                            <CompactListItem
+                              icon={<BlockIcon sx={{ color: '#f44336' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Individuals with confirmed peanut allergies</Typography>}
+                              secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Must completely avoid peanuts and peanut-containing products</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<BlockIcon sx={{ color: '#f44336' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>People with digestive disorders (e.g., IBS)</Typography>}
+                              secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>High fat and fiber may trigger symptoms</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<BlockIcon sx={{ color: '#f44336' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Those at risk of aflatoxin exposure</Typography>}
+                              secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Poorly stored peanuts can develop harmful molds</Typography>}
+                            />
+                            <CompactListItem
+                              icon={<BlockIcon sx={{ color: '#f44336' }} />}
+                              primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Young infants (under 6 months)</Typography>}
+                              secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Should not be given whole peanuts due to choking risk</Typography>}
+                            />
+                          </CompactList>
+                        }
+                        height="100%"
+                      />
+                    </Grid>
+                    
+                    <Grid item xs={12}>
+                      <GradientCard
+                        title="Consumption Guidelines"
+                        icon={<RestaurantIcon sx={{ color: theme.palette.customColors?.darkGold || '#D7C68D' }} />}
                         description={
                           <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                            Those with peanut allergies may also react to tree nuts, though the proteins are different. 
-                            Cross-contamination during food processing is also a major concern.
+                            For healthy adults, a daily serving of 1-2 ounces (28-56g) of peanuts can be beneficial as part of a balanced diet. 
+                            Choose raw or dry-roasted peanuts over salted or honey-roasted varieties to minimize sodium and sugar intake. 
+                            Store peanuts in cool, dry conditions to prevent mold growth, and consider organic options to reduce pesticide exposure.
                           </Typography>
                         }
                         height="100%"
@@ -533,106 +681,6 @@ const HealthBenefitsPage = () => {
                   </Grid>
                 </Box>
               )}
-
-              {/* Tab 3: Recommendations */}
-{tabValue === 2 && (
-  <Box sx={{ position: 'relative', zIndex: 1 }}>
-    <Typography 
-      variant="h2" 
-      component="h2" 
-      gutterBottom
-      sx={{ 
-        color: theme.palette.primary.main,
-        fontFamily: 'Lato, sans-serif',
-        fontWeight: 700,
-        fontSize: { xs: '1.8rem', sm: '2rem', md: '2.2rem' },
-        textAlign: { xs: 'center', sm: 'left' }
-      }}
-    >
-      Who Should and Should Not Consume Peanuts
-    </Typography>
-    <Divider sx={{ mb: 3, borderColor: theme.palette.primary.main, opacity: 0.5 }} />
-
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
-        <GradientCard
-          title="Recommended Consumers"
-          subtitle="Who should eat peanuts (with no allergies)"
-          icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
-          description={
-            <CompactList>
-              <CompactListItem
-                icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Individuals looking to manage weight or diabetes</Typography>}
-              />
-              <CompactListItem
-                icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Vegetarians/vegans needing plant protein</Typography>}
-              />
-              <CompactListItem
-                icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>People aiming to reduce cardiovascular risk</Typography>}
-              />
-              <CompactListItem
-                icon={<CheckCircleOutlineIcon sx={{ color: theme.palette.customColors?.accentGreen || '#34d399' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Children (early introduction may reduce allergy risk, under medical advice)</Typography>}
-              />
-            </CompactList>
-          }
-          height="100%"
-        />
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <GradientCard
-          title="Should Avoid or Limit"
-          subtitle="Who should be cautious with peanuts"
-          icon={<BlockIcon sx={{ color: '#f44336' }} />}
-          description={
-            <CompactList>
-              <CompactListItem
-                icon={<BlockIcon sx={{ color: '#f44336' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Individuals with confirmed peanut allergies</Typography>}
-                secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Must completely avoid peanuts and peanut-containing products</Typography>}
-              />
-              <CompactListItem
-                icon={<BlockIcon sx={{ color: '#f44336' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>People with digestive disorders (e.g., IBS)</Typography>}
-                secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>High fat and fiber may trigger symptoms</Typography>}
-              />
-              <CompactListItem
-                icon={<BlockIcon sx={{ color: '#f44336' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Those at risk of aflatoxin exposure</Typography>}
-                secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Poorly stored peanuts can develop harmful molds</Typography>}
-              />
-              <CompactListItem
-                icon={<BlockIcon sx={{ color: '#f44336' }} />}
-                primary={<Typography variant="body1" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>Young infants (under 6 months)</Typography>}
-                secondary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', opacity: 0.8, fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>Should not be given whole peanuts due to choking risk</Typography>}
-              />
-            </CompactList>
-          }
-          height="100%"
-        />
-      </Grid>
-      
-      <Grid item xs={12}>
-        <GradientCard
-          title="Consumption Guidelines"
-          icon={<RestaurantIcon sx={{ color: theme.palette.customColors?.darkGold || '#D7C68D' }} />}
-          description={
-            <Typography sx={{ color: theme.palette.customColors?.lightGold || '#EADBA5', fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: 1.6 }}>
-              For healthy adults, a daily serving of 1-2 ounces (28-56g) of peanuts can be beneficial as part of a balanced diet. 
-              Choose raw or dry-roasted peanuts over salted or honey-roasted varieties to minimize sodium and sugar intake. 
-              Store peanuts in cool, dry conditions to prevent mold growth, and consider organic options to reduce pesticide exposure.
-            </Typography>
-          }
-          height="100%"
-        />
-      </Grid>
-    </Grid>
-  </Box>
-)}
 
               {/* Conclusion Section - Added at the end */}
               <Box sx={{ 

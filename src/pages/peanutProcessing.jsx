@@ -13,7 +13,27 @@ import {
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../styles/theme'; // Import theme from external file
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import M_Step1 from '../assets/images/M_Step1.jpg'; 
+
+import F_Step1 from '../assets/images/Farming/F_Step1.jpg';
+import F_Step2 from '../assets/images/Farming/F_Step2.jpg';
+import F_Step3 from '../assets/images/Farming/F_Step3.jpg';
+import F_Step4 from '../assets/images/Farming/F_Step4.png';
+import F_Step5 from '../assets/images/Farming/F_Step5.jpg';
+import F_Step6 from '../assets/images/Farming/F_Step6.jpg';
+import F_Step7 from '../assets/images/Farming/F_Step7.jpg';
+import F_Step8 from '../assets/images/Farming/F_Step8.png';
+
+
+import M_Step1 from '../assets/images/Manufacturing/M_Step1.jpg'; 
+import M_Step2 from '../assets/images/Manufacturing/M_Step2.png'; 
+import M_Step3 from '../assets/images/Manufacturing/M_Step3.jpg';
+import M_Step4 from '../assets/images/Manufacturing/M_Step4.jpeg';
+import M_Step5 from '../assets/images/Manufacturing/M_Step5.jpeg';
+import M_Step6 from '../assets/images/Manufacturing/M_Step6.jpeg';
+import M_Step7 from '../assets/images/Manufacturing/M_Step7.jpeg';
+import M_Step8 from '../assets/images/Manufacturing/M_Step8.jpeg';
+import M_Step9 from '../assets/images/Manufacturing/M_Step9.jpeg';
+
 
 // SEO component
 const SEO = ({ title, description }) => {
@@ -46,7 +66,7 @@ const FARMING_STEPS = [
     title: "1. Land Preparation",
     subtitle: "Setting the Foundation",
     description: "Peanuts need warm weather and begin growing when temperatures consistently stay above 25°C (77°F). We carefully till the land 2-3 times to loosen the soil and remove weeds, preparing well-drained, sandy loam soil for optimal growth.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step1,
     imageAlt: "Land preparation for peanut farming",
     facts: [
       "Temperature requirement: Above 25°C (77°F)",
@@ -59,7 +79,7 @@ const FARMING_STEPS = [
     title: "2. Organic Soil Enrichment",
     subtitle: "Natural Fertilization",
     description: "Instead of chemical fertilizers, we use compost, vermicompost, and well-rotted cow dung to enrich the soil naturally. This organic approach maintains soil health and produces nutrient-rich peanuts without synthetic chemicals.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step2,
     imageAlt: "Organic soil enrichment process",
     facts: [
       "100% chemical-free fertilization",
@@ -72,7 +92,7 @@ const FARMING_STEPS = [
     title: "3. Seed Selection",
     subtitle: "Quality Genetics",
     description: "We choose high-quality, untreated seeds from healthy previous harvests. Balaji Exports ensures seeds are free from chemical treatment, using native or non-GMO varieties suited to the local climate.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step3,
     imageAlt: "Peanut seed selection",
     facts: [
       "Native or non-GMO varieties",
@@ -85,7 +105,7 @@ const FARMING_STEPS = [
     title: "4. Sowing",
     subtitle: "Planting with Precision",
     description: "Seeds are planted in rows with proper spacing to allow optimal growth. We plant seeds 4-6 cm deep and about 15-20 cm apart. Bio-fertilizers like Rhizobium cultures are used to enhance natural nitrogen fixation.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step4,
     imageAlt: "Peanut sowing process",
     facts: [
       "Planting depth: 4-6 cm",
@@ -98,7 +118,7 @@ const FARMING_STEPS = [
     title: "5. Irrigation",
     subtitle: "Water Management",
     description: "Groundnuts need moderate water management. We irrigate based on rainfall patterns and soil moisture levels, carefully avoiding overwatering which can lead to fungal diseases.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step5,
     imageAlt: "Peanut irrigation system",
     facts: [
       "Moisture-based irrigation schedule",
@@ -111,7 +131,7 @@ const FARMING_STEPS = [
     title: "6. Organic Pest Management",
     subtitle: "Natural Protection",
     description: "We follow strict organic practices with no synthetic pesticides. Our natural pest control includes neem oil spray, cow urine solutions, and trap crops to distract pests while maintaining ecological balance.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step6,
     imageAlt: "Organic pest management",
     facts: [
       "Neem oil-based treatments",
@@ -124,7 +144,7 @@ const FARMING_STEPS = [
     title: "7. Flowering and Pegging",
     subtitle: "Unique Growth Process",
     description: "Peanuts have a unique growth pattern - they flower above ground, but the pegs (stems from flowers) grow down into the soil where pods form. We ensure soil remains loose and soft for proper peg penetration.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step7,
     imageAlt: "Peanut flowering and pegging",
     facts: [
       "Above-ground flowering",
@@ -137,7 +157,7 @@ const FARMING_STEPS = [
     title: "8. Harvesting",
     subtitle: "Perfect Timing",
     description: "Harvesting occurs 90-120 days after sowing, depending on the variety. We check maturity by inspecting pods from sample plants. The entire plant is lifted and sun-dried in the field for several days.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: F_Step8,
     imageAlt: "Peanut harvesting",
     facts: [
       "Harvest period: 90-120 days post-sowing",
@@ -178,7 +198,7 @@ const PROCESSING_STEPS = [
     title: "2. Cleaning",
     subtitle: "Removing Impurities",
     description: "Peanuts pass through advanced cleaning machines that remove dirt, stones, leaves, and broken shells. Magnetic separators are used to remove metal particles mixed in during harvesting.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step2,
     imageAlt: "Peanut cleaning process",
     facts: [
       "Multi-stage cleaning process",
@@ -190,7 +210,7 @@ const PROCESSING_STEPS = [
     title: "3. Shelling",
     subtitle: "Extracting the Kernels",
     description: "Unshelled peanuts are sent through shelling machines that crack the shells without harming the kernels. Post-shelling, we separate whole kernels, split kernels, and broken pieces. Air classifiers are used to separate lighter shells from the heavier kernels.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step3,
     imageAlt: "Peanut shelling process",
     facts: [
       "Capacity: 2 tons per hour",
@@ -202,7 +222,7 @@ const PROCESSING_STEPS = [
     title: "4. Grading and Sorting",
     subtitle: "Classification by Quality",
     description: "Peanuts are graded based on size, color, and quality. Machine grading is followed by manual sorting to remove defective peanuts and discolored or damaged pieces. Grading ensures product consistency, essential for exporters.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step4,
     imageAlt: "Peanut grading and sorting",
     facts: [
       "Electronic color sorters with 98% accuracy",
@@ -214,7 +234,7 @@ const PROCESSING_STEPS = [
     title: "5. Blanching",
     subtitle: "Optional Skin Removal",
     description: "Required by some customers for skinless peanuts. Process involves light heating to loosen the peanut skins, which are then removed using rollers or air blowers. Post-blanching, another round of sorting ensures quality.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step5,
     imageAlt: "Peanut blanching process",
     facts: [
       "Heat treatment: 280°F for 20 minutes",
@@ -226,7 +246,7 @@ const PROCESSING_STEPS = [
     title: "6. Roasting",
     subtitle: "Enhancing Flavor",
     description: "For roasted peanut products, dry roasting ovens or oil roasters are used with precisely controlled temperature and timing. Roasting enhances flavor and aroma.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step6,
     imageAlt: "Peanut roasting process",
     facts: [
       "Dry roasting: 320-330°F for 40-60 minutes",
@@ -238,7 +258,7 @@ const PROCESSING_STEPS = [
     title: "7. Quality Control and Testing",
     subtitle: "Safety Assurance",
     description: "We conduct multiple quality checks including aflatoxin testing (for mold toxins), moisture testing, and visual and taste inspections. Especially strict controls are followed for export markets like Europe and Japan.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step7,
     imageAlt: "Peanut quality control",
     facts: [
       "HACCP certified processes",
@@ -250,7 +270,7 @@ const PROCESSING_STEPS = [
     title: "8. Packaging",
     subtitle: "Preservation and Branding",
     description: "Packaging options include jute bags (for raw peanuts), vacuum-sealed bags (for blanched/roasted peanuts), and food-grade bulk containers (for wholesale buyers). Labels include batch numbers, grade, and origin details. Proper packaging preserves freshness and prevents contamination.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step8,
     imageAlt: "Peanut packaging process",
     facts: [
       "Nitrogen flushing extends shelf life by 40%",
@@ -262,7 +282,7 @@ const PROCESSING_STEPS = [
     title: "9. Storage and Dispatch",
     subtitle: "Ready for Market",
     description: "Finished products are stored in cool, dry warehouses. FIFO (First-In, First-Out) system ensures older stock is dispatched first. Shipments are organized based on customer and export requirements.",
-    imageUrl: "/api/placeholder/800/600",
+    imageUrl: M_Step9,
     imageAlt: "Peanut storage and dispatch",
     facts: [
       "Climate controlled warehouse at 18-20°C",
@@ -443,8 +463,12 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
                   sx={{ 
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center'
+                    // Custom styling for images 2 and 5 (indexes 1 and 4)
+                    objectFit: activeStep === 1 || activeStep === 4 ? 'scale-down' : 'cover',
+                    objectPosition: 'center',
+                    maxHeight: '100%',
+                    padding: activeStep === 1 || activeStep === 4 ? '10px' : 0,
+                    backgroundColor: activeStep === 1 || activeStep === 4 ? 'rgba(255,255,255,0.95)' : 'transparent'
                   }}
                 />
               ) : (

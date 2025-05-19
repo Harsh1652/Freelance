@@ -3,132 +3,88 @@ import {
   Box, 
   Container, 
   Typography, 
-  Grid,
   Paper,
   Card,
   CardContent,
   useTheme,
   useMediaQuery,
   Divider,
-  Button
+  Button,
+  Grid
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+
+import ourCommitment from '../assets/images/AboutUs/ourCommitment.jpeg';
+import ourJourney from '../assets/images/AboutUs/ourJurney.jpeg';
+import ourSpeacility from '../assets/images/AboutUs/ourSpeacility.jpg';
+import ourProducts from '../assets/images/AboutUs/ourProducts.jpg';
 
 const AboutUs = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMedium = useMediaQuery(theme.breakpoints.down('md'));
   
-  return (
-    <Box 
-      sx={{ 
-        py: { xs: 6, md: 10 },
-        bgcolor: theme.palette.background.default,
-        width: '100%', // Ensure full width
-        maxWidth: '100%', // Prevent overflow
-        overflowX: 'hidden' // Prevent horizontal scrolling
-      }}
-    >
-    <Container 
-      maxWidth={false} // Allow container to take full width
-      disableGutters={isMobile} // Remove padding on mobile
-      sx={{
-        px: { xs: 2, sm: 3, md: 'auto' }, // Custom padding for xs and sm screens
-        maxWidth: { lg: 'lg' } // Only constrain width on large screens
-      }}
-    >
-        {/* Welcome Section */}
-        <Box sx={{ mb: 6, width: '100%' }}>
+  // Custom section component to avoid repetition
+  const SectionWithImage = ({ title, titleHighlight, description, imageSrc, imageAlt, isReversed = false }) => {
+    const mobileLayout = (
+      <>
+        <Box sx={{ mb: 3, textAlign: 'center' }}>
           <Typography 
-            variant="h3" 
-            component="h1" 
+            variant="h2" 
+            component="h2" 
             fontFamily="Lato, sans-serif"
-            fontWeight="bold"
+            fontWeight={800}
             color={theme.palette.primary.main}
-            sx={{ 
-              mb: 3,
-              fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' } // Responsive font size
-            }}
+            sx={{ mb: 0, fontSize: { xs: '2rem', sm: '2.5rem' } }}
           >
-            Welcome to Balaji Exports
+            {title}
           </Typography>
-          
           <Typography 
-            variant="body1" 
-            fontFamily="Inter, sans-serif"
-            sx={{ 
-              color: theme.palette.secondary.main,
-              fontSize: { xs: '1rem', md: '1.1rem' },
-              lineHeight: 1.6,
-              width: '100%'
-            }}
+            variant="h2" 
+            component="span" 
+            fontFamily="Lato, sans-serif"
+            fontWeight={800}
+            sx={{ color: theme.palette.secondary.main, fontSize: { xs: '2rem', sm: '2.5rem' } }}
           >
-            Welcome to Balaji Exports, your trusted partner for the finest quality Indian groundnuts and peanuts. Based in the heart of Rajasthan, India, we are proud to be among the biggest groundnut suppliers in India with a legacy of excellence that spans over 65 years. Our deep roots in peanut farming and modern approach to groundnut export business make us one of the most reliable peanut exporters from India to global markets like the UAE, Europe, Russia, Vietnam, and Africa.
+            {titleHighlight}
           </Typography>
         </Box>
         
-
-        {/*--------------------------- First Heading------------------------------------- */}
-        {/* Our Journey Section */}
-        <Box sx={{ my: 8, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
-          {/* For mobile: Heading first */}
-          <Box 
-            sx={{ 
-              width: '100%',
-              display: { xs: 'flex', md: 'none' }, 
-              alignItems: 'center',
-              justifyContent: 'center',
-              mb: 3
-            }}
-          >
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ 
-                  mb: 0,
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Our
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ 
-                  color: theme.palette.secondary.main || '#4169e1',
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Journey
-              </Typography>
-            </Box>
-          </Box>
-          
-          {/* Journey Text Content - Left 49% */}
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              borderTopRightRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              borderBottomRightRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', md: '49%' },
-              mr: { xs: 0, md: '2%' },
-              mb: { xs: 3, md: 0 },
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%' }}>
+        <Box 
+          component="img" 
+          src={imageSrc} 
+          alt={imageAlt}
+          sx={{ 
+            width: '100%',
+            height: '300px',
+            objectFit: 'cover',
+            borderRadius: 3,
+            mb: 2,
+            boxShadow: 3,
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'scale(1.02)',
+              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+            }
+          }}
+        />
+        
+        <Card 
+          elevation={4}
+          sx={{ 
+            borderRadius: 2,
+            background: theme.customGradients.greenDark,
+            overflow: 'hidden',
+            width: '100%',
+            mb: 3,
+            transition: 'transform 0.3s, box-shadow 0.3s',
+            '&:hover': {
+              transform: 'translateY(-5px)',
+              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+            }
+          }}
+        >
+          <CardContent sx={{ p: { xs: 2, md: 3 } }}>
               <Typography 
                 variant="body1" 
                 fontFamily="Inter, sans-serif"
@@ -138,22 +94,44 @@ const AboutUs = () => {
                   lineHeight: 1.6
                 }}
               >
-                At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology. We proudly operate a state-of-the-art groundnut processing unit with a capacity of 4 metric tons per hour, ensuring consistent quality, hygienic packaging, and timely deliveries for our global clients.
+              {description}
               </Typography>
             </CardContent>
           </Card>
-          
-          {/* Journey Heading - Right 49% - Desktop only */}
-          <Box 
-            sx={{ 
-              width: { xs: '100%', md: '49%' },
-              display: { xs: 'none', md: 'flex' }, 
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              pl: { md: 5 }
-            }}
-          >
-            <Box>
+      </>
+    );
+    
+    const desktopLayout = (
+      <Grid 
+        container 
+        direction={isReversed ? "row-reverse" : "row"} 
+        sx={{ 
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          minHeight: '450px',
+          my: 4,
+        }}
+        spacing={2}
+      >
+        {/* Card section */}
+        <Grid item xs={12} md={6} sx={{ 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%'
+        }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            width: '100%',
+            maxWidth: '550px',
+            height: '100%'
+          }}>
+            <Box sx={{ 
+              textAlign: isReversed ? 'left' : 'right', 
+              mb: 3,
+              flex: '0 0 auto' // Prevent heading from stretching
+            }}>
               <Typography 
                 variant="h2" 
                 component="h2" 
@@ -162,386 +140,139 @@ const AboutUs = () => {
                 color={theme.palette.primary.main}
                 sx={{ mb: 0 }}
               >
-                Our
+                {title}
               </Typography>
               <Typography 
                 variant="h2" 
                 component="span" 
                 fontFamily="Lato, sans-serif"
                 fontWeight={800}
-                sx={{ color: theme.palette.secondary.main || '#4169e1' }}
+                sx={{ color: theme.palette.secondary.main }}
               >
-                Journey
+                {titleHighlight}
               </Typography>
             </Box>
+            
+            <Card 
+              elevation={4}
+              sx={{ 
+                borderRadius: 2,
+                background: theme.customGradients.greenDark,
+                overflow: 'hidden',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                flex: 1,
+                minHeight: 0,
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                }
+              }}
+            >
+              <CardContent sx={{ 
+                p: 3,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}>
+                {typeof description === 'string' ? (
+                  <Typography 
+                    variant="body1" 
+                    fontFamily="Inter, sans-serif"
+                    sx={{ 
+                      color: theme.palette.customColors.lightGold,
+                      fontSize: '1.1rem',
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {description}
+                  </Typography>
+                ) : (
+                  description
+                )}
+              </CardContent>
+            </Card>
           </Box>
-        </Box>
-
-
-        {/*--------------------------- Second Heading------------------------------------- */}
-        {/* Our Specialization Section - INVERSE LAYOUT */}
-        <Box sx={{ my: 8, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
-          {/* For mobile: Heading first */}
+        </Grid>
+        
+        {/* Image section */}
+        <Grid item xs={12} md={6} sx={{ 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%'
+        }}>
           <Box 
             sx={{ 
-              width: '100%',
-              display: { xs: 'flex', md: 'none' }, 
+              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              mb: 3
-            }}
-          >
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ 
-                  mb: 0,
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Our
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ 
-                  color: theme.palette.secondary.main || '#4169e1',
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Specialization
-              </Typography>
-            </Box>
-          </Box>
-          
-          {/* Specialization Heading - Left 49% - Desktop only */}
-          <Box 
-            sx={{ 
-              width: { xs: '100%', md: '49%' },
-              display: { xs: 'none', md: 'flex' }, 
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              pr: { md: 5 }
-            }}
-          >
-            <Box sx={{ textAlign: { md: 'right' } }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ mb: 0 }}
-              >
-                Our
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ color: theme.palette.secondary.main || '#4169e1' }}
-              >
-                Specialization
-              </Typography>
-            </Box>
-          </Box>
-          
-          {/* Specialization Text Content - Right 49% */}
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              borderTopLeftRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              borderBottomLeftRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', md: '49%' },
-              ml: { xs: 0, md: '2%' },
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%' }}>
-              <Typography 
-                variant="body1" 
-                fontFamily="Inter, sans-serif"
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  lineHeight: 1.6
-                }}
-              >
-                We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive groundnut export company portfolio also features peanut oil and peanut butter, making us a comprehensive supplier for all peanut-related products.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-
-
-        {/*--------------------------- Third Heading------------------------------------- */}
-        {/* Commitment to Quality */}
-        <Box sx={{ my: 8, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
-          {/* For mobile: Heading first */}
-          <Box 
-            sx={{ 
               width: '100%',
-              display: { xs: 'flex', md: 'none' }, 
-              alignItems: 'center',
-              justifyContent: 'center',
-              mb: 3
+              maxWidth: '550px',
+              height: '100%',
+              minHeight: '450px'
             }}
           >
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ 
-                  mb: 0,
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Commitment To
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ 
-                  color: theme.palette.secondary.main || '#4169e1',
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile  
-                }}
-              >
-                Quality
-              </Typography>
-            </Box>
+            <Box 
+              component="img" 
+              src={imageSrc} 
+              alt={imageAlt}
+              sx={{ 
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: 3,
+                boxShadow: 5,
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'scale(1.02)',
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                }
+              }}
+            />
           </Box>
-          
-          {/* Journey Text Content - Left 49% */}
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              borderTopRightRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              borderBottomRightRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', md: '49%' },
-              mr: { xs: 0, md: '2%' },
-              mb: { xs: 3, md: 0 },
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%' }}>
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  lineHeight: 1.6
-                }}
-              >
-                Our commitment to quality is backed by FSSAI certification, HACCP standards, and ISO compliance, making us a preferred choice for buyers looking for lab-tested, pesticide-free groundnuts, and non-GMO peanuts India. We focus on providing food-grade groundnuts export that meet the strictest international standards
-              </Typography>
-            </CardContent>
-          </Card>
-          
-          {/* Journey Heading - Right 49% - Desktop only */}
-          <Box 
-            sx={{ 
-              width: { xs: '100%', md: '49%' },
-              display: { xs: 'none', md: 'flex' }, 
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              pl: { md: 5 }
-            }}
-          >
-            <Box>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ mb: 0 }}
-              >
-                Commitment To
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ color: theme.palette.secondary.main || '#4169e1' }}
-              >
-                Quality
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-
-
-        {/*--------------------------- Fourth Heading------------------------------------- */}
-        {/* Our Products - Side by Side Layout */}
-        <Box sx={{ my: 8, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, width: '100%' }}>
-          {/* For mobile: Heading first */}
-          <Box 
-            sx={{ 
-              width: '100%',
-              display: { xs: 'flex', md: 'none' }, 
-              alignItems: 'center',
-              justifyContent: 'center',
-              mb: 3
-            }}
-          >
-            <Box sx={{ textAlign: 'center' }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ 
-                  mb: 0,
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Our
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ 
-                  color: theme.palette.secondary.main || '#4169e1',
-                  fontSize: { xs: '2rem', sm: '2.5rem' } // Smaller on mobile
-                }}
-              >
-                Products
-              </Typography>
-            </Box>
-          </Box>
-          
-          {/* Products Heading - Left 49% - Desktop only */}
-          <Box 
-            sx={{ 
-              width: { xs: '100%', md: '49%' },
-              display: { xs: 'none', md: 'flex' }, 
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              pr: { md: 5 }
-            }}
-          >
-            <Box sx={{ textAlign: { md: 'right' } }}>
-              <Typography 
-                variant="h2" 
-                component="h2" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.primary.main}
-                sx={{ mb: 0 }}
-              >
-                Our
-              </Typography>
-              <Typography 
-                variant="h2" 
-                component="span" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                sx={{ color: theme.palette.secondary.main || '#4169e1' }}
-              >
-                Products
-              </Typography>
-            </Box>
-          </Box>
-
-          {/* Products Text Content - Right 49% */}
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              borderTopLeftRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              borderBottomLeftRadius: { xs: 15, md: 30 }, // Smaller radius on mobile
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', md: '49%' },
-              ml: { xs: 0, md: '2%' },
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ p: { xs: 3, md: 4 }, height: '100%' }}>
-              <Typography 
-                variant="body1" 
-                fontFamily="Inter, sans-serif"
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  lineHeight: 1.6,
-                  mb: 2
-                }}
-              >
-                As leading groundnut suppliers in India, we process and export a complete range of peanuts, including:
-              </Typography>
-              
-              {/* Bullet points list */}
-              <Box component="ul" sx={{ pl: 4, color: theme.palette.customColors.lightGold, mb: 3 }}>
-                <li>Raw peanuts for export</li>
-                <li>Organic groundnuts (certified organic crops)</li>
-                <li>Blanched peanuts</li>
-                <li>Split peanuts suppliers</li>
-                <li>Roasted peanuts wholesale</li>
-                <li>Shelled peanuts exporters</li>
-                <li>Peanut kernels export</li>
-                <li>Red skin peanuts</li>
-                <li>Peanut oil</li>
-                <li>Peanut butter</li>
-              </Box>
-
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  lineHeight: 1.6
-                }}
-              >
-                Our peanuts are available in various sizes and grades such as 38/42, 40/50, 50/60, and 60/70, and are packed in hygienic packaging options including PP bags, jute bags, and vacuum packaging to ensure maximum freshness during shipments to worldwide destinations. We offer competitive groundnut prices per ton, making us the ideal choice for bulk groundnut suppliers and wholesale peanuts suppliers in India.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-
-        {/*--------------------------- Fifth Heading------------------------------------- */}
-        {/* Application of Groundnuts */}       
+        </Grid>
+      </Grid>
+    );
+    
+    return (
+      <Box sx={{ 
+        my: 4,
+        width: '100%',
+        py: 2,
+        position: 'relative',
+        '& .MuiGrid-container': {
+          minHeight: '450px',
+          '& .MuiGrid-item': {
+            height: '100%'
+          }
+        }
+      }}>
+        {isMedium ? mobileLayout : desktopLayout}
+        <Divider sx={{ 
+          mt: 3,
+          opacity: 0.3, 
+          borderColor: theme.palette.primary.main,
+          display: { xs: 'block', md: 'none' }
+        }} />
+      </Box>
+    );
+  };
+  
+  // Feature grid component for reusable sections
+  const FeatureGrid = ({ title, titleHighlight, items, introText = "", closingText = "" }) => (
         <Box sx={{ 
-            my: 8,
+      my: 12,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
-            width: '100%'
+      width: '100%',
+      py: 4,
             }}>
           <Box sx={{ textAlign: 'center', mb: 6, width: '100%' }}>
             <Typography 
@@ -552,10 +283,10 @@ const AboutUs = () => {
               color={theme.palette.primary.main}
               sx={{ 
                 mb: 0,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' } // Responsive font size
+            fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' }
               }}
             >
-              Applications of
+          {title}
             </Typography>
             <Typography 
               variant="h2" 
@@ -564,14 +295,14 @@ const AboutUs = () => {
               fontWeight={800}
               sx={{ 
                 color: theme.palette.secondary.main,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' } // Responsive font size
+            fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' }
               }}
             >
-              Groundnuts
+          {titleHighlight}
             </Typography>
           </Box>
 
-          {/* Added descriptive text under heading */}
+      {introText && (
           <Typography 
             variant="subtitle1" 
             fontFamily="Inter, sans-serif"
@@ -581,54 +312,26 @@ const AboutUs = () => {
               color: theme.palette.secondary.main,
               maxWidth: '800px',
               mx: 'auto',
-              px: { xs: 2, sm: 0 } // Add padding on small screens
+            px: { xs: 2, sm: 0 }
             }}
           >
-            Our Indian peanuts for export are highly versatile and used in multiple industries across the globe:
+          {introText}
           </Typography>
+      )}
 
-          {/* MODIFIED: Using Box instead of Grid to control exact width */}
           <Box sx={{ 
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
-            width: '100%'
-          }}>
-            {[
-              {
-                title: "Food Industry", 
-                description: "As ingredients in snacks, sweets, and bakery products." 
-              },
-              { 
-                title: "Confectionery", 
-                description: "For making chocolates, peanut candies, and bars." 
-              },
-              {
-                title: "Peanut Butter Manufacturers", 
-                description: "High-quality kernels ideal for smooth and crunchy spreads." 
-              },
-              { 
-                title: "Oil Extraction", 
-                description: "High-oil content groundnuts used for cold-pressed and refined oils." 
-              },
-              { 
-                title: "Animal Feed", 
-                description: "Peanut meal by-products for nutritious animal feed." 
-              },
-              { 
-                title: "Retail Packaging", 
-                description: "Branded snack packs for direct consumer sales." 
-              },
-              { 
-                title: "Health Food Industry", 
-                description: "Supplying organic groundnuts India for natural food brands." 
-              }
-            ].map((feature, index) => (
+        width: '100%',
+        gap: 3
+      }}>
+        {items.map((feature, index) => (
               <Box 
                 key={index}
                 sx={{
-                  width: { xs: '100%', md: '48%' }, // Exactly 48% width on desktop
-                  mb: 3 // Add margin bottom for spacing
+              width: { xs: '100%', md: 'calc(50% - 12px)' },
+              mb: 3
                 }}
               > 
                 <Paper 
@@ -658,7 +361,7 @@ const AboutUs = () => {
                       color: theme.palette.customColors.darkGold, 
                       mb: 2,
                       width: '100%',
-                      fontSize: { xs: '1.1rem', md: '1.25rem' } // Responsive font size
+                  fontSize: { xs: '1.1rem', md: '1.25rem' }
                     }}
                   >
                     {feature.title}
@@ -678,7 +381,7 @@ const AboutUs = () => {
             ))}
           </Box>
 
-          {/* Add closing text at the end of the Applications section */}
+      {closingText && (
           <Box sx={{ width: '100%', maxWidth: '800px', px: { xs: 2, sm: 0 } }}>
             <Typography 
               variant="subtitle1" 
@@ -690,57 +393,47 @@ const AboutUs = () => {
                 width: '100%'
               }}
             >
-              With growing demand for healthy snacks, our premium peanuts exporters focus on providing non-GMO peanuts India for health-conscious consumers worldwide.
+            {closingText}
             </Typography>
-          </Box>
         </Box>
-
-        {/*--------------------------- Sixth Heading------------------------------------- */}
-        {/* Why choose Us? */}   
-        <Box sx={{ 
-            my: 8,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            width: '100%'
-            }}>
-          <Box sx={{ textAlign: 'center', mb: 6, width: '100%' }}>
-            <Typography 
-              variant="h2" 
-              component="h2" 
-              fontFamily="Lato, sans-serif"
-              fontWeight={800}
-              color={theme.palette.primary.main}
-              sx={{ 
-                mb: 0,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' } // Responsive font size
-              }}
-            >
-              Why
-            </Typography>
-            <Typography 
-              variant="h2" 
-              component="span" 
-              fontFamily="Lato, sans-serif"
-              fontWeight={800}
-              sx={{ 
-                color: theme.palette.secondary.main,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: 'h2.fontSize' } // Responsive font size
-              }}
-            >
-              Choose Us?
-            </Typography>
+      )}
           </Box>
+  );
 
-          {/* MODIFIED: Using Box instead of Grid to control exact width */}
-          <Box sx={{ 
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            width: '100%'
-          }}>
-            {[
+  // Data for applications section
+  const applicationItems = [
+    {
+      title: "Food Industry", 
+      description: "As ingredients in snacks, sweets, and bakery products." 
+    },
+    { 
+      title: "Confectionery", 
+      description: "For making chocolates, peanut candies, and bars." 
+    },
+    {
+      title: "Peanut Butter Manufacturers", 
+      description: "High-quality kernels ideal for smooth and crunchy spreads." 
+    },
+    { 
+      title: "Oil Extraction", 
+      description: "High-oil content groundnuts used for cold-pressed and refined oils." 
+    },
+    { 
+      title: "Animal Feed", 
+      description: "Peanut meal by-products for nutritious animal feed." 
+    },
+    { 
+      title: "Retail Packaging", 
+      description: "Branded snack packs for direct consumer sales." 
+    },
+    { 
+      title: "Health Food Industry", 
+      description: "Supplying organic groundnuts India for natural food brands." 
+    }
+  ];
+
+  // Data for why choose us section
+  const whyChooseUsItems = [
               {
                 title: "65+ Years of Farming Expertise", 
                 description: "Generations of knowledge in groundnut cultivation." 
@@ -777,84 +470,153 @@ const AboutUs = () => {
                 title: "Affordable and Competitive Rates", 
                 description: "Affordable groundnut exporters offering best-in-class pricing." 
               }
-            ].map((feature, index) => (
+  ];
+  
+  return (
               <Box 
-                key={index}
                 sx={{
-                  width: { xs: '100%', md: '48%' }, // Exactly 48% width on desktop
-                  mb: 3 // Add margin bottom for spacing
-                }}
-              > 
-                <Paper 
-                  elevation={3}
+        py: { xs: 4, md: 6 },
+        bgcolor: theme.palette.background.default,
+        width: '100%',
+        maxWidth: '100%',
+        overflowX: 'hidden'
+      }}
+    >
+      <Container 
+        maxWidth={false}
+        disableGutters={isMobile}
                   sx={{ 
-                    p: 3, 
-                    borderRadius: 3,
-                    height: '100%',
-                    background: theme.customGradients.greenDark,
-                    color: theme.palette.customColors.lightGold,
-                    transition: 'transform 0.3s, box-shadow 0.3s',
-                    '&:hover': {
-                      transform: 'translateY(-5px)',
-                      boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-                    },
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start'
-                  }}
-                >
+          px: { xs: 2, sm: 3, md: 'auto' },
+          maxWidth: { lg: 'lg' }
+        }}
+      >
+        {/* Welcome Section */}
+        <Box sx={{ mb: 6, width: '100%' }}>
                   <Typography 
-                    variant="h6" 
-                    component="h3" 
+            variant="h3" 
+            component="h1" 
                     fontFamily="Lato, sans-serif"
                     fontWeight="bold"
+            color={theme.palette.primary.main}
                     sx={{ 
-                      color: theme.palette.customColors.darkGold, 
-                      mb: 2,
-                      width: '100%',
-                      fontSize: { xs: '1.1rem', md: '1.25rem' } // Responsive font size
-                    }}
-                  >
-                    {feature.title}
+              mb: 3,
+              fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' }
+            }}
+          >
+            Welcome to Balaji Exports
                   </Typography>
-                  <Typography 
-                    variant="body2"
-                    fontFamily="Inter, sans-serif"
-                    sx={{
-                      color: theme.palette.customColors.lightGold,
-                      width: '100%'
-                    }}
-                  >
-                    {feature.description}
-                  </Typography>
-                </Paper>
-              </Box>
-            ))}
-          </Box>
 
-          {/* Add closing text at the end of the Applications section */}
-          <Box sx={{ width: '100%', maxWidth: '800px', px: { xs: 2, sm: 0 } }}>
             <Typography 
-              variant="subtitle1" 
+            variant="body1" 
               fontFamily="Inter, sans-serif"
               sx={{ 
-                textAlign: 'center', 
-                mt: 5, 
                 color: theme.palette.secondary.main,
+              fontSize: { xs: '1rem', md: '1.1rem' },
+              lineHeight: 1.6,
                 width: '100%'
               }}
             >
-              With growing demand for healthy snacks, our premium peanuts exporters focus on providing non-GMO peanuts India for health-conscious consumers worldwide.
+            Welcome to Balaji Exports, your trusted partner for the finest quality Indian groundnuts and peanuts. Based in the heart of Rajasthan, India, we are proud to be among the biggest groundnut suppliers in India with a legacy of excellence that spans over 65 years. Our deep roots in peanut farming and modern approach to groundnut export business make us one of the most reliable peanut exporters from India to global markets like the UAE, Europe, Russia, Vietnam, and Africa.
             </Typography>
-          </Box>
         </Box>
 
-        {/*--------------------------- Seventh Heading------------------------------------- */}
+        {/* Main Content Sections with Images */}
+        <SectionWithImage 
+          title="Our" 
+          titleHighlight=" Journey" 
+          description="At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology. We proudly operate a state-of-the-art groundnut processing unit with a capacity of 4 metric tons per hour, ensuring consistent quality, hygienic packaging, and timely deliveries for our global clients."
+          imageSrc={ourJourney}
+          imageAlt="Our Journey"
+          isReversed={false}
+        />
+        
+        <SectionWithImage 
+          title="Our" 
+          titleHighlight=" Specialization" 
+          description="We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive groundnut export company portfolio also features peanut oil and peanut butter, making us a comprehensive supplier for all peanut-related products."
+          imageSrc={ourSpeacility}
+          imageAlt="Our Specialization"
+          isReversed={true}
+        />
+        
+        <SectionWithImage 
+          title="Commitment To" 
+          titleHighlight=" Quality" 
+          description="Our commitment to quality is backed by FSSAI certification, HACCP standards, and ISO compliance, making us a preferred choice for buyers looking for lab-tested, pesticide-free groundnuts, and non-GMO peanuts India. We focus on providing food-grade groundnuts export that meet the strictest international standards."
+          imageSrc={ourCommitment}
+          imageAlt="Our Commitment to Quality"
+          isReversed={false}
+        />
+        
+        <SectionWithImage 
+          title="Our" 
+          titleHighlight=" Products" 
+          description={
+            <>
+              <Typography 
+                variant="body1" 
+                fontFamily="Inter, sans-serif"
+                sx={{ 
+                  color: theme.palette.customColors.lightGold,
+                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  lineHeight: 1.6,
+                  mb: 2
+                }}
+              >
+                As leading groundnut suppliers in India, we process and export a complete range of peanuts, including:
+              </Typography>
+              
+              <Box component="ul" sx={{ pl: 4, color: theme.palette.customColors.lightGold, mb: 3 }}>
+                <li>Raw peanuts for export</li>
+                <li>Organic groundnuts (certified organic crops)</li>
+                <li>Blanched peanuts</li>
+                <li>Split peanuts suppliers</li>
+                <li>Roasted peanuts wholesale</li>
+                <li>Shelled peanuts exporters</li>
+                <li>Peanut kernels export</li>
+                <li>Red skin peanuts</li>
+                <li>Peanut oil</li>
+                <li>Peanut butter</li>
+              </Box>
+
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: theme.palette.customColors.lightGold,
+                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  lineHeight: 1.6
+                }}
+              >
+                Our peanuts are available in various sizes and grades such as 38/42, 40/50, 50/60, and 60/70, and are packed in hygienic packaging options including PP bags, jute bags, and vacuum packaging to ensure maximum freshness during shipments to worldwide destinations. We offer competitive groundnut prices per ton, making us the ideal choice for bulk groundnut suppliers and wholesale peanuts suppliers in India.
+              </Typography>
+            </>
+          }
+          imageSrc={ourProducts}
+          imageAlt="Our Products"
+          isReversed={true}
+        />
+        
+        {/* Applications and Features Sections */}
+        <FeatureGrid 
+          title="Applications of" 
+          titleHighlight=" Groundnuts" 
+          items={applicationItems}
+          introText="Our Indian peanuts for export are highly versatile and used in multiple industries across the globe:"
+          closingText="With growing demand for healthy snacks, our premium peanuts exporters focus on providing non-GMO peanuts India for health-conscious consumers worldwide."
+        />
+        
+        <FeatureGrid 
+          title="Why" 
+          titleHighlight=" Choose Us?" 
+          items={whyChooseUsItems}
+          closingText="With growing demand for healthy snacks, our premium peanuts exporters focus on providing non-GMO peanuts India for health-conscious consumers worldwide."
+        />
+        
         {/* Expanding Horizons */}
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ my: 6 }}>
           <Typography 
             variant="h5" 
-            component="h1" 
+            component="h2" 
             fontFamily="Lato, sans-serif"
             fontWeight="bold"
             color={theme.palette.primary.main}
@@ -885,7 +647,6 @@ const AboutUs = () => {
             }} 
           />
 
-          {/* Add Get In Touch button after divider */}
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
             <Button
               component={RouterLink}
@@ -912,13 +673,12 @@ const AboutUs = () => {
             </Button>
           </Box>
           
-          {/* Additional contact information text */}
           <Typography 
           variant="body2" 
           fontFamily="Inter, sans-serif"
           sx={{ 
             textAlign: 'center', 
-            mt: 3, 
+              mt: 4,
             color: theme.palette.secondary.main,
             fontSize: { xs: '0.9rem', md: '1rem' },
             maxWidth: '800px',
@@ -928,15 +688,11 @@ const AboutUs = () => {
         >
           For inquiries, bulk orders, or more information, feel free to contact Balaji Exports — your reliable peanut export company website in India.
         </Typography>
-
         </Box>
-
-        
-       
-
     </Container>
     </Box>
   );
 };
 
 export default AboutUs;
+
