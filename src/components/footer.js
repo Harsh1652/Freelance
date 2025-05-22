@@ -254,7 +254,7 @@ const Footer = () => {
                 {[
                   { name: "Home", path: "/" },
                   { name: "About Us", path: "/about" },
-                  { name: "Peanut Processing", path: "/peanut-processing" }
+                  { name: "Nut Processing", path: "/nut-processing" }
                 ].map((item, index) => (
                   <Typography 
                     key={index}

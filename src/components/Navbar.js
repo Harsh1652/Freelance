@@ -62,10 +62,10 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Peanut Processing', path: '/peanut-processing' },
+    { name: 'Nut Processing', path: '/nut-processing' },
     { name: 'Products', path: '/products', hasDropdown: true },
     { name: 'Services', path: '/services' },
-    { name: 'Health Benfits', path: '/health-benefits' },
+    { name: 'Health Benefits', path: '/health-benefits' },
     { name: 'Blogs', path: '/blogs' },   
     { name: 'Contact Us', path: '/contact' }
   ];
@@ -243,7 +243,7 @@ const Navbar = () => {
                   justifyContent: 'flex-start',
                   alignItems: 'center'
                 }}>
-                  {/* Home, About Us, and Peanut Processing */}
+                  {/* Home, About Us, and nut Processing */}
                   {leftNavItems.slice(0, 3).map((item) => (
                     <Button 
                       key={item.name} 

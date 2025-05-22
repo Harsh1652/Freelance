@@ -20,6 +20,8 @@ import { ChevronDown as ExpandMoreIcon, ChevronRight as NavigateNextIcon, Leaf a
 import { Leaf, Factory, Package, Globe, Microscope, Handshake } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 
+// Import the services image
+import ServicesImage from '../assets/images/SERVICES .jpg';
 
 <Helmet>
   <title>Premium Peanut Export Services | Balaji Exports</title>
@@ -155,42 +157,75 @@ const ServicesPage = () => {
             textAlign: 'center', 
             mb: { xs: 3, sm: 4, md: 5, lg: 6 },
             position: 'relative',
-            p: { xs: 2, sm: 3, md: 4 },
             borderRadius: { xs: 1, sm: 2 },
-            background: theme.customGradients.greenDark,
+            overflow: 'hidden',
             boxShadow: '0 8px 24px rgba(0,0,0,0.12)'
           }}
         >
-          <Typography 
-            variant={isXsScreen ? "h5" : isSmScreen ? "h4" : "h2"} 
-            component="h1" 
-            fontFamily="Lato, sans-serif"
-            fontWeight="700"
-            color={theme.palette.customColors.darkGold}
-            sx={{ mb: { xs: 1, sm: 1.5, md: 2 } }}
-          >
-            Our Premium Services
-          </Typography>
-          
-          <Typography 
-            variant="body1" 
-            fontFamily="Inter, sans-serif"
-            color={theme.palette.customColors.lightGold}
-            sx={{ 
-              maxWidth: '800px', 
-              mx: 'auto', 
-              fontSize: { 
-                xs: '0.875rem', 
-                sm: '0.95rem', 
-                md: '1rem', 
-                lg: '1.1rem' 
-              } 
+          {/* Hero Image */}
+          <Box
+            component="img"
+            src={ServicesImage}
+            alt="Peanut Export Services"
+            sx={{
+              width: '100%',
+              height: { xs: '200px', sm: '300px', md: '400px' },
+              objectFit: 'cover',
+              filter: 'brightness(0.7)',
+            }}
+          />
+
+          {/* Content Overlay */}
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              p: { xs: 2, sm: 3, md: 4 },
+              background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5))',
             }}
           >
-            At Balaji Exports, we offer end-to-end solutions from organic peanut cultivation to 
-            global export. Discover our comprehensive range of services designed to deliver 
-            premium quality peanuts to clients worldwide.
-          </Typography>
+            <Typography 
+              variant={isXsScreen ? "h5" : isSmScreen ? "h4" : "h2"} 
+              component="h1" 
+              fontFamily="Lato, sans-serif"
+              fontWeight="700"
+              color="white"
+              sx={{ 
+                mb: { xs: 1, sm: 1.5, md: 2 },
+                textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              }}
+            >
+              Our Premium Services
+            </Typography>
+            
+            <Typography 
+              variant="body1" 
+              fontFamily="Inter, sans-serif"
+              color="white"
+              sx={{ 
+                maxWidth: '800px', 
+                mx: 'auto',
+                fontSize: { 
+                  xs: '0.875rem', 
+                  sm: '0.95rem', 
+                  md: '1rem', 
+                  lg: '1.1rem' 
+                },
+                textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+              }}
+            >
+              At Balaji Exports, we offer end-to-end solutions from organic peanut cultivation to 
+              global export. Discover our comprehensive range of services designed to deliver 
+              premium quality peanuts to clients worldwide.
+            </Typography>
+          </Box>
         </Box>
         
         {/* Service Cards Section */}
