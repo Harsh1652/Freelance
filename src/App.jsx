@@ -31,7 +31,7 @@ import PeanutButterPage from './pages/products/peanutButter';
 import HealthBenfitsPage from './pages/healthBenefits'; 
 import ServicsePage from './pages/services'; 
 import BlogsPage from './pages/blogs'; 
-import NutProcessingPage from './pages/NutProcessing';
+import NutJourneyPage from './pages/NutJourney';
 
 import ContactUs from './pages/contact';
 
@@ -72,7 +72,7 @@ const App = () => {
           <Route path="/health-benefits" element={<HealthBenfitsPage />} /> 
           <Route path="/services" element={<ServicsePage />} />
           <Route path="/blogs" element={<BlogsPage />} />
-          <Route path="/nut-processing" element={<NutProcessingPage />} />
+          <Route path="/nut-journey" element={<NutJourneyPage />} />
 
           {/* Add more routes as needed */}
 

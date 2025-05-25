@@ -244,11 +244,15 @@ const ServicesPage = () => {
                 sx={{ 
                   width: { 
                     xs: '100%', 
-                    sm: 'calc(50% - 16px)',  // Account for gap on sm screens
-                    md: 'calc(50% - 24px)',  // Account for gap on md screens
-                    lg: '48%'                // Exactly 48% on desktop as requested
+                    sm: 'calc(50% - 16px)',
+                    md: 'calc(50% - 24px)',
+                    lg: '48%'
                   },
-                  mb: { xs: 1, sm: 0 },
+                  mb: { xs: 3, sm: 4 },
+                  background: theme.customGradients.greenDark,
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.1)',
                   transition: 'transform 0.3s',
                   '&:hover': {
                     transform: {
@@ -259,97 +263,86 @@ const ServicesPage = () => {
                   }
                 }}
               >
-                <Accordion 
-                  expanded={expanded === service.id} 
-                  onChange={handleAccordionChange(service.id)}
-                  sx={{
-                    width: '100%',
-                    background: theme.customGradients.greenDark,
-                    borderRadius: '8px !important',
-                    mb: { xs: 1.5, sm: 2 },
-                    overflow: 'hidden',
-                    '&:before': {
-                      display: 'none',
-                    },
-                    boxShadow: '0 6px 16px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon color="#D7C68D" size={isXsScreen ? 18 : 24} />}
+                {/* Header */}
+                <Box sx={{ 
+                  p: { xs: 2, sm: 2.5, md: 3 },
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: { xs: 1.5, sm: 2 },
+                  borderBottom: `1px solid ${theme.palette.customColors.lightGold}20`
+                }}>
+                  {service.icon}
+                  <Typography 
+                    variant={isXsScreen ? "subtitle1" : "h6"} 
+                    fontFamily="Lato, sans-serif"
+                    fontWeight="700"
+                    color={theme.palette.customColors.darkGold}
                     sx={{ 
-                      p: { xs: 1.5, sm: 2 },
-                      '& .MuiAccordionSummary-content': {
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: { xs: 1, sm: 1.5, md: 2 }
-                      }
+                      fontSize: { 
+                        xs: '0.95rem', 
+                        sm: '1rem', 
+                        md: '1.125rem',
+                        lg: '1.25rem'
+                      } 
                     }}
                   >
-                    <Box sx={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: { xs: 1, sm: 1.5, md: 2 },
-                      flexWrap: isXsScreen ? 'wrap' : 'nowrap'
-                    }}>
-                      {service.icon}
+                    {service.title}
+                  </Typography>
+                </Box>
+
+                {/* Content */}
+                <Box sx={{ p: { xs: 2, sm: 2.5, md: 3 } }}>
+                  <Typography 
+                    variant="body2" 
+                    fontFamily="Inter, sans-serif"
+                    color={theme.palette.customColors.lightGold}
+                    sx={{ 
+                      mb: 2,
+                      fontSize: { 
+                        xs: '0.8125rem', 
+                        sm: '0.875rem', 
+                        md: '0.9375rem' 
+                      } 
+                    }}
+                  >
+                    {service.description}
+                  </Typography>
+                  
+                  <Box component="ul" sx={{ 
+                    pl: { xs: 1.5, sm: 2 }, 
+                    m: 0,
+                    listStyleType: 'none'
+                  }}>
+                    {service.details.map((detail, idx) => (
                       <Typography 
-                        variant={isXsScreen ? "subtitle1" : "h6"} 
-                        fontFamily="Lato, sans-serif"
-                        fontWeight="700"
-                        color={theme.palette.customColors.darkGold}
+                        component="li" 
+                        key={idx} 
+                        variant="body2"
+                        fontFamily="Inter, sans-serif"
+                        color={theme.palette.customColors.lightGold}
                         sx={{ 
+                          mb: 1,
                           fontSize: { 
-                            xs: '0.95rem', 
-                            sm: '1rem', 
-                            md: '1.125rem',
-                            lg: '1.25rem'
-                          } 
+                            xs: '0.8125rem', 
+                            sm: '0.875rem', 
+                            md: '0.9375rem' 
+                          },
+                          display: 'flex',
+                          alignItems: 'center',
+                          '&:before': {
+                            content: '"•"',
+                            color: theme.palette.customColors.accentGreen,
+                            fontWeight: 'bold',
+                            marginRight: '8px',
+                            fontSize: '1.2em'
+                          }
                         }}
                       >
-                        {service.title}
+                        {detail}
                       </Typography>
-                    </Box>
-                  </AccordionSummary>
-                  <AccordionDetails sx={{ p: { xs: 2, sm: 2.5, md: 3 }, pt: 0 }}>
-                    <Typography 
-                      variant="body2" 
-                      fontFamily="Inter, sans-serif"
-                      color={theme.palette.customColors.lightGold}
-                      sx={{ 
-                        mb: 2,
-                        fontSize: { 
-                          xs: '0.8125rem', 
-                          sm: '0.875rem', 
-                          md: '0.9375rem' 
-                        } 
-                      }}
-                    >
-                      {service.description}
-                    </Typography>
-                    
-                    <Box component="ul" sx={{ pl: { xs: 1.5, sm: 2 }, m: 0 }}>
-                      {service.details.map((detail, idx) => (
-                        <Typography 
-                          component="li" 
-                          key={idx} 
-                          variant="body2"
-                          fontFamily="Inter, sans-serif"
-                          color={theme.palette.customColors.lightGold}
-                          sx={{ 
-                            mb: 1,
-                            fontSize: { 
-                              xs: '0.8125rem', 
-                              sm: '0.875rem', 
-                              md: '0.9375rem' 
-                            } 
-                          }}
-                        >
-                          {detail}
-                        </Typography>
-                      ))}
-                    </Box>
-                  </AccordionDetails>
-                </Accordion>
+                    ))}
+                  </Box>
+                </Box>
               </Box>
             ))}
           </Box>

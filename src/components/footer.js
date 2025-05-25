@@ -155,6 +155,12 @@ const Footer = () => {
                     sx: { fontFamily: 'Inter' }
                   },
                   { 
+                    icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}} fontSize={isXsScreen ? "small" : "medium"} />, 
+                    text: "VM Group Europe Ltd, Ingenuity Centre,\nUniversity Of Nottingham Innovation Park, Triumph Road, Nottingham, England", 
+                    href: "#", 
+                    sx: { fontFamily: 'Inter', whiteSpace: 'pre-line' }
+                  },
+                  { 
                     icon: <PhoneIcon sx={{ color: theme.palette.customColors.accentGreen }} fontSize={isXsScreen ? "small" : "medium"} />, 
                     text: "+91 9778888339", 
                     href: "tel:+919778888339", 
@@ -200,7 +206,9 @@ const Footer = () => {
                           textDecoration: 'none',
                           transition: 'color 0.3s',
                           '&:hover': { color: theme.palette.customColors.accentGreen },
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          whiteSpace: 'pre-line',
+                          display: 'block'
                         }}
                       >
                         {item.text}
@@ -210,7 +218,9 @@ const Footer = () => {
                         variant={isXsScreen ? "caption" : "body2"}
                         sx={{ 
                           wordBreak: 'break-word',
-                          overflowWrap: 'break-word'
+                          overflowWrap: 'break-word',
+                          whiteSpace: 'pre-line',
+                          display: 'block'
                         }}
                       >
                         {item.text}
@@ -250,11 +260,11 @@ const Footer = () => {
               </Typography>
               
               <Stack spacing={{ xs: 0.5, sm: 1 }} sx={{ width: '100%' }}>
-                {/* Regular Links */}
+                {/* Regular Links in same sequence as Navbar */}
                 {[
                   { name: "Home", path: "/" },
                   { name: "About Us", path: "/about" },
-                  { name: "Nut Processing", path: "/nut-processing" }
+                  { name: "Nut Journey", path: "/nut-journey" }
                 ].map((item, index) => (
                   <Typography 
                     key={index}
@@ -350,11 +360,12 @@ const Footer = () => {
                   </Collapse>
                 </Box>
                 
-                {/* Remaining Links */}
+                {/* Remaining Links in same sequence as Navbar */}
                 {[
-                  { name: "Blogs", path: "/blogs" },
-                  { name: "Health Benefits", path: "/health-benefits" },
                   { name: "Services", path: "/services" },
+                  { name: "Health Benefits", path: "/health-benefits" },
+                  { name: "Blogs", path: "/blogs" },
+                  { name: "Careers", path: "/careers" },
                   { name: "Contact Us", path: "/contact" }
                 ].map((item, index) => (
                   <Typography 
