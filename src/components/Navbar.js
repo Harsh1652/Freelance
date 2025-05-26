@@ -68,13 +68,12 @@ const Navbar = () => {
     { name: 'Services', path: '/services' },
     { name: 'Health Benefits', path: '/health-benefits' },
     { name: 'Blogs', path: '/blogs' },   
-    { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' }
   ];
 
   // Split navigation items for desktop layout
-  const leftNavItems = navItems.slice(0, 4); // Home, About Us, Nut Processing, Products
-  const rightNavItems = navItems.slice(4, 8); // Services, Health Benefits, Blogs, Careers
+  const leftNavItems = navItems.slice(0, 4); // Home, About Us, Nut Journey, Products
+  const rightNavItems = navItems.slice(4, 7); // Services, Health Benefits, Blogs
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -230,8 +229,8 @@ const Navbar = () => {
     fontWeight: 500,
     textTransform: 'none',
     borderRadius: 1,
-    padding: { xs: '6px 8px', md: '8px 12px', lg: '8px 16px' },
-    fontSize: { xs: '0.8rem', md: '0.85rem', lg: '0.95rem' },
+    padding: { xs: '8px 10px', md: '10px 14px', lg: '10px 18px' },
+    fontSize: { xs: '1rem', md: '1.1rem', lg: '1.2rem' },
     minWidth: 'auto',
     whiteSpace: 'nowrap',
     transition: 'all 0.3s ease',
@@ -247,8 +246,8 @@ const Navbar = () => {
     fontWeight: 500,
     textTransform: 'none',
     borderRadius: '25px',
-    padding: { xs: '6px 12px', md: '8px 16px', lg: '10px 20px' },
-    fontSize: { xs: '0.8rem', md: '0.85rem', lg: '0.9rem' },
+    padding: { xs: '8px 14px', md: '10px 18px', lg: '12px 22px' },
+    fontSize: { xs: '1rem', md: '1.1rem', lg: '1.15rem' },
     color: theme.palette.customColors?.lightGold || '#F5E6A3',
     backgroundColor: 'transparent',
     border: `2px solid ${theme.palette.customColors?.accentGreen || '#6D8C3F'}`,

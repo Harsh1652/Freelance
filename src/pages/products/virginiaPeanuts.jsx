@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar, Collapse } from "@mui/material";
+import React, { useEffect } from "react";
+import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import fssaiLogo from "../../assets/images/fssai.png"; 
 import haccpLogo from "../../assets/images/HACCP.png"; 
 import isoLogo from "../../assets/images/ISO.png"; 
 import { Link } from 'react-router-dom';
 import GradientCard from "../../components/card";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // instead of Award
@@ -846,7 +845,6 @@ const VirginiaPeanutPage = () => {
 
 const ProductSpecifications = () => {
     const theme = useTheme();
-    const [expandedSection, setExpandedSection] = useState('qualities');
   
     // Specifications data organized by sections
     const specSections = {
@@ -887,11 +885,6 @@ const ProductSpecifications = () => {
           { name: "Exportation", value: "Export Quality Approved" }
         ]
       }
-    };
-  
-    // Function to toggle expanded section
-    const toggleSection = (sectionKey) => {
-      setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
     };
   
     return (
@@ -959,20 +952,16 @@ const ProductSpecifications = () => {
                 width: '100%'
               }}
             >
-              <Button
-                onClick={() => toggleSection(key)}
+              <Box
                 sx={{
                   width: '100%', 
                   display: 'flex', 
-                  justifyContent: 'space-between',
+                  justifyContent: 'flex-start',
                   alignItems: 'center', 
                   p: 2,
                   textAlign: 'left',
-                  textTransform: 'none',
                   color: theme.palette.secondary.main
                 }}
-                aria-expanded={expandedSection === key}
-                aria-controls={`section-${key}-content`}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Avatar 
@@ -997,58 +986,51 @@ const ProductSpecifications = () => {
                     {section.title}
                   </Typography>
                 </Box>
-                {expandedSection === key ? 
-                  <ExpandLessIcon color="primary" /> : 
-                  <ExpandMoreIcon color="primary" />
-                }
-              </Button>
+              </Box>
               
-              <Collapse in={expandedSection === key}>
-                <Box 
-                  id={`section-${key}-content`}
-                  sx={{ 
-                    p: 3, 
-                    borderTop: 1, 
-                    bgcolor: theme.palette.customColors.darkGold,
-                    borderColor: 'rgba(255,255,255,0.2)',
-                  }}
-                >
-                  {section.items.map((item, idx) => (
-                    <Box 
-                      key={idx} 
-                      sx={{ 
-                        display: 'flex', 
-                        flexWrap: 'wrap',
-                        py: 2,
-                        borderBottom: idx !== section.items.length - 1 ? 1 : 0,
-                        borderColor: 'rgba(255,255,255,0.2)',
-                      }}
-                    >
-                      <Box sx={{ 
-                        width: { xs: '100%', sm: '40%' }, 
-                        fontWeight: 700, 
-                        color: theme.palette.primary.main,
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}>
-                        <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>
-                          🥜
-                        </Typography>
-                        {item.name}:
-                      </Box>
-                      <Box sx={{ 
-                        width: { xs: '100%', sm: '60%' },
-                        fontWeight: 500, 
-                        mt: { xs: 1, sm: 0 },
-                        pl: { xs: 6, sm: 0 },
-                        color: theme.palette.secondary.main,
-                      }}>
-                        {item.value}
-                      </Box>
+              <Box 
+                sx={{ 
+                  p: 3, 
+                  borderTop: 1, 
+                  bgcolor: theme.palette.customColors.darkGold,
+                  borderColor: 'rgba(255,255,255,0.2)',
+                }}
+              >
+                {section.items.map((item, idx) => (
+                  <Box 
+                    key={idx} 
+                    sx={{ 
+                      display: 'flex', 
+                      flexWrap: 'wrap',
+                      py: 2,
+                      borderBottom: idx !== section.items.length - 1 ? 1 : 0,
+                      borderColor: 'rgba(255,255,255,0.2)',
+                    }}
+                  >
+                    <Box sx={{ 
+                      width: { xs: '100%', sm: '40%' }, 
+                      fontWeight: 700, 
+                      color: theme.palette.primary.main,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}>
+                      <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>
+                        🥜
+                      </Typography>
+                      {item.name}:
                     </Box>
-                  ))}
-                </Box>
-              </Collapse>
+                    <Box sx={{ 
+                      width: { xs: '100%', sm: '60%' },
+                      fontWeight: 500, 
+                      mt: { xs: 1, sm: 0 },
+                      pl: { xs: 6, sm: 0 },
+                      color: theme.palette.secondary.main,
+                    }}>
+                      {item.value}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
             </Paper>
           ))}
         </Box>

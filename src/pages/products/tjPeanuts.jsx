@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar, Collapse } from "@mui/material";
+import React, { useEffect } from "react";
+import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import fssaiLogo from "../../assets/images/fssai.png"; 
 import haccpLogo from "../../assets/images/HACCP.png"; 
 import isoLogo from "../../assets/images/ISO.png"; 
 import { Link } from 'react-router-dom';
 import GradientCard from "../../components/card";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // instead of Award
@@ -856,7 +855,6 @@ const TJPeanutPage = () => {
 
 const ProductSpecifications = () => {
     const theme = useTheme();
-    const [expandedSection, setExpandedSection] = useState('qualities');
   
     // Updated specifications data with the new information
     const specSections = {
@@ -899,10 +897,7 @@ const ProductSpecifications = () => {
       }
     };
   
-    // Function to toggle expanded section
-    const toggleSection = (sectionKey) => {
-      setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
-    };
+
   
     return (
       <Box sx={{ 
@@ -969,20 +964,16 @@ const ProductSpecifications = () => {
                 width: '100%'
               }}
             >
-              <Button
-                onClick={() => toggleSection(key)}
+              <Box
                 sx={{
                   width: '100%', 
                   display: 'flex', 
-                  justifyContent: 'space-between',
+                  justifyContent: 'flex-start',
                   alignItems: 'center', 
                   p: 2,
                   textAlign: 'left',
-                  textTransform: 'none',
                   color: theme.palette.secondary.main
                 }}
-                aria-expanded={expandedSection === key}
-                aria-controls={`section-${key}-content`}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Avatar 
@@ -1007,22 +998,16 @@ const ProductSpecifications = () => {
                     {section.title}
                   </Typography>
                 </Box>
-                {expandedSection === key ? 
-                  <ExpandLessIcon color="primary" /> : 
-                  <ExpandMoreIcon color="primary" />
-                }
-              </Button>
+              </Box>
               
-              <Collapse in={expandedSection === key}>
-                <Box 
-                  id={`section-${key}-content`}
-                  sx={{ 
-                    p: 3, 
-                    borderTop: 1, 
-                    bgcolor: theme.palette.customColors.darkGold,
-                    borderColor: 'rgba(255,255,255,0.2)',
-                  }}
-                >
+              <Box 
+                sx={{ 
+                  p: 3, 
+                  borderTop: 1, 
+                  bgcolor: theme.palette.customColors.darkGold,
+                  borderColor: 'rgba(255,255,255,0.2)',
+                }}
+              >
                   {section.items.map((item, idx) => (
                     <Box 
                       key={idx} 
@@ -1058,7 +1043,6 @@ const ProductSpecifications = () => {
                     </Box>
                   ))}
                 </Box>
-              </Collapse>
             </Paper>
           ))}
         </Box>

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar, Collapse } from "@mui/material";
+import React, { useEffect } from "react";
+import { Container, Box, Typography, Button, Grid, Paper, Avatar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import fssaiLogo from "../../assets/images/fssai.png"; 
 import haccpLogo from "../../assets/images/HACCP.png"; 
 import isoLogo from "../../assets/images/ISO.png"; 
 import { Link } from 'react-router-dom';
 import GradientCard from "../../components/card";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents'; // instead of Award
@@ -18,6 +17,7 @@ import peanutButterIcon from "../../assets/images/PeanutButter.png";
 import groundnutOilIcon from "../../assets/images/GroundNutOil.png";
 import cosmetic from "../../assets/images/Cosmetics.png";
 import industry from "../../assets/images/industry.png";
+import oilImage from "../../assets/images/productImg/Oil.jpg";
 
 
 const Head = ({ children }) => {
@@ -114,90 +114,10 @@ const BoldPeanutPage = () => {
         </script>
     </Head>
 
-      
-      {/* Hero Section with Background Image and Gradient Overlay */}
-      <Box
-        component="section"
-        aria-label="Hero Section"
-        sx={{
-          backgroundColor: theme.palette.primary.light,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: { xs: 350, sm: 450, md: 600 },
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <Fade in timeout={1000}>
-          <Typography
-            variant="h1" // Changed to h1 for main page heading
-            component="h1"
-            fontFamily="Lato, sans-serif"
-            fontWeight={800}
-            color="white"
-            sx={{
-              fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
-              textAlign: "center",
-              mb: 3,
-              px: 2,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-            }}
-          >
-            Premium Export Quality Peanut Oil
-          </Typography>
-        </Fade>
-        <Fade in timeout={1500}>
-          <Typography
-            variant="h5"
-            component="h2" // Added component for semantic HTML
-            fontFamily="Inter, sans-serif"
-            color="white"
-            sx={{
-              fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
-              textAlign: "center",
-              mb: 5,
-              px: 3,
-              maxWidth: "800px",
-              textShadow: '1px 1px 3px rgba(0,0,0,0.5)'
-            }}
-          >
-            Delivering exceptional quality from India's fertile soils to global markets
-          </Typography>
-        </Fade>
-        <Zoom in timeout={2000}>
-          <Button 
-            component={Link}
-            to="/contact"
-            variant="contained" 
-            aria-label="Contact us about Bold Peanuts"
-            sx={{ 
-              bgcolor: theme.palette.primary.main,
-              fontFamily: 'Inter, sans-serif',
-              px: { xs: 4, md: 6 }, 
-              py: { xs: 1.2, md: 1.8 }, 
-              fontSize: { xs: 16, md: 18 },
-              fontWeight: 600,
-              boxShadow: '0 4px 14px rgba(0,0,0,0.3)',
-              borderRadius: '30px',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                bgcolor: theme.palette.secondary.main,
-                transform: 'translateY(-3px)',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.4)',
-              }
-            }}
-          >
-            Enquire Now
-          </Button>
-        </Zoom>
-      </Box>
+
 
       {/* Introduction Section with improved styling */}
-      <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 5, md: 10 } }}>
+      <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid 
           container 
           spacing={{ xs: 4, md: 4 }} 
@@ -210,20 +130,26 @@ const BoldPeanutPage = () => {
               sx={{ 
                 height: { xs: 300, sm: 400, md: 450 }, 
                 borderRadius: 4,
-                backgroundColor: 'rgba(0,0,0,0.05)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                overflow: 'hidden',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                position: 'relative',
               }}
             >
-              <Typography 
-                variant="body2" 
-                color="text.secondary"
-                fontFamily="Inter, sans-serif"
-              >
-                Image will be placed here
-              </Typography>
+              <Box
+                component="img"
+                src={oilImage}
+                alt="Premium Quality Peanut Oil - Balaji Exports"
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  }
+                }}
+              />
             </Box>
           </Grid>
           
@@ -833,7 +759,6 @@ const BoldPeanutPage = () => {
 
 const ProductSpecifications = () => {
     const theme = useTheme();
-    const [expandedSection, setExpandedSection] = useState('appearance');
   
     // Updated Specifications data organized by sections
     const specSections = {
@@ -873,10 +798,7 @@ const ProductSpecifications = () => {
       }
     };
   
-    // Function to toggle expanded section
-    const toggleSection = (sectionKey) => {
-      setExpandedSection(expandedSection === sectionKey ? null : sectionKey);
-    };
+
   
     return (
       <Box sx={{ 
@@ -945,21 +867,17 @@ const ProductSpecifications = () => {
                 width: '100%'
               }}
             >
-              <Button
-                onClick={() => toggleSection(key)}
+              <Box
                 sx={{
                   width: '100%', 
                   display: 'flex', 
-                  justifyContent: 'space-between',
+                  justifyContent: 'flex-start',
                   alignItems: 'center', 
                   p: 2,
                   textAlign: 'left',
-                  textTransform: 'none',
                   // Updated text color for better contrast on light gold background
                   color: theme.palette.secondary.main
                 }}
-                aria-expanded={expandedSection === key}
-                aria-controls={`section-${key}-content`}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Avatar 
@@ -985,23 +903,17 @@ const ProductSpecifications = () => {
                     {section.title}
                   </Typography>
                 </Box>
-                {expandedSection === key ? 
-                  <ExpandLessIcon color="primary" /> : 
-                  <ExpandMoreIcon color="primary" />
-                }
-              </Button>
+              </Box>
               
-              <Collapse in={expandedSection === key}>
-                <Box 
-                  id={`section-${key}-content`}
-                  sx={{ 
-                    p: 3, 
-                    borderTop: 1, 
-                    // Add primary color as background for expanded sections
-                    bgcolor: theme.palette.customColors.darkGold,
-                    borderColor: 'rgba(255,255,255,0.2)',
-                  }}
-                >
+              <Box 
+                sx={{ 
+                  p: 3, 
+                  borderTop: 1, 
+                  // Add primary color as background for expanded sections
+                  bgcolor: theme.palette.customColors.darkGold,
+                  borderColor: 'rgba(255,255,255,0.2)',
+                }}
+              >
                   {section.items.map((item, idx) => (
                     <Box 
                       key={idx} 
@@ -1039,7 +951,6 @@ const ProductSpecifications = () => {
                     </Box>
                   ))}
                 </Box>
-              </Collapse>
             </Paper>
           ))}
         </Box>

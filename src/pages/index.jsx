@@ -24,6 +24,7 @@ import bannerImage1 from '../assets/images/Home/top-view-raw-peanuts-bowl-peanut
 import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-background.jpg';
 import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space.jpg';
 import bannerImage4 from '../assets/images/Home/ChatGPT Image May 25, 2025, 12_09_44 AM.png';
+import ourJourneyImage from '../assets/images/Home/OurJourney1.jpeg';
 
 // Banner Component
 const Banner = () => {
@@ -204,9 +205,9 @@ const Banner = () => {
                   sx={{ 
                     fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.5rem' },
                     lineHeight: 2,
-                    maxWidth: '900px',
+                    maxWidth: '400px',
                     mx: 'auto',
-                    px: { xs: 4, md: 8 },
+                    px: { xs: 3, md: 4 },
                     textShadow: '2px 2px 4px rgba(0,0,0,0.4)',
                     fontWeight: 400,
                     letterSpacing: '0.02em',
@@ -225,7 +226,7 @@ const Banner = () => {
                     boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
                   }}
                 >
-                  Welcome to <strong>Balaji Exports</strong>, your trusted partner for the finest quality <strong>Indian groundnuts and peanuts</strong>. Based in the heart of <strong>Rajasthan, India</strong>, we are proud to be among the biggest groundnut suppliers in India with a legacy of excellence that spans over <strong>65 years</strong>.
+                  Excellence in Every Shell
                 </Typography>
               </Box>
 
@@ -737,90 +738,147 @@ const ProductsListing = () => {
         }} />
       
       {/* Our Journey & Specialization */}
-      <Box sx={{ 
-        display: 'flex', 
-        flexDirection: { xs: 'column', md: 'row' }, 
-        gap: 3,
-          mb: 6,
-          mt: 8
-      }}>
-        <Card 
-          elevation={4}
-          sx={{ 
-            borderRadius: 2,
-            background: theme.customGradients.greenDark,
-            overflow: 'hidden',
-            width: { xs: '100%', md: '49%' },
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            '&:hover': {
-              transform: 'translateY(-5px)',
-              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-            },
-          }}
-        >
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Typography 
-              variant="h5" 
-              component="h3" 
-              fontFamily="Lato, sans-serif"
-              fontWeight={800}
-              color={theme.palette.customColors.darkGold}
-              sx={{ mb: 2 }}
-            >
-              Our Journey
-            </Typography>
-            <Typography 
-              variant="body1" 
-              fontFamily="Inter, sans-serif"
-              sx={{ 
-                color: theme.palette.customColors.lightGold,
-                fontSize: { xs: '1rem', md: '1.1rem' },
-                lineHeight: 1.6
+      <Box sx={{ mb: 6, mt: 8 }}>
+        {/* First Row: Our Journey Card + Image */}
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' }, 
+          gap: 3,
+          mb: 3
+        }}>
+          {/* Our Journey Card */}
+          <Card 
+            elevation={4}
+            sx={{ 
+              borderRadius: 2,
+              background: theme.customGradients.greenDark,
+              overflow: 'hidden',
+              width: { xs: '100%', md: '48%' },
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+              },
+            }}
+          >
+            <CardContent sx={{ 
+              p: { xs: 3, md: 4 },
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}>
+              <Typography 
+                variant="h5" 
+                component="h3" 
+                fontFamily="Lato, sans-serif"
+                fontWeight={800}
+                color={theme.palette.customColors.darkGold}
+                sx={{ mb: 2 }}
+              >
+                Our Journey
+              </Typography>
+              <Typography 
+                variant="body1" 
+                fontFamily="Inter, sans-serif"
+                sx={{ 
+                  color: theme.palette.customColors.lightGold,
+                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  lineHeight: 1.6
+                }}
+              >
+                At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
+              </Typography>
+            </CardContent>
+          </Card>
+          
+          {/* Standalone Image */}
+          <Box
+            sx={{
+              width: { xs: '100%', md: '48%' },
+              height: { xs: 250, md: 300 },
+              position: 'relative',
+              overflow: 'hidden',
+              borderRadius: 2,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+              },
+            }}
+          >
+            <Box
+              component="img"
+              src={ourJourneyImage}
+              alt="Our Journey - Balaji Exports farming heritage"
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                transition: 'transform 0.3s ease',
               }}
-            >
-              At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
-            </Typography>
-          </CardContent>
-        </Card>
+            />
+            {/* Overlay for better visual appeal */}
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%)',
+              }}
+            />
+          </Box>
+        </Box>
         
-        <Card 
-          elevation={4}
-          sx={{ 
-            borderRadius: 2,
-            background: theme.customGradients.greenDark,
-            overflow: 'hidden',
-            width: { xs: '100%', md: '49%' },
-            transition: 'transform 0.3s, box-shadow 0.3s',
-            '&:hover': {
-              transform: 'translateY(-5px)',
-              boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-            },
-          }}
-        >
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Typography 
-              variant="h5" 
-              component="h3" 
-              fontFamily="Lato, sans-serif"
-              fontWeight={800}
-              color={theme.palette.customColors.darkGold}
-              sx={{ mb: 2 }}
-            >
-              Our Specialization
-            </Typography>
-            <Typography 
-              variant="body1" 
-              fontFamily="Inter, sans-serif"
-              sx={{ 
-                color: theme.palette.customColors.lightGold,
-                fontSize: { xs: '1rem', md: '1.1rem' },
-                lineHeight: 1.6
-              }}
-            >
-              We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive portfolio also features peanut oil and peanut butter.
-            </Typography>
-          </CardContent>
-        </Card>
+        {/* Second Row: Our Specialization Card */}
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center',
+          mt: 3
+        }}>
+          <Card 
+            elevation={4}
+            sx={{ 
+              borderRadius: 2,
+              background: theme.customGradients.greenDark,
+              overflow: 'hidden',
+              width: { xs: '100%', md: '48%' },
+              transition: 'transform 0.3s, box-shadow 0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+              },
+            }}
+          >
+            <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+              <Typography 
+                variant="h5" 
+                component="h3" 
+                fontFamily="Lato, sans-serif"
+                fontWeight={800}
+                color={theme.palette.customColors.darkGold}
+                sx={{ mb: 2 }}
+              >
+                Our Specialization
+              </Typography>
+              <Typography 
+                variant="body1" 
+                fontFamily="Inter, sans-serif"
+                sx={{ 
+                  color: theme.palette.customColors.lightGold,
+                  fontSize: { xs: '1rem', md: '1.1rem' },
+                  lineHeight: 1.6
+                }}
+              >
+                We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive portfolio also features peanut oil and peanut butter.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Box>
       </Box>
       
       {/* Why Choose Us Section */}
