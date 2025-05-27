@@ -362,7 +362,7 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
             }, 50);
           }, 200);
         }
-      }, 5000);
+      }, 3000);
     }
     return () => {
       if (interval) {
