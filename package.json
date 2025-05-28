@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run optimize-images && GENERATE_SOURCEMAP=false react-scripts build",
-    "build:prod": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "react-scripts build",
+    "build:prod": "react-scripts build",
     "optimize-images": "node optimize-images.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
