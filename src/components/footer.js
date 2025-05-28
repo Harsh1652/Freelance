@@ -86,9 +86,24 @@ const Footer = () => {
                 sx={{ 
                   width: { xs: 180, sm: 200, md: 220 },
                   height: 'auto',
-                  mb: 2
+                  mb: -3
                 }}
               />
+              
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  fontFamily: 'Inter',
+                  fontWeight: 'normal',
+                  color: theme.palette.customColors.lightGold,
+                  textAlign: { xs: 'center', sm: 'flex-start' },
+                  mt: -1,
+                  mb: 1,
+                  ml: { xs: 0, sm: 3 }
+                }}
+              >
+                Excellence in Every Shell
+              </Typography>
               
               {/* Social Media Icons */}
               <Stack 
@@ -271,6 +286,12 @@ const Footer = () => {
                     variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
                     component={RouterLink} 
                     to={item.path} 
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                      });
+                    }}
                     sx={{ 
                       fontFamily: 'Inter', 
                       fontWeight: 'bold', 
@@ -340,6 +361,12 @@ const Footer = () => {
                           <Typography 
                             component={RouterLink}
                             to={product.path}
+                            onClick={() => {
+                              window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                              });
+                            }}
                             variant={isXsScreen ? "caption" : "body2"}
                             sx={{ 
                               color: theme.palette.customColors.lightGold,
@@ -373,6 +400,12 @@ const Footer = () => {
                     variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
                     component={RouterLink} 
                     to={item.path} 
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                      });
+                    }}
                     sx={{ 
                       fontFamily: 'Inter', 
                       fontWeight: 'bold', 

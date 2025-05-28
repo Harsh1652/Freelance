@@ -185,7 +185,7 @@ const ServicesPage = () => {
               bottom: 0,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'center',
+              justifyContent: 'space-between',
               alignItems: 'center',
               p: { xs: 2, sm: 3, md: 4 },
               background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5))',
@@ -199,7 +199,8 @@ const ServicesPage = () => {
               color="white"
               sx={{ 
                 mb: { xs: 1, sm: 1.5, md: 2 },
-                textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+                textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                mt: { xs: 2, sm: 3, md: 4 }
               }}
             >
               Our Premium Services
@@ -218,7 +219,9 @@ const ServicesPage = () => {
                   md: '1rem', 
                   lg: '1.1rem' 
                 },
-                textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+                textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                textAlign: 'center',
+                mb: { xs: 2, sm: 3, md: 4 }
               }}
             >
               At Balaji Exports, we offer end-to-end solutions from organic peanut cultivation to 

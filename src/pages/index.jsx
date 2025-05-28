@@ -132,8 +132,9 @@ const Banner = () => {
             bottom: 0,
             zIndex: 2,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
+            pt: { xs: 2, md: 3 },
           }}
         >
           <Container maxWidth="lg">
@@ -218,54 +219,55 @@ const Banner = () => {
                       color: theme.palette.customColors.lightGold,
                       fontWeight: 600,
                     },
-                    background: 'rgba(0,0,0,0.15)',
-                    backdropFilter: 'blur(2px)',
-                    borderRadius: '16px',
                     py: 4,
-                    border: `1px solid ${theme.palette.customColors.lightGold}40`,
-                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
                   }}
                 >
                   Excellence in Every Shell
                 </Typography>
               </Box>
-
-              <Button
-                variant="outlined"
-                component={RouterLink}
-                to="/contact"
-                onClick={() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                  });
-                }}
-                sx={{
-                  borderColor: theme.palette.customColors.lightGold,
-                  color: theme.palette.customColors.lightGold,
-                  borderWidth: 2,
-                  px: { xs: 4, md: 6 },
-                  py: { xs: 1.5, md: 2 },
-                  fontSize: { xs: '1rem', md: '1.2rem' },
-                  fontFamily: 'Inter, sans-serif',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  fontWeight: 500,
-                  '&:hover': {
-                    borderWidth: 2,
-                    backgroundColor: 'rgba(255,255,255,0.1)',
-                    borderColor: theme.palette.customColors.lightGold,
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                  },
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                Contact Us
-              </Button>
             </Box>
           </Container>
         </Box>
+
+        {/* Contact Us Button - Positioned at bottom */}
+        <Button
+          variant="outlined"
+          component={RouterLink}
+          to="/contact"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }}
+          sx={{
+            position: 'absolute',
+            bottom: { xs: 80, md: 100 },
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 3,
+            borderColor: theme.palette.customColors.lightGold,
+            color: theme.palette.customColors.lightGold,
+            borderWidth: 2,
+            px: { xs: 4, md: 6 },
+            py: { xs: 1.5, md: 2 },
+            fontSize: { xs: '1rem', md: '1.2rem' },
+            fontFamily: 'Inter, sans-serif',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em',
+            fontWeight: 500,
+            '&:hover': {
+              borderWidth: 2,
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              borderColor: theme.palette.customColors.lightGold,
+              transform: 'translateX(-50%) translateY(-2px)',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+            },
+            transition: 'all 0.3s ease',
+          }}
+        >
+          Contact Us
+        </Button>
 
         {/* Navigation Buttons */}
         <IconButton
@@ -467,6 +469,10 @@ const ProductsListing = () => {
   // Function to handle product click
   const handleProductClick = (path) => {
     navigate(path);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
   
   return (
@@ -744,59 +750,68 @@ const ProductsListing = () => {
           display: 'flex', 
           flexDirection: { xs: 'column', md: 'row' }, 
           gap: 3,
-          mb: 3
+          mb: 3,
+          alignItems: 'center'
         }}>
           {/* Our Journey Card */}
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', md: '48%' },
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ 
-              p: { xs: 3, md: 4 },
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Typography 
-                variant="h5" 
-                component="h3" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.customColors.darkGold}
-                sx={{ mb: 2 }}
-              >
-                Our Journey
-              </Typography>
-              <Typography 
-                variant="body1" 
-                fontFamily="Inter, sans-serif"
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '1rem', md: '1.1rem' },
-                  lineHeight: 1.6
-                }}
-              >
-                At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
-              </Typography>
-            </CardContent>
-          </Card>
-          
+          <Box sx={{
+            width: { xs: '100%', md: '48%' },
+            display: 'flex',
+            alignItems: 'center',
+            minHeight: { xs: 450, md: 600 },
+          }}>
+            <Card 
+              elevation={4}
+              sx={{ 
+                borderRadius: 2,
+                background: theme.customGradients.greenDark,
+                overflow: 'hidden',
+                width: '100%',
+                height: { xs: 225, md: 300 },
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                },
+              }}
+            >
+              <CardContent sx={{ 
+                p: { xs: 3, md: 4 },
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}>
+                <Typography 
+                  variant="h5" 
+                  component="h3" 
+                  fontFamily="Lato, sans-serif"
+                  fontWeight={800}
+                  color={theme.palette.customColors.darkGold}
+                  sx={{ mb: 2 }}
+                >
+                  Our Journey
+                </Typography>
+                <Typography 
+                  variant="body1" 
+                  fontFamily="Inter, sans-serif"
+                  sx={{ 
+                    color: theme.palette.customColors.lightGold,
+                    fontSize: { xs: '1rem', md: '1.1rem' },
+                    lineHeight: 1.6
+                  }}
+                >
+                  At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Box>
+            
           {/* Standalone Image */}
           <Box
             sx={{
               width: { xs: '100%', md: '48%' },
-              height: { xs: 250, md: 300 },
+              height: { xs: 450, md: 600 },
               position: 'relative',
               overflow: 'hidden',
               borderRadius: 2,
@@ -816,7 +831,7 @@ const ProductsListing = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center',
+                objectPosition: 'top center',
                 transition: 'transform 0.3s ease',
               }}
             />
@@ -880,6 +895,15 @@ const ProductsListing = () => {
           </Card>
         </Box>
       </Box>
+
+      {/* Divider after products */}
+      <Divider sx={{ 
+          my: 8, 
+          width: '80%',
+          maxWidth: '1000px',
+          mx: 'auto',
+          borderColor: `${theme.palette.primary.main}30`
+        }} />
       
       {/* Why Choose Us Section */}
       <Box sx={{ mb: 8 }}>

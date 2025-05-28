@@ -467,12 +467,18 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
   const goToPreviousStep = useCallback(() => {
     if (activeStep > 0) {
       changeStep(activeStep - 1);
+    } else {
+      // Loop to last step when on first step
+      changeStep(steps.length - 1);
     }
-  }, [activeStep, changeStep]);
+  }, [activeStep, changeStep, steps.length]);
 
   const goToNextStep = useCallback(() => {
     if (activeStep < steps.length - 1) {
       changeStep(activeStep + 1);
+    } else {
+      // Loop back to first step when on last step
+      changeStep(0);
     }
   }, [activeStep, steps.length, changeStep]);
 
@@ -525,8 +531,8 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
     bgcolor: 'rgba(255, 255, 255, 0.8)',
     '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
     boxShadow: 2,
-    color: activeStep === 0 ? 'gray' : theme.palette.primary.main
-  }), [activeStep]);
+    color: theme.palette.primary.main
+  }), []);
 
   const nextButtonStyle = useMemo(() => ({
     position: 'absolute',
@@ -537,8 +543,8 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
     bgcolor: 'rgba(255, 255, 255, 0.8)',
     '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
     boxShadow: 2,
-    color: activeStep === steps.length - 1 ? 'gray' : theme.palette.primary.main
-  }), [activeStep, steps.length]);
+    color: theme.palette.primary.main
+  }), []);
 
   return (
     <Box sx={{ mb: 10 }}>
@@ -598,7 +604,6 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
         {/* Navigation buttons */}
         <IconButton         
           onClick={goToPreviousStep}         
-          disabled={activeStep === 0}         
           sx={prevButtonStyle}         
           aria-label="Previous step"
         >
@@ -607,7 +612,6 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
 
         <IconButton         
           onClick={goToNextStep}         
-          disabled={activeStep === steps.length - 1}         
           sx={nextButtonStyle}         
           aria-label="Next step"
         >
@@ -795,7 +799,6 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
       }}>
         <Button          
           variant="outlined"         
-          disabled={activeStep === 0}         
           onClick={goToPreviousStep}         
           sx={{            
             color: theme.palette.primary.main,           
@@ -806,7 +809,6 @@ const ProcessViewer = ({ steps, title, description, badge }) => {
               backgroundColor: 'rgba(58, 107, 61, 0.04)'            }          }}        >          Previous        </Button>               
         <Button          
           variant="contained"         
-          disabled={activeStep === steps.length - 1}         
           onClick={goToNextStep}         
           sx={{            
             bgcolor: theme.palette.customColors.accentGreen,           

@@ -112,7 +112,7 @@ const Navbar = () => {
             height: 80, 
             width: 'auto',
             maxWidth: '90%',
-            mb: 2
+            mb: -0.5
           }}
         />
         <Typography 
@@ -124,6 +124,17 @@ const Navbar = () => {
           }}
         >
           Balaji Exports
+        </Typography>
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontFamily: 'Inter',
+            fontWeight: 'normal',
+            color: theme.palette.primary.main,
+            mt: -0.5
+          }}
+        >
+          Excellence in Every Shell
         </Typography>
       </Box>
       
@@ -309,6 +320,7 @@ const Navbar = () => {
                   to="/"
                   sx={{ 
                     display: 'flex', 
+                    flexDirection: 'column',
                     alignItems: 'center',
                     textDecoration: 'none'
                   }}
@@ -323,9 +335,23 @@ const Navbar = () => {
                       transition: 'transform 0.3s ease',
                       '&:hover': {
                         transform: 'scale(1.05)'
-                      }
+                      },
+                      mb: 0
                     }}
                   />
+                  <Typography 
+                    variant="caption" 
+                    sx={{ 
+                      fontFamily: 'Inter',
+                      fontWeight: 'normal',
+                      color: theme.palette.customColors?.lightGold || '#F5E6A3',
+                      mt: -1,
+                      fontSize: { xs: '0.7rem', sm: '0.75rem' },
+                      textAlign: 'center'
+                    }}
+                  >
+                    Excellence in Every Shell
+                  </Typography>
                 </Box>
               </Box>
               
@@ -426,6 +452,7 @@ const Navbar = () => {
                     to="/"
                     sx={{ 
                       display: 'flex', 
+                      flexDirection: 'column',
                       alignItems: 'center',
                       textDecoration: 'none'
                     }}
@@ -440,9 +467,23 @@ const Navbar = () => {
                         transition: 'transform 0.3s ease',
                         '&:hover': {
                           transform: 'scale(1.05)'
-                        }
+                        },
+                        mb: 0
                       }}
                     />
+                    <Typography 
+                      variant="caption" 
+                      sx={{ 
+                        fontFamily: 'Inter',
+                        fontWeight: 'normal',
+                        color: theme.palette.customColors?.lightGold || '#F5E6A3',
+                        mt: -1,
+                        fontSize: { md: '0.75rem', lg: '0.8rem' },
+                        textAlign: 'center'
+                      }}
+                    >
+                      Excellence in Every Shell
+                    </Typography>
                   </Box>
                 </Box>
 
