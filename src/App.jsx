@@ -6,6 +6,7 @@ import Footer from './components/footer'; // import the Footer component
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './styles/theme'; // import your theme
 import WhatsAppButton from './components/whatsAppButton';
+import FreeSampleButton from './components/freeSampleButton';
 
 
 
@@ -84,6 +85,8 @@ const App = () => {
           phoneNumber="+919778888339" // Your WhatsApp number
           message="Hello, I have a question about your peanut products" // Optional pre-filled message
         />
+        {/* Free Sample Button - will appear on all pages */}
+        <FreeSampleButton />
       </BrowserRouter>
     </ThemeProvider>
   );
