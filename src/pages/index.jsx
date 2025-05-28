@@ -26,7 +26,6 @@ import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-backgroun
 import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space_optimized.jpg';
 import bannerImage4 from '../assets/images/Home/ChatGPT Image May 25, 2025, 12_09_44 AM.png';
 import ourJourneyImage from '../assets/images/Home/OurJourney1_optimized.jpeg';
-import balajiExportsVideo from '../assets/images/Home/BalajiExportsVideo.mp4';
 
 // Banner Component
 const Banner = () => {
@@ -1097,7 +1096,7 @@ const ProductsListing = () => {
                   display: 'block'
                 }}
               >
-                <source src={balajiExportsVideo} type="video/mp4" />
+                <source src="/BalajiExportsVideo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               
