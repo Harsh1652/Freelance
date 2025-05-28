@@ -21,11 +21,11 @@ import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import LazyImage from '../components/LazyImage';
 
 // Import banner images with lazy loading
-import bannerImage1 from '../assets/images/Home/top-view-raw-peanuts-bowl-peanut-butter-wooden-horizontal (1).jpg';
-import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-background.jpg';
-import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space.jpg';
+import bannerImage1 from '../assets/images/Home/top-view-raw-peanuts-bowl-peanut-butter-wooden-horizontal (1)_optimized.jpg';
+import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-background_optimized.jpg';
+import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space_optimized.jpg';
 import bannerImage4 from '../assets/images/Home/ChatGPT Image May 25, 2025, 12_09_44 AM.png';
-import ourJourneyImage from '../assets/images/Home/OurJourney1.jpeg';
+import ourJourneyImage from '../assets/images/Home/OurJourney1_optimized.jpeg';
 
 // Banner Component
 const Banner = () => {
