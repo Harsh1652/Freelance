@@ -18,8 +18,9 @@ import {
 } from '@mui/material';
 import { Leaf as LeafIcon, ChevronRight as ChevronRightIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import LazyImage from '../components/LazyImage';
 
-// Import banner images
+// Import banner images with lazy loading
 import bannerImage1 from '../assets/images/Home/top-view-raw-peanuts-bowl-peanut-butter-wooden-horizontal (1).jpg';
 import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-background.jpg';
 import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space.jpg';
@@ -107,8 +108,7 @@ const Banner = () => {
               }
             }}
           >
-            <Box
-              component="img"
+            <LazyImage
               src={img}
               alt={`Balaji Exports Banner ${index + 1}`}
               sx={{
@@ -823,8 +823,7 @@ const ProductsListing = () => {
               },
             }}
           >
-            <Box
-              component="img"
+            <LazyImage
               src={ourJourneyImage}
               alt="Our Journey - Balaji Exports farming heritage"
               sx={{
