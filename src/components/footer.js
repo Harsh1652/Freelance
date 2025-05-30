@@ -11,7 +11,8 @@ import {
   useMediaQuery,
   Collapse,
   List,
-  ListItem
+  ListItem,
+  Button
 } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -24,10 +25,30 @@ import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
 
 // Import the logo image
 import Logo from '../assets/images/Logo.png';
+
+const MarketLink = styled('div')(({ theme }) => ({
+  width: '100%',
+  padding: '12px 16px',
+  backgroundColor: 'transparent',
+  color: theme.palette.customColors.lightGold,
+  fontSize: '1rem',
+  fontFamily: 'Inter, sans-serif',
+  cursor: 'pointer',
+  borderRadius: '8px',
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    color: theme.palette.customColors.accentGreen,
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+  }
+}));
 
 const Footer = () => {
   const theme = useTheme();
@@ -35,6 +56,7 @@ const Footer = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('md', 'lg'));
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const peanutProducts = [
     { name: 'Bold Peanuts', path: '/products/bold-peanuts' },
@@ -53,6 +75,12 @@ const Footer = () => {
     { name: 'Virginia Peanuts', path: '/products/virginia-peanuts' },
     { name: 'Peanut Oil', path: '/products/peanut-oil' },
   ];
+
+  // Add internal links data
+  const internalLinks = [
+    { name: 'Vietnam Market', path: '/blogs/vietnam' }
+  ];
+
 
   const toggleProductDropdown = () => {
     setProductDropdownOpen(!productDropdownOpen);
@@ -165,7 +193,7 @@ const Footer = () => {
                 {[
                   { 
                     icon: <LocationOnIcon sx={{ color: theme.palette.customColors.accentGreen}} fontSize={isXsScreen ? "small" : "medium"} />, 
-                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE, MUMBAI", 
+                    text: "ROOM NO. 804, KRISHNAAMRUT KALWA KRICK ROAD, THANE, MUMBAI,400605", 
                     href: "https://www.google.com/maps/search/KRISHNAAMRUT+KALWA+KRICK+ROAD+THANE", 
                     sx: { fontFamily: 'Inter' }
                   },
@@ -248,17 +276,21 @@ const Footer = () => {
           </Grid>
 
           {/* Page Links */}
-          <Grid item xs={6} sm={3} md={2} sx={{ 
+          <Grid item xs={6} sm={3} md={3} lg={2} sx={{ 
             display: { xs: 'flex', sm: 'flex' }, 
             justifyContent: { xs: 'center', sm: 'flex-start' },  
-            order: { xs: 3, md: 3 }
+            order: { xs: 3, md: 3 },
+            position: 'relative',
+            zIndex: 10
           }}>
             <Box sx={{ 
               display: 'flex',
               flexDirection: 'column',
               alignItems: { xs: 'center', sm: 'flex-start' },
               textAlign: { xs: 'center', sm: 'left' },
-              width: '100%'
+              width: '100%',
+              position: 'relative',
+              zIndex: 10
             }}>
               {/* Quick Links Heading */}
               <Typography 
@@ -274,36 +306,53 @@ const Footer = () => {
                 QUICK LINKS
               </Typography>
               
-              <Stack spacing={{ xs: 0.5, sm: 1 }} sx={{ width: '100%' }}>
+              <Stack spacing={{ xs: 0.5, sm: 1 }} sx={{ 
+                width: '100%',
+                position: 'relative',
+                zIndex: 10,
+                overflow: 'visible'
+              }}>
                 {/* Regular Links in same sequence as Navbar */}
                 {[
                   { name: "Home", path: "/" },
                   { name: "About Us", path: "/about" },
                   { name: "Nut Journey", path: "/nut-journey" }
                 ].map((item, index) => (
-                  <Typography 
+                  <div
                     key={index}
-                    variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
-                    component={RouterLink} 
-                    to={item.path} 
-                    onClick={() => {
-                      window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
+                    onClick={(e) => {
+                      console.log('Footer link clicked:', item.name, item.path);
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.location.href = item.path;
                     }}
-                    sx={{ 
+                    style={{ 
                       fontFamily: 'Inter', 
                       fontWeight: 'bold', 
                       color: theme.palette.customColors.lightGold,
-                      textDecoration: 'none',
-                      transition: 'color 0.3s', 
-                      '&:hover': { color: theme.palette.customColors.accentGreen },
-                      pb: 0.5
+                      transition: 'color 0.3s ease', 
+                      cursor: 'pointer',
+                      display: 'block',
+                      padding: '8px 4px',
+                      margin: '2px 0',
+                      width: '100%',
+                      textAlign: 'left',
+                      fontSize: isXsScreen ? '0.875rem' : (isSmallScreen ? '1rem' : '1.25rem'),
+                      position: 'relative',
+                      zIndex: 10,
+                      userSelect: 'none',
+                      border: '1px solid transparent'
+                    }}
+                    onMouseEnter={(e) => {
+                      console.log('Hover entered:', item.name);
+                      e.target.style.color = theme.palette.customColors.accentGreen;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.color = theme.palette.customColors.lightGold;
                     }}
                   >
                     {item.name}
-                  </Typography>
+                  </div>
                 ))}
                 
                 {/* Products Dropdown */}
@@ -361,11 +410,9 @@ const Footer = () => {
                           <Typography 
                             component={RouterLink}
                             to={product.path}
-                            onClick={() => {
-                              window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'
-                              });
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigate(product.path);
                             }}
                             variant={isXsScreen ? "caption" : "body2"}
                             sx={{ 
@@ -391,38 +438,103 @@ const Footer = () => {
                 {[
                   { name: "Services", path: "/services" },
                   { name: "Health Benefits", path: "/health-benefits" },
-                  { name: "Blogs", path: "/blogs" },
                   { name: "Careers", path: "/careers" },
                   { name: "Contact Us", path: "/contact" }
                 ].map((item, index) => (
-                  <Typography 
+                  <div
                     key={index}
-                    variant={isXsScreen ? "body2" : (isSmallScreen ? "body1" : "h6")}
-                    component={RouterLink} 
-                    to={item.path} 
-                    onClick={() => {
-                      window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                      });
+                    onClick={(e) => {
+                      console.log('Footer link clicked:', item.name, item.path);
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.location.href = item.path;
                     }}
-                    sx={{ 
+                    style={{ 
                       fontFamily: 'Inter', 
                       fontWeight: 'bold', 
                       color: theme.palette.customColors.lightGold,
-                      textDecoration: 'none',
-                      transition: 'color 0.3s', 
-                      '&:hover': { color: theme.palette.customColors.accentGreen },
-                      pb: 0.5
+                      transition: 'color 0.3s ease', 
+                      cursor: 'pointer',
+                      display: 'block',
+                      padding: '8px 4px',
+                      margin: '2px 0',
+                      width: '100%',
+                      textAlign: 'left',
+                      fontSize: isXsScreen ? '0.875rem' : (isSmallScreen ? '1rem' : '1.25rem'),
+                      position: 'relative',
+                      zIndex: 10,
+                      userSelect: 'none',
+                      border: '1px solid transparent'
+                    }}
+                    onMouseEnter={(e) => {
+                      console.log('Hover entered:', item.name);
+                      e.target.style.color = theme.palette.customColors.accentGreen;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.color = theme.palette.customColors.lightGold;
                     }}
                   >
                     {item.name}
-                  </Typography>
+                  </div>
                 ))}
               </Stack>
             </Box>
           </Grid>
         </Grid>
+
+        {/* Internal Links and Blog Posts Combined Section */}
+        <Box sx={{ 
+          mt: { xs: 4, sm: 5 },
+          pb: { xs: 2, sm: 3 },
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          pt: { xs: 3, sm: 4 }
+        }}>
+          <Box sx={{ textAlign: 'left', mb: 3, pl: { xs: 2, sm: 4 } }}>
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: theme.palette.customColors.darkGold,
+                fontFamily: 'Lato',
+                fontWeight: 'bold'
+              }}
+            >
+              Large Market Share in following Countries:
+            </Typography>
+          </Box>
+          <Grid container spacing={2} justifyContent="flex-start" sx={{ px: { xs: 2, sm: 4 } }}>
+            {internalLinks.map((link, index) => (
+              <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+                <Button
+                  fullWidth
+                  onClick={() => {
+                    navigate(link.path);
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth'
+                    });
+                  }}
+                  sx={{
+                    backgroundColor: 'transparent',
+                    color: theme.palette.customColors.lightGold,
+                    fontSize: '1rem',
+                    fontFamily: 'Inter',
+                    padding: '12px 16px',
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    '&:hover': {
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                      color: theme.palette.customColors.accentGreen,
+                      transform: 'translateY(-2px)',
+                      boxShadow: theme => `0 4px 8px ${alpha(theme.palette.common.black, 0.2)}`
+                    }
+                  }}
+                >
+                  {link.name}
+                </Button>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
         {/* Copyright Section */}
         <Divider sx={{ 

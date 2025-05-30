@@ -38,6 +38,9 @@ const Navbar = () => {
   // State for products dropdown
   const [productsMenuAnchor, setProductsMenuAnchor] = useState(null);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  // Add state for blogs dropdown
+  const [blogsMenuAnchor, setBlogsMenuAnchor] = useState(null);
+  const [mobileBlogsOpen, setMobileBlogsOpen] = useState(false);
 
   // Product items
   const productItems = [
@@ -59,6 +62,12 @@ const Navbar = () => {
     { name: 'Peanut Oil', path: '/products/peanut-oil' },
   ];
 
+  // Add blog items
+  const blogItems = [
+    { name: 'Vietnam Market', path: '/blogs/vietnam' },
+    
+  ];
+
   // Navigation items
   const navItems = [
     { name: 'Home', path: '/' },
@@ -67,7 +76,7 @@ const Navbar = () => {
     { name: 'Products', path: '/products', hasDropdown: true },
     { name: 'Services', path: '/services' },
     { name: 'Health Benefits', path: '/health-benefits' },
-    { name: 'Blogs', path: '/blogs' },   
+    { name: 'Blogs', path: '/blogs', hasDropdown: true },   
     { name: 'Contact Us', path: '/contact' }
   ];
 
@@ -89,6 +98,18 @@ const Navbar = () => {
 
   const toggleMobileProductsMenu = () => {
     setMobileProductsOpen(!mobileProductsOpen);
+  };
+
+  const handleBlogsMenuOpen = (event) => {
+    setBlogsMenuAnchor(event.currentTarget);
+  };
+
+  const handleBlogsMenuClose = () => {
+    setBlogsMenuAnchor(null);
+  };
+
+  const toggleMobileBlogsMenu = () => {
+    setMobileBlogsOpen(!mobileBlogsOpen);
   };
 
   // Mobile drawer content
@@ -143,7 +164,7 @@ const Navbar = () => {
           item.hasDropdown ? (
             <React.Fragment key={item.name}>
               <ListItemButton 
-                onClick={toggleMobileProductsMenu} 
+                onClick={item.name === 'Products' ? toggleMobileProductsMenu : toggleMobileBlogsMenu} 
                 sx={{ 
                   textAlign: 'center',
                   borderRadius: 1,
@@ -164,16 +185,19 @@ const Navbar = () => {
                     }
                   }}
                 />
-                {mobileProductsOpen ? <ExpandLess /> : <ExpandMore />}
+                {item.name === 'Products' ? 
+                  (mobileProductsOpen ? <ExpandLess /> : <ExpandMore />) :
+                  (mobileBlogsOpen ? <ExpandLess /> : <ExpandMore />)
+                }
               </ListItemButton>
-              <Collapse in={mobileProductsOpen} timeout="auto" unmountOnExit>
+              <Collapse in={item.name === 'Products' ? mobileProductsOpen : mobileBlogsOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding sx={{ mb: 1 }}>
-                  {productItems.map((product) => (
+                  {(item.name === 'Products' ? productItems : blogItems).map((subItem) => (
                     <ListItem 
-                      key={product.name}
+                      key={subItem.name}
                       disablePadding
                       component={RouterLink}
-                      to={product.path}
+                      to={subItem.path}
                       sx={{ 
                         pl: 4,
                         borderRadius: 1,
@@ -183,7 +207,7 @@ const Navbar = () => {
                       }}
                     >
                       <ListItemText 
-                        primary={product.name} 
+                        primary={subItem.name} 
                         sx={{
                           textAlign: 'left',
                           '& .MuiTypography-root': {
@@ -496,14 +520,70 @@ const Navbar = () => {
                   gap: { md: 0.5, lg: 1 }
                 }}>
                   {rightNavItems.map((item) => (
-                    <Button
-                      key={item.name}
-                      component={RouterLink}
-                      to={item.path}
-                      sx={navButtonStyle}
-                    >
-                      {item.name}
-                    </Button>
+                    item.name === 'Blogs' ? (
+                      <React.Fragment key={item.name}>
+                        <Button
+                          aria-controls="blogs-menu"
+                          aria-haspopup="true"
+                          onClick={handleBlogsMenuOpen}
+                          endIcon={blogsMenuAnchor ? <ExpandLess /> : <ExpandMore />}
+                          sx={navButtonStyle}
+                        >
+                          {item.name}
+                        </Button>
+                        <Menu
+                          id="blogs-menu"
+                          anchorEl={blogsMenuAnchor}
+                          keepMounted
+                          open={Boolean(blogsMenuAnchor)}
+                          onClose={handleBlogsMenuClose}
+                          sx={{
+                            '& .MuiPaper-root': {
+                              backgroundColor: theme.palette.background.paper,
+                              borderRadius: 2,
+                              boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+                              mt: 1,
+                              maxHeight: 400,
+                              overflowY: 'auto'
+                            }
+                          }}
+                        >
+                          {blogItems.map((blog) => (
+                            <MenuItem 
+                              key={blog.name} 
+                              component={RouterLink} 
+                              to={blog.path}
+                              onClick={handleBlogsMenuClose}
+                              sx={{
+                                fontFamily: 'Inter',
+                                color: theme.palette.secondary.main,
+                                fontSize: '0.9rem',
+                                py: 1.5,
+                                px: 3,
+                                minWidth: '200px',
+                                transition: 'all 0.2s ease',
+                                '&:hover': {
+                                  backgroundColor: 'rgba(109, 140, 63, 0.1)',
+                                  color: theme.palette.primary.main,
+                                  transform: 'translateX(4px)'
+                                }
+                              }}
+                            >
+                              {blog.name}
+                            </MenuItem>
+                          ))}
+                        </Menu>
+                      </React.Fragment>
+                    ) : (
+                      <Button
+                        key={item.name}
+                        component={RouterLink}
+                        to={item.path}
+                        sx={navButtonStyle}
+                      >
+                        {item.name}
+                      </Button>
+                    )
                   ))}
                   
                   {/* Contact Us Button */}

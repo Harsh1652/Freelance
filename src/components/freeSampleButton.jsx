@@ -48,12 +48,12 @@ const FreeSampleButton = () => {
           sx={{
             position: 'fixed',
             bottom: { xs: 110, md: 130 }, // Above the button
-            left: { xs: 90, md: 110 }, // To the right of the button
+            left: { xs: 75, md: 110 }, // Adjusted to prevent overlap
             backgroundColor: 'white',
             color: '#333',
-            padding: 2,
-            borderRadius: 2,
-            maxWidth: '200px',
+            padding: { xs: 0.75, md: 2 }, // Further reduced padding on mobile
+            borderRadius: { xs: 1.5, md: 2 }, // Smaller border radius on mobile
+            maxWidth: { xs: '110px', md: '200px' }, // Further reduced width on mobile
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
             zIndex: 999,
             opacity: showBubble ? 1 : 0,
@@ -62,18 +62,25 @@ const FreeSampleButton = () => {
             '&:before': {
               content: '""',
               position: 'absolute',
-              bottom: '15px',
-              left: '-10px',
-              width: '20px',
-              height: '20px',
+              bottom: { xs: '12px', md: '15px' },
+              left: { xs: '-6px', md: '-10px' },
+              width: { xs: '12px', md: '20px' }, // Smaller arrow on mobile
+              height: { xs: '12px', md: '20px' }, // Smaller arrow on mobile
               backgroundColor: 'white',
               transform: 'rotate(45deg)',
               zIndex: -1,
             }
           }}
         >
-          <Typography variant="body2" fontWeight="medium" sx={{ fontFamily: 'Inter, sans-serif' }}>
-            Get your FREE peanut samples! Click to request now.
+          <Typography 
+            variant="body2" 
+            fontWeight="medium" 
+            sx={{ 
+              fontFamily: 'Inter, sans-serif',
+              fontSize: { xs: '0.65rem', md: '0.875rem' } // Even smaller text on mobile
+            }}
+          >
+            FREE samples! Click here.
           </Typography>
         </Box>
       )}

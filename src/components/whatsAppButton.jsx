@@ -73,7 +73,9 @@ const WhatsAppFab = styled(Fab)(({ theme }) => ({
 }));
 
 // Styled component for chat bubble
-const ChatBubble = styled(Box)(({ theme, show }) => ({
+const ChatBubble = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'show',
+})(({ theme, show }) => ({
   position: 'fixed',
   bottom: theme.spacing(10),
   right: theme.spacing(12),
@@ -84,6 +86,15 @@ const ChatBubble = styled(Box)(({ theme, show }) => ({
   maxWidth: '200px',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
   zIndex: 999,
+  // Mobile-specific styling
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '120px', // Further reduced from 150px
+    padding: theme.spacing(0.75), // Further reduced padding
+    bottom: theme.spacing(9), // Adjusted position
+    right: theme.spacing(6), // Adjusted position
+    fontSize: '0.7rem', // Even smaller text
+    borderRadius: theme.spacing(1.5), // Smaller border radius
+  },
   '&:before': {
     content: '""',
     position: 'absolute',
@@ -94,6 +105,13 @@ const ChatBubble = styled(Box)(({ theme, show }) => ({
     backgroundColor: 'white',
     transform: 'rotate(45deg)',
     zIndex: -1,
+    // Mobile-specific arrow styling
+    [theme.breakpoints.down('md')]: {
+      bottom: '10px',
+      right: '-6px',
+      width: '12px',
+      height: '12px',
+    },
   },
   animation: show ? `${fadeIn} 0.5s forwards` : `${fadeOut} 0.5s forwards`,
 }));
@@ -136,7 +154,7 @@ const WhatsAppButton = ({ phoneNumber = '+919778888339', message = 'Hello, I hav
       {(showBubble || showBubble === false) && (
         <ChatBubble show={showBubble}>
           <Typography variant="body2" fontWeight="medium">
-            Need help with peanut selection? Chat with us now!
+            Need help? Chat with us!
           </Typography>
         </ChatBubble>
       )}

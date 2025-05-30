@@ -17,7 +17,7 @@ import {
   IconButton
 } from '@mui/material';
 import { Leaf as LeafIcon, ChevronRight as ChevronRightIcon, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import { useNavigate, Link as RouterLink, useLocation } from 'react-router-dom';
 import LazyImage from '../components/LazyImage';
 
 // Import banner images with lazy loading
@@ -26,6 +26,22 @@ import bannerImage2 from '../assets/images/Home/top-view-peanuts-green-backgroun
 import bannerImage3 from '../assets/images/Home/top-view-peanuts-bowl-with-copy-space_optimized.jpg';
 import bannerImage4 from '../assets/images/Home/ChatGPT Image May 25, 2025, 12_09_44 AM.png';
 import ourJourneyImage from '../assets/images/Home/OurJourney1_optimized.jpeg';
+
+// Import industrial solutions images
+import cattleFieldImage from '../assets/images/Home/IndutrySolutions/Cattle Field.jpg';
+import cosmeticImage from '../assets/images/Home/IndutrySolutions/cosmetic .jpg';
+import peanutOilImage from '../assets/images/Home/IndutrySolutions/Peanut Oil.jpg';
+import snacksImage from '../assets/images/Home/IndutrySolutions/Snacks.jpg';
+import pharmaImage from '../assets/images/Home/IndutrySolutions/pharma.jpg';
+
+// Import product images
+import boldPeanutsImage from '../assets/images/Home/product_h_img/bold .jpg';
+import runnerPeanutsImage from '../assets/images/Home/product_h_img/runner .jpeg';
+import redSkinPeanutsImage from '../assets/images/Home/product_h_img/red skin .jpg';
+import spanishPeanutsImage from '../assets/images/Home/product_h_img/spanish peanuts .jpeg';
+import tjPeanutsImage from '../assets/images/Home/product_h_img/tj peanuts .jpeg';
+import longJavaPeanutsImage from '../assets/images/Home/product_h_img/java .jpeg';
+import virginiaPeanutsImage from '../assets/images/Home/product_h_img/virginia .jpeg';
 
 // Banner Component
 const Banner = () => {
@@ -134,7 +150,7 @@ const Banner = () => {
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'center',
-            pt: { xs: 2, md: 3 },
+            pt: { xs: 1, md: 2 },
           }}
         >
           <Container maxWidth="lg">
@@ -144,8 +160,9 @@ const Banner = () => {
               maxWidth: '1000px',
               mx: 'auto',
               px: { xs: 2, md: 4 },
-              py: { xs: 4, md: 6 },
+              py: { xs: 2, md: 3 },
               position: 'relative',
+              mt: { xs: 8, sm: 10, md: 6 }
             }}>
               <Typography 
                 variant="h1" 
@@ -153,7 +170,7 @@ const Banner = () => {
                 fontFamily="Lato, sans-serif"
                 fontWeight="bold"
                 sx={{ 
-                  mb: 4,
+                  mb: 2,
                   textAlign: 'center',
                   fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
                   textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
@@ -179,7 +196,7 @@ const Banner = () => {
               <Box sx={{
                 position: 'relative',
                 mb: 6,
-                mt: 6,
+                mt: 4,
                 '&::before': {
                   content: '""',
                   position: 'absolute',
@@ -363,69 +380,55 @@ const Banner = () => {
 
 const ProductsListing = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
+  const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState(null);
   
+  // Handle hash-based scrolling
+  useEffect(() => {
+    if (location.hash === '#products' && productsRef.current) {
+      setTimeout(() => {
+        productsRef.current.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location.hash]);
+
   // Video control refs and state
   const videoRef = useRef(null);
   const videoContainerRef = useRef(null);
 
-  // Intersection Observer for video auto-play/pause
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    const containerElement = videoContainerRef.current;
+  // Industrial Solutions Carousel state with animation direction
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isCarouselAutoPlaying, setIsCarouselAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [slideDirection, setSlideDirection] = useState('next'); // 'next' or 'prev'
 
-    if (!videoElement || !containerElement) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Video is visible, play it
-            videoElement.play().catch((error) => {
-              // Handle autoplay policy restrictions
-              console.log('Video autoplay prevented:', error);
-            });
-          } else {
-            // Video is not visible, pause it
-            videoElement.pause();
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the video is visible
-        rootMargin: '0px 0px -50px 0px' // Add some margin for better UX
-      }
-    );
-
-    observer.observe(containerElement);
-
-    // Cleanup observer on component unmount
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
+  // Responsive cards to show based on screen size
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
+  const isDesktop = useMediaQuery(theme.breakpoints.down('lg'));
+  
+  const cardsToShow = isMobile ? 1 : isTablet ? 2 : isDesktop ? 3 : 4;
+  
   // Products data with descriptions
   const products = [
     { 
       name: 'Bold Peanuts', 
       path: '/products/bold-peanuts',
       description: 'Large, premium-quality peanuts with an exceptional flavor profile, perfect for snacking.',
-      imagePlaceholder: 'bold-peanuts'
+      image: boldPeanutsImage
     },
     { 
       name: 'Runner Peanuts', 
       path: '/products/runner-peanuts',
       description: 'Medium-sized uniform peanuts, ideal for peanut butter and confectionery products.',
-      imagePlaceholder: 'runner-peanuts'
+      image: runnerPeanutsImage
     },
     { 
       name: 'Red Skin Peanuts', 
       path: '/products/red-skin-peanuts',
       description: 'Distinctive peanuts with red skin intact, rich in antioxidants and full of flavor.',
-      imagePlaceholder: 'red-skin-peanuts'
+      image: redSkinPeanutsImage
     },
     { 
       name: 'Blanched Peanuts', 
@@ -437,19 +440,19 @@ const ProductsListing = () => {
       name: 'Spanish Peanuts', 
       path: '/products/spanish-peanuts',
       description: 'Smaller peanuts with higher oil content, ideal for candies and snack products.',
-      imagePlaceholder: 'spanish-peanuts'
+      image: spanishPeanutsImage
     },
     { 
       name: 'TJ Peanuts', 
       path: '/products/tj-peanuts',
       description: 'Specially cultivated variety known for consistent quality and superior taste.',
-      imagePlaceholder: 'tj-peanuts'
+      image: tjPeanutsImage
     },
     { 
       name: 'Long Java Peanuts', 
       path: '/products/long-java-peanuts',
       description: 'Elongated peanuts with distinctive shape and rich nutty flavor profile.',
-      imagePlaceholder: 'long-java-peanuts'
+      image: longJavaPeanutsImage
     },
     { 
       name: 'G20 Peanuts', 
@@ -491,7 +494,7 @@ const ProductsListing = () => {
       name: 'Virginia Peanuts', 
       path: '/products/virginia-peanuts',
       description: 'Large-kerneled peanuts, perfect for in-shell roasting and gourmet applications.',
-      imagePlaceholder: 'virginia-peanuts'
+      image: virginiaPeanutsImage
     },
     { 
       name: 'Peanut Butter', 
@@ -507,6 +510,88 @@ const ProductsListing = () => {
     }
   ];
 
+  // Industrial Solutions data with hover information
+  const industrialSolutions = [
+    { 
+      name: 'Cattle Feed Solutions', 
+      path: '/solutions/cattle-feed',
+      description: 'High-quality peanut-based cattle feed supplements for improved livestock nutrition.',
+      src: cattleFieldImage,
+      title: 'Cattle Feed Solutions',
+      hoverInfo: 'Crushed peanut cake is a protein-rich, digestible feed for cattle. It boosts milk production and promotes animal health, making it a valuable by-product in sustainable livestock nutrition systems.'
+    },
+    { 
+      name: 'Cosmetic Applications', 
+      path: '/solutions/cosmetics',
+      description: 'Natural peanut oil for cosmetic and skincare product manufacturing.',
+      src: cosmeticImage,
+      title: 'Cosmetic Applications',
+      hoverInfo: 'Peanut oil is rich in vitamin E and antioxidants, making it ideal for skincare products. It moisturizes, soothes irritation, and helps prevent premature aging in natural cosmetic formulations.'
+    },
+    { 
+      name: 'Peanut Oil Production', 
+      path: '/solutions/oil-production',
+      description: 'Pure, refined peanut oil for various industrial and culinary uses.',
+      src: peanutOilImage,
+      title: 'Peanut Oil Production',
+      hoverInfo: 'Peanut oil, known for its high smoke point and mild flavor, is widely used in cooking. Its healthy fat profile also makes it a staple in edible oil manufacturing worldwide.'
+    },
+    { 
+      name: 'Snack Manufacturing', 
+      path: '/solutions/snack-manufacturing',
+      description: 'Premium peanuts for snack and confectionery industry applications.',
+      src: snacksImage,
+      title: 'Snack Manufacturing',
+      hoverInfo: 'Peanuts in snack manufacturing provide protein, healthy fats, and natural flavor. They are processed into roasted nuts, peanut butter, energy bars, and confectionery products for global markets.'
+    },
+    { 
+      name: 'Pharmaceutical Industry', 
+      path: '/solutions/pharmaceutical',
+      description: 'Pure peanut extracts and compounds for pharmaceutical applications and drug development.',
+      src: pharmaImage,
+      title: 'Pharmaceutical Industry',
+      hoverInfo: 'Peanut-derived oils serve as carriers in drug formulations. Their stability and non-reactive properties make them suitable for ointments, capsules, and topical applications in pharmaceutical manufacturing processes.'
+    }
+  ];
+
+  // Intersection Observer for video auto-play/pause
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    const containerElement = videoContainerRef.current;
+
+    if (!videoElement || !containerElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && videoElement.readyState >= 2) {
+            // Video is visible and loaded, play it
+            videoElement.play().catch((error) => {
+              // Handle autoplay policy restrictions or loading errors
+              console.log('Video autoplay prevented or failed to load:', error);
+            });
+          } else {
+            // Video is not visible, pause it
+            if (videoElement.readyState >= 2) {
+              videoElement.pause();
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the video is visible
+        rootMargin: '0px 0px -50px 0px' // Add some margin for better UX
+      }
+    );
+
+    observer.observe(containerElement);
+
+    // Cleanup observer on component unmount
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   // Function to handle product click
   const handleProductClick = (path) => {
     navigate(path);
@@ -515,7 +600,70 @@ const ProductsListing = () => {
       behavior: 'smooth'
     });
   };
+
+  // Industrial Solutions Carousel navigation - modified for 3 items per slide (responsive)
+  const itemsPerSlide = isMobile ? 1 : isTablet ? 2 : 3;
+  const totalSlides = Math.ceil(industrialSolutions.length / itemsPerSlide);
   
+  const nextSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setSlideDirection('next');
+    setTimeout(() => {
+      setCurrentSlide((prev) => {
+        return prev >= totalSlides - 1 ? 0 : prev + 1;
+      });
+      setTimeout(() => setIsTransitioning(false), 50);
+    }, 50);
+  }, [totalSlides, isTransitioning]);
+
+  const prevSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setSlideDirection('prev');
+    setTimeout(() => {
+      setCurrentSlide((prev) => {
+        return prev <= 0 ? totalSlides - 1 : prev - 1;
+      });
+      setTimeout(() => setIsTransitioning(false), 50);
+    }, 50);
+  }, [totalSlides, isTransitioning]);
+
+  // Get items for current slide
+  const getCurrentSlideItems = useCallback(() => {
+    const startIndex = currentSlide * itemsPerSlide;
+    const endIndex = Math.min(startIndex + itemsPerSlide, industrialSolutions.length);
+    return industrialSolutions.slice(startIndex, endIndex);
+  }, [currentSlide, itemsPerSlide]);
+
+  // Auto-play effect for Industrial Solutions Carousel
+  useEffect(() => {
+    let intervalId;
+    if (isCarouselAutoPlaying) {
+      intervalId = setInterval(() => {
+        nextSlide();
+      }, 6000); // Change slide every 6 seconds
+    }
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isCarouselAutoPlaying, nextSlide]);
+
+  const handleManualCarouselNavigation = (direction) => {
+    setIsCarouselAutoPlaying(false); // Stop auto-play when user interacts
+    if (direction === 'next') {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+    // Resume auto-play after 5 seconds of no interaction
+    setTimeout(() => setIsCarouselAutoPlaying(true), 5000);
+  };
+
+  const productsRef = useRef(null);
+
   return (
     <Box sx={{ 
       backgroundColor: theme.palette.background.default,
@@ -551,9 +699,18 @@ const ProductsListing = () => {
       {/* Banner Section */}
       <Banner />
 
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+      <Container 
+        ref={productsRef}
+        maxWidth="lg" 
+        sx={{ 
+          position: 'relative', 
+          zIndex: 1,
+          scrollMarginTop: '100px' // Add some margin for better scrolling
+        }}
+      >
         {/* Products Section Header */}
         <Box 
+          id="product-section"
           sx={{ 
             textAlign: 'center',
             mb: { xs: 5, md: 8 },
@@ -630,13 +787,15 @@ const ProductsListing = () => {
                 padding: '12px',
                 boxSizing: 'border-box',
                 transition: 'transform 0.3s ease',
-                maxWidth: '400px', // Set a max width for each card
+                maxWidth: '450px', // Increased from 400px
               }}
             >
               <Card 
                 sx={{ 
                   height: '100%',
-                  borderRadius: 3,
+                  maxWidth: { xs: '320px', md: '380px' }, // Increased from 280px/300px
+                  mx: { xs: 'auto', md: 0 }, // Center on mobile, left-align on desktop
+                  borderRadius: 3, // Increased from 1 to 3 for more rounded corners
                   overflow: 'hidden',
                   boxShadow: hoveredItem === index 
                     ? '0 10px 25px rgba(0,0,0,0.18)' 
@@ -661,41 +820,58 @@ const ProductsListing = () => {
                       height: 200, 
                       position: 'relative',
                       overflow: 'hidden',
-                      background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
+                      background: product.image ? 'transparent' : `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                     }}
                   >
-                    <Box sx={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      opacity: 0.1,
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm32-63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23FFFFFF' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-                    }}/>
-                    
-                    <Box sx={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      textAlign: 'center',
-                      width: '100%',
-                    }}>
-                      <Typography
-                        variant="h6"
+                    {product.image ? (
+                      <LazyImage
+                        src={product.image}
+                        alt={product.name}
                         sx={{
-                          color: theme.palette.customColors.lightGold,
-                          fontWeight: 700,
-                          fontFamily: 'Lato, sans-serif',
-                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center',
+                          transition: 'transform 0.3s ease',
+                          transform: hoveredItem === index ? 'scale(1.05)' : 'scale(1)',
                         }}
-                      >
-                        {product.imagePlaceholder.split('-').map(word => 
-                          word.charAt(0).toUpperCase() + word.slice(1)
-                        ).join(' ')}
-                      </Typography>
-                    </Box>
+                      />
+                    ) : (
+                      <>
+                        <Box sx={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          opacity: 0.1,
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-6 60c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23FFFFFF' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+                        }}/>
+                        
+                        <Box sx={{
+                          position: 'absolute',
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                          textAlign: 'center',
+                          width: '100%',
+                        }}>
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              color: theme.palette.customColors.lightGold,
+                              fontWeight: 700,
+                              fontFamily: 'Lato, sans-serif',
+                              textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                            }}
+                          >
+                            {product.imagePlaceholder.split('-').map(word => 
+                              word.charAt(0).toUpperCase() + word.slice(1)
+                            ).join(' ')}
+                          </Typography>
+                        </Box>
+                      </>
+                    )}
                   </Box>
                   
                   <CardContent sx={{ 
@@ -775,6 +951,320 @@ const ProductsListing = () => {
           ))}
         </Box>
 
+         {/* Divider after products */}
+         <Divider sx={{ 
+          my: 8, 
+          width: '80%',
+          maxWidth: '1000px',
+          mx: 'auto',
+          borderColor: `${theme.palette.primary.main}30`
+        }} />
+
+        {/* Industrial Solutions Section */}
+        <Box 
+          sx={{ 
+            textAlign: 'center',
+            mt: { xs: 6, md: 8 },
+            mb: { xs: 4, md: 6 },
+            position: 'relative'
+          }}
+        >
+          <Typography 
+            variant={isMobile ? "h4" : "h3"} 
+            component="h2" 
+            fontFamily="Lato, sans-serif"
+            fontWeight="700"
+            sx={{ 
+              mb: 2,
+              textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+              position: 'relative',
+              display: 'inline-block',
+              background: `linear-gradient(135deg, ${theme.palette.primary.main} 30%, ${theme.palette.customColors.accentGreen} 90%)`,
+              backgroundClip: 'text',
+              textFillColor: 'transparent',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: theme.palette.primary.main, // Fallback for older browsers
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -8,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: isMobile ? '80px' : '120px',
+                height: '3px',
+                background: theme.palette.customColors.accentGreen,
+                borderRadius: '2px'
+              }
+            }}
+          >
+            Industrial Solutions
+          </Typography>
+        </Box>
+
+        {/* Industrial Solutions Carousel */}
+        <Box sx={{ 
+          position: 'relative', 
+          overflow: 'hidden',
+          maxWidth: { xs: '95%', sm: '90%', md: '85%', lg: '90%' }, // Increase to better use page width
+          mx: 'auto' // Center the container
+        }}>
+          {/* Navigation Buttons */}
+          <IconButton
+            onClick={() => handleManualCarouselNavigation('prev')}
+            sx={{
+              position: 'absolute',
+              left: { xs: 8, md: 16 },
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: 'rgba(255,255,255,0.9)',
+              color: theme.palette.primary.main,
+              width: { xs: 40, md: 48 },
+              height: { xs: 40, md: 48 },
+              zIndex: 2,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              '&:hover': {
+                bgcolor: 'rgba(255,255,255,1)',
+                transform: 'translateY(-50%) scale(1.1)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            <ChevronLeft size={24} />
+          </IconButton>
+          
+          <IconButton
+            onClick={() => handleManualCarouselNavigation('next')}
+            sx={{
+              position: 'absolute',
+              right: { xs: 8, md: 16 },
+              top: '50%',
+              transform: 'translateY(-50%)',
+              bgcolor: 'rgba(255,255,255,0.9)',
+              color: theme.palette.primary.main,
+              width: { xs: 40, md: 48 },
+              height: { xs: 40, md: 48 },
+              zIndex: 2,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              '&:hover': {
+                bgcolor: 'rgba(255,255,255,1)',
+                transform: 'translateY(-50%) scale(1.1)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            <ChevronRight size={24} />
+          </IconButton>
+
+          {/* Three Cards Display with 3D Flip Animation */}
+          <Box 
+            sx={{ 
+              position: 'relative',
+              overflow: 'hidden',
+              px: { xs: 6, md: 8 }, // Add padding to accommodate navigation buttons
+              perspective: '1000px', // Enable 3D perspective
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: 2,
+                transform: isTransitioning 
+                  ? slideDirection === 'next' 
+                    ? 'rotateY(-90deg) scale(0.8)' 
+                    : 'rotateY(90deg) scale(0.8)'
+                  : 'rotateY(0deg) scale(1)',
+                transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                opacity: isTransitioning ? 0.3 : 1,
+                transformStyle: 'preserve-3d',
+              }}
+              key={`slide-${currentSlide}`}
+            >
+              {getCurrentSlideItems().map((solution, index) => (
+                <Card 
+                  key={index}
+                  sx={{ 
+                    height: '100%',
+                    maxWidth: { xs: '280px', sm: '300px', md: '320px' },
+                    width: '100%',
+                    flex: 1,
+                    borderRadius: 3,
+                    overflow: 'hidden',
+                    boxShadow: hoveredItem === (currentSlide * itemsPerSlide + index)
+                      ? '0 15px 35px rgba(0,0,0,0.25)' 
+                      : '0 8px 20px rgba(0,0,0,0.12)',
+                    transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                    transform: `
+                      ${hoveredItem === (currentSlide * itemsPerSlide + index) ? 'translateY(-15px) rotateX(5deg)' : 'translateY(0) rotateX(0deg)'} 
+                      ${isTransitioning ? `rotateY(${slideDirection === 'next' ? '15deg' : '-15deg'}) translateZ(-50px)` : 'rotateY(0deg) translateZ(0px)'}
+                    `,
+                    bgcolor: theme.palette.primary.main,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    position: 'relative',
+                    backfaceVisibility: 'hidden',
+                  }}
+                  onMouseEnter={() => setHoveredItem(currentSlide * itemsPerSlide + index)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  {/* Image */}
+                  <Box sx={{ 
+                    height: { xs: 200, md: 230 }, 
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}>
+                    <LazyImage
+                      src={solution.src}
+                      alt={solution.title}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        transition: 'all 0.4s ease',
+                        transform: hoveredItem === (currentSlide * itemsPerSlide + index) ? 'scale(1.05)' : 'scale(1)',
+                        filter: hoveredItem === (currentSlide * itemsPerSlide + index) ? 'blur(3px)' : 'blur(0px)',
+                      }}
+                    />
+                    {/* Base overlay for better text contrast */}
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: hoveredItem === (currentSlide * itemsPerSlide + index) 
+                          ? 'rgba(0,0,0,0.4)' 
+                          : 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 100%)',
+                        transition: 'background 0.3s ease',
+                      }}
+                    />
+                    
+                    {/* Hover Information Overlay */}
+                    <Fade in={hoveredItem === (currentSlide * itemsPerSlide + index)} timeout={300}>
+                      <Box
+                        sx={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          p: 2,
+                        }}
+                      >
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: 'white',
+                            textAlign: 'center',
+                            lineHeight: 1.4,
+                            fontSize: { xs: '0.75rem', md: '0.85rem' },
+                            fontFamily: 'Inter, sans-serif',
+                            textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                            fontWeight: 500,
+                            background: 'rgba(38, 77, 54, 0.8)',
+                            borderRadius: '8px',
+                            p: 2,
+                            backdropFilter: 'blur(2px)',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                          }}
+                        >
+                          {solution.hoverInfo}
+                        </Typography>
+                      </Box>
+                    </Fade>
+                  </Box>
+
+                  <CardContent sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    py: 3,
+                  }}>
+                    <Typography 
+                      variant="h6" 
+                      component="h3"
+                      fontFamily="Lato, sans-serif"
+                      fontWeight="700"
+                      color={theme.palette.customColors.darkGold}
+                      sx={{
+                        position: 'relative',
+                        textAlign: 'center',
+                        fontSize: { xs: '0.9rem', md: '1rem' },
+                        transition: 'transform 0.3s ease',
+                        transform: hoveredItem === (currentSlide * itemsPerSlide + index) ? 'translateY(-2px)' : 'translateY(0)',
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          bottom: -8,
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          width: '40px',
+                          height: '2px',
+                          backgroundColor: theme.palette.customColors.accentGreen,
+                          transition: 'width 0.3s ease',
+                        },
+                        '&:hover::after': {
+                          width: '60px',
+                        }
+                      }}
+                    >
+                      {solution.name}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </Box>
+          </Box>
+
+          {/* Carousel Indicators */}
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 1,
+            mt: 4,
+          }}>
+            {Array.from({ length: totalSlides }, (_, index) => (
+              <Box
+                key={index}
+                onClick={() => {
+                  if (isTransitioning) return;
+                  setIsTransitioning(true);
+                  setSlideDirection(index > currentSlide ? 'next' : 'prev');
+                  setTimeout(() => {
+                    setCurrentSlide(index);
+                    setIsCarouselAutoPlaying(false);
+                    setTimeout(() => {
+                      setIsTransitioning(false);
+                      setTimeout(() => setIsCarouselAutoPlaying(true), 5000);
+                    }, 50);
+                  }, 50);
+                }}
+                sx={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: '50%',
+                  bgcolor: currentSlide === index
+                    ? theme.palette.customColors.accentGreen 
+                    : 'rgba(0,0,0,0.3)',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  transform: isTransitioning ? 'scale(1.2)' : 'scale(1)',
+                  '&:hover': {
+                    transform: 'scale(1.2)',
+                    bgcolor: theme.palette.customColors.accentGreen,
+                  },
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
+
         {/* Divider after products */}
         <Divider sx={{ 
           my: 8, 
@@ -783,25 +1273,126 @@ const ProductsListing = () => {
           mx: 'auto',
           borderColor: `${theme.palette.primary.main}30`
         }} />
-      
-      {/* Our Journey & Specialization */}
-      <Box sx={{ mb: 4, mt: 6 }}>
-        {/* First Row: Our Journey Card + Image */}
-        <Box sx={{ 
-          display: 'flex', 
-          flexDirection: { xs: 'column', sm: 'column', md: 'row' }, 
-          gap: { xs: 0, sm: 3, md: 3, lg: 4 },
-          mb: 3,
-          alignItems: 'center'
-        }}>
-          {/* Our Journey Card - Shows second on mobile/tablet, first on desktop */}
-          <Box sx={{
-            width: { xs: '100%', sm: '100%', md: '48%', lg: '48%' },
-            display: 'flex',
-            alignItems: 'center',
-            minHeight: { xs: 350, sm: 400, md: 500, lg: 600 },
-            px: { xs: 0, sm: 2, md: 0 },
-            order: { xs: 2, sm: 2, md: 1 } // Second on mobile/tablet, first on desktop
+
+        {/* Our Journey & Specialization */}
+        <Box sx={{ mb: 4, mt: 6 }}>
+          {/* First Row: Our Journey Card + Image */}
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', sm: 'column', md: 'row' }, 
+            gap: { xs: 0, sm: 3, md: 3, lg: 4 },
+            mb: 3,
+            alignItems: 'center'
+          }}>
+            {/* Our Journey Card - Shows second on mobile/tablet, first on desktop */}
+            <Box sx={{
+              width: { xs: '100%', sm: '100%', md: '54%', lg: '52%' },
+              display: 'flex',
+              alignItems: 'center',
+              minHeight: { xs: 350, sm: 400, md: 500, lg: 600 },
+              px: { xs: 0, sm: 2, md: 0 },
+              order: { xs: 2, sm: 2, md: 1 } // Second on mobile/tablet, first on desktop
+            }}>
+              <Card 
+                elevation={4}
+                sx={{ 
+                  borderRadius: 2,
+                  background: theme.customGradients.greenDark,
+                  overflow: 'hidden',
+                  width: '100%',
+                  height: { xs: 160, sm: 180, md: 200, lg: 220 },
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                  },
+                }}
+              >
+                <CardContent sx={{ 
+                  p: { xs: 2.5, sm: 3, md: 3, lg: 3.5 },
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center'
+                }}>
+                  <Typography 
+                    variant="h5" 
+                    component="h3" 
+                    fontFamily="Lato, sans-serif"
+                    fontWeight={800}
+                    color={theme.palette.customColors.darkGold}
+                    sx={{ 
+                      mb: { xs: 1, sm: 1.5, md: 1.5, lg: 2 },
+                      fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem', lg: '1.5rem' }
+                    }}
+                  >
+                    Our Journey
+                  </Typography>
+                  <Typography 
+                    variant="body1" 
+                    fontFamily="Inter, sans-serif"
+                    sx={{ 
+                      color: theme.palette.customColors.lightGold,
+                      fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem', lg: '1.1rem' },
+                      lineHeight: { xs: 1.4, sm: 1.5, md: 1.5, lg: 1.6 }
+                    }}
+                  >
+                    At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
+             
+            {/* Standalone Image - Shows first on mobile/tablet, second on desktop */}
+            <Box
+              sx={{
+                width: { xs: '100%', sm: '100%', md: '42%', lg: '44%' },
+                height: { xs: 350, sm: 400, md: 500, lg: 600 },
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: 2,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                mx: { xs: 0, sm: 2, md: 0 },
+                mt: { xs: -1, sm: 0, md: 0 },
+                order: { xs: 1, sm: 1, md: 2 }, // First on mobile/tablet, second on desktop
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                },
+              }}
+            >
+              <LazyImage
+                src={ourJourneyImage}
+                alt="Our Journey - Balaji Exports farming heritage"
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  transition: 'transform 0.3s ease',
+                }}
+              />
+              {/* Overlay for better visual appeal */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%)',
+                }}
+              />
+            </Box>
+          </Box>
+          
+          {/* Second Row: Our Specialization Card */}
+          <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center',
+            mt: { xs: 2, sm: 3, md: 3, lg: 4 },
+            px: { xs: 1, sm: 2, md: 0 }
           }}>
             <Card 
               elevation={4}
@@ -809,8 +1400,8 @@ const ProductsListing = () => {
                 borderRadius: 2,
                 background: theme.customGradients.greenDark,
                 overflow: 'hidden',
-                width: '100%',
-                height: { xs: 160, sm: 180, md: 200, lg: 220 },
+                width: { xs: '100%', sm: '90%', md: '70%', lg: '60%' },
+                maxWidth: '800px',
                 transition: 'transform 0.3s, box-shadow 0.3s',
                 '&:hover': {
                   transform: 'translateY(-5px)',
@@ -832,392 +1423,300 @@ const ProductsListing = () => {
                   fontWeight={800}
                   color={theme.palette.customColors.darkGold}
                   sx={{ 
-                    mb: { xs: 1, sm: 1.5, md: 1.5, lg: 2 },
-                    fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem', lg: '1.5rem' }
+                    mb: { xs: 1.5, sm: 2, md: 2, lg: 2.5 },
+                    fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem', lg: '1.5rem' },
+                    textAlign: 'left'
                   }}
                 >
-                  Our Journey
+                  Our Specialization
                 </Typography>
                 <Typography 
                   variant="body1" 
                   fontFamily="Inter, sans-serif"
                   sx={{ 
                     color: theme.palette.customColors.lightGold,
-                    fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem', lg: '1.1rem' },
-                    lineHeight: { xs: 1.4, sm: 1.5, md: 1.5, lg: 1.6 }
+                    fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem', lg: '1.2rem' },
+                    lineHeight: { xs: 1.5, sm: 1.6, md: 1.6, lg: 1.7 },
+                    textAlign: 'justify'
                   }}
                 >
-                  At Balaji Exports, our journey began decades ago on fertile lands, where generations of farmers dedicated themselves to cultivating the finest organic groundnuts India offers. Today, we combine this rich heritage with cutting-edge technology and operate a state-of-the-art groundnut processing unit.
+                  We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive portfolio also features peanut oil and peanut butter.
                 </Typography>
               </CardContent>
             </Card>
           </Box>
-            
-          {/* Standalone Image - Shows first on mobile/tablet, second on desktop */}
-          <Box
-            sx={{
-              width: { xs: '100%', sm: '100%', md: '48%', lg: '48%' },
-              height: { xs: 350, sm: 400, md: 500, lg: 600 },
-              position: 'relative',
-              overflow: 'hidden',
-              borderRadius: 2,
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              mx: { xs: 0, sm: 2, md: 0 },
-              mt: { xs: -1, sm: 0, md: 0 },
-              order: { xs: 1, sm: 1, md: 2 }, // First on mobile/tablet, second on desktop
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <LazyImage
-              src={ourJourneyImage}
-              alt="Our Journey - Balaji Exports farming heritage"
-              sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'top center',
-                transition: 'transform 0.3s ease',
-              }}
-            />
-            {/* Overlay for better visual appeal */}
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%)',
-              }}
-            />
-          </Box>
         </Box>
-        
-        {/* Second Row: Our Specialization Card */}
-        <Box sx={{ 
-          display: 'flex', 
-          justifyContent: 'center',
-          mt: { xs: 2, sm: 3, md: 3, lg: 4 },
-          px: { xs: 1, sm: 2, md: 0 }
-        }}>
-          <Card 
-            elevation={4}
-            sx={{ 
-              borderRadius: 2,
-              background: theme.customGradients.greenDark,
-              overflow: 'hidden',
-              width: { xs: '100%', sm: '90%', md: '70%', lg: '60%' },
-              maxWidth: '800px',
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-              },
-            }}
-          >
-            <CardContent sx={{ 
-              p: { xs: 2.5, sm: 3, md: 3, lg: 3.5 },
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Typography 
-                variant="h5" 
-                component="h3" 
-                fontFamily="Lato, sans-serif"
-                fontWeight={800}
-                color={theme.palette.customColors.darkGold}
-                sx={{ 
-                  mb: { xs: 1.5, sm: 2, md: 2, lg: 2.5 },
-                  fontSize: { xs: '1.2rem', sm: '1.3rem', md: '1.4rem', lg: '1.5rem' },
-                  textAlign: 'left'
-                }}
-              >
-                Our Specialization
-              </Typography>
-              <Typography 
-                variant="body1" 
-                fontFamily="Inter, sans-serif"
-                sx={{ 
-                  color: theme.palette.customColors.lightGold,
-                  fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem', lg: '1.2rem' },
-                  lineHeight: { xs: 1.5, sm: 1.6, md: 1.6, lg: 1.7 },
-                  textAlign: 'justify'
-                }}
-              >
-                We specialize in a wide range of peanut products, including bold groundnuts, Java groundnuts, red skin peanuts, split peanuts, shelled peanuts, and blanched peanuts for export. Our extensive portfolio also features peanut oil and peanut butter.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
-      </Box>
 
-      {/* Divider after products */}
-      <Divider sx={{ 
+        {/* Divider after products */}
+        <Divider sx={{ 
           my: 8, 
           width: '80%',
           maxWidth: '1000px',
           mx: 'auto',
           borderColor: `${theme.palette.primary.main}30`
         }} />
-      
-      {/* Why Choose Us Section */}
-      <Box sx={{ mb: 8 }}>
-        <Typography 
-          variant="h4" 
-          component="h3" 
-          fontFamily="Lato, sans-serif"
-          fontWeight={800}
-          color={theme.palette.primary.main}
-          sx={{ 
-            mb: 6,
-            textAlign: 'center',
-            fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' }
-          }}
-        >
-          Why Choose <span style={{ color: theme.palette.secondary.main }}>Balaji Exports?</span>
-        </Typography>
         
-        {/* Single Row Layout: Cards + Video + Cards */}
-        <Box sx={{ 
-          display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
-          gap: { xs: 4, lg: 3 },
-          mx: 'auto',
-          maxWidth: '1400px',
-          alignItems: 'stretch'
-        }}>
+        {/* Why Choose Us Section */}
+        <Box sx={{ mb: 8 }}>
+          <Typography 
+            variant="h4" 
+            component="h3" 
+            fontFamily="Lato, sans-serif"
+            fontWeight={800}
+            color={theme.palette.primary.main}
+            sx={{ 
+              mb: 6,
+              textAlign: 'center',
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem' }
+            }}
+          >
+            Why Choose <span style={{ color: theme.palette.secondary.main }}>Balaji Exports?</span>
+          </Typography>
           
-          {/* First Part - First 2 Cards */}
+          {/* Single Row Layout: Cards + Video + Cards */}
           <Box sx={{ 
-            flex: 1,
             display: 'flex',
-            flexDirection: 'column',
-            gap: 3
+            flexDirection: { xs: 'column', lg: 'row' },
+            gap: { xs: 4, lg: 3 },
+            mx: 'auto',
+            maxWidth: '1400px',
+            alignItems: 'stretch'
           }}>
-            {[
-              {
-                title: "65+ Years of Farming Expertise", 
-                description: "Generations of knowledge in groundnut cultivation." 
-              },
-              {
-                title: "Modern Processing Unit", 
-                description: "4 metric tons/hour capacity with advanced technology." 
-              }
-            ].map((feature, index) => (
-              <Paper 
-                key={index}
-                elevation={3}
-                sx={{ 
-                  p: 3, 
+            
+            {/* First Part - First 2 Cards */}
+            <Box sx={{ 
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 3
+            }}>
+              {[
+                {
+                  title: "65+ Years of Farming Expertise", 
+                  description: "Generations of knowledge in groundnut cultivation." 
+                },
+                {
+                  title: "Modern Processing Unit", 
+                  description: "4 metric tons/hour capacity with advanced technology." 
+                }
+              ].map((feature, index) => (
+                <Paper 
+                  key={index}
+                  elevation={3}
+                  sx={{ 
+                    p: 3, 
+                    borderRadius: 3,
+                    background: theme.customGradients.greenDark,
+                    color: theme.palette.customColors.lightGold,
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                    },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    height: '100%',
+                    flex: 1
+                  }}
+                >
+                  <Typography 
+                    variant="h6" 
+                    component="h4" 
+                    fontFamily="Lato, sans-serif"
+                    fontWeight="bold"
+                    sx={{ 
+                      color: theme.palette.customColors.darkGold, 
+                      mb: 2,
+                      fontSize: { xs: '1rem', md: '1.1rem' }
+                    }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography 
+                    variant="body2"
+                    fontFamily="Inter, sans-serif"
+                    sx={{ 
+                      color: theme.palette.customColors.lightGold,
+                      fontSize: { xs: '0.9rem', md: '1rem' },
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </Paper>
+              ))}
+            </Box>
+
+            {/* Second Part - Video/Image Placeholder */}
+            <Box sx={{ 
+              flex: { xs: 1, lg: 1.5 },
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <Box
+                ref={videoContainerRef}
+                sx={{
+                  width: '100%',
+                  maxWidth: { xs: '100%', lg: '500px' },
+                  position: 'relative',
                   borderRadius: 3,
-                  background: theme.customGradients.greenDark,
-                  color: theme.palette.customColors.lightGold,
-                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
                   '&:hover': {
                     transform: 'translateY(-5px)',
-                    boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                    boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
                   },
+                  transition: 'all 0.3s ease',
+                  backgroundColor: theme.palette.primary.main,
+                  minHeight: '250px',
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  height: '100%',
-                  flex: 1
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                <Typography 
-                  variant="h6" 
-                  component="h4" 
-                  fontFamily="Lato, sans-serif"
-                  fontWeight="bold"
-                  sx={{ 
-                    color: theme.palette.customColors.darkGold, 
-                    mb: 2,
-                    fontSize: { xs: '1rem', md: '1.1rem' }
+                {/* Temporary placeholder until video is hosted externally */}
+                <Box sx={{
+                  textAlign: 'center',
+                  color: theme.palette.customColors.lightGold,
+                  p: 4
+                }}>
+                  <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Lato, sans-serif', fontWeight: 'bold' }}>
+                    🎥 Balaji Exports Video
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: 'Inter, sans-serif', opacity: 0.8 }}>
+                    State-of-the-art peanut processing facility
+                  </Typography>
+                  <Typography variant="caption" sx={{ display: 'block', mt: 2, fontStyle: 'italic' }}>
+                    Video loading...
+                  </Typography>
+                </Box>
+                
+                {/* Hidden video element for future use when hosted externally */}
+                <video
+                  ref={videoRef}
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  style={{
+                    display: 'none' // Hidden until we have external hosting
+                  }}
+                  onError={() => {
+                    console.log('Video failed to load');
                   }}
                 >
-                  {feature.title}
-                </Typography>
-                <Typography 
-                  variant="body2"
-                  fontFamily="Inter, sans-serif"
-                  sx={{ 
-                    color: theme.palette.customColors.lightGold,
-                    fontSize: { xs: '0.9rem', md: '1rem' },
-                    lineHeight: 1.6
-                  }}
-                >
-                  {feature.description}
-                </Typography>
-              </Paper>
-            ))}
-          </Box>
+                  <source src="https://your-cdn-url.com/BalajiExportsVideo.mp4" type="video/mp4" />
+                  <p>Video showcasing our state-of-the-art peanut processing facility.</p>
+                </video>
+              </Box>
+            </Box>
 
-          {/* Second Part - Video */}
-          <Box sx={{ 
-            flex: { xs: 1, lg: 1.5 },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Box
-              ref={videoContainerRef}
+            {/* Third Part - Last 2 Cards */}
+            <Box sx={{ 
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 3
+            }}>
+              {[
+                { 
+                  title: "Organic, Non-GMO Products", 
+                  description: "Focus on organic and pesticide-free groundnuts." 
+                },
+                { 
+                  title: "Certified Quality", 
+                  description: "FSSAI, HACCP, ISO certifications ensure top food safety standards." 
+                }
+              ].map((feature, index) => (
+                <Paper 
+                  key={index + 2}
+                  elevation={3}
+                  sx={{ 
+                    p: 3, 
+                    borderRadius: 3,
+                    background: theme.customGradients.greenDark,
+                    color: theme.palette.customColors.lightGold,
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
+                    },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    height: '100%',
+                    flex: 1
+                  }}
+                >
+                  <Typography 
+                    variant="h6" 
+                    component="h4" 
+                    fontFamily="Lato, sans-serif"
+                    fontWeight="bold"
+                    sx={{ 
+                      color: theme.palette.customColors.darkGold, 
+                      mb: 2,
+                      fontSize: { xs: '1rem', md: '1.1rem' }
+                    }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography 
+                    variant="body2"
+                    fontFamily="Inter, sans-serif"
+                    sx={{ 
+                      color: theme.palette.customColors.lightGold,
+                      fontSize: { xs: '0.9rem', md: '1rem' },
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </Paper>
+              ))}
+            </Box>
+          </Box>
+          
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
+            <Button
+              variant="outlined"
+              component={RouterLink}
+              to="/about"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                setTimeout(() => window.scrollTo(0, 0), 100);
+              }}
               sx={{
-                width: '100%',
-                maxWidth: { xs: '100%', lg: '500px' },
-                position: 'relative',
-                borderRadius: 3,
-                overflow: 'hidden',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                borderColor: theme.palette.secondary.main,
+                color: theme.palette.customColors.lightGold,
+                backgroundColor: theme.palette.secondary.main,
+                borderWidth: 2,
+                px: { xs: 3, md: 4 },
+                py: { xs: 1, md: 1.5 },
+                fontSize: { xs: '0.9rem', md: '1rem' },
+                fontFamily: 'Inter, sans-serif',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                fontWeight: 500,
+                borderRadius: '50px',
+                minWidth: 'auto',
                 '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
+                  borderWidth: 2,
+                  backgroundColor: theme.palette.primary.main,
+                  borderColor: theme.palette.primary.main,
+                  color: theme.palette.customColors.darkGold,
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
                 },
                 transition: 'all 0.3s ease',
               }}
             >
-              <video
-                ref={videoRef}
-                controls
-                autoPlay
-                muted
-                loop
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  minHeight: '250px',
-                  maxHeight: '400px',
-                  objectFit: 'cover',
-                  display: 'block'
-                }}
-              >
-                <source src="/BalajiExportsVideo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Video Overlay for Better Visual Appeal */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background: 'linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.3) 100%)',
-                  pointerEvents: 'none',
-                }}
-              />
-            </Box>
+              Learn More About Us
+            </Button>
           </Box>
-
-          {/* Third Part - Last 2 Cards */}
-          <Box sx={{ 
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 3
-          }}>
-            {[
-              { 
-                title: "Organic, Non-GMO Products", 
-                description: "Focus on organic and pesticide-free groundnuts." 
-              },
-              { 
-                title: "Certified Quality", 
-                description: "FSSAI, HACCP, ISO certifications ensure top food safety standards." 
-              }
-            ].map((feature, index) => (
-              <Paper 
-                key={index + 2}
-                elevation={3}
-                sx={{ 
-                  p: 3, 
-                  borderRadius: 3,
-                  background: theme.customGradients.greenDark,
-                  color: theme.palette.customColors.lightGold,
-                  transition: 'transform 0.3s, box-shadow 0.3s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: '0px 8px 16px rgba(0,0,0,0.3)'
-                  },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  height: '100%',
-                  flex: 1
-                }}
-              >
-                <Typography 
-                  variant="h6" 
-                  component="h4" 
-                  fontFamily="Lato, sans-serif"
-                  fontWeight="bold"
-                  sx={{ 
-                    color: theme.palette.customColors.darkGold, 
-                    mb: 2,
-                    fontSize: { xs: '1rem', md: '1.1rem' }
-                  }}
-                >
-                  {feature.title}
-                </Typography>
-                <Typography 
-                  variant="body2"
-                  fontFamily="Inter, sans-serif"
-                  sx={{ 
-                    color: theme.palette.customColors.lightGold,
-                    fontSize: { xs: '0.9rem', md: '1rem' },
-                    lineHeight: 1.6
-                  }}
-                >
-                  {feature.description}
-                </Typography>
-              </Paper>
-            ))}
-          </Box>
-        </Box>
-        
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 5 }}>
-          <Button
-            variant="outlined"
-            component={RouterLink}
-            to="/about"
-            onClick={() => {
-              window.scrollTo(0, 0);
-              setTimeout(() => window.scrollTo(0, 0), 100);
-            }}
-            sx={{
-              borderColor: theme.palette.secondary.main,
-              color: theme.palette.customColors.lightGold,
-              backgroundColor: theme.palette.secondary.main,
-              borderWidth: 2,
-              px: { xs: 3, md: 4 },
-              py: { xs: 1, md: 1.5 },
-              fontSize: { xs: '0.9rem', md: '1rem' },
-              fontFamily: 'Inter, sans-serif',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              fontWeight: 500,
-              borderRadius: '50px',
-              minWidth: 'auto',
-              '&:hover': {
-                borderWidth: 2,
-                backgroundColor: theme.palette.primary.main,
-                borderColor: theme.palette.primary.main,
-                color: theme.palette.customColors.darkGold,
-                transform: 'translateY(-2px)',
-                boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-              },
-              transition: 'all 0.3s ease',
-            }}
-          >
-            Learn More About Us
-          </Button>
-        </Box>
         </Box>
       </Container>
     </Box>
@@ -1225,5 +1724,6 @@ const ProductsListing = () => {
 };
 
 export default ProductsListing;
+
 
 

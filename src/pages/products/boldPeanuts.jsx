@@ -146,7 +146,7 @@ const BoldPeanutPage = () => {
                 }
               }}
             >
-              Your Global Source for Bold Peanuts – India’s Finest Groundnuts
+              Bold Peanuts – India’s Finest Groundnuts
             </Typography>
             <Typography 
               variant="body1" 

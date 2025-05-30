@@ -8,19 +8,32 @@ import {
   Paper,
   Snackbar,
   Alert,
-  Grid
+  Grid,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  FormLabel,
+  CircularProgress
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import Logo from '../assets/images/Logo.png';
 
-
 const ContactUs = () => {
+  // Replace this with your actual Google Apps Script Web App URL
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZOLB-pJZfwq-XMOFNOHd2nvaKm8-pvvJf8hHxfsIcUsUU_qJBun_zY74KUpEIBE0BpQ/exec';
+
   // Form state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    product: '',
+    productTypes: []
   });
 
   // Form validation state
@@ -28,7 +41,9 @@ const ContactUs = () => {
     name: false,
     email: false,
     phone: false,
-    message: false
+    message: false,
+    product: false,
+    productTypes: false
   });
 
   // Submission feedback state
@@ -37,6 +52,9 @@ const ContactUs = () => {
     success: false,
     message: ''
   });
+
+  // Loading state
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -47,41 +65,85 @@ const ContactUs = () => {
     });
   };
 
+  // Handle checkbox changes
+  const handleCheckboxChange = (value, checked) => {
+    setFormData({
+      ...formData,
+      productTypes: checked 
+        ? [...formData.productTypes, value] 
+        : formData.productTypes.filter((type) => type !== value)
+    });
+  };
+
   // Validate form
   const validateForm = () => {
     const newErrors = {
       name: formData.name.trim() === '',
       email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email),
       phone: !/^[0-9]{10}$/.test(formData.phone.replace(/[-()\s]/g, '')),
-      message: formData.message.trim() === ''
+      message: formData.message.trim() === '',
+      product: formData.product.trim() === '',
+      productTypes: formData.productTypes.length === 0
     };
     
     setErrors(newErrors);
     return !Object.values(newErrors).some(error => error);
   };
 
+  // Submit form data to Google Sheets
+  const submitToGoogleSheets = async (data) => {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+      mode: 'no-cors' // Important for Google Apps Script
+    });
+
+    // Note: With no-cors mode, we can't read the response
+    // We'll assume it worked if no error was thrown
+    return { success: true };
+  };
+
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-      // In a real application, you would send the form data to your backend here
-      console.log('Form submitted:', formData);
+      setIsSubmitting(true);
       
-      // Show success message
-      setSubmitStatus({
-        open: true,
-        success: true,
-        message: 'Thank you for your message! We will get back to you soon.'
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
+      try {
+        // Submit to Google Sheets
+        await submitToGoogleSheets(formData);
+        
+        // Show success message
+        setSubmitStatus({
+          open: true,
+          success: true,
+          message: 'Thank you for your message! We have received your inquiry and will get back to you soon.'
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+          product: '',
+          productTypes: []
+        });
+        
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setSubmitStatus({
+          open: true,
+          success: false,
+          message: 'There was an error submitting your form. Please try again.'
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       // Show error message
       setSubmitStatus({
@@ -104,7 +166,7 @@ const ContactUs = () => {
     <Container maxWidth="lg" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Grid container spacing={4}>
         {/* Left side - Logo and contact intro */}
-        <Grid item xs={12} md={5} sx={{ 
+        <Grid item xs={12} md={4} sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'center',
@@ -119,10 +181,27 @@ const ContactUs = () => {
               width: '80%',
               maxWidth: 320,
               height: 'auto',
-              mb: 0,
+              mb: 0.5,
               filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15))'
             }}
           />
+          
+          {/* Company Slogan */}
+          <Typography 
+            variant="h6" 
+            component="div" 
+            sx={{ 
+              color: 'secondary.main', 
+              textAlign: 'center', 
+              mt: -5,
+              mb: 2,
+              fontFamily: 'Inter',
+              fontWeight: 500,
+              fontSize: { xs: '1rem', md: '1.1rem' }
+            }}
+          >
+            Excellence in every shell
+          </Typography>
           
           <Typography variant="h6" component="div" sx={{ color: 'primary.main', textAlign: 'center', mt: 2 , fontFamily: 'Inter' }}>
             Get in touch with us
@@ -133,7 +212,7 @@ const ContactUs = () => {
         </Grid>
         
         {/* Right side - Contact form */}
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={8}>
           <Paper elevation={3} sx={{ 
             p: { xs: 3, md: 4 }, 
             borderRadius: 2,
@@ -163,6 +242,22 @@ const ContactUs = () => {
                 helperText={errors.name ? 'Name is required' : ''}
                 variant="outlined"
                 color="primary"
+                disabled={isSubmitting}
+              />
+              
+              <TextField
+                required
+                fullWidth
+                id="phone"
+                name="phone"
+                label="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                error={errors.phone}
+                helperText={errors.phone ? 'Please enter a valid 10-digit phone number' : ''}
+                variant="outlined"
+                color="primary"
+                disabled={isSubmitting}
               />
               
               <TextField
@@ -178,22 +273,105 @@ const ContactUs = () => {
                 helperText={errors.email ? 'Please enter a valid email address' : ''}
                 variant="outlined"
                 color="primary"
+                disabled={isSubmitting}
               />
               
-              <TextField
-                required
-                fullWidth
-                id="phone"
-                name="phone"
-                label="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                error={errors.phone}
-                helperText={errors.phone ? 'Please enter a valid 10-digit phone number' : ''}
-                variant="outlined"
-                color="primary"
-              />
-              
+              <FormControl fullWidth disabled={isSubmitting}>
+                <InputLabel id="product-label">Product *</InputLabel>
+                <Select
+                  labelId="product-label"
+                  id="product"
+                  name="product"
+                  value={formData.product}
+                  label="Product *"
+                  onChange={handleChange}
+                  error={errors.product}
+                >
+                  <MenuItem value="">
+                    <em>Select a Product</em>
+                  </MenuItem>
+                  <MenuItem value="bold-peanuts">Bold Peanuts</MenuItem>
+                  <MenuItem value="runner-peanuts">Runner Peanuts</MenuItem>
+                  <MenuItem value="red-skin-peanuts">Red Skin Peanuts</MenuItem>
+                  <MenuItem value="blanched-peanuts">Blanched Peanuts</MenuItem>
+                  <MenuItem value="spanish-peanuts">Spanish Peanuts</MenuItem>
+                  <MenuItem value="tj-peanuts">TJ Peanuts</MenuItem>
+                  <MenuItem value="long-java-peanuts">Long Java Peanuts</MenuItem>
+                  <MenuItem value="g20-peanuts">G20 Peanuts</MenuItem>
+                  <MenuItem value="k6-peanuts">K6 Peanuts</MenuItem>
+                  <MenuItem value="mathadi-peanuts">Mathadi Peanuts</MenuItem>
+                  <MenuItem value="girnar-peanuts">Girnar 4 - Girnar 5 Peanuts</MenuItem>
+                  <MenuItem value="icgv03043-peanuts">ICGV 03043 Peanuts</MenuItem>
+                  <MenuItem value="icgv15099-peanuts">ICGV 15099 Peanuts</MenuItem>
+                  <MenuItem value="virginia-peanuts">Virginia Peanuts</MenuItem>
+                  <MenuItem value="peanut-butter">Peanut Butter</MenuItem>
+                  <MenuItem value="peanut-oil">Peanut Oil</MenuItem>
+                </Select>
+                {errors.product && (
+                  <Typography variant="caption" color="error" sx={{ mt: 0.5, ml: 1.5 }}>
+                    Please select a product
+                  </Typography>
+                )}
+              </FormControl>
+
+              <FormControl component="fieldset" disabled={isSubmitting}>
+                <FormLabel component="legend" sx={{ mb: 1, color: 'text.primary', fontWeight: 'medium' }}>
+                  Product Types of Interest *
+                </FormLabel>
+                <FormGroup sx={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(2, 1fr)', 
+                  gridTemplateRows: 'repeat(2, 1fr)',
+                  gap: 1 
+                }}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.productTypes.includes('raw-peanuts-with-shell')}
+                        onChange={(e) => handleCheckboxChange('raw-peanuts-with-shell', e.target.checked)}
+                        color="primary"
+                      />
+                    }
+                    label="Raw Peanuts (with shell)"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.productTypes.includes('peanut-kernels')}
+                        onChange={(e) => handleCheckboxChange('peanut-kernels', e.target.checked)}
+                        color="primary"
+                      />
+                    }
+                    label="Peanut Kernels"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.productTypes.includes('blanched-peanuts')}
+                        onChange={(e) => handleCheckboxChange('blanched-peanuts', e.target.checked)}
+                        color="primary"
+                      />
+                    }
+                    label="Blanched Peanuts"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.productTypes.includes('roasted-blanched-peanuts')}
+                        onChange={(e) => handleCheckboxChange('roasted-blanched-peanuts', e.target.checked)}
+                        color="primary"
+                      />
+                    }
+                    label="Roasted and Blanched Peanuts"
+                  />
+                </FormGroup>
+                {errors.productTypes && (
+                  <Typography variant="caption" color="error" sx={{ mt: 0.5 }}>
+                    Please select at least one product type
+                  </Typography>
+                )}
+              </FormControl>
+
               <TextField
                 required
                 fullWidth
@@ -208,6 +386,7 @@ const ContactUs = () => {
                 helperText={errors.message ? 'Please enter your message' : ''}
                 variant="outlined"
                 color="primary"
+                disabled={isSubmitting}
               />
               
               <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
@@ -216,14 +395,15 @@ const ContactUs = () => {
                   variant="contained"
                   color="primary"
                   size="large"
-                  endIcon={<SendIcon />}
+                  disabled={isSubmitting}
+                  endIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
                   sx={{
                     px: 3,
                     py: 1,
                     borderRadius: 2,
                   }}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </Box>
             </Box>
@@ -234,7 +414,7 @@ const ContactUs = () => {
       {/* Feedback Snackbar */}
       <Snackbar
         open={submitStatus.open}
-        autoHideDuration={6000}
+        autoHideDuration={5000}
         onClose={handleCloseSnackbar}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >

@@ -33,6 +33,7 @@ import HealthBenfitsPage from './pages/healthBenefits';
 import ServicsePage from './pages/services'; 
 import BlogsPage from './pages/blogs'; 
 import NutJourneyPage from './pages/NutJourney';
+import VietnamBlog from './pages/blogs/vietnam'; // Import Vietnam blog page
 
 import ContactUs from './pages/contact';
 
@@ -73,6 +74,7 @@ const App = () => {
           <Route path="/health-benefits" element={<HealthBenfitsPage />} /> 
           <Route path="/services" element={<ServicsePage />} />
           <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/vietnam" element={<VietnamBlog />} />
           <Route path="/nut-journey" element={<NutJourneyPage />} />
 
           {/* Add more routes as needed */}
