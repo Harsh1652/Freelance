@@ -16,7 +16,8 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
+import type { Theme } from "@mui/material/styles";
 
 // Import product images
 import boldPeanutsImage from '@/assets/images/Home/product_h_img/bold .jpg';
@@ -127,7 +128,7 @@ const products = [
   }
 ];
 
-const ChatBubble = styled(Box)(({ theme }) => ({
+const ChatBubble = styled(Box)(({ theme }: { theme: Theme }) => ({
   position: 'fixed',
   bottom: 24,
   right: 90,
@@ -379,7 +380,7 @@ const ProductsListing = () => {
                           >
                             View Details
                           </Typography>
-                          <ChevronRight sx={{ fontSize: 16 }} />
+                          <ChevronRight size={16} />
                         </Box>
                       </Fade>
                     </Box>
