@@ -136,25 +136,13 @@ const ProductSpecifications: React.FC = () => {
             <Box sx={{ p: 3, borderTop: 1, bgcolor: theme.palette.customColors.darkGold, borderColor: 'rgba(255,255,255,0.2)' }}>
               {section.items.map((item, idx) => (
                 <Box key={idx} sx={{ display: 'flex', flexDirection: 'column', py: 2, borderBottom: idx !== section.items.length - 1 ? 1 : 0, borderColor: 'rgba(255,255,255,0.2)' }}>
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: item.description ? 1 : 0 }}>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: 0 }}>
                     <Box sx={{ width: { xs: '100%', sm: '40%' }, fontWeight: 700, color: theme.palette.primary.main, display: 'flex', alignItems: 'center' }}>
                       <Typography sx={{ mr: 1, color: theme.palette.customColors.darkGold, fontSize: '1.5rem' }}>{item.name === "Packaging" ? "📦" : "🥜"}</Typography>
                       {item.name}:
                     </Box>
                     <Box sx={{ width: { xs: '100%', sm: '60%' }, fontWeight: 500, mt: { xs: 1, sm: 0 }, pl: { xs: 6, sm: 0 }, color: theme.palette.secondary.main }}>{item.value}</Box>
                   </Box>
-                  {(item as { description?: string }).description && (
-                    <Box sx={{ 
-                      pl: { xs: 6, sm: '40%' },
-                      pr: 2,
-                      fontSize: '0.9rem', 
-                      fontStyle: 'italic',
-                      color: theme.palette.secondary.main,
-                      mt: 1
-                    }}>
-                      {(item as { description?: string }).description}
-                    </Box>
-                  )}
                 </Box>
               ))}
             </Box>
