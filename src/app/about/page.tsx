@@ -22,7 +22,16 @@ import ourJourney from "@/assets/images/AboutUs/ourJurney.jpeg";
 import ourSpeacility from "@/assets/images/AboutUs/ourSpeacility.jpg";
 import ourProducts from "@/assets/images/AboutUs/ourProducts.jpg";
 
-const SectionWithImage = ({ title, titleHighlight, description, imageSrc, imageAlt, isReversed = false }) => {
+type SectionWithImageProps = {
+  title: string;
+  titleHighlight: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  isReversed?: boolean;
+};
+
+const SectionWithImage = ({ title, titleHighlight, description, imageSrc, imageAlt, isReversed = false }: SectionWithImageProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
