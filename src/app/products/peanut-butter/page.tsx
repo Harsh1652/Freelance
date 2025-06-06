@@ -6,6 +6,7 @@ import { useTheme } from "@mui/material/styles";
 import Image from 'next/image';
 import Link from 'next/link';
 import Fade from '@mui/material/Fade';
+import type { ReactNode } from "react";
 
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
@@ -31,7 +32,7 @@ import keyFeatureImg5 from "@/assets/images/productImg/key_features/top-view-pea
 
 import ProductIntroTiles from '@/components/ProductIntroTiles';
 
-const Head = ({ children }) => {
+const Head = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Extract and apply meta tags from children
     React.Children.forEach(children, child => {

@@ -16,6 +16,8 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
 
 import ourCommitment from "@/assets/images/AboutUs/ourCommitment.jpeg";
 import ourJourney from "@/assets/images/AboutUs/ourJurney.jpeg";
@@ -25,10 +27,18 @@ import ourProducts from "@/assets/images/AboutUs/ourProducts.jpg";
 type SectionWithImageProps = {
   title: string;
   titleHighlight: string;
-  description: string;
-  imageSrc: string;
+  description: ReactNode;
+  imageSrc: string | StaticImageData;
   imageAlt: string;
   isReversed?: boolean;
+};
+
+type FeatureGridProps = {
+  title: string;
+  titleHighlight: string;
+  items: { title: string; description: string }[];
+  introText?: string | ReactNode;
+  closingText?: string | ReactNode;
 };
 
 const SectionWithImage = ({ title, titleHighlight, description, imageSrc, imageAlt, isReversed = false }: SectionWithImageProps) => {
@@ -215,7 +225,7 @@ const SectionWithImage = ({ title, titleHighlight, description, imageSrc, imageA
   );
 };
 
-const FeatureGrid = ({ title, titleHighlight, items, introText = "", closingText = "" }) => {
+const FeatureGrid = ({ title, titleHighlight, items, introText = "", closingText = "" }: FeatureGridProps) => {
   const theme = useTheme();
   return (
     <Box sx={{ my: 12, display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", width: "100%", py: 4 }}>

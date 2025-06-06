@@ -32,7 +32,9 @@ import keyFeatureImg5 from "@/assets/images/productImg/key_features/top-view-pea
 
 import ProductIntroTiles from '@/components/ProductIntroTiles';
 
-const Head = ({ children }) => {
+import type { ReactNode } from "react";
+
+const Head = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     // Extract and apply meta tags from children
     React.Children.forEach(children, child => {

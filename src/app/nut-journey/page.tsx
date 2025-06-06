@@ -5,6 +5,7 @@ import { Box, Typography, IconButton, Fade, CircularProgress, Container, Button,
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTheme } from '@mui/material/styles';
 import theme from '@/assets/styles/theme';
+import type { StaticImageData } from "next/image";
 
 // Import images
 import F_Step1 from "@/assets/images/Farming/F_Step1.jpg";
@@ -73,7 +74,7 @@ interface Step {
   title: string;
   subtitle: string;
   description: string;
-  imageUrl: any; // Using any for StaticImageData
+  imageUrl: string | StaticImageData;
   imageAlt: string;
   facts: string[];
   organic?: boolean;

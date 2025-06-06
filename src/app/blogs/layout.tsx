@@ -4,6 +4,8 @@ import React from 'react';
 import { Box, useTheme } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
+import type { ReactNode } from "react";
+import type { StaticImageData } from "next/image";
 
 // Dynamically import the GoogleTranslateWidget with no SSR
 const GoogleTranslateWidget = dynamic(
@@ -14,8 +16,8 @@ const GoogleTranslateWidget = dynamic(
 type SectionWithImageProps = {
   title: string;
   titleHighlight: string;
-  description: string;
-  imageSrc: string;
+  description: ReactNode;
+  imageSrc: string | StaticImageData;
   imageAlt: string;
   isReversed?: boolean;
 };
