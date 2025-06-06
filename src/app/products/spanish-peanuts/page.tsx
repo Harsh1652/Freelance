@@ -72,7 +72,7 @@ const ProductSpecifications: React.FC = () => {
   const specSections = {
     qualities: {
       title: "Product Qualities",
-      icon: <EmojiEventsIcon />,
+      icon: <EmojiEventsIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Type", value: "Spanish Peanuts" },
         { name: "Size", value: "60/70, 70/80 counts (kernels per ounce)" },
@@ -83,7 +83,7 @@ const ProductSpecifications: React.FC = () => {
     },
     packaging: {
       title: "Packaging & Storage",
-      icon: <LocalShippingIcon />,
+      icon: <LocalShippingIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs, or customizable" },
         { name: "Shelf Life", value: "12 months" },
@@ -92,7 +92,7 @@ const ProductSpecifications: React.FC = () => {
     },
     quality: {
       title: "Quality Parameters",
-      icon: <BarChartIcon />,
+      icon: <BarChartIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Moisture Content", value: "Max 7%" },
         { name: "Admixture", value: "Max 1%" },
@@ -104,7 +104,7 @@ const ProductSpecifications: React.FC = () => {
     },
     certifications: {
       title: "Certifications",
-      icon: <CheckIcon />,
+      icon: <CheckIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Food Safety", value: "FSSAI Certified" },
         { name: "Quality Management", value: "ISO Certified" },

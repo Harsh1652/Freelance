@@ -85,7 +85,7 @@ const ProductSpecifications = () => {
   const specSections = {
     qualities: {
       title: "Product Qualities",
-      icon: <EmojiEventsIcon fontSize="medium" />,
+      icon: <EmojiEventsIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Type", value: "Natural / Raw / Blanched / Roasted / Split"},
         { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
@@ -95,7 +95,7 @@ const ProductSpecifications = () => {
     },
     packaging: {
       title: "Packaging & Storage",
-      icon: <LocalShippingIcon fontSize="medium" />,
+      icon: <LocalShippingIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Packaging", value: "25kg, 50kg PP bags, jute bags,  vacuum packing or customizable"},
         { name: "Shelf Life", value: "12 months" },
@@ -104,7 +104,7 @@ const ProductSpecifications = () => {
     },
     quality: {
       title: "Quality Parameters",
-      icon: <BarChartIcon fontSize="medium" />,
+      icon: <BarChartIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Moisture", value: "7% max" },
         { name: "Admixture", value: "0.5% max" },
@@ -114,7 +114,7 @@ const ProductSpecifications = () => {
     },
     certifications: {
       title: "Certifications",
-      icon: <CheckIcon fontSize="medium" />,
+      icon: <CheckIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Food Safety", value: "FSSAI Certified" },
         { name: "Quality Management", value: "ISO Certified" },

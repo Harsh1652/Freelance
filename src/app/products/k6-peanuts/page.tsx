@@ -87,7 +87,7 @@ const ProductSpecifications = () => {
   const specSections = {
     specifications: {
       title: "Product Specifications",
-      icon: <BarChartIcon fontSize="medium" />,
+      icon: <BarChartIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Kernel Size", value: "38/42, 40/50 counts per ounce" },
         { name: "Moisture Content", value: "Max 6–7%" },
@@ -100,7 +100,7 @@ const ProductSpecifications = () => {
     },
     qualities: {
       title: "Product Qualities",
-      icon: <EmojiEventsIcon fontSize="medium" />,
+      icon: <EmojiEventsIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Type", value: "Natural / Raw / Roasted / Blanched / Split" },
         { name: "Origin", value: "Rajasthan, Gujarat, Andhra Pradesh, India" },
@@ -109,7 +109,7 @@ const ProductSpecifications = () => {
     },
     certifications: {
       title: "Certifications",
-      icon: <CheckIcon fontSize="medium" />,
+      icon: <CheckIcon sx={{ fontSize: 28 }} />,
       items: [
         { name: "Food Safety", value: "FSSAI Certified" },
         { name: "Quality Management", value: "ISO Certified" },
