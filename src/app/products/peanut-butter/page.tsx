@@ -38,23 +38,26 @@ const Head = ({ children }: { children: ReactNode }) => {
     React.Children.forEach(children, child => {
       if (!child) return;
       
-      if (child.type === 'title') {
-        document.title = child.props.children;
+      if (React.isValidElement(child) && child.type === 'title') {
+        const el = child as React.ReactElement<any, any>;
+        document.title = el.props.children;
       }
       
-      if (child.type === 'meta' || child.type === 'link') {
-        const el = document.createElement(child.type);
-        Object.entries(child.props).forEach(([key, value]) => {
-          el.setAttribute(key, value);
+      if (React.isValidElement(child) && (child.type === 'meta' || child.type === 'link')) {
+        const el = child as React.ReactElement<any, any>;
+        const domEl = document.createElement(el.type as string);
+        Object.entries(el.props).forEach(([key, value]) => {
+          domEl.setAttribute(key, value as string);
         });
-        document.head.appendChild(el);
+        document.head.appendChild(domEl);
       }
       
-      if (child.type === 'script' && child.props.type === 'application/ld+json') {
-        const el = document.createElement('script');
-        el.type = 'application/ld+json';
-        el.textContent = child.props.children;
-        document.head.appendChild(el);
+      if (React.isValidElement(child) && child.type === 'script' && (child as React.ReactElement<any, any>).props.type === 'application/ld+json') {
+        const el = child as React.ReactElement<any, any>;
+        const domEl = document.createElement('script');
+        domEl.type = 'application/ld+json';
+        domEl.textContent = el.props.children;
+        document.head.appendChild(domEl);
       }
     });
     
