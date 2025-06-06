@@ -39,7 +39,15 @@ import ALLERGIES from "@/assets/images/Health Benefits/ALLERGIES .png";
 import peanuthealthbenefits from "@/assets/images/Health Benefits/peanut health benefits .png";
 import Recommendation from "@/assets/images/Health Benefits/Recommendation.jpg";
 
-const GradientCard = ({ title, subtitle, description, height = "auto", icon }) => {
+type GradientCardProps = {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  height?: string | number;
+  icon?: React.ReactNode;
+};
+
+const GradientCard = ({ title, subtitle, description, height = "auto", icon }: GradientCardProps) => {
   return (
     <Zoom in={true} style={{ transitionDelay: "150ms" }}>
       <Card
