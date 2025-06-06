@@ -29,8 +29,8 @@ const ServicesPage = () => {
   const isMdScreen = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
   // State for accordion expanded status (not used in your code, but kept for completeness)
-  const [expanded, setExpanded] = useState(false);
-  const handleAccordionChange = (panel) => (event, isExpanded) => {
+  const [expanded, setExpanded] = useState<string | false>(false);
+  const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
 
@@ -47,7 +47,7 @@ const ServicesPage = () => {
     {
       id: "organic",
       title: "Organic Peanut Cultivation",
-      icon: <LeafIcon sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <LeafIcon size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "We grow our peanuts on certified organic farms using traditional methods, without any harmful pesticides or synthetic fertilizers.",
       details: [
         "100% chemical-free",
@@ -58,7 +58,7 @@ const ServicesPage = () => {
     {
       id: "processing",
       title: "Peanut Processing and Grading",
-      icon: <Factory sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <Factory size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "Our state-of-the-art processing unit ensures hygienic and efficient processing.",
       details: [
         "Cleaning, shelling, and sorting",
@@ -70,7 +70,7 @@ const ServicesPage = () => {
     {
       id: "packaging",
       title: "Customized Packaging Solutions",
-      icon: <Package sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <Package size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "We offer flexible packaging options to meet diverse customer needs.",
       details: [
         "Jute bags, PP woven bags, or vacuum-sealed packs",
@@ -81,7 +81,7 @@ const ServicesPage = () => {
     {
       id: "export",
       title: "Global Export Services",
-      icon: <Globe sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <Globe size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "We export peanuts to markets across Europe, the Middle East, Southeast Asia, and North America.",
       details: [
         "Documentation support (Phytosanitary, FSSAI, APEDA, etc.)",
@@ -92,7 +92,7 @@ const ServicesPage = () => {
     {
       id: "quality",
       title: "Strict Quality Assurance",
-      icon: <Microscope sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <Microscope size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "We follow international food safety protocols.",
       details: [
         "Aflatoxin and moisture testing",
@@ -103,7 +103,7 @@ const ServicesPage = () => {
     {
       id: "client",
       title: "Client-Centric Approach",
-      icon: <Handshake sx={{ fontSize: getIconSize() }} color={theme.palette.customColors.accentGreen} />,
+      icon: <Handshake size={getIconSize()} color={theme.palette.customColors.accentGreen} />,
       description: "Whether you're a wholesaler, retailer, or importer, we provide personalized service.",
       details: [
         "Transparent pricing and contracts",
@@ -336,7 +336,7 @@ premium quality peanuts to clients worldwide.
               flexDirection: { xs: "column", sm: "row" }
             }}
           >
-            <LeafIcon sx={{ fontSize: isXsScreen ? 24 : isSmScreen ? 28 : 32 }} color={theme.palette.customColors.accentGreen} />
+            <LeafIcon size={isXsScreen ? 24 : isSmScreen ? 28 : 32} color={theme.palette.customColors.accentGreen} />
             <Typography
               variant={isXsScreen ? "h5" : "h4"}
               component="h2"
@@ -389,7 +389,7 @@ premium quality peanuts to clients worldwide.
                 }}
               >
                 <Chip
-                  icon={<LeafIcon sx={{ fontSize: isXsScreen ? 14 : 16 }} />}
+                  icon={<LeafIcon size={isXsScreen ? 14 : 16} />}
                   label={`Benefit ${index + 1}`}
                   sx={{
                     mr: { xs: 0, md: 2 },
@@ -423,7 +423,7 @@ premium quality peanuts to clients worldwide.
         </Box>
         {/* Breadcrumbs */}
         <Breadcrumbs
-          separator={<NavigateNextIcon sx={{ fontSize: isXsScreen ? 14 : 16 }} />}
+          separator={<NavigateNextIcon size={isXsScreen ? 14 : 16} />}
           aria-label="breadcrumb"
           sx={{
             mt: { xs: 3, sm: 4 },
