@@ -413,8 +413,7 @@ const Footer = () => {
                               display: 'block',
                               width: '100%',
                               textAlign: 'left',
-                              fontSize: isXsScreen ? '0.875rem' : '1rem',
-                              '&:hover': { color: theme.palette.customColors.accentGreen }
+                              fontSize: isXsScreen ? '0.875rem' : '1rem'
                             }}
                           >
                             {product.name}
