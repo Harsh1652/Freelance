@@ -14,7 +14,7 @@ import {
 interface GradientCardProps {
   title?: string;
   subtitle?: string;
-  description?: string;
+  description?: React.ReactNode;
   imageUrl?: string;
   imageAlt?: string;
   buttonText?: string;
@@ -108,14 +108,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
         )}
         
         {description && (
-          <Typography 
-            variant="body2" 
-            color={theme.palette.customColors.lightGold}
-            fontFamily="Inter, sans-serif"
-            sx={{ mb: 3, fontSize: { xs: '1.05rem', md: '1.15rem' } }}
-          >
-            {description}
-          </Typography>
+          <>{description}</>
         )}
         
         {typeof buttonText === 'string' && buttonText.trim() !== '' && (
