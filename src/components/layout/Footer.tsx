@@ -249,7 +249,6 @@ const Footer = () => {
                           color: theme.palette.customColors.lightGold,
                           textDecoration: 'none',
                           transition: 'color 0.3s',
-                          '&:hover': { color: theme.palette.customColors.accentGreen },
                           cursor: 'pointer',
                           whiteSpace: 'pre-line',
                           display: 'block'
@@ -340,12 +339,6 @@ const Footer = () => {
                       border: '1px solid transparent',
                       textDecoration: 'none'
                     }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = theme.palette.customColors.accentGreen;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = theme.palette.customColors.lightGold;
-                    }}
                   >
                     {item.name}
                   </Link>
@@ -370,7 +363,6 @@ const Footer = () => {
                         fontWeight: 'bold', 
                         color: theme.palette.customColors.lightGold,
                         transition: 'color 0.3s', 
-                        '&:hover': { color: theme.palette.customColors.accentGreen },
                       }}
                     >
                       Products
@@ -451,12 +443,6 @@ const Footer = () => {
                       userSelect: 'none',
                       border: '1px solid transparent',
                       textDecoration: 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = theme.palette.customColors.accentGreen;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = theme.palette.customColors.lightGold;
                     }}
                   >
                     {item.name}
