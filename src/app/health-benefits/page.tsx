@@ -42,7 +42,7 @@ import Recommendation from "@/assets/images/Health Benefits/Recommendation.jpg";
 type GradientCardProps = {
   title: string;
   subtitle?: string;
-  description?: string;
+  description?: React.ReactNode;
   height?: string | number;
   icon?: React.ReactNode;
 };
@@ -484,21 +484,11 @@ const HealthBenefitsPage = () => {
                         icon={<LocalHospitalIcon sx={{ color: "#f44336" }} />}
                         description={
                           <CompactList>
-                            <CompactListItem
-                              primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Skin: hives, redness, swelling</Typography>}
-                            />
-                            <CompactListItem
-                              primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Gastrointestinal: stomach cramps, nausea, vomiting</Typography>}
-                            />
-                            <CompactListItem
-                              primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Respiratory: shortness of breath, wheezing</Typography>}
-                            />
-                            <CompactListItem
-                              primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Cardiovascular: low blood pressure, rapid pulse</Typography>}
-                            />
-                            <CompactListItem
-                              primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Severe cases: anaphylactic shock</Typography>}
-                            />
+                            <CompactListItem icon={null} primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Skin: hives, redness, swelling</Typography>} />
+                            <CompactListItem icon={null} primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Gastrointestinal: stomach cramps, nausea, vomiting</Typography>} />
+                            <CompactListItem icon={null} primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Respiratory: shortness of breath, wheezing</Typography>} />
+                            <CompactListItem icon={null} primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Cardiovascular: low blood pressure, rapid pulse</Typography>} />
+                            <CompactListItem icon={null} primary={<Typography variant="body2" sx={{ color: theme.palette.customColors?.lightGold || "#EADBA5", fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>Severe cases: anaphylactic shock</Typography>} />
                           </CompactList>
                         }
                         height="100%"
