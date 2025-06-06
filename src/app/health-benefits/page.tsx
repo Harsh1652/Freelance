@@ -127,21 +127,26 @@ const GradientCard = ({ title, subtitle, description, height = "auto", icon }: G
   );
 };
 
-const CompactList = ({ children }) => (
+type CompactListProps = {
+  children: React.ReactNode;
+};
+
+const CompactList = ({ children }: CompactListProps) => (
   <List dense disablePadding sx={{ mt: 1 }}>
     {children}
   </List>
 );
 
-const CompactListItem = ({ icon, primary, secondary }) => (
-  <ListItem dense disableGutters sx={{ mb: 1, pl: 0 }}>
-    {icon && <ListItemIcon sx={{ minWidth: 36 }}>{icon}</ListItemIcon>}
-    <ListItemText
-      primary={primary}
-      secondary={secondary}
-      primaryTypographyProps={{ sx: { fontSize: "0.95rem", lineHeight: 1.3 } }}
-      secondaryTypographyProps={{ sx: { fontSize: "0.85rem", lineHeight: 1.2 } }}
-    />
+type CompactListItemProps = {
+  icon: React.ReactNode;
+  primary: React.ReactNode;
+  secondary?: React.ReactNode;
+};
+
+const CompactListItem = ({ icon, primary, secondary }: CompactListItemProps) => (
+  <ListItem sx={{ py: 0.5, px: 0 }}>
+    <ListItemIcon sx={{ minWidth: 32 }}>{icon || null}</ListItemIcon>
+    <ListItemText primary={primary as React.ReactNode} secondary={secondary as React.ReactNode} />
   </ListItem>
 );
 
@@ -149,7 +154,7 @@ const HealthBenefitsPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [tabValue, setTabValue] = React.useState(0);
 
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
   };
 
