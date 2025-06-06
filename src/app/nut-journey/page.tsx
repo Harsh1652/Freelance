@@ -111,6 +111,9 @@ const PROCESSING_STEPS = [
   { title: "9. Storage and Dispatch", subtitle: "Ready for Market", description: "Finished products are stored in cool, dry warehouses. FIFO (First-In, First-Out) system ensures older stock is dispatched first. Shipments are organized based on customer and export requirements.", imageUrl: M_Step9, imageAlt: "Peanut storage and dispatch", facts: ["Climate controlled warehouse at 18-20°C", "Relative humidity maintained at 60-65%", "Average inventory turnover: 30 days"] }
 ];
 
+// Add this utility function near the top of the file (after imports):
+const getImageSrc = (img: string | StaticImageData | undefined) => typeof img === 'string' ? img : img?.src;
+
 // ProcessViewer component
 const ProcessViewer: React.FC<ProcessViewerProps> = ({ steps, title, description, badge }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -150,11 +153,11 @@ const ProcessViewer: React.FC<ProcessViewerProps> = ({ steps, title, description
       };
     };
 
-    const currentImage = currentStep.imageUrl?.src;
+    const currentImage = getImageSrc(currentStep.imageUrl);
     const nextStep = (activeStep + 1) % steps.length;
     const prevStep = (activeStep - 1 + steps.length) % steps.length;
-    const nextImage = steps[nextStep]?.imageUrl?.src;
-    const prevImage = steps[prevStep]?.imageUrl?.src;
+    const nextImage = steps[nextStep]?.imageUrl && getImageSrc(steps[nextStep]?.imageUrl);
+    const prevImage = steps[prevStep]?.imageUrl && getImageSrc(steps[prevStep]?.imageUrl);
 
     if (currentImage) preloadImage(currentImage);
     if (nextImage) preloadImage(nextImage);
@@ -317,7 +320,7 @@ const ProcessViewer: React.FC<ProcessViewerProps> = ({ steps, title, description
                   {currentStep.imageUrl && (
                     <Box 
                       component="img" 
-                      src={currentStep.imageUrl.src} 
+                      src={getImageSrc(currentStep.imageUrl)} 
                       alt={currentStep.imageAlt || "Process step image"} 
                       sx={{
                         ...imageStyle,
