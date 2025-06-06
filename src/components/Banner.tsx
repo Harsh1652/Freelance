@@ -283,7 +283,7 @@ const Banner = () => {
             backdropFilter: 'blur(4px)',
           }}
         >
-          <ChevronLeft sx={{ fontSize: 32 }} />
+          <ChevronLeft size={32} />
         </IconButton>
         <IconButton
           onClick={() => handleManualNavigation('next')}
@@ -305,7 +305,7 @@ const Banner = () => {
             backdropFilter: 'blur(4px)',
           }}
         >
-          <ChevronRight sx={{ fontSize: 32 }} />
+          <ChevronRight size={32} />
         </IconButton>
 
         {/* Navigation Dots */}
