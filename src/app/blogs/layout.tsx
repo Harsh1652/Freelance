@@ -11,6 +11,26 @@ const GoogleTranslateWidget = dynamic(
   { ssr: false }
 );
 
+type SectionWithImageProps = {
+  title: string;
+  titleHighlight: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  isReversed?: boolean;
+};
+
+const SectionWithImage = ({
+  title,
+  titleHighlight,
+  description,
+  imageSrc,
+  imageAlt,
+  isReversed = false,
+}: SectionWithImageProps) => {
+  // Implementation of the component
+};
+
 export default function BlogLayout({
   children,
 }: {
