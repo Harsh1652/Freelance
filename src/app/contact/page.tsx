@@ -407,7 +407,7 @@ const ContactUs = () => {
                   color="primary"
                   size="large"
                   disabled={isSubmitting}
-                  endIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
+                  endIcon={isSubmitting ? <CircularProgress sx={{ fontSize: 20 }} color="inherit" /> : <SendIcon />}
                   sx={{
                     px: 3,
                     py: 1,

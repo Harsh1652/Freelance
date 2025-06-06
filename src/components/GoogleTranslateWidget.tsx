@@ -245,7 +245,7 @@ const GoogleTranslateWidget = () => {
           alignItems: 'center',
           gap: '8px'
         }}>
-          <CircularProgress size={20} />
+          <CircularProgress sx={{ fontSize: 20 }} />
           <Typography variant="body2">
             Translating... {Math.round(translationProgress)}%
           </Typography>

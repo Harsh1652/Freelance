@@ -379,7 +379,7 @@ const ProductsListing = () => {
                           >
                             View Details
                           </Typography>
-                          <ChevronRight size={16} />
+                          <ChevronRight sx={{ fontSize: 16 }} />
                         </Box>
                       </Fade>
                     </Box>

@@ -828,26 +828,38 @@ const ProductSpecifications = () => {
   const specSections = {
     qualities: {
       title: "Product Qualities",
-      icon: <EmojiEventsIcon size={20} />,
+      icon: <EmojiEventsIcon sx={{ fontSize: 20 }} />,
       items: [
         { name: "Size", value: "Medium to small, elongated kernels" },
         { name: "Color", value: "Light pink skin" },
-        { name: "Moisture Content", value: "Max 6–7%" },
-        { name: "Oil Content", value: "Approximately 44–48%" }
+        { name: "Taste", value: "Sweet, nutty, and fresh" },
+        { name: "Oil Content", value: "48% to 52%" }
       ]
     },
     packaging: {
       title: "Packaging & Storage",
-      icon: <LocalShippingIcon size={20} />,
+      icon: <LocalShippingIcon sx={{ fontSize: 20 }} />,
       items: [
-        { name: "Packaging", value: "Available in 25/50 kg PP or jute bags, or custom export packs" },
-        { name: "Shelf Life", value: "9 to 12 months in cool, dry storage" },
+        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs, or customizable" },
+        { name: "Shelf Life", value: "12 months" },
         { name: "Storage", value: "Cool, dry place away from direct sunlight" }
+      ]
+    },
+    quality: {
+      title: "Quality Parameters",
+      icon: <BarChartIcon sx={{ fontSize: 20 }} />,
+      items: [
+        { name: "Moisture Content", value: "Max 7%" },
+        { name: "Admixture", value: "Max 1%" },
+        { name: "Foreign Material", value: "Max 0.5%" },
+        { name: "Damaged Kernels", value: "Max 1.5%" },
+        { name: "Split Kernels", value: "Max 5%" },
+        { name: "Aflatoxin", value: "Below permissible limits (as per EU/US norms)" }
       ]
     },
     certifications: {
       title: "Certifications",
-      icon: <CheckIcon size={20} />,
+      icon: <CheckIcon sx={{ fontSize: 20 }} />,
       items: [
         { name: "Food Safety", value: "FSSAI Certified" },
         { name: "Quality Management", value: "ISO Certified" },

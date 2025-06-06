@@ -70,40 +70,45 @@ const MetaTags: React.FC = () => {
 const ProductSpecifications: React.FC = () => {
   const theme = useTheme();
   const specSections = {
-    basics: {
-      title: "Basic Specifications",
-      icon: <EmojiEventsIcon />,
+    qualities: {
+      title: "Product Qualities",
+      icon: <EmojiEventsIcon sx={{ fontSize: 20 }} />,
       items: [
-        { name: "Type", value: "Red Skin Peanuts (Bold/Java types)" },
-        { name: "Size", value: "38/42, 40/50, 50/60, 60/70 (Counts/Ounce)" },
-        { name: "Color", value: "Uniform reddish-brown" },
-        { name: "Taste", value: "Nutty, sweet, and fresh" }
+        { name: "Size", value: "Medium to small, elongated kernels" },
+        { name: "Color", value: "Light pink skin" },
+        { name: "Taste", value: "Sweet, nutty, and fresh" },
+        { name: "Oil Content", value: "48% to 52%" }
+      ]
+    },
+    packaging: {
+      title: "Packaging & Storage",
+      icon: <LocalShippingIcon sx={{ fontSize: 20 }} />,
+      items: [
+        { name: "Packaging", value: "25kg, 50kg, PP bags, jute bags, vacuum packs, or customizable" },
+        { name: "Shelf Life", value: "12 months" },
+        { name: "Storage", value: "Cool, dry place away from direct sunlight" }
       ]
     },
     quality: {
       title: "Quality Parameters",
-      icon: <BarChartIcon />,
+      icon: <BarChartIcon sx={{ fontSize: 20 }} />,
       items: [
+        { name: "Moisture Content", value: "Max 7%" },
         { name: "Admixture", value: "Max 1%" },
         { name: "Foreign Material", value: "Max 0.5%" },
         { name: "Damaged Kernels", value: "Max 1.5%" },
         { name: "Split Kernels", value: "Max 5%" },
-        { name: "Aflatoxin", value: "Below 15 ppb (EU Standards)" }
+        { name: "Aflatoxin", value: "Below permissible limits (as per EU/US norms)" }
       ]
     },
-    composition: {
-      title: "Composition & Storage",
-      icon: <WaterDropIcon />,
+    certifications: {
+      title: "Certifications",
+      icon: <CheckIcon sx={{ fontSize: 20 }} />,
       items: [
-        { name: "Oil Content", value: "44% to 50%", description: "Rich in healthy fats, primarily monounsaturated and polyunsaturated fatty acids, ideal for cooking oils and health products." },
-        { name: "Moisture Content", value: "Maximum 7%", description: "Ensures longer shelf life, freshness, and resistance to fungal contamination." }
-      ]
-    },
-    packaging: {
-      title: "Packaging & Delivery",
-      icon: <LocalShippingIcon />,
-      items: [
-        { name: "Packaging", value: "Jute Bags, Vacuum Packs, or Customized as per client requirement.", description: "Standard weights: 25kg, 50kg." }
+        { name: "Food Safety", value: "FSSAI Certified" },
+        { name: "Quality Management", value: "ISO Certified" },
+        { name: "Hazard Control", value: "HACCP Certified" },
+        { name: "Exportation", value: "Export Quality Approved" }
       ]
     }
   };
