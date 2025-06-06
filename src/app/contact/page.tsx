@@ -24,6 +24,7 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import Image from "next/image";
 import Logo from "@/assets/images/Logo.png";
+import type { SelectChangeEvent } from "@mui/material/Select";
 
 const ContactUs = () => {
   const GOOGLE_SCRIPT_URL =
@@ -69,6 +70,14 @@ const ContactUs = () => {
       productTypes: checked
         ? [...formData.productTypes, value]
         : formData.productTypes.filter((type) => type !== value)
+    });
+  };
+
+  const handleSelectChange = (event: SelectChangeEvent<string>) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
   };
 
@@ -287,7 +296,7 @@ const ContactUs = () => {
                   name="product"
                   value={formData.product}
                   label="Product *"
-                  onChange={handleChange}
+                  onChange={handleSelectChange}
                   error={errors.product}
                 >
                   <MenuItem value="">
