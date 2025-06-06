@@ -179,7 +179,7 @@ const IndustrialSolutions = () => {
             }}
             aria-label="Previous"
           >
-            <ChevronLeft sx={{ fontSize: 20 }} />
+            <ChevronLeft size={20} />
           </IconButton>
           <Box
             sx={{
@@ -320,7 +320,7 @@ const IndustrialSolutions = () => {
             }}
             aria-label="Next"
           >
-            <ChevronRight sx={{ fontSize: 20 }} />
+            <ChevronRight size={20} />
           </IconButton>
         </Box>
       </Container>
