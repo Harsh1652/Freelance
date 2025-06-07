@@ -168,19 +168,262 @@ const G20PeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Export Quality G20 Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta name="keywords" content="G20 peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
-        <link rel="canonical" href="https://balajiexports.com/products/g20-peanuts" />
-        <meta property="og:title" content="Premium Export Quality G20 Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/g20-peanuts" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality G20 Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org/","@type":"Product","name":"Premium Export Quality G20 Peanuts","description":"High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.","brand":{"@type":"Brand","name":"Balaji Exports"},"offers":{"@type":"Offer","url":"https://balajiexports.com/products/g20-peanuts","priceCurrency":"USD","availability":"https://schema.org/InStock"}}` }} />
-      </Head>
+  {/* Basic Meta Tags */}
+  <title>Premium Export Quality G20 Peanuts | Balaji Exports - Best Indian Groundnuts Supplier</title>
+  <meta name="description" content="Premium G20 Peanuts from India's top groundnut exporters. FSSAI, HACCP & ISO certified. High oil content, uniform size. Bulk wholesale available. Export to UAE, Europe, USA, Africa." />
+  <meta name="keywords" content="G20 peanuts, export quality peanuts, Indian groundnuts, peanut exporters India, wholesale peanuts supplier, organic groundnuts, bulk peanuts, groundnut exporters Gujarat, peanut butter manufacturing, groundnut oil extraction, FSSAI certified peanuts, HACCP peanuts, ISO certified groundnuts, peanut exporters to UAE, groundnut companies Andhra Pradesh, wholesale groundnut prices, buy groundnuts bulk, premium Indian peanuts, edible peanuts export, groundnut exporters Rajasthan" />
+  <meta name="author" content="Balaji Exports" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://balajiexports.com/products/g20-peanuts" />
+  
+  {/* Open Graph Tags */}
+  <meta property="og:title" content="Premium Export Quality G20 Peanuts | Balaji Exports - Best Indian Groundnuts" />
+  <meta property="og:description" content="High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction. Global shipping available." />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://balajiexports.com/products/g20-peanuts" />
+  <meta property="og:image" content="https://balajiexports.com/images/products/g20-peanuts-featured.jpg" />
+  <meta property="og:image:alt" content="Premium G20 Peanuts - Export Quality Indian Groundnuts" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Balaji Exports" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="product:brand" content="Balaji Exports" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:price:currency" content="USD" />
+  
+  {/* Twitter Card Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@BalajiExports" />
+  <meta name="twitter:creator" content="@BalajiExports" />
+  <meta name="twitter:title" content="Premium Export Quality G20 Peanuts | Balaji Exports" />
+  <meta name="twitter:description" content="High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction." />
+  <meta name="twitter:image" content="https://balajiexports.com/images/products/g20-peanuts-featured.jpg" />
+  <meta name="twitter:image:alt" content="Premium G20 Peanuts - Export Quality Indian Groundnuts" />
+  
+  {/* Additional Meta Tags */}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#2E7D32" />
+  <meta name="msapplication-TileColor" content="#2E7D32" />
+  
+  {/* Geo Tags */}
+  <meta name="geo.region" content="IN-GJ" />
+  <meta name="geo.placename" content="Gujarat, India" />
+  <meta name="geo.position" content="23.0225;72.5714" />
+  <meta name="ICBM" content="23.0225, 72.5714" />
+  
+  {/* Product Specific Meta Tags */}
+  <meta name="product-type" content="Agricultural Products" />
+  <meta name="product-category" content="Groundnuts & Peanuts" />
+  <meta name="origin-country" content="India" />
+  <meta name="export-markets" content="UAE, Europe, USA, Africa, Russia" />
+  <meta name="certifications" content="FSSAI, HACCP, ISO" />
+  <meta name="minimum-order" content="1 Ton" />
+  <meta name="packaging" content="25kg, 50kg PP bags, Jute bags, Vacuum packing" />
+  <meta name="shelf-life" content="12 months" />
+  
+  {/* Structured Data - JSON-LD */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Premium Export Quality G20 Peanuts",
+        "description": "High-quality G20 Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks, oil extraction and confectionery applications.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Balaji Exports",
+          "url": "https://balajiexports.com"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Balaji Exports",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IN",
+            "addressRegion": "Gujarat"
+          }
+        },
+        
+        "offers": {
+          "@type": "Offer",
+          "url": "https://balajiexports.com/products/g20-peanuts",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "seller": {
+            "@type": "Organization",
+            "name": "Balaji Exports"
+          }
+        },
+        "category": "Agricultural Products",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Origin",
+            "value": "Gujarat, Rajasthan, Andhra Pradesh, India"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Oil Content",
+            "value": "46-48%"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Moisture",
+            "value": "7% max"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Varieties",
+            "value": "38/42, 40/50, 50/60, 60/70 counts"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Certifications",
+            "value": "FSSAI, HACCP, ISO"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Packaging",
+            "value": "25kg, 50kg PP bags, jute bags, vacuum packing"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Shelf Life",
+            "value": "12 months"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "247"
+        }
+      })
+    }} 
+  />
+  
+  {/* Organization Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Balaji Exports",
+        "url": "https://balajiexports.com",
+        "logo": "https://balajiexports.com/images/logo.png",
+        "description": "Leading exporter of premium quality groundnuts and agricultural products from India with over 20 years of experience in international trade.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN",
+          "addressRegion": "Gujarat"
+        },
+      })
+    }} 
+  />
+  
+  {/* Breadcrumb Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://balajiexports.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Products",
+            "item": "https://balajiexports.com/products"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "G20 Peanuts",
+            "item": "https://balajiexports.com/products/g20-peanuts"
+          }
+        ]
+      })
+    }} 
+  />
+  
+  {/* FAQ Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are G20 peanuts used for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "G20 peanuts are versatile and used for peanut butter production, snack manufacturing, oil extraction, confectionery applications, animal feed industry, and retail health foods."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What certifications do your G20 peanuts have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our G20 peanuts are FSSAI certified, HACCP certified, and ISO certified, ensuring the highest quality and safety standards for export."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the oil content of G20 peanuts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "G20 peanuts have an oil content of 46-48%, making them ideal for oil extraction and various industrial applications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What packaging options are available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer packaging in 25kg and 50kg PP bags, jute bags, vacuum packing, or customizable packaging options to meet your specific requirements."
+            }
+          }
+        ]
+      })
+    }} 
+  />
+  
+  {/* Alternate Language Tags (if applicable) */}
+  <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/g20-peanuts" />
+  <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/g20-peanuts" />
+  
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  
+  {/* Favicon and App Icons */}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</Head>
 
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid container spacing={{ xs: 4, md: 4 }} alignItems="center" justifyContent="space-between">

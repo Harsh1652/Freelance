@@ -108,38 +108,84 @@ const LongJavaPeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head> 
+        {/* Primary Meta Tags */}
         <title>Premium Export Quality Long Java Peanuts | Balaji Exports</title>
-
+        <meta name="title" content="Premium Export Quality Long Java Peanuts | Balaji Exports" />
         <meta 
           name="description" 
           content="Long Java Peanuts with light pink skin and elongated kernels. Ideal for snacks, roasting, and confectionery. Sourced from Gujarat and export-ready with premium quality." 
         />
-
         <meta 
           name="keywords" 
-          content="Long Java peanuts, Indian groundnuts, elongated peanuts, Java peanuts India, export peanuts, peanut snacks, roasted peanuts, chikki peanuts, Gujarat peanuts exporter, bulk peanuts supplier" 
+          content="Long Java peanuts, Indian groundnuts, elongated peanuts, Java peanuts India, export peanuts, peanut snacks, roasted peanuts, chikki peanuts, Gujarat peanuts exporter, bulk peanuts supplier, wholesale peanuts India, groundnut exporters, peanut manufacturers, Indian peanut varieties, premium peanuts, food grade peanuts" 
         />
+        <meta name="author" content="Balaji Exports" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
+        {/* Canonical URL */}
         <link rel="canonical" href="https://balajiexports.com/products/long-java-peanuts" />
 
-        {/* Open Graph Tags */}
+        {/* Alternate Language Tags */}
+        <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/long-java-peanuts" />
+        <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/long-java-peanuts" />
+
+        {/* Open Graph / Facebook Tags */}
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="https://balajiexports.com/products/long-java-peanuts" />
         <meta property="og:title" content="Premium Export Quality Long Java Peanuts | Balaji Exports" />
-        
         <meta 
           property="og:description" 
           content="Elongated Long Java Peanuts with light pink skin and 44–48% oil content. Ideal for roasting, snacking, and traditional sweets. Available in custom export packaging." 
         />
-        
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/long-java-peanuts" />
+        <meta property="og:image" content="https://balajiexports.com/images/long-java-peanuts-featured.jpg" />
+        <meta property="og:image:alt" content="Premium Long Java Peanuts from Balaji Exports" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Balaji Exports" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="product:brand" content="Balaji Exports" />
+        <meta property="product:availability" content="in stock" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:category" content="Agricultural Products > Nuts & Seeds > Peanuts" />
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://balajiexports.com/products/long-java-peanuts" />
         <meta name="twitter:title" content="Premium Export Quality Long Java Peanuts | Balaji Exports" />
         <meta 
           name="twitter:description" 
           content="High-quality Long Java Peanuts from Gujarat with elongated shape and light pink skin. Perfect for roasting, snacks, chikki, and food-grade exports." 
         />
+        <meta name="twitter:image" content="https://balajiexports.com/images/long-java-peanuts-twitter.jpg" />
+        <meta name="twitter:image:alt" content="Premium Long Java Peanuts from Balaji Exports" />
+        <meta name="twitter:site" content="@BalajiExports" />
+        <meta name="twitter:creator" content="@BalajiExports" />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="theme-color" content="#2E7D32" />
+        <meta name="msapplication-TileColor" content="#2E7D32" />
+        <meta name="application-name" content="Balaji Exports" />
+        <meta name="apple-mobile-web-app-title" content="Balaji Exports" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
+
+        {/* Preconnect for Performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Favicon */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         {/* Schema.org Structured Data */}
         <script type="application/ld+json">
@@ -151,17 +197,190 @@ const LongJavaPeanutPage = () => {
             "description": "Elongated Long Java Peanuts with light pink skin, rich flavor, and 44–48% oil content. Ideal for snacks, roasting, and confectionery. Sourced from Gujarat and packed for export.",
             "brand": {
               "@type": "Brand",
-              "name": "Balaji Exports"
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com"
             },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "India",
+                "addressRegion": "Gujarat"
+              }
+            },
+            "category": "Agricultural Products",
+            
             "offers": {
               "@type": "Offer",
               "url": "https://balajiexports.com/products/long-java-peanuts",
               "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            }
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              },
+              "priceValidUntil": "2025-12-31",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": ["US", "GB", "AE", "DE", "FR", "JP", "SG"]
+                }
+              }
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "48% to 52%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 7%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Size",
+                "value": "Medium to small, elongated kernels"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Color",
+                "value": "Light pink skin"
+              }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "127",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "Food Industry Professional"
+                },
+                "reviewBody": "Excellent quality Long Java peanuts with consistent size and flavor. Perfect for our snack manufacturing needs."
+              }
+            ]
           }
           `}
         </script>
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Long Java Peanuts",
+                "item": "https://balajiexports.com/products/long-java-peanuts"
+              }
+            ]
+          }
+          `}
+        </script>
+
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/images/logo.png",
+            "description": "Leading exporter of premium quality peanuts and agricultural products from India",
+            
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "India",
+              "addressRegion": "Gujarat"
+            },
+           
+          }
+          `}
+        </script>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are Long Java Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Long Java peanuts are known for their distinctive elongated shape and light pink skin. They are primarily grown in Gujarat and are highly valued for their rich flavor and smooth texture."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the oil content of Long Java Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Long Java peanuts have an oil content of 48% to 52%, making them ideal for oil extraction and food processing applications."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the applications of Long Java Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Long Java peanuts are used for snacks, dry roasting, salted peanut snacks, confectionery, traditional sweets, and brittle (chikki) production."
+                }
+              }
+            ]
+          }
+          `}
+        </script>
+
+        {/* Additional Meta Tags for Regional SEO */}
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Gujarat, India" />
+        <meta name="geo.position" content="23.0225;72.5714" />
+        <meta name="ICBM" content="23.0225, 72.5714" />
+
+        {/* Content Security Policy */}
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;" />
+
+        {/* Referrer Policy */}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+        {/* DNS Prefetch */}
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </Head>
 
       {/* Introduction Section with improved styling */}

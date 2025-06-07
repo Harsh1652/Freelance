@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Avatar, IconButton } f
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Fade from '@mui/material/Fade';
 
@@ -29,25 +30,242 @@ import keyFeatureImg5 from '@/assets/images/productImg/key_features/top-view-pea
 
 import ProductIntroTiles from '@/components/ProductIntroTiles';
 
+// Complete SEO Tags Component
+const SEOTags = () => {
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>High Oleic Girnar 4 & 5 Peanuts | Premium Export Quality | Balaji Exports</title>
+      <meta name="title" content="High Oleic Girnar 4 & 5 Peanuts | Premium Export Quality | Balaji Exports" />
+      <meta name="description" content="Premium Girnar 4 & 5 high oleic peanuts with 78–82% oleic acid content. Long shelf life, non-GMO, aflatoxin-controlled, perfect for peanut oil, snacks, and health foods. Export-ready from India." />
+      <meta name="keywords" content="Girnar 4 peanuts, Girnar 5 peanuts, high oleic peanuts, long shelf life peanuts, export quality peanuts, non-GMO peanuts, peanut oil peanuts, healthy peanuts, Indian groundnuts, Balaji Exports, wholesale peanuts suppliers India, groundnut exporters, peanut butter manufacturing, premium groundnuts" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="English" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="distribution" content="global" />
+      <meta name="rating" content="general" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href="https://balajiexports.com/products/girnar-peanuts" />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:url" content="https://balajiexports.com/products/girnar-peanuts" />
+      <meta property="og:title" content="High Oleic Girnar 4 & 5 Peanuts | Premium Export Quality | Balaji Exports" />
+      <meta property="og:description" content="Premium Girnar 4 & 5 peanuts with high oleic acid content (78–82%). Ideal for health foods, peanut oil, peanut butter, and long shelf-life snacks. Aflatoxin-controlled and non-GMO." />
+      <meta property="og:image" content="https://balajiexports.com/images/girnar-peanuts-hero.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="High Oleic Girnar 4 & 5 Peanuts - Premium Quality Export Peanuts" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://balajiexports.com/products/girnar-peanuts" />
+      <meta property="twitter:title" content="High Oleic Girnar 4 & 5 Peanuts | Premium Export Quality | Balaji Exports" />
+      <meta property="twitter:description" content="Girnar 4 and Girnar 5 peanuts from India with over 78% oleic acid. Non-GMO, aflatoxin-safe, and ideal for health-conscious export markets and oil production." />
+      <meta property="twitter:image" content="https://balajiexports.com/images/girnar-peanuts-hero.jpg" />
+      <meta property="twitter:image:alt" content="High Oleic Girnar 4 & 5 Peanuts - Premium Quality Export Peanuts" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+      <meta name="twitter:site" content="@BalajiExports" />
+
+      {/* Additional Meta Tags */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="theme-color" content="#2E7D32" />
+      <meta name="msapplication-TileColor" content="#2E7D32" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+      {/* Geo Tags */}
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.country" content="India" />
+      <meta name="geo.placename" content="Gujarat, Rajasthan, Andhra Pradesh" />
+      <meta name="ICBM" content="23.0225, 72.5714" />
+
+      {/* Product Specific Meta Tags */}
+      <meta name="product:brand" content="Balaji Exports" />
+      <meta name="product:availability" content="in stock" />
+      <meta name="product:condition" content="new" />
+      <meta name="product:price:currency" content="USD" />
+      <meta name="product:category" content="Agricultural Products > Nuts & Seeds > Peanuts" />
+
+      {/* Structured Data - JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "High Oleic Girnar 4 & 5 Peanuts",
+            "description": "Premium Indian high oleic peanuts (Girnar 4 & 5) with over 78% oleic acid, ideal for oil production, health snacks, and peanut butter. Non-GMO, aflatoxin-controlled, and export quality.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com",
+              "logo": "https://balajiexports.com/images/logo.png"
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": "https://balajiexports.com/products/girnar-peanuts",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              }
+            },
+            "category": "Agricultural Products",
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oleic Acid Content",
+                "value": "78-82%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 6%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "50%+"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": "18 months"
+              }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "127"
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Girnar Peanuts",
+                "item": "https://balajiexports.com/products/girnar-peanuts"
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Organization Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/images/logo.png",
+            "description": "Leading exporter of premium Indian peanuts and groundnuts with over 20 years of experience in international trade.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "India",
+              "addressRegion": "Gujarat"
+            },
+          })
+        }}
+      />
+
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the oleic acid content in Girnar peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Girnar 4 and Girnar 5 peanuts contain over 78-82% oleic acid, which provides extended shelf life and enhanced health benefits."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the applications of Girnar peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Girnar peanuts are ideal for premium peanut oil production, health foods, peanut butter manufacturing, confectionery, and long shelf-life snack applications."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are Girnar peanuts non-GMO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our Girnar peanuts are completely non-GMO and aflatoxin-controlled, meeting international food safety standards."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Language Tags */}
+      <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/girnar-peanuts" />
+      <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/girnar-peanuts" />
+
+      {/* Preconnect for Performance */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+      {/* Favicon */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
+};
+
 const GirnarPeanutPage = () => {
   const theme = useTheme();
 
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-      {/* Head tags for SEO */}
-      <title>High Oleic Girnar 4 & 5 Peanuts | Balaji Exports</title>
-      <meta name="description" content="Girnar 4 & 5 high oleic peanuts with 78–82% oleic acid content. Long shelf life, non-GMO, aflatoxin-controlled, and perfect for peanut oil, snacks, and health foods. Export-ready from India." />
-      <meta name="keywords" content="Girnar 4 peanuts, Girnar 5 peanuts, high oleic peanuts, long shelf life peanuts, export quality peanuts, non-GMO peanuts, peanut oil peanuts, healthy peanuts, Indian groundnuts, Balaji Exports" />
-      <link rel="canonical" href="https://balajiexports.com/products/girnar-peanuts" />
-      <meta property="og:title" content="High Oleic Girnar 4 & 5 Peanuts | Balaji Exports" />
-      <meta property="og:description" content="Premium Girnar 4 & 5 peanuts with high oleic acid content (78–82%). Ideal for health foods, peanut oil, peanut butter, and long shelf-life snacks. Aflatoxin-controlled and non-GMO." />
-      <meta property="og:type" content="product" />
-      <meta property="og:url" content="https://balajiexports.com/products/girnar-peanuts" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="High Oleic Girnar 4 & 5 Peanuts | Balaji Exports" />
-      <meta name="twitter:description" content="Girnar 4 and Girnar 5 peanuts from India with over 78% oleic acid. Non-GMO, aflatoxin-safe, and ideal for health-conscious export markets and oil production." />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org/","@type":"Product","name":"High Oleic Girnar 4 & 5 Peanuts","description":"Premium Indian high oleic peanuts (Girnar 4 & 5) with over 78% oleic acid, ideal for oil production, health snacks, and peanut butter. Non-GMO, aflatoxin-controlled, and export quality.","brand":{"@type":"Brand","name":"Balaji Exports"},"offers":{"@type":"Offer","url":"https://balajiexports.com/products/girnar-peanuts","priceCurrency":"USD","availability":"https://schema.org/InStock"}}` }} />
-
+      <SEOTags />
       {/* Introduction Section */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid container spacing={{ xs: 4, md: 4 }} alignItems="center" justifyContent="space-between">

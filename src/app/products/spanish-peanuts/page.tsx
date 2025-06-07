@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Avatar, IconButton } f
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import Fade from '@mui/material/Fade';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
@@ -198,11 +199,254 @@ const KeyFeaturesCarousel: React.FC = () => {
   );
 };
 
+const SpanishPeanutsSEOHead = () => {
+  const pageTitle = "Premium Export Quality Spanish Peanuts | Balaji Exports - High Oil Content Groundnuts from India";
+  const pageDescription = "Export-quality Spanish Peanuts from India with 48-52% oil content, reddish-brown skin, and bold nutty flavor. Perfect for peanut butter, snacks, oil extraction, and confectionery. FSSAI, HACCP & ISO certified. Bulk wholesale supplier to UAE, Europe & worldwide.";
+  const pageUrl = "https://balajiexports.com/products/spanish-peanuts";
+  const imageUrl = "https://balajiexports.com/images/products/spanish-peanuts-og.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="Spanish peanuts, export quality peanuts, high oil peanuts, peanut butter peanuts, groundnut exporters India, wholesale peanut suppliers, bulk groundnuts, peanut oil extraction, roasted peanuts, confectionery peanuts, Indian groundnuts, FSSAI certified peanuts, HACCP peanuts, ISO certified groundnuts, peanut exporters to UAE, groundnut companies Andhra Pradesh, buy groundnuts bulk, groundnut prices per ton, peanut importers worldwide, best quality groundnuts India" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="publisher" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="language" content="en" />
+      <meta name="revisit-after" content="7 days" />
+
+      {/* Viewport */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:title" content="Premium Export Quality Spanish Peanuts | Balaji Exports" />
+      <meta property="og:description" content="High-quality Spanish Peanuts with 48-52% oil content, perfect for peanut butter, snacks & oil extraction. FSSAI, HACCP & ISO certified. Wholesale supplier from India to global markets." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:alt" content="Premium Spanish Peanuts - Export Quality from India" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Premium Export Quality Spanish Peanuts | Balaji Exports" />
+      <meta name="twitter:description" content="High-oil Spanish Peanuts from India. Perfect for peanut butter, snacks & oil extraction. FSSAI, HACCP & ISO certified. Wholesale supplier to global markets." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium Spanish Peanuts - Export Quality from India" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+
+      {/* Geographic and Business */}
+      <meta name="geo.region" content="IN-AP" />
+      <meta name="geo.country" content="IN" />
+      <meta name="geo.placename" content="Andhra Pradesh, India" />
+
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#2D5530" />
+      <meta name="msapplication-TileColor" content="#2D5530" />
+      <meta name="application-name" content="Balaji Exports" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+      {/* Structured Data - Product */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "Premium Export Quality Spanish Peanuts",
+            "description": "High-quality Spanish Peanuts with reddish-brown skin, 48-52% oil content, and bold nutty flavor. Ideal for peanut butter production, snacks, oil extraction, and confectionery applications.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN",
+                "addressRegion": "Andhra Pradesh"
+              }
+            },
+
+            "offers": {
+              "@type": "Offer",
+              "url": pageUrl,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              },
+              "businessFunction": "https://schema.org/Sell",
+              "eligibleRegion": ["US", "AE", "GB", "DE", "FR", "CA", "AU", "IN"]
+            },
+           
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "48-52%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Size",
+                "value": "60/70, 70/80 counts per ounce"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 7%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": "12 months"
+              }
+            ],
+            "hasEnergyConsumption": {
+              "@type": "EnergyConsumption",
+              "energyEfficiencyScaleMax": 100,
+              "energyEfficiencyScaleMin": 0
+            },
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "Food Manufacturers, Exporters, Wholesalers"
+            }
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/logo.png",
+            "description": "Leading exporter of premium quality groundnuts, peanuts and agricultural products from India to global markets.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-XXXXXXXXXX",
+              "contactType": "sales",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Andhra Pradesh"
+            },
+            
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Spanish Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the oil content of Spanish Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our Spanish Peanuts contain 48-52% oil content, making them ideal for oil extraction and peanut butter production."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do your Spanish Peanuts have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our Spanish Peanuts are FSSAI, HACCP, and ISO certified, ensuring the highest quality and safety standards for export."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the main applications of Spanish Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Spanish Peanuts are used for peanut butter production, roasted snacks, cooking oil extraction, confectionery, and bakery products."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/lato-v24-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
+};
+
 const SpanishPeanutPage: React.FC = () => {
   const theme = useTheme();
   return (
     <>
-      <MetaTags />
+      <SpanishPeanutsSEOHead />
       <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
         {/* Introduction Section */}
         <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>

@@ -76,57 +76,295 @@ const PeanutButterPage = () => {
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-      <Head>
-        <title>Premium Peanut Butter – Creamy & Crunchy | Balaji Exports</title>
-        <meta
-          name="description"
-          content="Delicious and nutritious peanut butter made from ≥90% roasted peanuts. High in protein and healthy fats. Ideal for food industry, fitness diets, and retail markets."
-        />
-        <meta
-          name="keywords"
-          content="peanut butter, creamy peanut butter, crunchy peanut butter, natural peanut butter, protein spread, vegan spread, wholesale peanut butter, peanut butter exporter India"
-        />
-        <link rel="canonical" href="https://balajiexports.com/products/peanut-butter" />
+     <Head>
+  {/* Primary Meta Tags */}
+  <title>Premium Peanut Butter – Creamy & Crunchy | Balaji Exports</title>
+  <meta name="title" content="Premium Peanut Butter – Creamy & Crunchy | Balaji Exports" />
+  <meta
+    name="description"
+    content="Delicious and nutritious peanut butter made from ≥90% roasted peanuts. High in protein and healthy fats. Ideal for food industry, fitness diets, and retail markets. FSSAI, HACCP, ISO certified."
+  />
+  <meta
+    name="keywords"
+    content="peanut butter, creamy peanut butter, crunchy peanut butter, natural peanut butter, protein spread, vegan spread, wholesale peanut butter, peanut butter exporter India, bulk peanut butter, organic peanut butter, gluten free peanut butter, healthy spreads, FSSAI certified peanut butter, export quality peanut butter"
+  />
+  <meta name="author" content="Balaji Exports" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  <link rel="canonical" href="https://balajiexports.com/products/peanut-butter" />
 
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Peanut Butter – Creamy & Crunchy | Balaji Exports" />
-        <meta
-          property="og:description"
-          content="High-protein, non-GMO peanut butter made from ≥90% roasted peanuts. No preservatives or hydrogenated oils. Perfect for baking, fitness, or daily use."
-        />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/peanut-butter" />
+  {/* Viewport and Mobile Optimization */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Peanut Butter – Creamy & Crunchy | Balaji Exports" />
-        <meta
-          name="twitter:description"
-          content="Natural peanut butter rich in protein and flavor. Suitable for food processing, health diets, and export markets."
-        />
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://balajiexports.com/products/peanut-butter" />
+  <meta property="og:title" content="Premium Peanut Butter – Creamy & Crunchy | Balaji Exports" />
+  <meta
+    property="og:description"
+    content="High-protein, non-GMO peanut butter made from ≥90% roasted peanuts. No preservatives or hydrogenated oils. Perfect for baking, fitness, or daily use."
+  />
+  <meta property="og:image" content="https://balajiexports.com/images/peanut-butter-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Premium Peanut Butter by Balaji Exports" />
+  <meta property="og:site_name" content="Balaji Exports" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="product:brand" content="Balaji Exports" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:price:currency" content="USD" />
 
-        {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org/",
-              "@type": "Product",
-              "name": "Premium Peanut Butter",
-              "description": "Delicious and nutritious peanut butter made from ≥90% roasted peanuts. Available in creamy and crunchy textures. FSSAI, HACCP, ISO 22000 certified. USDA Organic on request.",
-              "brand": {
-                "@type": "Brand",
-                "name": "Balaji Exports"
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://balajiexports.com/products/peanut-butter" />
+  <meta name="twitter:title" content="Premium Peanut Butter – Creamy & Crunchy | Balaji Exports" />
+  <meta
+    name="twitter:description"
+    content="Natural peanut butter rich in protein and flavor. Suitable for food processing, health diets, and export markets."
+  />
+  <meta name="twitter:image" content="https://balajiexports.com/images/peanut-butter-twitter.jpg" />
+  <meta name="twitter:image:alt" content="Premium Peanut Butter by Balaji Exports" />
+  <meta name="twitter:creator" content="@BalajiExports" />
+  <meta name="twitter:site" content="@BalajiExports" />
+
+  {/* Additional SEO Meta Tags */}
+  <meta name="theme-color" content="#2E7D32" />
+  <meta name="msapplication-TileColor" content="#2E7D32" />
+  <meta name="application-name" content="Balaji Exports" />
+  <meta name="apple-mobile-web-app-title" content="Balaji Exports" />
+  
+  {/* Geographic and Business Tags */}
+  <meta name="geo.region" content="IN-RJ" />
+  <meta name="geo.placename" content="Jaipur, Rajasthan" />
+  <meta name="geo.position" content="26.9124;75.7873" />
+  <meta name="ICBM" content="26.9124, 75.7873" />
+  <meta name="contact" content="info@balajiexports.com" />
+  <meta name="company" content="Balaji Exports" />
+  <meta name="classification" content="Food Export, Peanut Products, Agricultural Products" />
+
+  {/* Favicon and Icons */}
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+  {/* Alternate Languages (if applicable) */}
+  <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/peanut-butter" />
+  <link rel="alternate" hrefLang="hi" href="https://balajiexports.com/hi/products/peanut-butter" />
+  <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/peanut-butter" />
+
+  {/* JSON-LD Structured Data - Product */}
+  <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Premium Peanut Butter",
+        "description": "Delicious and nutritious peanut butter made from ≥90% roasted peanuts. Available in creamy and crunchy textures. FSSAI, HACCP, ISO 22000 certified. USDA Organic on request.",
+        
+        "brand": {
+          "@type": "Brand",
+          "name": "Balaji Exports",
+          "logo": "https://balajiexports.com/images/logo.png"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Balaji Exports",
+          "url": "https://balajiexports.com",
+          "logo": "https://balajiexports.com/images/logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jaipur",
+            "addressRegion": "Rajasthan",
+            "addressCountry": "IN"
+          }
+        },
+        "category": "Food & Beverages > Spreads > Peanut Butter",
+        "gtin": "1234567890123",
+        "mpn": "PB-001",
+        "sku": "BALAJI-PB-001",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Protein Content",
+            "value": "High"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Certification",
+            "value": "FSSAI, HACCP, ISO 22000"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Texture",
+            "value": "Creamy/Crunchy"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Shelf Life",
+            "value": "12-18 months"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://balajiexports.com/products/peanut-butter",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "seller": {
+            "@type": "Organization",
+            "name": "Balaji Exports"
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "US",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 30
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
               },
-              "offers": {
-                "@type": "Offer",
-                "url": "https://balajiexports.com/products/peanut-butter",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 15,
+                "maxValue": 30,
+                "unitCode": "DAY"
               }
             }
-          `}
-        </script>
-      </Head>
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    `}
+  </script>
+
+  {/* JSON-LD Structured Data - Organization */}
+  <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Balaji Exports",
+        "url": "https://balajiexports.com",
+        "logo": "https://balajiexports.com/images/logo.png",
+        "description": "Leading exporter of premium agricultural products from India, specializing in peanut butter, groundnut oil, and other food products.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "postalCode": "302001",
+          "addressCountry": "IN"
+        },
+        
+      }
+    `}
+  </script>
+
+  {/* JSON-LD Structured Data - BreadcrumbList */}
+  <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://balajiexports.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Products",
+            "item": "https://balajiexports.com/products"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Peanut Butter",
+            "item": "https://balajiexports.com/products/peanut-butter"
+          }
+        ]
+      }
+    `}
+  </script>
+
+  {/* JSON-LD Structured Data - FAQ */}
+  <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What certifications does your peanut butter have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our peanut butter is certified by FSSAI, HACCP, and ISO 22000. USDA Organic certification is available on request."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the shelf life of your peanut butter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our peanut butter has a shelf life of 12 to 18 months from the manufacturing date when stored in cool, dry conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer bulk orders for businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we specialize in bulk orders for food manufacturers, retail chains, and distributors worldwide. We offer competitive prices for large-scale buyers."
+            }
+          }
+        ]
+      }
+    `}
+  </script>
+
+  {/* Additional Performance and SEO Tags */}
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
+</Head>
 
       {/* Introduction Section */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>

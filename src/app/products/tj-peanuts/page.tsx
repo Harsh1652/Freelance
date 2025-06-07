@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Fade, Zoom, Avatar, Ic
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import GradientCard from "@/components/GradientCard";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -34,39 +35,274 @@ import ProductIntroTiles from '@/components/ProductIntroTiles';
 
 import type { ReactNode } from "react";
 
-const Head = ({ children }: { children: ReactNode }) => {
-  useEffect(() => {
-    // Extract and apply meta tags from children
-    React.Children.forEach(children, child => {
-      if (!child) return;
-      
-      if (React.isValidElement(child) && child.type === 'title') {
-        const el = child as React.ReactElement<any, any>;
-        document.title = el.props.children;
-      }
-      
-      if (React.isValidElement(child) && (child.type === 'meta' || child.type === 'link')) {
-        const el = child as React.ReactElement<any, any>;
-        const domEl = document.createElement(el.type as string);
-        Object.entries(el.props).forEach(([key, value]) => {
-          domEl.setAttribute(key, value as string);
-        });
-        document.head.appendChild(domEl);
-      }
-      
-      if (React.isValidElement(child) && child.type === 'script' && (child as React.ReactElement<any, any>).props.type === 'application/ld+json') {
-        const el = child as React.ReactElement<any, any>;
-        const domEl = document.createElement('script');
-        domEl.type = 'application/ld+json';
-        domEl.textContent = el.props.children;
-        document.head.appendChild(domEl);
-      }
-    });
-    
-    // Cleanup on unmount
-  }, [children]);
-  
-  return null;
+const TJPeanutsSEOHead = () => {
+  const pageTitle = "Premium Export Quality TJ Peanuts (Tirupati Java) | Balaji Exports";
+  const pageDescription = "Top-grade TJ Peanuts (Tirupati Java) with light pink skin, uniform shape, and 44–47% oil content. Ideal for snacks, peanut butter, and confectionery. Export-ready from India.";
+  const pageUrl = "https://balajiexports.com/products/tj-peanuts";
+  const imageUrl = "https://balajiexports.com/images/tj-peanuts-main.jpg";
+
+  return (
+    <Head>
+      {/* Basic Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="TJ peanuts, Tirupati Java peanuts, Java peanuts India, export quality peanuts, light pink peanuts, Indian groundnuts, peanut exporters, bulk peanut supplier, medium-sized peanuts, wholesale peanuts India, groundnut export, peanut butter manufacturing, food grade peanuts, FSSAI certified peanuts, Gujarat peanuts, Andhra Pradesh groundnuts" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="language" content="English" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="distribution" content="global" />
+      <meta name="rating" content="general" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Alternate Language Links */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Open Graph Tags */}
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:description" content="Export-quality TJ Peanuts from India with light pink skin, medium-round size, and rich flavor. Ideal for snacks, peanut butter, and food processing industries." />
+      <meta property="og:type" content="product" />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Premium TJ Peanuts (Tirupati Java) - Export Quality from India" />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:updated_time" content="2025-06-07T00:00:00+00:00" />
+
+      {/* Product Specific Open Graph Tags */}
+      <meta property="product:brand" content="Balaji Exports" />
+      <meta property="product:availability" content="in stock" />
+      <meta property="product:condition" content="new" />
+      <meta property="product:price:currency" content="USD" />
+      <meta property="product:retailer_item_id" content="TJ-PEANUTS-001" />
+
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content="High-quality TJ Peanuts with light pink skin, consistent size, and 44–47% oil. Perfect for snacks, sweets, and export markets. Sourced from Gujarat & Andhra Pradesh." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium TJ Peanuts (Tirupati Java) - Export Quality from India" />
+
+      {/* Geographic Meta Tags */}
+      <meta name="geo.region" content="IN-GJ" />
+      <meta name="geo.placename" content="Gujarat, India" />
+      <meta name="geo.position" content="23.0225;72.5714" />
+      <meta name="ICBM" content="23.0225, 72.5714" />
+
+      {/* Cache Control */}
+      <meta httpEquiv="Cache-Control" content="public, max-age=31536000" />
+      <meta httpEquiv="Expires" content="Wed, 07 Jun 2026 00:00:00 GMT" />
+      <meta name="theme-color" content="#2E5D31" />
+      <meta name="msapplication-TileColor" content="#2E5D31" />
+
+      {/* Favicon Links */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/Lato-Bold.woff2" as="font" type="font/woff2" crossOrigin="" />
+      <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossOrigin="" />
+      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+      <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
+      {/* Product Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "Premium Export Quality TJ Peanuts (Tirupati Java)",
+            "alternateName": ["Tirupati Java Peanuts", "TJ Groundnuts", "Java Peanuts India"],
+            "description": "TJ Peanuts, also known as Tirupati Java Peanuts, are medium-sized Indian peanuts with light pink skin, consistent shape, and 44–47% oil content. Used in snacks, sweets, and peanut butter production.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports",
+              "logo": "https://balajiexports.com/logo.png"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN",
+                "addressRegion": "Gujarat"
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": pageUrl,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2025-12-31",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              },
+              "businessFunction": "https://schema.org/Sell",
+              "eligibleRegion": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "23.0225",
+                  "longitude": "72.5714"
+                },
+                "geoRadius": "50000"
+              }
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "44-47%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 6-8%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Size Grades",
+                "value": "50/60, 60/70 counts per ounce"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": "12 months"
+              }
+            ],
+            "hasEnergyConsumption": {
+              "@type": "EnergyConsumptionDetails",
+              "energyEfficiencyScaleMax": "A+++",
+              "hasEnergyEfficiencyCategory": "A"
+            },
+            "isAccessoryOrSparePartFor": [
+              "Peanut Butter Manufacturing",
+              "Snack Food Production",
+              "Confectionery Industry"
+            ]
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/logo.png",
+            "description": "Leading exporter of premium quality peanuts and groundnuts from India. Specializing in TJ Peanuts, Bold Peanuts, and other varieties for global markets.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Gujarat",
+              "addressLocality": "Gujarat"
+            },
+           
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "TJ Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are TJ Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TJ Peanuts, also known as Tirupati Java Peanuts, are premium-grade Indian peanuts with light pink skin, medium-round size, and 44-47% oil content. They are ideal for snacks, peanut butter, and confectionery applications."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the shelf life of TJ Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TJ Peanuts have a shelf life of 12 months when stored in cool, dry conditions away from direct sunlight."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do your TJ Peanuts have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our TJ Peanuts are FSSAI certified, ISO certified, HACCP certified, and approved for export quality standards."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Additional Meta Tags */}
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-title" content="Balaji Exports" />
+      <meta name="pinterest-rich-pin" content="true" />
+      <meta property="article:author" content="Balaji Exports" />
+      <meta property="article:publisher" content="https://balajiexports.com" />
+      <meta property="linkedin:owner" content="Balaji Exports" />
+      <meta property="whatsapp:title" content="Premium TJ Peanuts from Balaji Exports" />
+      <meta property="whatsapp:description" content="Export quality Tirupati Java Peanuts with 44-47% oil content" />
+    </Head>
+  );
 };
 
 const TJPeanutPage = () => {
@@ -74,62 +310,7 @@ const TJPeanutPage = () => {
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-        <Head> 
-        <title>Premium Export Quality TJ Peanuts (Tirupati Java) | Balaji Exports</title>
-
-        <meta 
-            name="description" 
-            content="Top-grade TJ Peanuts (Tirupati Java) with light pink skin, uniform shape, and 44–47% oil content. Ideal for snacks, peanut butter, and confectionery. Export-ready from India." 
-        />
-
-        <meta 
-            name="keywords" 
-            content="TJ peanuts, Tirupati Java peanuts, Java peanuts India, export quality peanuts, light pink peanuts, Indian groundnuts, peanut exporters, bulk peanut supplier, medium-sized peanuts" 
-        />
-
-        <link rel="canonical" href="https://balajiexports.com/products/tj-peanuts" />
-
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Export Quality TJ Peanuts (Tirupati Java) | Balaji Exports" />
-        
-        <meta 
-            property="og:description" 
-            content="Export-quality TJ Peanuts from India with light pink skin, medium-round size, and rich flavor. Ideal for snacks, peanut butter, and food processing industries." 
-        />
-        
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/tj-peanuts" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality TJ Peanuts (Tirupati Java) | Balaji Exports" />
-        <meta 
-            name="twitter:description" 
-            content="High-quality TJ Peanuts with light pink skin, consistent size, and 44–47% oil. Perfect for snacks, sweets, and export markets. Sourced from Gujarat & Andhra Pradesh." 
-        />
-
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-            {`
-            {
-                "@context": "https://schema.org/",
-                "@type": "Product",
-                "name": "Premium Export Quality TJ Peanuts (Tirupati Java)",
-                "description": "TJ Peanuts, also known as Tirupati Java Peanuts, are medium-sized Indian peanuts with light pink skin, consistent shape, and 44–47% oil content. Used in snacks, sweets, and peanut butter production.",
-                "brand": {
-                "@type": "Brand",
-                "name": "Balaji Exports"
-                },
-                "offers": {
-                "@type": "Offer",
-                "url": "https://balajiexports.com/products/tj-peanuts",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
-                }
-            }
-            `}
-        </script>
-        </Head>
+      <TJPeanutsSEOHead />
 
       {/* Introduction Section with improved styling */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 5, md: 10 } }}>

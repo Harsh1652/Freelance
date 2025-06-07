@@ -163,19 +163,229 @@ const K6PeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Export Quality K6 Peanuts | High Oil Indian Groundnuts | Balaji Exports</title>
-        <meta name="description" content="K6 Peanuts with high oil content (up to 50%), medium-bold kernels, and excellent shelf life. Ideal for peanut oil extraction, butter, snacks, and export. Sourced from Gujarat and Andhra Pradesh." />
-        <meta name="keywords" content="K6 peanuts, high oil peanuts, Indian groundnuts, export peanuts India, peanut oil extraction, peanut butter peanuts, bulk peanut suppliers, peanut exporters, machine-cleaned peanuts, food-grade peanuts" />
-        <link rel="canonical" href="https://balajiexports.com/products/k6-peanuts" />
-        <meta property="og:title" content="Premium Export Quality K6 Peanuts | Balaji Exports" />
-        <meta property="og:description" content="Top-grade K6 Peanuts with 48–50% oil content and medium-bold kernels. Ideal for oil extraction, peanut butter, snacks, and global export markets." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/k6-peanuts" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality K6 Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="K6 Peanuts with high oil content and uniform medium-bold size. Used for peanut oil, butter, and snacks. Long shelf life, export-ready, and processed to global standards." />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context": "https://schema.org/", "@type": "Product", "name": "Premium Export Quality K6 Peanuts", "description": "K6 Peanuts with up to 50% oil content, medium-bold size, and excellent processing quality. Perfect for oil extraction, peanut butter, snacks, and export packaging.", "brand": {"@type": "Brand", "name": "Balaji Exports"}, "offers": {"@type": "Offer", "url": "https://balajiexports.com/products/k6-peanuts", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}}` }} />
-      </Head>
+  {/* Primary Meta Tags */}
+  <title>Premium Export Quality K6 Peanuts | High Oil Indian Groundnuts | Balaji Exports</title>
+  <meta name="title" content="Premium Export Quality K6 Peanuts | High Oil Indian Groundnuts | Balaji Exports" />
+  <meta name="description" content="K6 Peanuts with high oil content (up to 50%), medium-bold kernels, and excellent shelf life. Ideal for peanut oil extraction, butter, snacks, and export. Sourced from Gujarat and Andhra Pradesh." />
+  <meta name="keywords" content="K6 peanuts, high oil peanuts, Indian groundnuts, export peanuts India, peanut oil extraction, peanut butter peanuts, bulk peanut suppliers, peanut exporters, machine-cleaned peanuts, food-grade peanuts, wholesale groundnuts, groundnut price per ton, buy groundnuts bulk, peanut importers, groundnut companies Andhra Pradesh, peanut exporters India UAE" />
+  <meta name="author" content="Balaji Exports" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="en" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://balajiexports.com/products/k6-peanuts" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://balajiexports.com/products/k6-peanuts" />
+  <meta property="og:title" content="Premium Export Quality K6 Peanuts | High Oil Indian Groundnuts" />
+  <meta property="og:description" content="Top-grade K6 Peanuts with 48–50% oil content and medium-bold kernels. Ideal for oil extraction, peanut butter, snacks, and global export markets. FSSAI, HACCP, ISO certified." />
+  <meta property="og:image" content="https://balajiexports.com/images/k6-peanuts-hero.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Premium K6 Peanuts - High Oil Content Indian Groundnuts" />
+  <meta property="og:site_name" content="Balaji Exports" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="product:brand" content="Balaji Exports" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:price:currency" content="USD" />
+  
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://balajiexports.com/products/k6-peanuts" />
+  <meta name="twitter:title" content="Premium Export Quality K6 Peanuts | High Oil Indian Groundnuts" />
+  <meta name="twitter:description" content="K6 Peanuts with high oil content and uniform medium-bold size. Used for peanut oil, butter, and snacks. Long shelf life, export-ready, and processed to global standards." />
+  <meta name="twitter:image" content="https://balajiexports.com/images/k6-peanuts-hero.jpg" />
+  <meta name="twitter:image:alt" content="Premium K6 Peanuts - High Oil Content Indian Groundnuts" />
+  <meta name="twitter:site" content="@BalajiExports" />
+  <meta name="twitter:creator" content="@BalajiExports" />
+  
+  {/* Additional Meta Tags */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#2E7D32" />
+  <meta name="msapplication-TileColor" content="#2E7D32" />
+  
+  {/* Geo Targeting */}
+  <meta name="geo.region" content="IN-RJ" />
+  <meta name="geo.placename" content="Rajasthan, India" />
+  <meta name="geo.position" content="26.9124;75.7873" />
+  <meta name="ICBM" content="26.9124, 75.7873" />
+  
+  {/* Alternative Language Pages */}
+  <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/k6-peanuts" />
+  <link rel="alternate" hrefLang="hi" href="https://balajiexports.com/hi/products/k6-peanuts" />
+  <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/k6-peanuts" />
+  
+  {/* Favicon and Icons */}
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  
+  {/* JSON-LD Structured Data */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Premium Export Quality K6 Peanuts",
+        "description": "K6 Peanuts with up to 50% oil content, medium-bold size, and excellent processing quality. Perfect for oil extraction, peanut butter, snacks, and export packaging.",
+        
+        "brand": {
+          "@type": "Brand",
+          "name": "Balaji Exports"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Balaji Exports",
+          "url": "https://balajiexports.com",
+          "logo": "https://balajiexports.com/images/logo.png"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://balajiexports.com/products/k6-peanuts",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Balaji Exports"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "127"
+        },
+        "category": "Food & Beverages > Nuts & Seeds > Peanuts",
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Oil Content",
+            "value": "48-50%"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Kernel Size",
+            "value": "38/42, 40/50 counts per ounce"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Moisture Content",
+            "value": "Max 6-7%"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "Origin",
+            "value": "Gujarat, Andhra Pradesh, India"
+          }
+        ]
+      })
+    }} 
+  />
+  
+  {/* Organization Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Balaji Exports",
+        "url": "https://balajiexports.com",
+        "logo": "https://balajiexports.com/images/logo.png",
+        
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Your Street Address",
+          "addressLocality": "Jaipur",
+          "addressRegion": "Rajasthan",
+          "postalCode": "302XXX",
+          "addressCountry": "IN"
+        },
+        
+      })
+    }} 
+  />
+  
+  {/* Breadcrumb Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://balajiexports.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Products",
+            "item": "https://balajiexports.com/products"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "K6 Peanuts",
+            "item": "https://balajiexports.com/products/k6-peanuts"
+          }
+        ]
+      })
+    }} 
+  />
+  
+  {/* FAQ Schema */}
+  <script 
+    type="application/ld+json" 
+    dangerouslySetInnerHTML={{ 
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the oil content of K6 peanuts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "K6 peanuts have a high oil content of 48-50%, making them ideal for oil extraction and peanut butter production."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the kernel sizes available for K6 peanuts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "K6 peanuts are available in 38/42 and 40/50 counts per ounce, providing uniform medium-bold kernels."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What certifications do your K6 peanuts have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our K6 peanuts are FSSAI certified, ISO certified, and HACCP certified, ensuring the highest quality and safety standards."
+            }
+          }
+        ]
+      })
+    }} 
+  />
+</Head>
       {/* Introduction Section */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid container spacing={{ xs: 4, md: 4 }} alignItems="center" justifyContent="space-between">

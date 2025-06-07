@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Avatar, IconButton } f
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import Fade from '@mui/material/Fade';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
@@ -26,44 +27,266 @@ import keyFeatureImg4 from "@/assets/images/productImg/key_features/Gemini_Gener
 import keyFeatureImg5 from "@/assets/images/productImg/key_features/top-view-peanuts-green-background.jpg";
 import ProductIntroTiles from '@/components/ProductIntroTiles';
 
-// Meta tags component
-const MetaTags: React.FC = () => {
-  useEffect(() => {
-    document.title = "Premium Red Skin Peanuts Exporter from India | Balaji Exports";
-    const metaDescription = document.createElement('meta');
-    metaDescription.name = 'description';
-    metaDescription.content = 'Export-quality Red Skin Peanuts with rich flavor, high oil content, and EU-grade safety. Ideal for snacks, peanut butter, oil extraction, and animal feed.';
-    document.head.appendChild(metaDescription);
-    const metaKeywords = document.createElement('meta');
-    metaKeywords.name = 'keywords';
-    metaKeywords.content = 'red skin peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India';
-    document.head.appendChild(metaKeywords);
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Premium Export Quality Red Skin Peanuts",
-      "description": "Export-quality Red Skin Peanuts with rich flavor, high oil content, and EU-grade safety. Ideal for snacks, peanut butter, oil extraction, and animal feed.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Balaji Exports"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://balajiexports.com/products/red-skin-peanuts",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      }
-    });
-    document.head.appendChild(script);
-    return () => {
-      document.head.removeChild(metaDescription);
-      document.head.removeChild(metaKeywords);
-      document.head.removeChild(script);
-    };
-  }, []);
-  return null;
+const RedSkinPeanutsSEOHead = () => {
+  const pageTitle = "Premium Red Skin Peanuts Exporter from India | Balaji Exports - Export Quality Groundnuts";
+  const pageDescription = "Premium export-quality Red Skin Peanuts from India. Rich flavor, high oil content (48-52%), EU-grade safety standards. Ideal for snacks, peanut butter, oil extraction & animal feed. FSSAI, HACCP, ISO certified. Competitive wholesale prices.";
+  const pageUrl = "https://www.balajiexports.com/products/red-skin-peanuts";
+  const imageUrl = "https://www.balajiexports.com/images/red-skin-peanuts-og.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="red skin peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India, groundnut exporters, peanut oil extraction, FSSAI certified peanuts, HACCP peanuts, premium peanuts, groundnut price per ton, peanut butter manufacturing, animal feed peanuts" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="publisher" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="language" content="en" />
+      <meta name="revisit-after" content="7 days" />
+
+      {/* Viewport */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content="Premium export-quality Red Skin Peanuts from India. Rich flavor, high oil content, EU-grade safety. Ideal for snacks, peanut butter, oil extraction. FSSAI, HACCP, ISO certified." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:alt" content="Premium Red Skin Peanuts - Export Quality from India" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content="Premium export-quality Red Skin Peanuts from India. Rich flavor, high oil content, EU-grade safety. FSSAI, HACCP, ISO certified." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium Red Skin Peanuts - Export Quality from India" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+
+      {/* Geographic and Business */}
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.country" content="India" />
+      <meta name="geo.placename" content="India" />
+
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#2E7D32" />
+      <meta name="msapplication-TileColor" content="#2E7D32" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+      {/* Structured Data - Product */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "Premium Export Quality Red Skin Peanuts",
+            "description": "Export-quality Red Skin Peanuts with rich flavor, high oil content (48-52%), and EU-grade safety standards. Ideal for snacks, peanut butter, oil extraction, and animal feed. FSSAI, HACCP, and ISO certified.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "India"
+              }
+            },
+            "category": "Agricultural Products",
+            "additionalType": "https://schema.org/Food",
+           
+            "offers": {
+              "@type": "Offer",
+              "url": pageUrl,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2025-12-31",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              },
+              "itemCondition": "https://schema.org/NewCondition",
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "currency": "USD"
+                },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "businessDays": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                    ]
+                  }
+                }
+              }
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "127",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "nutritionInformation": {
+              "@type": "NutritionInformation",
+              "calories": "567 per 100g",
+              "proteinContent": "25.8g per 100g",
+              "fatContent": "49.2g per 100g",
+              "carbohydrateContent": "16.1g per 100g"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "48-52%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 7%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": "12 months"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Certifications",
+                "value": "FSSAI, HACCP, ISO"
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/images/logo.png",
+            "description": "Leading exporter of premium quality peanuts and agricultural products from India",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "India"
+            },
+           
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Red Skin Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are Red Skin Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Red Skin Peanuts are a premium variety of groundnuts with distinctive reddish-brown skin, crunchy texture, and rich, nutty flavor. They contain 48-52% oil content and are packed with protein, healthy fats, fiber, vitamins, and minerals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do your Red Skin Peanuts have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our Red Skin Peanuts are FSSAI certified for food safety, HACCP certified for hazard control, and ISO certified for quality management. They meet EU and US export standards with aflatoxin levels below permissible limits."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the applications of Red Skin Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Red Skin Peanuts are used for roasted snacks, peanut butter production, confectionery items, culinary applications, oil extraction, and as protein-rich animal feed after oil extraction."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-US" href={`https://balajiexports.com/en-us${pageUrl}`} />
+      <link rel="alternate" hrefLang="en-GB" href={`https://balajiexports.com/en-gb${pageUrl}`} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/lato-v24-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
 };
 
 // Product Specifications Component
@@ -215,9 +438,10 @@ const KeyFeaturesCarousel: React.FC = () => {
 
 const RedSkinPeanutPage: React.FC = () => {
   const theme = useTheme();
+
   return (
     <>
-      <MetaTags />
+      <RedSkinPeanutsSEOHead />
       <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
         {/* Introduction Section */}
         <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>

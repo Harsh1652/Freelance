@@ -168,19 +168,225 @@ const BoldPeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Export Quality Bold Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta name="keywords" content="bold peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India" />
-        <link rel="canonical" href="https://balajiexports.com/products/bold-peanuts" />
-        <meta property="og:title" content="Premium Export Quality Bold Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more. Global shipping available." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/bold-peanuts" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Bold Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more." />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org/","@type":"Product","name":"Premium Export Quality Bold Peanuts","description":"High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & more.","brand":{"@type":"Brand","name":"Balaji Exports"},"offers":{"@type":"Offer","url":"https://balajiexports.com/products/bold-peanuts","priceCurrency":"USD","availability":"https://schema.org/InStock"}}` }} />
-      </Head>
+  {/* Primary Meta Tags */}
+  <title>Premium Export Quality Bold Peanuts | Balaji Exports - India's Finest Groundnuts</title>
+  <meta name="title" content="Premium Export Quality Bold Peanuts | Balaji Exports - India's Finest Groundnuts" />
+  <meta name="description" content="Premium Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified groundnuts perfect for peanut butter, snacks & oil extraction. Bulk export supplier with 65+ years experience." />
+  <meta name="keywords" content="bold peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India, groundnut oil, peanut butter manufacturing, FSSAI certified peanuts, HACCP peanuts, ISO certified groundnuts" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://balajiexports.com/products/bold-peanuts" />
+  
+  {/* Language and Region */}
+  <meta name="language" content="English" />
+  <meta name="geo.region" content="IN-RJ" />
+  <meta name="geo.placename" content="Rajasthan, India" />
+  <meta name="geo.position" content="26.9124;75.7873" />
+  <meta name="ICBM" content="26.9124, 75.7873" />
+  
+  {/* Author and Publisher */}
+  <meta name="author" content="Balaji Exports" />
+  <meta name="publisher" content="Balaji Exports" />
+  <meta name="copyright" content="© 2024 Balaji Exports. All rights reserved." />
+  
+  {/* Robots and Indexing */}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="Premium Export Quality Bold Peanuts | Balaji Exports - India's Finest Groundnuts" />
+  <meta property="og:description" content="Premium Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified groundnuts perfect for peanut butter, snacks & oil extraction. Bulk export supplier with 65+ years experience." />
+  <meta property="og:url" content="https://balajiexports.com/products/bold-peanuts" />
+  <meta property="og:site_name" content="Balaji Exports" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://balajiexports.com/images/bold-peanuts-premium-quality.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Premium Bold Peanuts from Balaji Exports - Export Quality Indian Groundnuts" />
+  <meta property="og:image:type" content="image/jpeg" />
+  
+  {/* Product Specific Open Graph */}
+  <meta property="product:brand" content="Balaji Exports" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:price:currency" content="USD" />
+  <meta property="product:retailer_item_id" content="bold-peanuts-001" />
+  
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@BalajiExports" />
+  <meta name="twitter:creator" content="@BalajiExports" />
+  <meta name="twitter:title" content="Premium Export Quality Bold Peanuts | Balaji Exports - India's Finest Groundnuts" />
+  <meta name="twitter:description" content="Premium Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified groundnuts perfect for peanut butter, snacks & oil extraction." />
+  <meta name="twitter:image" content="https://balajiexports.com/images/bold-peanuts-premium-quality.jpg" />
+  <meta name="twitter:image:alt" content="Premium Bold Peanuts from Balaji Exports - Export Quality Indian Groundnuts" />
+  
+  {/* Additional Meta Tags */}
+  <meta name="theme-color" content="#D4AF37" />
+  <meta name="msapplication-TileColor" content="#D4AF37" />
+  <meta name="application-name" content="Balaji Exports" />
+  <meta name="apple-mobile-web-app-title" content="Balaji Exports" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  
+  {/* Structured Data - Product Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Premium Export Quality Bold Peanuts",
+    "description": "High-quality Bold Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction. Bulk supplier with 65+ years farming experience.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Balaji Exports"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Balaji Exports",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "Rajasthan"
+      }
+    },
+    "category": "Agricultural Products > Nuts > Peanuts",
+    "sku": "BP-001",
+    "gtin": "1234567890123",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://balajiexports.com/products/bold-peanuts",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2025-12-31",
+      "seller": {
+        "@type": "Organization",
+        "name": "Balaji Exports"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "125"
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Origin",
+        "value": "Rajasthan, Gujarat, Andhra Pradesh, India"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Oil Content",
+        "value": "48-52%"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Moisture",
+        "value": "7% max"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Shelf Life",
+        "value": "12 months"
+      }
+    ]
+  }` }} />
+  
+  {/* Organization Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Balaji Exports",
+    "url": "https://balajiexports.com",
+    "logo": "https://balajiexports.com/logo.png",
+    "description": "Leading exporter of premium quality peanuts and groundnuts from India with 65+ years of farming excellence and 20+ years in export business.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN",
+      "addressRegion": "Rajasthan"
+    },
+  }` }} />
+  
+  {/* Breadcrumb Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://balajiexports.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://balajiexports.com/products"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Bold Peanuts",
+        "item": "https://balajiexports.com/products/bold-peanuts"
+      }
+    ]
+  }` }} />
+  
+  {/* FAQ Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are Bold Peanuts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bold peanuts are large, oval-shaped groundnuts with reddish-brown skin, high oil content (48-52%), and strong nutty flavor. They are primarily grown in Rajasthan, Gujarat, and Andhra Pradesh, India."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What certifications do your peanuts have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Bold Peanuts are FSSAI, HACCP, and ISO certified, ensuring the highest food safety and quality standards for international export."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the main applications of Bold Peanuts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bold peanuts are ideal for peanut butter production, snack manufacturing, oil extraction, confectionery applications, animal feed industry, and retail health foods."
+        }
+      }
+    ]
+  }` }} />
+  
+  {/* Hreflang for International Targeting */}
+  <link rel="alternate" href="https://balajiexports.com/products/bold-peanuts" hrefLang="en" />
+  <link rel="alternate" href="https://balajiexports.com/en/products/bold-peanuts" hrefLang="en-us" />
+  <link rel="alternate" href="https://balajiexports.com/ae/products/bold-peanuts" hrefLang="en-ae" />
+  
+  {/* Favicon and Icons */}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  
+  {/* RSS Feed */}
+  <link rel="alternate" type="application/rss+xml" title="Balaji Exports Blog" href="https://balajiexports.com/rss.xml" />
+</Head>
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid container spacing={{ xs: 4, md: 4 }} alignItems="center" justifyContent="space-between">
           <Grid item xs={12} md={6} sx={{ width: { md: '48%' } }}>
@@ -261,6 +467,267 @@ const BoldPeanutPage = () => {
       <Container component="section" aria-label="Product Specifications" maxWidth="lg" sx={{ mt: { xs: 4, md: 6 } }}>
         <ProductSpecifications />
       </Container>
+
+      {/* Key Features Section */}
+      <Container component="section" aria-label="Key Features" maxWidth="lg" sx={{ mt: { xs: 1, md: 2 }, mb: { xs: 5, md: 7 } }}>
+        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 6 } }}>
+          <Typography 
+            variant="h2" 
+            component="h2" 
+            fontFamily="Lato, sans-serif"
+            fontWeight={800}
+            color={theme.palette.primary.main}
+            sx={{ 
+              mb: 0,
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+              display: 'inline'
+            }}
+          >
+            Key{' '}
+          </Typography>
+          <Typography 
+            variant="h2" 
+            component="span" 
+            fontFamily="Lato, sans-serif"
+            fontWeight={800}
+            sx={{ 
+              color: theme.palette.secondary.main,
+              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+              display: 'inline'
+            }}
+          >
+            Features
+          </Typography>
+          <Box 
+            sx={{ 
+              width: '80px', 
+              height: '4px', 
+              backgroundColor: theme.palette.primary.main, 
+              mx: 'auto', 
+              mt: 2, 
+              mb: 4,
+              borderRadius: '2px'
+            }} 
+          />
+        </Box>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
+          gap: { xs: 4, md: '4%' }
+        }}>
+          {/* Features Section - Left side */}
+          <Box sx={{ width: { xs: '100%', md: '48%' } }}>
+            <Paper 
+              elevation={3}
+              sx={{ 
+                borderRadius: 3,
+                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark || '#1a3526'} 100%)`,
+                transition: 'transform 0.3s, box-shadow 0.3s',
+                '&:hover': {
+                  transform: 'translateY(-6px)',
+                  boxShadow: '0px 10px 20px rgba(0,0,0,0.2)'
+                }
+              }}
+            >
+              {[
+                { title: "Large Size", description: "Bold peanuts have a distinctive jumbo size, making them visually appealing and ideal for coated confectionery products" },
+                { title: "Nutty flavour", description: "They offer a deep, nutty flavor that enhances various culinary applications, including peanut butter and coated products. " },
+                { title: "Long Shelf Life", description: "Bold peanuts with a high oleic ratio are heart-friendly and typically have a longer shelf life than normal peanuts. " },
+                { title: "Quality Certifications", description: "FSSAI, HACCP, and ISO certified for international standards" }
+              ].map((feature, index, array) => (
+                <Box 
+                  key={index}
+                  sx={{
+                    p: 3,
+                    borderBottom: index !== array.length - 1 ? `1px solid rgba(255,255,255,0.1)` : 'none',
+                  }}
+                >
+                  <Typography 
+                    variant="h6" 
+                    component="h3" 
+                    fontFamily="Lato, sans-serif"
+                    fontWeight="bold"
+                    sx={{ 
+                      color: theme.palette.customColors.darkGold, 
+                      mb: 1.5,
+                      fontSize: { xs: '1.1rem', md: '1.25rem' }
+                    }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography 
+                    variant="body2"
+                    fontFamily="Inter, sans-serif"
+                    sx={{
+                      color: theme.palette.customColors.lightGold,
+                      lineHeight: 1.6
+                    }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </Box>
+              ))}
+            </Paper>
+          </Box>
+          {/* Image Carousel - Right side */}
+          <Box sx={{ 
+            width: { xs: '100%', md: '48%' },
+            height: { xs: '300px', md: '400px' }
+          }}>
+            <KeyFeaturesCarousel />
+          </Box>
+        </Box>
+      </Container>
+
+      {/* Why Choose Our Bold Peanuts Section */}
+      <Container component="section" aria-label="Why Choose Our Products" maxWidth="lg" sx={{ my: { xs: 6, md: 10 }, px: { xs: 3, md: 4 } }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={8} sx={{ mx: 'auto' }}>
+            <Typography 
+              variant="h3"
+              component="h2"
+              sx={{ 
+                fontFamily: 'Lato, sans-serif',
+                fontWeight: 700,
+                color: theme.palette.primary.main,
+                mb: 4,
+                textAlign: { xs: 'left', md: 'center' },
+                fontSize: { xs: '1.6rem', sm: '1.8rem', md: '2rem' }
+              }}
+            >
+              Why Choose Our Bold Peanuts?
+            </Typography>
+            <Typography 
+              variant="body1" 
+              component="p"
+              sx={{ 
+                mb: 3,
+                fontFamily: 'Inter, sans-serif',
+                color: theme.palette.secondary.main,
+                lineHeight: 1.8,
+                fontSize: { xs: '0.95rem', md: '1rem' },
+                position: 'relative',
+                pl: 3,
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  top: '8px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: theme.palette.primary.main
+                }
+              }}
+            >
+              Food industries requiring premium quality peanuts with consistent size and flavor choose our Bold peanuts for their superior characteristics and reliable quality.
+            </Typography>
+            <Typography 
+              variant="body1" 
+              component="p"
+              sx={{ 
+                mb: 3,
+                fontFamily: 'Inter, sans-serif',
+                color: theme.palette.secondary.main,
+                lineHeight: 1.8,
+                fontSize: { xs: '0.95rem', md: '1rem' },
+                position: 'relative',
+                pl: 3,
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  top: '8px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: theme.palette.primary.main
+                }
+              }}
+            >
+              As leading wholesale peanuts suppliers in India, we offer competitive groundnut prices per ton for large-scale buyers looking to buy groundnuts in bulk. We specialize in supplying to peanut importers worldwide, groundnut companies in Rajasthan, Gujarat, and Andhra Pradesh, and peanut exporters from India to UAE, Europe, and beyond.
+            </Typography>
+            <Typography 
+              variant="body1" 
+              component="p"
+              sx={{ 
+                mb: 3,
+                fontFamily: 'Inter, sans-serif',
+                color: theme.palette.secondary.main,
+                lineHeight: 1.8,
+                fontSize: { xs: '0.95rem', md: '1rem' },
+                position: 'relative',
+                pl: 3,
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  top: '8px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: theme.palette.primary.main
+                }
+              }}
+            >
+              Our focus is always on delivering best quality groundnuts from India with strict attention to hygienic packaging and lab-tested groundnuts that are safe, healthy, and fresh. Whether you need edible peanuts for food industries or bulk groundnuts for snack manufacturing, Balaji Exports is your most reliable partner in the peanut export business.
+            </Typography>
+            <Typography 
+              variant="body1" 
+              component="p"
+              sx={{ 
+                fontFamily: 'Inter, sans-serif',
+                color: theme.palette.secondary.main,
+                lineHeight: 1.8,
+                fontSize: { xs: '0.95rem', md: '1rem' },
+                position: 'relative',
+                pl: 3,
+                '&:before': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  top: '8px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: theme.palette.primary.main
+                }
+              }}
+            >
+              Partner with Balaji Exports, the top peanut export company in India, and source the highest quality Bold peanuts for your global needs. Trust our experience, quality, and commitment to deliver the best from India's fertile fields to your business.
+            </Typography>
+            <Box sx={{ textAlign: 'center', mt: 6 }}>
+              <Button 
+                variant="contained"
+                component={Link}
+                href="/contact"
+                size="large"
+                aria-label="Request a quotation for Bold Peanuts"
+                sx={{ 
+                  bgcolor: theme.palette.primary.main,
+                  fontFamily: 'Inter, sans-serif',
+                  px: { xs: 4, md: 5 }, 
+                  py: { xs: 1, md: 1.5 }, 
+                  fontSize: { xs: 15, md: 16 },
+                  fontWeight: 600,
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
+                  borderRadius: '6px',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    bgcolor: theme.palette.secondary.main,
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
+                  }
+                }}
+              >
+                Request Quotation
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
       <Container sx={{ mb: 4, mt: 8 }}>
         <nav aria-label="breadcrumb">
           <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'Inter, sans-serif', display: 'flex', flexWrap: 'wrap', gap: 1 }}>

@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Avatar, IconButton } f
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Fade from '@mui/material/Fade';
 import ProductIntroTiles from '@/components/ProductIntroTiles';
@@ -33,11 +34,202 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import WarningIcon from '@mui/icons-material/Warning';
 
+const ICGV03043SEOHead = () => {
+  const pageTitle = "ICGV 03043 Peanuts - Premium High Oleic Groundnuts Exporter | Balaji Exports";
+  const pageDescription = "Premium ICGV-03043 high oleic peanuts from India's leading exporter. >78% oleic acid, export quality groundnuts for peanut butter, oil extraction & snacks. FSSAI, HACCP, ISO certified.";
+  const pageUrl = "https://www.balajiexports.com/products/icgv-03043-peanuts";
+  const imageUrl = "https://www.balajiexports.com/images/products/icgv-03043-peanuts.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="ICGV 03043 peanuts, high oleic groundnuts, peanut exporter India, groundnut supplier, premium peanuts, peanut butter groundnuts, groundnut oil, export quality peanuts, Balaji Exports, wholesale peanuts India" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="publisher" content="Balaji Exports" />
+      <meta name="copyright" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="language" content="English" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="rating" content="General" />
+
+      {/* Viewport */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:title" content="ICGV 03043 Premium High Oleic Peanuts - Export Quality Groundnuts" />
+      <meta property="og:description" content="Premium ICGV-03043 high oleic peanuts with >78% oleic acid. Perfect for peanut butter, oil extraction & premium snacks. FSSAI certified export quality from India." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="ICGV 03043 Premium High Oleic Peanuts - Export Quality" />
+      <meta name="twitter:description" content="Premium high oleic peanuts with >78% oleic acid. Export quality ICGV-03043 groundnuts for peanut butter & oil extraction. FSSAI certified from India." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+
+      {/* Geographic and Business */}
+      <meta name="geo.region" content="IN-AP" />
+      <meta name="geo.placename" content="Andhra Pradesh, India" />
+      <meta name="geo.position" content="15.9129,79.7400" />
+      <meta name="ICBM" content="15.9129,79.7400" />
+
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#2E7D32" />
+      <meta name="msapplication-navbutton-color" content="#2E7D32" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+      {/* Structured Data - Product */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "ICGV 03043 Premium High Oleic Peanuts",
+            "description": "Premium high oleic peanut variety with >78% oleic acid content, developed for improved shelf life, oil stability, and nutritional value. Perfect for export markets and health-conscious food products.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "Andhra Pradesh",
+                "addressCountry": "India"
+              }
+            },
+            "category": "Agricultural Products",
+            "productID": "ICGV-03043",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": "2025-12-31",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              }
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "150"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Oleic Acid Content",
+                "value": ">78%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "50%+"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Kernel Size",
+                "value": "38/42, 40/50 counts per ounce"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 6%"
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "description": "Leading exporter of premium quality peanuts and groundnuts from India",
+            "url": "https://www.balajiexports.com",
+            "logo": "https://www.balajiexports.com/images/logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "Andhra Pradesh",
+              "addressCountry": "India"
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://www.balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "ICGV 03043 Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="en-us" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-gb" href={`https://www.balajiexports.com/uk${pageUrl}`} />
+      <link rel="alternate" hrefLang="en-ae" href={`https://www.balajiexports.com/uae${pageUrl}`} />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/lato-v24-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
+};
+
 const ICGV03043PeanutPage = () => {
   const theme = useTheme();
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
+      <ICGV03043SEOHead />
       {/* Introduction Section */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid 
@@ -164,7 +356,6 @@ const ICGV03043PeanutPage = () => {
             fontFamily: 'Inter, sans-serif',
             color: theme.palette.secondary.main,
             fontSize: { xs: '0.95rem', md: '1rem' },
-            lineHeight: 1.8,
             textAlign: { xs: 'left', md: 'center' },
             maxWidth: '900px',
             mx: 'auto'

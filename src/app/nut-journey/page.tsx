@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTheme } from '@mui/material/styles';
 import theme from '@/assets/styles/theme';
 import type { StaticImageData } from "next/image";
+import Head from 'next/head';
 
 // Import images
 import F_Step1 from "@/assets/images/Farming/F_Step1.jpg";
@@ -384,6 +385,214 @@ const ProcessViewer: React.FC<ProcessViewerProps> = ({ steps, title, description
   );
 };
 
+const NutJourneySEOHead = () => {
+  const pageTitle = "Peanut Journey | From Farm to Table | Balaji Exports";
+  const pageDescription = "Explore the complete journey of peanuts from farm to table. Learn about our organic farming practices, processing methods, and commitment to quality at every step of production.";
+  const pageUrl = "https://balajiexports.com/nut-journey";
+  const imageUrl = "https://balajiexports.com/images/logo.png";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="title" content={pageTitle} />
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="peanut journey, groundnut farming, peanut processing, organic peanut farming, peanut production process, peanut harvesting, peanut processing steps, peanut quality control, peanut packaging, peanut storage, peanut farming practices, peanut processing methods, peanut supply chain, peanut export process, peanut manufacturing, peanut industry, peanut agriculture, peanut cultivation, peanut post-harvest, peanut value chain" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Alternate Language Tags */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-US" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Open Graph / Facebook Meta Tags */}
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Peanut Journey - From Farm to Table - Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Peanut Journey - From Farm to Table - Balaji Exports" />
+
+      {/* Additional Meta Tags */}
+      <meta name="rating" content="general" />
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="language" content="en" />
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.country" content="India" />
+      <meta name="geo.placename" content="Mumbai" />
+      <meta name="ICBM" content="19.0760, 72.8777" />
+
+      {/* Business/Contact Information */}
+      <meta name="contact" content="info@balajiexports.com" />
+      <meta name="reply-to" content="info@balajiexports.com" />
+      <meta name="owner" content="Balaji Exports" />
+      <meta name="url" content={pageUrl} />
+      <meta name="identifier-URL" content={pageUrl} />
+      <meta name="directory" content="submission" />
+      <meta name="category" content="Agriculture, Food Processing, Manufacturing, Export" />
+      <meta name="coverage" content="Worldwide" />
+      <meta name="target" content="Food Manufacturers, Importers, Distributors, Retailers" />
+
+      {/* Mobile Optimization */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+      <meta name="format-detection" content="telephone=yes" />
+      <meta name="HandheldFriendly" content="true" />
+      <meta name="MobileOptimized" content="width" />
+
+      {/* Security & Privacy */}
+      <meta name="referrer" content="origin-when-cross-origin" />
+      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+      <meta httpEquiv="X-Frame-Options" content="DENY" />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": pageUrl,
+            "logo": imageUrl,
+            "description": "Leading exporter of premium quality peanuts and groundnuts from India. Specializing in various peanut varieties for global markets.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Maharashtra",
+              "addressLocality": "Mumbai"
+            }
+          })
+        }}
+      />
+
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": pageTitle,
+            "description": pageDescription,
+            "image": imageUrl,
+            "author": {
+              "@type": "Organization",
+              "name": "Balaji Exports"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "logo": {
+                "@type": "ImageObject",
+                "url": imageUrl
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": "2024-03-19",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": pageUrl
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Nut Journey",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are the main steps in peanut farming?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The main steps in peanut farming include land preparation, organic soil enrichment, seed selection, sowing, irrigation, organic pest management, flowering and pegging, and harvesting. Each step is carefully managed to ensure the highest quality peanuts."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How are peanuts processed after harvesting?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "After harvesting, peanuts go through several processing steps including reception, cleaning, shelling, grading, blanching, roasting, quality control, packaging, and storage. Each step is crucial for maintaining quality and safety standards."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What quality control measures are implemented?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our quality control measures include thorough inspection of raw materials, monitoring of processing parameters, regular testing for contaminants, moisture content analysis, and final product quality checks before packaging and shipping."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How are peanuts stored and preserved?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Peanuts are stored in controlled environments with optimal temperature and humidity levels. We use airtight packaging and implement strict storage protocols to maintain freshness and prevent contamination or spoilage."
+                }
+              }
+            ]
+          })
+        }}
+      />
+    </Head>
+  );
+};
+
 const PeanutJourneyPage = () => {
   const [loading, setLoading] = useState(true);
   const windowWidth = useWindowWidth();
@@ -406,40 +615,42 @@ const PeanutJourneyPage = () => {
     );
   }
   return (
-    <Box component="main" sx={{ backgroundColor: theme.palette.background.default, minHeight: '100vh', pt: 6, pb: 8, '& .MuiTypography-root': { fontFamily: 'Lato, sans-serif' }, '& .journey-content': { '& .MuiTypography-body1, & .MuiTypography-body2': { fontFamily: 'Inter, sans-serif' } } }}>
-      <SEO title="Peanut Journey | From Farming to Premium Processing" description="Discover our complete peanut journey from farming practices to state-of-the-art processing. Experience our commitment to quality from farm to table." />
-      <Container maxWidth="lg" className="journey-content">
-        <Fade in={true} timeout={1000}>
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h1" sx={{ color: theme.palette.primary.main, fontSize: isMobile ? '2rem' : '2.5rem', mb: 2, fontFamily: 'inherit' }}>The Complete Peanut Journey</Typography>
-            <Typography variant="h2" sx={{ color: theme.palette.secondary.main, fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 500, maxWidth: '800px', mx: 'auto', mb: 4, fontFamily: 'inherit' }}>From farming to premium processing - ensuring quality at every step</Typography>
+    <MUIThemeProvider theme={theme}>
+      <NutJourneySEOHead />
+      <Box component="main" sx={{ backgroundColor: theme.palette.background.default, minHeight: '100vh', pt: 6, pb: 8, '& .MuiTypography-root': { fontFamily: 'Lato, sans-serif' }, '& .journey-content': { '& .MuiTypography-body1, & .MuiTypography-body2': { fontFamily: 'Inter, sans-serif' } } }}>
+        <Container maxWidth="lg" className="journey-content">
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ textAlign: 'center', mb: 6 }}>
+              <Typography variant="h1" sx={{ color: theme.palette.primary.main, fontSize: isMobile ? '2rem' : '2.5rem', mb: 2, fontFamily: 'inherit' }}>The Complete Peanut Journey</Typography>
+              <Typography variant="h2" sx={{ color: theme.palette.secondary.main, fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 500, maxWidth: '800px', mx: 'auto', mb: 4, fontFamily: 'inherit' }}>From farming to premium processing - ensuring quality at every step</Typography>
+            </Box>
+          </Fade>
+          <Box id="farming-section">
+            {farmingViewer}
+            <Fade in={true} timeout={1000}>
+              <Box sx={{ mt: 4, mb: 8, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>Balaji Exports - Organic and Trusted</Typography>
+                <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
+                  Balaji Exports has built a reputation over the years for growing peanuts organically, without the use of harmful chemicals. We use natural soil enrichers, eco-friendly pest control methods, and sustainable farming techniques. This not only protects consumer health but also nurtures the soil for future generations. Our groundnuts are chemical-free, rich in flavor and nutrition, and grown sustainably with respect for the environment.
+                </Typography>
+              </Box>
+            </Fade>
           </Box>
-        </Fade>
-        <Box id="farming-section">
-          {farmingViewer}
-          <Fade in={true} timeout={1000}>
-            <Box sx={{ mt: 4, mb: 8, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
-              <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>Balaji Exports - Organic and Trusted</Typography>
-              <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
-                Balaji Exports has built a reputation over the years for growing peanuts organically, without the use of harmful chemicals. We use natural soil enrichers, eco-friendly pest control methods, and sustainable farming techniques. This not only protects consumer health but also nurtures the soil for future generations. Our groundnuts are chemical-free, rich in flavor and nutrition, and grown sustainably with respect for the environment.
-              </Typography>
-            </Box>
-          </Fade>
-        </Box>
-        <Box sx={{ height: 2, bgcolor: theme.palette.primary.main, opacity: 0.3, width: '70%', mx: 'auto', my: 8 }} />
-        <Box id="processing-section">
-          {processingViewer}
-          <Fade in={true} timeout={1000}>
-            <Box sx={{ mt: 4, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
-              <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>Quality Assurance Throughout the Process</Typography>
-              <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
-                Our comprehensive 9-step process ensures that every peanut that leaves our facility meets the highest standards of quality and safety. From initial inspection to final packaging, we maintain strict controls to deliver premium products to our customers around the world.
-              </Typography>
-            </Box>
-          </Fade>
-        </Box>
-      </Container>
-    </Box>
+          <Box sx={{ height: 2, bgcolor: theme.palette.primary.main, opacity: 0.3, width: '70%', mx: 'auto', my: 8 }} />
+          <Box id="processing-section">
+            {processingViewer}
+            <Fade in={true} timeout={1000}>
+              <Box sx={{ mt: 4, textAlign: 'center', p: 3, bgcolor: 'rgba(38, 77, 54, 0.08)', borderRadius: 2 }}>
+                <Typography variant="h5" sx={{ color: theme.palette.primary.main, mb: 2 }}>Quality Assurance Throughout the Process</Typography>
+                <Typography variant="body1" sx={{ color: theme.palette.primary.main, maxWidth: '800px', mx: 'auto' }}>
+                  Our comprehensive 9-step process ensures that every peanut that leaves our facility meets the highest standards of quality and safety. From initial inspection to final packaging, we maintain strict controls to deliver premium products to our customers around the world.
+                </Typography>
+              </Box>
+            </Fade>
+          </Box>
+        </Container>
+      </Box>
+    </MUIThemeProvider>
   );
 };
 

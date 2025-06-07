@@ -164,19 +164,223 @@ const BlanchedPeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Export Quality Blanched Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Blanched Peanuts with skins removed for enhanced flavor and smooth texture. Ideal for peanut butter, snacks, baking, and confectionery. Global shipping available." />
-        <meta name="keywords" content="Blanched peanuts, skinless peanuts, peanut butter grade peanuts, export quality peanuts, Indian peanuts exporter, smooth peanuts, peanut snacks, confectionery peanuts, bulk peanut supplier" />
-        <link rel="canonical" href="https://balajiexports.com/products/blanched-peanuts" />
-        <meta property="og:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports" />
-        <meta property="og:description" content="Blanched peanuts with skins removed for smooth texture and rich flavor. Ideal for snacks, peanut butter, and confectionery. Exported globally with premium quality standards." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/blanched-peanuts" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality skinless peanuts with smooth texture and rich flavor. Perfect for baking, peanut butter, and snacks. Global export-ready." />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org/","@type":"Product","name":"Premium Export Quality Blanched Peanuts","description":"High-quality Blanched Peanuts with skins removed. Used in peanut butter, confectionery, and snack production. Compliant with export standards.","brand":{"@type":"Brand","name":"Balaji Exports"},"offers":{"@type":"Offer","url":"https://balajiexports.com/products/blanched-peanuts","priceCurrency":"USD","availability":"https://schema.org/InStock"}}` }} />
-      </Head>
+  {/* Primary Meta Tags */}
+  <title>Premium Export Quality Blanched Peanuts | Balaji Exports India</title>
+  <meta name="title" content="Premium Export Quality Blanched Peanuts | Balaji Exports India" />
+  <meta name="description" content="High-quality Blanched Peanuts with skins removed for enhanced flavor and smooth texture. FSSAI, ISO & HACCP certified. Ideal for peanut butter, snacks, baking, and confectionery. Global shipping available from India's leading peanut exporter." />
+  <meta name="keywords" content="blanched peanuts, skinless peanuts, peanut butter grade peanuts, export quality peanuts, Indian peanuts exporter, smooth peanuts, peanut snacks, confectionery peanuts, bulk peanut supplier, groundnut exporters India, wholesale peanuts suppliers, FSSAI certified peanuts, ISO certified groundnuts, HACCP peanuts, peanut butter manufacturing, snack grade peanuts, bakery peanuts, cosmetic grade peanuts, animal feed peanuts" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="author" content="Balaji Exports India" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://balajiexports.com/products/blanched-peanuts" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="Balaji Exports India" />
+  <meta property="og:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports India" />
+  <meta property="og:description" content="Blanched peanuts with skins removed for smooth texture and rich flavor. FSSAI, ISO & HACCP certified. Ideal for snacks, peanut butter, and confectionery. Exported globally with premium quality standards from India's leading exporter." />
+  <meta property="og:url" content="https://balajiexports.com/products/blanched-peanuts" />
+  <meta property="og:image" content="https://balajiexports.com/images/blanched-peanuts-og-image.jpg" />
+  <meta property="og:image:alt" content="Premium Quality Blanched Peanuts from Balaji Exports India" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@BalajiExportsIN" />
+  <meta name="twitter:creator" content="@BalajiExportsIN" />
+  <meta name="twitter:title" content="Premium Export Quality Blanched Peanuts | Balaji Exports India" />
+  <meta name="twitter:description" content="High-quality skinless peanuts with smooth texture and rich flavor. FSSAI, ISO & HACCP certified. Perfect for baking, peanut butter, and snacks. Global export-ready from India's leading peanut exporter." />
+  <meta name="twitter:image" content="https://balajiexports.com/images/blanched-peanuts-twitter-card.jpg" />
+  <meta name="twitter:image:alt" content="Premium Quality Blanched Peanuts from Balaji Exports India" />
+  
+  {/* Additional Meta Tags */}
+  <meta name="application-name" content="Balaji Exports India" />
+  <meta name="msapplication-TileColor" content="#2E7D32" />
+  <meta name="theme-color" content="#2E7D32" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  
+ 
+  {/* Business Information */}
+  <meta name="contact" content="info@balajiexports.com" />
+  <meta name="reply-to" content="info@balajiexports.com" />
+  <meta name="category" content="Food Export, Agriculture, Peanuts, Groundnuts" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="distribution" content="Global" />
+  <meta name="rating" content="General" />
+  
+  {/* Structured Data - Product Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Premium Export Quality Blanched Peanuts",
+      "description": "High-quality Blanched Peanuts with skins removed for enhanced flavor and smooth texture. FSSAI, ISO & HACCP certified. Used in peanut butter, confectionery, snacks, baking, and cosmetic production. Compliant with international export standards.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Balaji Exports India",
+        "url": "https://balajiexports.com"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Balaji Exports India",
+        "url": "https://balajiexports.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN",
+          "addressRegion": "Andhra Pradesh"
+        }
+      },
+      "category": "Food Products > Nuts & Seeds > Peanuts",
+      "additionalType": "https://schema.org/Food",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://balajiexports.com/products/blanched-peanuts",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2024-01-01",
+        "seller": {
+          "@type": "Organization",
+          "name": "Balaji Exports India"
+        },
+        "priceValidUntil": "2025-12-31",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "567 calories per 100g",
+        "proteinContent": "25.8g per 100g",
+        "fatContent": "49.2g per 100g",
+        "carbohydrateContent": "16.1g per 100g"
+      },
+      "hasEnergyConsumption": {
+        "@type": "EnergyConsumption",
+        "energyEfficiencyScaleMax": "5",
+        "energyEfficiencyScaleMin": "1"
+      }
+    })
+  }} />
+  
+  {/* Structured Data - Organization Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Balaji Exports India",
+      "alternateName": "Balaji Exports",
+      "url": "https://balajiexports.com",
+      "logo": "https://balajiexports.com/images/balaji-exports-logo.png",
+      "description": "Leading exporter of premium quality peanuts and groundnuts from India. FSSAI, ISO & HACCP certified with global shipping capabilities.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "Andhra Pradesh",
+        "addressLocality": "India"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      
+    })
+  }} />
+  
+  {/* Structured Data - BreadcrumbList Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://balajiexports.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://balajiexports.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Blanched Peanuts",
+          "item": "https://balajiexports.com/products/blanched-peanuts"
+        }
+      ]
+    })
+  }} />
+  
+  {/* Structured Data - FAQ Schema */}
+  <script type="application/ld+json" dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are blanched peanuts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Blanched peanuts are raw peanuts that have been subjected to a heat treatment process to remove their skins, resulting in a clean, smooth appearance and lighter color while retaining all nutritional benefits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the main uses of blanched peanuts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Blanched peanuts are primarily used in peanut butter production, snack manufacturing, confectionery applications, baking, cosmetics, and animal feed industry due to their smooth texture and enhanced flavor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are your blanched peanuts certified?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our blanched peanuts are FSSAI certified for food safety, ISO certified for quality management, and HACCP certified for hazard control, with export quality approval."
+          }
+        }
+      ]
+    })
+  }} />
+  
+  {/* Alternative Language Links */}
+  <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/blanched-peanuts" />
+  <link rel="alternate" hrefLang="hi" href="https://balajiexports.com/hi/products/blanched-peanuts" />
+  
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+  
+  {/* DNS Prefetch */}
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  
+  {/* Favicon */}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</Head>
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
         <Grid container spacing={{ xs: 4, md: 4 }} alignItems="center" justifyContent="space-between">
           <Grid item xs={12} md={6} sx={{ width: { md: '48%' } }}>

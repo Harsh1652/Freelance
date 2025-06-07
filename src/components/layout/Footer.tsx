@@ -80,7 +80,19 @@ const Footer = () => {
 
   // Add internal links data
   const internalLinks = [
-    { name: 'Vietnam Market', path: '/blogs/vietnam' }
+    { name: 'Vietnam Market', path: '/blogs/vietnam' },
+    { name: 'USA Market', path: '/blogs/usa' },
+    { name: 'Thailand Market', path: '/blogs/thailand' },
+    { name: 'UK Market', path: '/blogs/uk' },
+    { name: 'South Africa Market', path: '/blogs/south-africa' },
+    { name: 'Singapore Market', path: '/blogs/singapore' },
+    { name: 'Russia Market', path: '/blogs/russia' },
+    { name: 'Philippines Market', path: '/blogs/philippines' },
+    { name: 'Netherlands Market', path: '/blogs/netherlands' },
+    { name: 'Indonesia Market', path: '/blogs/indonesia' },
+    { name: 'Germany Market', path: '/blogs/germany' },
+    { name: 'China Market', path: '/blogs/china' },
+    { name: 'Bangladesh Market', path: '/blogs/bangladesh' }
   ];
 
   const toggleProductDropdown = () => {

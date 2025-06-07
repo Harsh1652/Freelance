@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Fade from '@mui/material/Fade';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import ProductIntroTiles from '@/components/ProductIntroTiles';
+import Head from 'next/head';
 
 // Import icons
 import CheckIcon from '@mui/icons-material/Check';
@@ -33,48 +34,222 @@ import keyFeatureImg3 from "@/assets/images/productImg/key_features/Gemini_Gener
 import keyFeatureImg4 from "@/assets/images/productImg/key_features/Gemini_Generated_Image_cpb11wcpb11wcpb1.jpeg";
 import keyFeatureImg5 from "@/assets/images/productImg/key_features/top-view-peanuts-green-background.jpg";
 
-// Meta tags component
-const MetaTags: React.FC = () => {
-  useEffect(() => {
-    // Set meta tags
-    document.title = "Premium Peanut Oil | High-Quality Cooking Oil";
-    
-    // Add meta description
-    const metaDescription = document.createElement('meta');
-    metaDescription.name = 'description';
-    metaDescription.content = 'Discover our premium peanut oil, perfect for cooking, cosmetics, and industrial applications. High smoke point, neutral flavor, and heart-healthy benefits.';
-    document.head.appendChild(metaDescription);
-    
-    // Add meta keywords
-    const metaKeywords = document.createElement('meta');
-    metaKeywords.name = 'keywords';
-    metaKeywords.content = 'peanut oil, cooking oil, high smoke point, heart-healthy oil, industrial oil, cosmetic oil';
-    document.head.appendChild(metaKeywords);
-    
-    // Add structured data
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Premium Peanut Oil",
-      "description": "High-quality peanut oil for cooking, cosmetics, and industrial applications",
-      "brand": {
-        "@type": "Brand",
-        "name": "Your Brand Name"
-      }
-    });
-    document.head.appendChild(script);
-    
-    // Cleanup function
-    return () => {
-      document.head.removeChild(metaDescription);
-      document.head.removeChild(metaKeywords);
-      document.head.removeChild(script);
-    };
-  }, []);
-  
-  return null;
+const PeanutOilSEOHead = () => {
+  const pageTitle = "Premium Peanut Oil | High-Quality Cooking Oil | Balaji Exports";
+  const pageDescription = "Premium peanut oil from leading Indian exporters. High smoke point (450°F), heart-healthy, neutral flavor. Perfect for cooking, frying, cosmetics & industrial use. FSSAI certified, competitive wholesale prices.";
+  const pageUrl = "https://www.balajiexports.com/products/peanut-oil";
+  const imageUrl = "https://www.balajiexports.com/assets/images/productImg/Oil.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="peanut oil, groundnut oil, cooking oil, high smoke point oil, heart healthy oil, neutral flavor oil, frying oil, bulk peanut oil, wholesale peanut oil, peanut oil exporters India, groundnut oil suppliers, FSSAI certified oil, industrial peanut oil, cosmetic grade oil" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="publisher" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="language" content="English" />
+
+      {/* Viewport */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content="Premium peanut oil from leading Indian exporters. High smoke point (450°F), heart-healthy, neutral flavor. Perfect for cooking, frying, cosmetics & industrial use." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:alt" content="Premium Peanut Oil - High Quality Cooking Oil" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content="Premium peanut oil from leading Indian exporters. High smoke point (450°F), heart-healthy, neutral flavor. Perfect for cooking, frying, cosmetics & industrial use." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium Peanut Oil - High Quality Cooking Oil" />
+
+      {/* Geographic and Business */}
+      <meta name="geo.region" content="IN-GJ" />
+      <meta name="geo.placename" content="Gujarat, India" />
+
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#2E5A3E" />
+      <meta name="msapplication-TileColor" content="#2E5A3E" />
+
+      {/* Structured Data - Product */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Premium Peanut Oil",
+            "description": "High-quality peanut oil with high smoke point (450°F), neutral flavor, and heart-healthy properties. Perfect for cooking, frying, cosmetics, and industrial applications.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "Gujarat",
+                "addressCountry": "India"
+              }
+            },
+            "category": "Cooking Oil",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "USD",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              }
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Smoke Point",
+                "value": "450°F (232°C)"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Fat Content",
+                "value": "49% to 50% (mainly unsaturated fats)"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Free Fatty Acids",
+                "value": "≤ 1% as Oleic Acid"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Certifications",
+                "value": "FSSAI, HACCP, ISO"
+              }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "150"
+            }
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://www.balajiexports.com",
+            "logo": "https://www.balajiexports.com/assets/images/logo.png",
+            "description": "Leading exporter of premium peanut oil and groundnuts from India",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "Gujarat",
+              "addressCountry": "India"
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://www.balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Peanut Oil",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the smoke point of peanut oil?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our premium peanut oil has a high smoke point of 450°F (232°C), making it ideal for deep frying and high-temperature cooking."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is peanut oil heart-healthy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, peanut oil is rich in monounsaturated and polyunsaturated fats (49-50% fat content), making it a heart-healthy option compared to many other cooking oils."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do you have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our peanut oil is certified by FSSAI, HACCP, and ISO standards, ensuring the highest quality and safety standards."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-gb" href={`https://www.balajiexports.com/uk${pageUrl}`} />
+      <link rel="alternate" hrefLang="en-ae" href={`https://www.balajiexports.com/uae${pageUrl}`} />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/lato-v24-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
 };
 
 // Product Specifications Component
@@ -428,7 +603,7 @@ const PeanutOilPage: React.FC = () => {
   
   return (
     <>
-      <MetaTags />
+      <PeanutOilSEOHead />
       <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
         {/* Introduction Section */}
         <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>

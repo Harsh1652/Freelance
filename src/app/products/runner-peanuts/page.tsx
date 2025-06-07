@@ -5,6 +5,7 @@ import { Container, Box, Typography, Button, Grid, Paper, Avatar, IconButton } f
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import Fade from '@mui/material/Fade';
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
@@ -194,11 +195,256 @@ const KeyFeaturesCarousel: React.FC = () => {
   );
 };
 
+const RunnerPeanutsSEOHead = () => {
+  const pageTitle = "Premium Export Quality Runner Peanuts | Balaji Exports - India's Leading Groundnut Supplier";
+  const pageDescription = "High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction. Wholesale groundnut supplier with global shipping.";
+  const pageUrl = "https://balajiexports.com/products/runner-peanuts";
+  const imageUrl = "https://balajiexports.com/images/products/runner-peanuts-og.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="runner peanuts, export quality peanuts, Indian groundnuts, peanut exporters, wholesale peanuts, organic groundnuts, bulk peanuts supplier, peanut exports India, groundnut oil, peanut butter manufacturing, FSSAI certified peanuts, Gujarat peanuts, Rajasthan groundnuts" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="publisher" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="language" content="en" />
+      <meta name="revisit-after" content="7 days" />
+
+      {/* Viewport */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="product" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content="High-quality Runner Peanuts from India. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction. Leading wholesale groundnut supplier." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:alt" content="Premium Export Quality Runner Peanuts from Balaji Exports" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content="High-quality Runner Peanuts from India. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks & oil extraction." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium Export Quality Runner Peanuts from Balaji Exports" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+
+      {/* Geographic and Business */}
+      <meta name="geo.region" content="IN-RJ" />
+      <meta name="geo.placename" content="Rajasthan, India" />
+      <meta name="geo.position" content="26.9124;75.7873" />
+      <meta name="ICBM" content="26.9124, 75.7873" />
+
+      {/* Additional Meta Tags */}
+      <meta name="theme-color" content="#2E5933" />
+      <meta name="msapplication-TileColor" content="#2E5933" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+      {/* Structured Data - Product */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "Premium Export Quality Runner Peanuts",
+            "description": "High-quality Runner Peanuts from India's fertile soils. FSSAI, HACCP & ISO certified. Perfect for peanut butter, snacks, oil extraction and animal feed manufacturing.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports",
+              "logo": "https://balajiexports.com/images/logo.png",
+              "url": "https://balajiexports.com"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN",
+                "addressRegion": "Rajasthan",
+                "addressLocality": "Jaipur"
+              }
+            },
+            "category": "Agricultural Products",
+            "productID": "runner-peanuts-export",
+            "sku": "BP-RP-001",
+            "gtin": "1234567890123",
+            "offers": {
+              "@type": "Offer",
+              "url": pageUrl,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "itemCondition": "https://schema.org/NewCondition",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              },
+              "priceValidUntil": "2025-12-31"
+            },
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Origin",
+                "value": "Rajasthan, Gujarat, Andhra Pradesh, India"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Varieties",
+                "value": "40/50, 50/60, 60/70 counts"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "45%-50%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture",
+                "value": "7% max"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Certifications",
+                "value": "FSSAI, HACCP, ISO"
+              }
+            ],
+            "hasEnergyConsumptionDetails": {
+              "@type": "EnergyConsumptionDetails",
+              "energyEfficiencyScaleMax": "A+++",
+              "energyEfficiencyScaleMin": "G"
+            },
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "Food Manufacturers, Exporters, Wholesalers"
+            }
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/images/logo.png",
+            "description": "Leading exporter of premium quality groundnuts and peanuts from India with over 65 years of experience.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Rajasthan",
+              "addressLocality": "Jaipur"
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Runner Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are Runner Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Runner peanuts are a variety of groundnuts known for their uniform kernel size, elongated oval shape, and consistent roasting characteristics. They are ideal for peanut butter manufacturing, confectionery applications, and snack production."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do your Runner Peanuts have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our Runner Peanuts are certified by FSSAI, HACCP, and ISO standards, ensuring the highest food safety and quality for global buyers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the oil content of Runner Peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Runner Peanuts have a high oil content of 45-50%, making them excellent for oil extraction and yielding light-colored oil with a mild, pleasant flavor."
+                }
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Alternate Languages */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Preload Resources */}
+      <link rel="preload" href="/fonts/lato-v24-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
+      {/* Favicon and Icons */}
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+    </Head>
+  );
+};
+
 const RunnerPeanutPage: React.FC = () => {
   const theme = useTheme();
   return (
     <>
-      <MetaTags />
+      <RunnerPeanutsSEOHead />
       <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
         {/* Introduction Section */}
         <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>

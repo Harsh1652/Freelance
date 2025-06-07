@@ -25,6 +25,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
+import Head from 'next/head';
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import BlockIcon from "@mui/icons-material/Block";
@@ -150,6 +151,214 @@ const CompactListItem = ({ icon, primary, secondary }: CompactListItemProps) => 
   </ListItem>
 );
 
+const HealthBenefitsSEOHead = () => {
+  const pageTitle = "Health Benefits of Peanuts | Nutritional Value & Health Advantages";
+  const pageDescription = "Discover the comprehensive health benefits of peanuts, including heart health, weight management, and blood sugar control. Learn about nutritional value, allergies, and consumption recommendations.";
+  const pageUrl = "https://balajiexports.com/health-benefits";
+  const imageUrl = "https://balajiexports.com/images/logo.png";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="title" content={pageTitle} />
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="peanut health benefits, groundnut nutrition, peanut nutritional value, peanut health advantages, peanut heart health, peanut weight management, peanut blood sugar control, peanut allergies, peanut consumption, peanut dietary benefits, peanut protein content, peanut healthy fats, peanut fiber content, peanut vitamins minerals, peanut antioxidants, peanut health risks, peanut allergy symptoms, peanut consumption guidelines, peanut storage recommendations, peanut organic benefits" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Alternate Language Tags */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-US" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Open Graph / Facebook Meta Tags */}
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Health Benefits of Peanuts - Balaji Exports" />
+      <meta property="og:locale" content="en_US" />
+
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Health Benefits of Peanuts - Balaji Exports" />
+
+      {/* Additional Meta Tags */}
+      <meta name="rating" content="general" />
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="language" content="en" />
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.country" content="India" />
+      <meta name="geo.placename" content="Mumbai" />
+      <meta name="ICBM" content="19.0760, 72.8777" />
+
+      {/* Business/Contact Information */}
+      <meta name="contact" content="info@balajiexports.com" />
+      <meta name="reply-to" content="info@balajiexports.com" />
+      <meta name="owner" content="Balaji Exports" />
+      <meta name="url" content={pageUrl} />
+      <meta name="identifier-URL" content={pageUrl} />
+      <meta name="directory" content="submission" />
+      <meta name="category" content="Health, Nutrition, Food, Agriculture" />
+      <meta name="coverage" content="Worldwide" />
+      <meta name="target" content="Health-conscious consumers, Nutritionists, Dietitians, Food Manufacturers" />
+
+      {/* Mobile Optimization */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+      <meta name="format-detection" content="telephone=yes" />
+      <meta name="HandheldFriendly" content="true" />
+      <meta name="MobileOptimized" content="width" />
+
+      {/* Security & Privacy */}
+      <meta name="referrer" content="origin-when-cross-origin" />
+      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+      <meta httpEquiv="X-Frame-Options" content="DENY" />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": pageUrl,
+            "logo": imageUrl,
+            "description": "Leading exporter of premium quality peanuts and groundnuts from India. Specializing in various peanut varieties for global markets.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Maharashtra",
+              "addressLocality": "Mumbai"
+            }
+          })
+        }}
+      />
+
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": pageTitle,
+            "description": pageDescription,
+            "image": imageUrl,
+            "author": {
+              "@type": "Organization",
+              "name": "Balaji Exports"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "logo": {
+                "@type": "ImageObject",
+                "url": imageUrl
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": "2024-03-19",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": pageUrl
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Health Benefits",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What are the main health benefits of peanuts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Peanuts offer numerous health benefits including heart health support, blood sugar control, weight management, and rich nutrient content. They are high in protein, healthy fats, fiber, and essential vitamins and minerals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are peanuts good for heart health?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, peanuts contain monounsaturated and polyunsaturated fats that support heart health. They also contain resveratrol and other antioxidants that help reduce inflammation and improve cardiovascular function."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the symptoms of peanut allergies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Peanut allergy symptoms can include skin reactions (hives, redness, swelling), gastrointestinal issues (stomach cramps, nausea), respiratory problems (shortness of breath, wheezing), and in severe cases, anaphylaxis."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much peanuts should I eat daily?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "For healthy adults, a daily serving of 1-2 ounces (28-56g) of peanuts is recommended as part of a balanced diet. Choose raw or dry-roasted peanuts over salted or honey-roasted varieties."
+                }
+              }
+            ]
+          })
+        }}
+      />
+    </Head>
+  );
+};
+
 const HealthBenefitsPage = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [tabValue, setTabValue] = React.useState(0);
@@ -167,6 +376,7 @@ const HealthBenefitsPage = () => {
 
   return (
     <MUIThemeProvider theme={theme}>
+      <HealthBenefitsSEOHead />
       <Box sx={{ ...pageBackground, minHeight: "100vh", pb: 8 }}>
         <Container maxWidth="lg">
           <Fade in={true}>

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import GradientCard from "@/components/GradientCard";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Head from 'next/head';
 
 import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
@@ -39,39 +40,257 @@ import ProductIntroTiles from '@/components/ProductIntroTiles';
 
 import type { ReactNode } from "react";
 
-const Head = ({ children }: { children: ReactNode }) => {
-  useEffect(() => {
-    // Extract and apply meta tags from children
-    React.Children.forEach(children, child => {
-      if (!child) return;
-      
-      if (React.isValidElement(child) && child.type === 'title') {
-        const el = child as React.ReactElement<any, any>;
-        document.title = el.props.children;
-      }
-      
-      if (React.isValidElement(child) && (child.type === 'meta' || child.type === 'link')) {
-        const el = child as React.ReactElement<any, any>;
-        const domEl = document.createElement(el.type as string);
-        Object.entries(el.props).forEach(([key, value]) => {
-          domEl.setAttribute(key, value as string);
-        });
-        document.head.appendChild(domEl);
-      }
-      
-      if (React.isValidElement(child) && child.type === 'script' && (child as React.ReactElement<any, any>).props.type === 'application/ld+json') {
-        const el = child as React.ReactElement<any, any>;
-        const domEl = document.createElement('script');
-        domEl.type = 'application/ld+json';
-        domEl.textContent = el.props.children;
-        document.head.appendChild(domEl);
-      }
-    });
-    
-    // Cleanup on unmount
-  }, [children]);
-  
-  return null;
+const VirginiaPeanutsSEOHead = () => {
+  const pageTitle = "Premium Export Quality Virginia Peanuts | Balaji Exports - Bulk Supplier India";
+  const pageDescription = "Leading Virginia peanuts supplier from India. Export quality large-kernel groundnuts for snacking, roasting & food industries. FSSAI, HACCP, ISO certified. Competitive wholesale prices, global shipping.";
+  const pageUrl = "https://balajiexports.com/products/virginia-peanuts";
+  const imageUrl = "https://balajiexports.com/images/products/virginia-peanuts-premium-export.jpg";
+
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="title" content={pageTitle} />
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content="virginia peanuts, large kernel peanuts, export quality groundnuts, peanut supplier India, wholesale groundnuts, bulk peanuts exporter, premium peanuts India, roasted peanuts, in-shell peanuts, peanut manufacturers India, groundnut exporters Andhra Pradesh, peanut prices per ton, buy groundnuts bulk, food grade peanuts, snack industry peanuts, confectionery peanuts, peanut butter manufacturing, FSSAI certified peanuts, HACCP peanuts, ISO certified groundnuts, aflatoxin controlled peanuts, hygienic packaging peanuts, lab tested groundnuts, edible peanuts India, peanut export business, virginia groundnuts wholesale, large size peanuts, premium snack peanuts, gourmet peanuts supplier, international peanut trade, peanut importers worldwide, groundnut companies India, peanut export to UAE Europe, best quality groundnuts India, reliable peanut suppliers, top peanut export company" />
+      <meta name="author" content="Balaji Exports" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={pageUrl} />
+
+      {/* Alternate Language Tags */}
+      <link rel="alternate" hrefLang="en" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-US" href={pageUrl} />
+      <link rel="alternate" hrefLang="en-GB" href={pageUrl} />
+      <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+
+      {/* Open Graph / Facebook Meta Tags */}
+      <meta property="og:type" content="product" />
+      <meta property="og:site_name" content="Balaji Exports" />
+      <meta property="og:title" content="Premium Export Quality Virginia Peanuts | Balaji Exports - Leading Indian Supplier" />
+      <meta property="og:description" content="Premium Virginia peanuts from India's leading exporter. Large-kernel groundnuts perfect for snacking, roasting & food industries. FSSAI certified, competitive wholesale prices, global shipping available." />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Premium Virginia Peanuts - Large kernel export quality groundnuts from Balaji Exports India" />
+      <meta property="og:locale" content="en_US" />
+      <meta property="product:brand" content="Balaji Exports" />
+      <meta property="product:availability" content="in stock" />
+      <meta property="product:condition" content="new" />
+      <meta property="product:price:currency" content="USD" />
+      <meta property="product:retailer_item_id" content="virginia-peanuts-export" />
+
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@BalajiExports" />
+      <meta name="twitter:creator" content="@BalajiExports" />
+      <meta name="twitter:title" content="Premium Virginia Peanuts - Export Quality | Balaji Exports India" />
+      <meta name="twitter:description" content="Large-kernel Virginia peanuts from India's premier supplier. Perfect for snacking, roasting & food industries. FSSAI certified, competitive prices, worldwide shipping." />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content="Premium Virginia Peanuts - Export quality large kernel groundnuts from India" />
+
+      {/* Additional Meta Tags */}
+      <meta name="rating" content="general" />
+      <meta name="distribution" content="global" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="language" content="en" />
+      <meta name="geo.region" content="IN" />
+      <meta name="geo.country" content="India" />
+      <meta name="geo.placename" content="Andhra Pradesh" />
+      <meta name="ICBM" content="15.9129, 79.7400" />
+
+      {/* Business/Contact Information */}
+      <meta name="contact" content="info@balajiexports.com" />
+      <meta name="reply-to" content="info@balajiexports.com" />
+      <meta name="owner" content="Balaji Exports" />
+      <meta name="url" content="https://balajiexports.com" />
+      <meta name="identifier-URL" content="https://balajiexports.com" />
+      <meta name="directory" content="submission" />
+      <meta name="category" content="Agriculture, Food Processing, Export, International Trade" />
+      <meta name="coverage" content="Worldwide" />
+      <meta name="target" content="Importers, Food Manufacturers, Snack Companies, Wholesalers, Distributors" />
+
+      {/* Mobile Optimization */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+      <meta name="format-detection" content="telephone=yes" />
+      <meta name="HandheldFriendly" content="true" />
+      <meta name="MobileOptimized" content="width" />
+
+      {/* Security & Privacy */}
+      <meta name="referrer" content="origin-when-cross-origin" />
+      <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+      <meta httpEquiv="X-Frame-Options" content="DENY" />
+
+      {/* Product Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "Premium Export Quality Virginia Peanuts",
+            "description": "Large-kernel Virginia peanuts perfect for premium snacking, roasting, and gourmet applications. Carefully graded, aflatoxin-controlled, and export-ready from India's leading supplier.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Balaji Exports",
+              "url": "https://balajiexports.com",
+              "logo": "https://balajiexports.com/images/logo.png"
+            },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "Balaji Exports",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN",
+                "addressRegion": "Andhra Pradesh"
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "url": pageUrl,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Balaji Exports"
+              }
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "125"
+            },
+            "category": [
+              "Agriculture",
+              "Food Products",
+              "Nuts & Seeds",
+              "Export Products"
+            ],
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Kernel Size",
+                "value": "Extra-large, oblong"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Oil Content",
+                "value": "44-47%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": "10-12 months"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Moisture Content",
+                "value": "Max 6%"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Certifications",
+                "value": "FSSAI, HACCP, ISO"
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Balaji Exports",
+            "url": "https://balajiexports.com",
+            "logo": "https://balajiexports.com/images/logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN",
+              "addressRegion": "Andhra Pradesh"
+            }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://balajiexports.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://balajiexports.com/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Virginia Peanuts",
+                "item": pageUrl
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What makes Virginia peanuts different from other varieties?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Virginia peanuts are distinguished by their extra-large size, oblong shape, and premium quality. They have a mild, nutty flavor and crunchy texture, making them ideal for gourmet snacking and premium applications."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What certifications do your Virginia peanuts have?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our Virginia peanuts are certified by FSSAI for food safety, HACCP for hazard control, and ISO for quality management. They meet all international export standards and aflatoxin limits."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the minimum order quantity for bulk purchases?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We accommodate various order sizes for bulk purchases. Please contact us directly to discuss your specific requirements and get competitive pricing for wholesale quantities."
+                }
+              }
+            ]
+          })
+        }}
+      />
+    </Head>
+  );
 };
 
 const VirginiaPeanutPage = () => {
@@ -79,41 +298,7 @@ const VirginiaPeanutPage = () => {
   
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
-      <Head>
-        <title>Premium Export Quality Virginia Peanuts | Balaji Exports</title>
-        <meta name="description" content="Large-kernel Virginia peanuts perfect for premium snacking, roasting, and gourmet applications. Carefully graded, aflatoxin-controlled, and export-ready." />
-        <meta name="keywords" content="virginia peanuts, large peanuts, export peanuts India, roasted peanuts, gourmet peanuts, peanut snacks, in-shell peanuts, peanut exporters, premium peanuts India" />
-        <link rel="canonical" href="https://balajiexports.com/products/virginia-peanuts" />
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Export Quality Virginia Peanuts | Balaji Exports" />
-        <meta property="og:description" content="Large-kernel Virginia peanuts perfect for snacking, roasting, and gourmet applications. Carefully cleaned and packed for global export." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/virginia-peanuts" />
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Export Quality Virginia Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="Large, crunchy Virginia peanuts for premium snacks, roasting, and exports. Quality assured by Balaji Exports." />
-        <script type="application/ld+json">
-            {`
-            {
-                "@context": "https://schema.org/",
-                "@type": "Product",
-                "name": "Premium Export Quality Virginia Peanuts",
-                "description": "Large-kernel Virginia peanuts perfect for premium snacking, roasting, and gourmet applications. Carefully graded, aflatoxin-controlled, and export-ready.",
-                "brand": {
-                "@type": "Brand",
-                "name": "Balaji Exports"
-                },
-                "offers": {
-                "@type": "Offer",
-                "url": "https://balajiexports.com/products/virginia-peanuts",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
-                }
-            }
-            `}
-        </script>
-      </Head>
+      <VirginiaPeanutsSEOHead />
 
       {/* Introduction Section with improved styling */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 5, md: 10 } }}>

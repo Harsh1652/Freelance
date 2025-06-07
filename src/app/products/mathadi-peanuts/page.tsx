@@ -92,40 +92,300 @@ const MathadiPeanutPage = () => {
   return (
     <Box sx={{ bgcolor: theme.palette.background.default, pb: 8 }}>
       <Head>
-        <title>Premium Mathadi Peanuts | Balaji Exports</title>
-        <meta name="description" content="High-quality Mathadi Peanuts from Gujarat, India. Large, round, and flat kernels ideal for roasting, snack manufacturing, and oil extraction. FSSAI, HACCP & ISO certified. Global shipping available." />
-        <meta name="keywords" content="mathadi peanuts, export quality peanuts, Indian groundnuts, peanut exporters, roasted peanuts, peanut brittle, bulk peanuts supplier, peanut oil extraction, Mathadi peanuts supplier" />
-        <link rel="canonical" href="https://balajiexports.com/products/mathadi-peanuts" />
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Premium Mathadi Peanuts | Balaji Exports" />
-        <meta property="og:description" content="High-quality Mathadi Peanuts from Gujarat, India. Large, round, and flat kernels ideal for roasting, snack manufacturing, and oil extraction. FSSAI, HACCP & ISO certified. Global shipping available." />
-        <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://balajiexports.com/products/mathadi-peanuts" />
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Premium Mathadi Peanuts | Balaji Exports" />
-        <meta name="twitter:description" content="High-quality Mathadi Peanuts from Gujarat, India. Large, round, and flat kernels ideal for roasting, snack manufacturing, and oil extraction." />
-        <script type="application/ld+json">
-        {`
-            {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Premium Mathadi Peanuts",
-            "description": "High-quality Mathadi Peanuts from Gujarat, India. Large, round, and flat kernels ideal for roasting, snack manufacturing, and oil extraction. FSSAI, HACCP & ISO certified.",
-            "brand": {
-                "@type": "Brand",
-                "name": "Balaji Exports"
-            },
-            "offers": {
-                "@type": "Offer",
-                "url": "https://balajiexports.com/products/mathadi-peanuts",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock"
-            }
-            }
-        `}
-        </script>
-      </Head>
+  {/* Primary Meta Tags */}
+  <title>Premium Mathadi Peanuts | Export Quality Groundnuts from Gujarat | Balaji Exports</title>
+  <meta name="description" content="Premium Mathadi Peanuts from Gujarat, India. Large, round, flat kernels ideal for roasting, snack manufacturing, oil extraction & confectionery. FSSAI, HACCP & ISO certified. Wholesale supplier to global markets." />
+  <meta name="keywords" content="mathadi peanuts, export quality peanuts, Indian groundnuts, peanut exporters, Gujarat peanuts, roasted peanuts, peanut brittle, bulk peanuts supplier, peanut oil extraction, wholesale peanuts, groundnut companies, peanut importers, edible peanuts, food grade peanuts" />
+  <meta name="author" content="Balaji Exports" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="general" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://balajiexports.com/products/mathadi-peanuts" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://balajiexports.com/products/mathadi-peanuts" />
+  <meta property="og:title" content="Premium Mathadi Peanuts | Export Quality Groundnuts from Gujarat | Balaji Exports" />
+  <meta property="og:description" content="Premium Mathadi Peanuts from Gujarat, India. Large, round, flat kernels ideal for roasting, snack manufacturing, oil extraction & confectionery. FSSAI, HACCP & ISO certified." />
+  <meta property="og:image" content="https://balajiexports.com/images/mathadi-peanuts-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Premium Mathadi Peanuts from Gujarat - Export Quality Groundnuts" />
+  <meta property="og:site_name" content="Balaji Exports" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="product:brand" content="Balaji Exports" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:price:currency" content="USD" />
+  
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@BalajiExports" />
+  <meta name="twitter:creator" content="@BalajiExports" />
+  <meta name="twitter:title" content="Premium Mathadi Peanuts | Export Quality Groundnuts from Gujarat | Balaji Exports" />
+  <meta name="twitter:description" content="Premium Mathadi Peanuts from Gujarat, India. Large, round, flat kernels ideal for roasting, snack manufacturing, oil extraction & confectionery." />
+  <meta name="twitter:image" content="https://balajiexports.com/images/mathadi-peanuts-twitter.jpg" />
+  <meta name="twitter:image:alt" content="Premium Mathadi Peanuts from Gujarat - Export Quality Groundnuts" />
+  
+  {/* Additional Meta Tags */}
+  <meta name="geo.region" content="IN-GJ" />
+  <meta name="geo.placename" content="Gujarat, India" />
+  <meta name="geo.position" content="23.0225;72.5714" />
+  <meta name="ICBM" content="23.0225, 72.5714" />
+  
+  {/* Mobile Optimization */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Balaji Exports - Mathadi Peanuts" />
+  
+  {/* Favicon and Icons */}
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  {/* Preconnect for Performance */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  
+  {/* Alternate Languages (if applicable) */}
+  <link rel="alternate" hrefLang="en" href="https://balajiexports.com/products/mathadi-peanuts" />
+  <link rel="alternate" hrefLang="hi" href="https://balajiexports.com/hi/products/mathadi-peanuts" />
+  <link rel="alternate" hrefLang="gu" href="https://balajiexports.com/gu/products/mathadi-peanuts" />
+  <link rel="alternate" hrefLang="x-default" href="https://balajiexports.com/products/mathadi-peanuts" />
+  
+  {/* JSON-LD Structured Data */}
+  <script type="application/ld+json">
+  {`
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Premium Mathadi Peanuts",
+      "description": "High-quality Mathadi Peanuts from Gujarat, India. Large, round, and flat kernels ideal for roasting, snack manufacturing, oil extraction, and confectionery. FSSAI, HACCP & ISO certified.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Balaji Exports",
+        "url": "https://balajiexports.com"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Balaji Exports",
+        "url": "https://balajiexports.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Gujarat",
+          "addressCountry": "IN"
+        }
+      },
+      "category": "Food & Beverages > Nuts & Seeds > Peanuts",
+     
+      
+      "offers": {
+        "@type": "Offer",
+        "url": "https://balajiexports.com/products/mathadi-peanuts",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": {
+          "@type": "Organization",
+          "name": "Balaji Exports"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "currency": "USD"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryType",
+            "minValue": 7,
+            "maxValue": 21,
+            "unitCode": "DAY"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": ["US", "CA", "GB", "DE", "FR", "AU", "AE", "SG"]
+          }
+        }
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Origin",
+          "value": "Gujarat, India"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Moisture Content",
+          "value": "Max 6-7%"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Oil Content",
+          "value": "~45%"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Shelf Life",
+          "value": "8-10 months"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Packaging",
+          "value": "25kg & 50kg PP or Jute bags"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "FSSAI Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "HACCP Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "ISO Certification"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "152",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Food Industry Professional"
+          },
+          "reviewBody": "Excellent quality mathadi peanuts. Perfect for our snack manufacturing needs. Consistent size and flavor."
+        }
+      ]
+    }
+  `}
+  </script>
+  
+  {/* Breadcrumb Structured Data */}
+  <script type="application/ld+json">
+  {`
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://balajiexports.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://balajiexports.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Peanuts",
+          "item": "https://balajiexports.com/products/peanuts"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Mathadi Peanuts",
+          "item": "https://balajiexports.com/products/mathadi-peanuts"
+        }
+      ]
+    }
+  `}
+  </script>
+  
+  {/* Organization Structured Data */}
+  <script type="application/ld+json">
+  {`
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Balaji Exports",
+      "url": "https://balajiexports.com",
+      "logo": "https://balajiexports.com/logo.png",
+      "description": "Leading exporter of premium quality peanuts and groundnuts from India. FSSAI, HACCP & ISO certified supplier to global markets.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Export House Address",
+        "addressLocality": "Gujarat",
+        "addressRegion": "Gujarat",
+        "postalCode": "000000",
+        "addressCountry": "IN"
+      },
+      
+    }
+  `}
+  </script>
+  
+  {/* FAQ Structured Data */}
+  <script type="application/ld+json">
+  {`
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are Mathadi Peanuts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mathadi Peanuts are a distinctive variety of Indian groundnuts known for their large, flat, and round kernels with light reddish to pink skin. They are highly valued for their rich, nutty flavor and excellent roasting profile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the shelf life of Mathadi Peanuts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mathadi Peanuts have a shelf life of 8-10 months when stored in cool, dry conditions in proper packaging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What certifications do your Mathadi Peanuts have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Mathadi Peanuts are FSSAI, HACCP, and ISO certified, ensuring the highest quality and food safety standards for international markets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the applications of Mathadi Peanuts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mathadi Peanuts are ideal for various applications including snack manufacturing, oil extraction, confectionery (peanut brittle/chikki), and food products requiring consistent size and flavor."
+          }
+        }
+      ]
+    }
+  `}
+  </script>
+</Head>
 
       {/* Introduction Section with improved styling */}
       <Container component="section" aria-label="Product Introduction" maxWidth="lg" sx={{ mt: { xs: 3, md: 5 } }}>
@@ -209,33 +469,32 @@ const MathadiPeanutPage = () => {
                 At Balaji Exports, we ensure that our Mathadi peanuts are carefully processed, sorted, and packed to maintain their natural freshness and nutritional value.
             </Typography>
             
-            <Box 
-              sx={{ 
-                display: 'flex', 
-                flexWrap: 'wrap',
-                gap: { xs: 4, md: 5 },
-                alignItems: 'center',
-                justifyContent: { xs: 'center', sm: 'flex-start' },
-                mb: 3
-              }}
-            >
-              {/* Certification Logos - using imported images without boxes */}
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 4, md: 5 }, alignItems: 'center', justifyContent: { xs: 'center', sm: 'flex-start' }, mb: 3 }}>
               {[
                 { src: fssaiLogo, alt: "FSSAI Certification" },
                 { src: haccpLogo, alt: "HACCP Certification" },
                 { src: isoLogo, alt: "ISO 27001 Certification" }
               ].map((logo, index) => (
-                <Image 
+                <Box
                   key={index}
-                  src={logo.src} 
-                  alt={logo.alt}
-                  width={100}
-                  height={55}
-                  style={{ 
-                    maxWidth: '100px',
-                    objectFit: 'contain',
+                  sx={{
+                    display: 'inline-block',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-3px)'
+                    }
                   }}
-                />
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    height={55}
+                    style={{
+                      maxWidth: '100px',
+                      objectFit: 'contain'
+                    }}
+                  />
+                </Box>
               ))}
             </Box>
           </Grid>
