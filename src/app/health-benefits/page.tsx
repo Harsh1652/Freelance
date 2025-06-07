@@ -14,7 +14,7 @@ import {
   Paper,
   useMediaQuery,
   Alert,
-  ThemeProvider as MUIThemeProvider,
+  ThemeProvider,
   Tab,
   Tabs,
   Card,
@@ -375,7 +375,7 @@ const HealthBenefitsPage = () => {
   };
 
   return (
-    <MUIThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <HealthBenefitsSEOHead />
       <Box sx={{ ...pageBackground, minHeight: "100vh", pb: 8 }}>
         <Container maxWidth="lg">
@@ -922,7 +922,7 @@ const HealthBenefitsPage = () => {
           </Typography>
         </Typography>
       </Box>
-    </MUIThemeProvider>
+    </ThemeProvider>
   );
 };
 

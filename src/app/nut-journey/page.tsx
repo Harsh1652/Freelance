@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { Box, Typography, IconButton, Fade, CircularProgress, Container, Button, Chip } from '@mui/material';
+import { Box, Typography, IconButton, Fade, CircularProgress, Container, Button, Chip, ThemeProvider } from '@mui/material';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTheme } from '@mui/material/styles';
 import theme from '@/assets/styles/theme';
@@ -615,7 +615,7 @@ const PeanutJourneyPage = () => {
     );
   }
   return (
-    <MUIThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <NutJourneySEOHead />
       <Box component="main" sx={{ backgroundColor: theme.palette.background.default, minHeight: '100vh', pt: 6, pb: 8, '& .MuiTypography-root': { fontFamily: 'Lato, sans-serif' }, '& .journey-content': { '& .MuiTypography-body1, & .MuiTypography-body2': { fontFamily: 'Inter, sans-serif' } } }}>
         <Container maxWidth="lg" className="journey-content">
@@ -650,7 +650,7 @@ const PeanutJourneyPage = () => {
           </Box>
         </Container>
       </Box>
-    </MUIThemeProvider>
+    </ThemeProvider>
   );
 };
 
